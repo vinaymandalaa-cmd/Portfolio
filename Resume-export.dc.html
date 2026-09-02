@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<template id="__bundler_thumbnail" data-bg-color="#f6f3ee">
+  <svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+    <rect width="1200" height="800" fill="#f6f3ee"/>
+    <rect x="330" y="150" width="540" height="500" rx="10" fill="#fffdf9" stroke="#ded8cd" stroke-width="4"/>
+    <text x="600" y="420" text-anchor="middle" font-family="Georgia, serif" font-weight="bold" font-size="180" letter-spacing="-8" fill="#1a1917">VM</text>
+    <rect x="390" y="470" width="420" height="8" rx="4" fill="#c2591f"/>
+    <rect x="390" y="510" width="300" height="8" rx="4" fill="#ded8cd"/>
+    <rect x="390" y="545" width="360" height="8" rx="4" fill="#ded8cd"/>
+  </svg>
+</template>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>Vinay Mandala · Résumé</title>
+<meta name="description" content="Product Designer. UX, visual systems and brand. One page.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&amp;family=Space+Grotesk:wght@400;500;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<style>
+  body { margin: 0; font-family: "Space Grotesk", system-ui, sans-serif; -webkit-font-smoothing: antialiased; color: #1a1917; }
+  * { box-sizing: border-box; }
+  a { color: inherit; text-decoration: none; }
+  a:hover { color: #c2591f; }
+  doc-page:not(:defined) { visibility: hidden; }
+  /* Screen only: fit the A4 sheet inside a phone instead of panning sideways.
+     zoom scales layout as well as pixels, so there is no dead space below and
+     no horizontal scroll. Stepped values — calc() is not accepted for zoom.
+     Print geometry is untouched: the sheet still prints as a fixed A4 page. */
+  @media screen and (max-width: 860px) { doc-page { zoom: 0.92; min-width: 0 !important; padding-left: 0 !important; padding-right: 0 !important; } }
+  @media screen and (max-width: 760px) { doc-page { zoom: 0.84; } }
+  @media screen and (max-width: 680px) { doc-page { zoom: 0.76; } }
+  @media screen and (max-width: 600px) { doc-page { zoom: 0.66; } }
+  @media screen and (max-width: 520px) { doc-page { zoom: 0.58; } }
+  @media screen and (max-width: 460px) { doc-page { zoom: 0.5; } }
+  @media screen and (max-width: 400px) { doc-page { zoom: 0.44; } }
+  @media screen and (max-width: 360px) { doc-page { zoom: 0.39; } }
+  ::selection { background: #1a1917; color: #f6f3ee; }
+</style>
+<script src="./doc-page.js"></script>
+</helmet>
+
+<doc-page size="a4">
+  <section class="page" data-screen-label="Résumé" style="display: flex; flex-direction: column; background: #f6f3ee; padding: 38px 44px 30px;">
+
+    <header style="display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; padding-bottom: 15px; border-bottom: 2px solid #1a1917;">
+      <div>
+        <h1 style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 44px; line-height: 0.88; letter-spacing: -0.045em; margin: 0;">Vinay Mandala</h1>
+        <p style="margin: 8px 0 0; font-family: 'JetBrains Mono', monospace; font-size: 10.5px; letter-spacing: 0.16em; text-transform: uppercase; color: #4a453f;">Product Designer · UX · Visual Systems · Brand</p>
+      </div>
+      <div style="text-align: right; display: flex; flex-direction: column; gap: 3px; font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.03em; color: #4a453f;">
+        <a href="index.html" style="color: #c2591f; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase;">↗ View the portfolio</a>
+        <span><a href="https://vinaymandalaa@gmail.com">vinaymandalaa@gmail.com</a></span>
+        <span>+91 70322 63322</span>
+        <a href="https://in.linkedin.com/in/vinay-mandala">Vinay Mandala | LinkedIn<br></a>
+        <span>Hyderabad, India</span>
+      </div>
+    </header>
+
+    <p style="margin: 13px 0 0; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 500; font-size: 14.5px; line-height: 1.35; letter-spacing: -0.02em; max-width: 74ch;">
+      I design products where UX, visual systems and brand hold together: research and flows through to the design system, the identity and the marketing around it.
+    </p>
+
+    <div style="display: grid; grid-template-columns: 1.72fr 1fr; gap: 24px; margin-top: 17px; flex: 0 0 auto;">
+
+      <main style="display: flex; flex-direction: column; gap: 14px;">
+        <span style="font-family: 'JetBrains Mono', monospace; font-size: 9.5px; letter-spacing: 0.22em; text-transform: uppercase; color: #c2591f;">Experience</span>
+
+        <sc-for list="{{ jobs }}" as="j" hint-placeholder-count="4">
+          <article style="break-inside: avoid;">
+            <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 12px;">
+              <h2 style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; font-size: 16.5px; letter-spacing: -0.03em; margin: 0;">{{ j.role }}</h2>
+              <span style="font-family: 'JetBrains Mono', monospace; font-size: 9.5px; letter-spacing: 0.08em; color: #8a827a; white-space: nowrap;">{{ j.dates }}</span>
+            </div>
+            <p style="margin: 3px 0 0; font-family: 'JetBrains Mono', monospace; font-size: 9.8px; letter-spacing: 0.12em; text-transform: uppercase; color: #4a453f;">{{ j.company }}</p>
+            <ul style="margin: 8px 0 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 6px;">
+              <sc-for list="{{ j.bullets }}" as="b" hint-placeholder-count="3">
+                <li style="display: flex; gap: 8px; font-size: 12.5px; line-height: 1.5; color: #302c28;">
+                  <span style="color: #c2591f; flex: none;">·</span>
+                  <span>{{ b }}</span>
+                </li>
+              </sc-for>
+            </ul>
+          </article>
+        </sc-for>
+      </main>
+
+      <aside style="display: flex; flex-direction: column; gap: 10px; border-left: 1px solid #ded8cd; padding-left: 22px;">
+        <div>
+          <span style="font-family: 'JetBrains Mono', monospace; font-size: 9.5px; letter-spacing: 0.22em; text-transform: uppercase; color: #c2591f;">Case studies</span>
+          <div style="display: flex; flex-direction: column; gap: 7px; margin-top: 9px;">
+            <sc-for list="{{ cases }}" as="c" hint-placeholder-count="4">
+              <a href="{{ c.href }}" style="display: block;">
+                <span style="display: block; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; font-size: 13.5px; letter-spacing: -0.02em;">{{ c.name }} <span style="color: #c2591f;">↗</span></span>
+                <span style="display: block; font-size: 11.2px; line-height: 1.35; color: #6a635c;">{{ c.note }}</span>
+              </a>
+            </sc-for>
+          </div>
+        </div>
+
+        <div>
+          <span style="font-family: 'JetBrains Mono', monospace; font-size: 9.5px; letter-spacing: 0.22em; text-transform: uppercase; color: #c2591f;">Skills</span>
+          <div style="display: flex; flex-direction: column; gap: 8px; margin-top: 9px;">
+            <sc-for list="{{ skills }}" as="s" hint-placeholder-count="4">
+              <div>
+                <span style="display: block; font-family: 'JetBrains Mono', monospace; font-size: 9.5px; letter-spacing: 0.1em; text-transform: uppercase; color: #8a827a;">{{ s.group }}</span>
+                <span style="display: block; margin-top: 2px; font-size: 11.5px; line-height: 1.4; color: #302c28;">{{ s.items }}</span>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+
+        <div>
+          <span style="font-family: 'JetBrains Mono', monospace; font-size: 9.5px; letter-spacing: 0.22em; text-transform: uppercase; color: #c2591f;">Education</span>
+          <div style="display: flex; flex-direction: column; gap: 8px; margin-top: 9px;">
+            <sc-for list="{{ education }}" as="e" hint-placeholder-count="2">
+              <div>
+                <span style="display: block; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; font-size: 12.8px; letter-spacing: -0.02em;">{{ e.title }}</span>
+                <span style="display: block; font-size: 11.2px; line-height: 1.35; color: #6a635c;">{{ e.place }}</span>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+
+        <div>
+          <span style="font-family: 'JetBrains Mono', monospace; font-size: 9.5px; letter-spacing: 0.22em; text-transform: uppercase; color: #c2591f;">Recognition</span>
+          <p style="margin: 9px 0 0; font-size: 11.4px; line-height: 1.4; color: #302c28;">Maverick Appreciation Award ×3 at Oaks. Cricket captain, JNAFAU Canteen Cup winners.</p>
+        </div>
+
+        <div>
+          <span style="font-family: 'JetBrains Mono', monospace; font-size: 9.5px; letter-spacing: 0.22em; text-transform: uppercase; color: #c2591f;">Off the clock</span>
+          <div style="display: flex; flex-direction: column; gap: 5px; margin-top: 9px;">
+            <sc-for list="{{ interests }}" as="i" hint-placeholder-count="4">
+              <div style="display: flex; gap: 7px; font-size: 11.3px; line-height: 1.38; color: #302c28;">
+                <span style="color: #c2591f; flex: none;">·</span>
+                <span><strong style="font-weight: 700;">{{ i.title }}</strong>, {{ i.note }}</span>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+      </aside>
+    </div>
+
+    <footer style="display: flex; justify-content: space-between; gap: 12px; margin-top: auto; padding-top: 10px; border-top: 1px solid #ded8cd; font-family: 'JetBrains Mono', monospace; font-size: 9.5px; letter-spacing: 0.14em; text-transform: uppercase; color: #8a827a;">
+      <span>The full story lives in the portfolio</span>
+      <a href="index.html" style="color: #1a1917;">Read it ↗</a>
+    </footer>
+  </section>
+</doc-page>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;: {&quot;width&quot;: 900, &quot;height&quot;: 1180}}">
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      jobs: [
+        {
+          role: 'Product Designer · siya',
+          company: 'Oaks Solutions, Hyderabad',
+          dates: 'Jul 2024 → Present',
+          bullets: [
+            'Sole designer on siya, an AI teaching platform: from a six screen prototype to 100+ screens across six roles as the model moved from B2C to B2B school onboarding.',
+            'Owned question paper generation, AI Edit, lesson plans and handwritten answer evaluation, rebuilt after teacher testing to cut screens, buttons and cognitive load.',
+            'Built the brand from scratch: positioning, colour and type systems, wordmark and a shape shifting mascot, applied across product, web, print, merch and campaigns.',
+            'Ran the identity migration on the live product and moved production to an AI assisted design to code pipeline, turning a three month redesign into weeks.',
+            'Earlier: rebuilt Mavricks, a gamified learning app, from loose PNG mockups into a coherent product with a component library, icon set and prototype.'
+          ]
+        },
+        {
+          role: 'Junior UX Designer',
+          company: 'Incepteo, Hyderabad',
+          dates: 'Mar → Jun 2024',
+          bullets: [
+            'Only designer spanning product and marketing across Stratpilot and the AI Studio experiments: UI work, a corporate website end to end, posters and brochures.',
+            'Joined client discovery calls with the CEO and a senior UK designer; learned to structure meetings and hold scope.'
+          ]
+        },
+        {
+          role: 'UI/UX & Brand Design Intern',
+          company: 'FULL Creative, Chennai',
+          dates: 'Apr → Jun 2023',
+          bullets: [
+            'Shipped production work inside a cross functional loop of content, copy, marketing and developers: design systems, landing page redesigns, presentation work.',
+            'Built Drop, a complete visual identity and website, as a brief to push visual craft.'
+          ]
+        },
+        {
+          role: 'Freelance & Contract Designer',
+          company: 'Independent · client direct',
+          dates: '2022 → Present',
+          bullets: [
+            'Identity, brochures and websites for startups and student networks: contract with TechKendr, freelance for ORBOL, mostly through a close circle. Service based work on PeekAZoo and BGR Mining alongside the Oaks role.'
+          ]
+        }
+      ],
+      cases: [
+        { name: 'siya', note: 'Product, brand and AI, end to end', href: 'Siya.dc.html' },
+        { name: 'Mavricks', note: 'What school testing changed', href: 'Mavricks.dc.html' },
+        { name: 'Nerdy Otaku', note: 'The feature we removed', href: 'NerdyOtaku.dc.html' },
+        { name: 'Drop', note: 'Visual craft, on a brief', href: 'Drop.dc.html' }
+      ],
+      skills: [
+        { group: 'Product', items: 'UX flows, wireframing, prototyping, user research, usability testing, design systems' },
+        { group: 'Brand & visual', items: 'Identity, mascot design, colour and type systems, print and marketing collateral' },
+        { group: 'Tools', items: 'Figma, Framer, Illustrator, Claude, Lovable, AI design to code workflows' },
+        { group: 'Working with', items: 'Product, engineering, marketing, content, client discovery' }
+      ],
+      education: [
+        { title: 'B.Des, Interior Design', place: 'JNAFA University, 2018 → 2022. Minors in graphic design and visual merchandising.' },
+        { title: 'UI/UX Design Program', place: 'GUVI, IIT Madras Research Park, 2022 → 2023' }
+      ],
+      interests: [
+        { title: 'Writing fiction', note: 'a long form story of my own' },
+        { title: 'Games & anime', note: 'why I chased interfaces at all' },
+        { title: 'Cricket', note: 'captain, and good decision practice' },
+        { title: 'Wandering Soul', note: 'loves to travel' }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

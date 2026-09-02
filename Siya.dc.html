@@ -1,0 +1,1221 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>siya, Case Study · Vinay Mandala</title>
+<meta name="description" content="Six screens became an AI school ecosystem. Product, brand and AI workflow, designed end to end for heysiya.ai." />
+<link rel="stylesheet" href="_ds/siya-design-system-d7fa7edd-b49c-4821-81ba-08b62ed22e87/styles.css" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0; background: #F4EEFA; color: #1A1B1E;
+    font-family: var(--font-body, 'Inter', sans-serif);
+    -webkit-font-smoothing: antialiased; overflow-x: hidden;
+  }
+  * { box-sizing: border-box; }
+  a { color: #5B3DB7; text-decoration: none; }
+  a:hover { color: #4B2C87; }
+  ::selection { background: #A084E8; color: #fff; }
+  input[type=range] { -webkit-appearance: none; appearance: none; background: transparent; }
+  input[type=range]::-webkit-slider-runnable-track { height: 2px; background: rgba(95,60,168,.22); }
+  input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; width: 28px; height: 28px; margin-top: -13px; border-radius: 50%; background: #A084E8; border: 4px solid #fff; box-shadow: 0 6px 18px -8px rgba(75,44,135,.5); cursor: ew-resize; }
+  @keyframes rise { from { opacity: 0; transform: translateY(28px); } to { opacity: 1; transform: none; } }
+  @keyframes fadein { from { opacity: 0; } to { opacity: 1; } }
+  @keyframes grow { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+  @keyframes bob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+  @keyframes pulsering { 0%, 100% { box-shadow: 0 0 0 0 rgba(160,132,232,.5); } 50% { box-shadow: 0 0 0 7px rgba(160,132,232,0); } }
+  @keyframes emitTL { 0% { opacity: 0; transform: translate(66%, 258%) scale(.5); } 62% { opacity: 1; } 100% { opacity: 1; transform: translate(0, 0) scale(1); } }
+  @keyframes emitTR { 0% { opacity: 0; transform: translate(-66%, 258%) scale(.5); } 62% { opacity: 1; } 100% { opacity: 1; transform: translate(0, 0) scale(1); } }
+  @keyframes emitBL { 0% { opacity: 0; transform: translate(66%, -258%) scale(.5); } 62% { opacity: 1; } 100% { opacity: 1; transform: translate(0, 0) scale(1); } }
+  @keyframes emitBR { 0% { opacity: 0; transform: translate(-66%, -258%) scale(.5); } 62% { opacity: 1; } 100% { opacity: 1; transform: translate(0, 0) scale(1); } }
+  @keyframes mascotIntro { 0% { transform: scale(.84); } 58% { transform: scale(1.05); } 100% { transform: scale(1); } }
+  @keyframes ripple { 0% { transform: scale(.35); opacity: .5; } 100% { transform: scale(1.55); opacity: 0; } }
+  @keyframes riseIn { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+  .siya-lock-mascot { transition: transform .34s cubic-bezier(.22,.61,.36,1), filter .34s ease; }
+  .siya-lock:hover .siya-lock-mascot { transform: scale(1.07) translateY(-3px); filter: drop-shadow(0 18px 24px rgba(75,44,135,.3)); }
+  .siya-chip { transition: transform .26s cubic-bezier(.22,.61,.36,1), box-shadow .26s ease, border-color .26s ease; }
+  .siya-chip:hover { transform: translateY(-4px) !important; box-shadow: 0 22px 40px -22px rgba(75,44,135,.5) !important; border-color: #A084E8 !important; }
+  @media (max-width: 860px) {
+    .siya-stage { aspect-ratio: auto !important; }
+    .siya-orbit { position: static !important; display: grid !important; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; margin-top: 20px; }
+    .siya-chip { position: static !important; width: auto !important; animation-name: riseIn !important; }
+  }
+  @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } html { scroll-behavior: auto; } }
+</style>
+<script src="./motion.js" data-accent="#A084E8"></script>
+</helmet>
+
+<div style="position: relative; width: 100%; overflow-x: clip;">
+  <div style="position: fixed; inset: 0; z-index: 0; pointer-events: none; filter: blur(40px) saturate(1.05); background: radial-gradient(55% 55% at 10% 6%, rgba(160,132,232,.28) 0%, transparent 65%), radial-gradient(30% 40% at 92% 4%, rgba(44,211,192,.18) 0%, transparent 70%), radial-gradient(48% 55% at 88% 62%, rgba(247,217,238,.55) 0%, transparent 70%), radial-gradient(40% 48% at 4% 88%, rgba(250,220,168,.42) 0%, transparent 70%);"></div>
+  <div style="position: fixed; top: 0; left: 0; height: 3px; width: {{ progress }}; background: linear-gradient(90deg, #A084E8, #2CD3C0); z-index: 80; transition: width .1s linear;"></div>
+
+  <div style="position: relative; z-index: 1;">
+
+  <nav style="position: sticky; top: 0; z-index: 60; display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 12px clamp(16px, 4vw, 48px); background: linear-gradient(150deg, rgba(255,255,255,.82) 0%, rgba(255,255,255,.62) 100%); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(95,60,168,.1);">
+    <a href="index.html" style="display: inline-flex; align-items: center; gap: 8px; font-family: var(--font-ui); font-size: 11px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: #5B3DB7; white-space: nowrap;">← Vinay Mandala</a>
+    <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: flex-end; gap: 8px clamp(10px, 2vw, 22px); font-family: var(--font-ui); font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase;">
+      <span style="color: #6A6C76;">Case 01 · siya</span>
+      <a href="https://heysiya.ai" style="display: inline-flex; align-items: center; gap: 7px; padding: 8px 14px; border-radius: 999px; background: linear-gradient(150deg, rgba(255,255,255,.92), rgba(255,255,255,.74)); border: 1px solid rgba(95,60,168,.18);">heysiya.ai ↗</a>
+      <a href="Mavricks.dc.html" style="color: #5B3DB7;">Next →</a>
+    </div>
+  </nav>
+
+  <!-- ░ HERO ░ -->
+  <header data-screen-label="siya hero" style="padding: clamp(44px, 8vh, 96px) clamp(20px, 6vw, 88px) clamp(40px, 7vh, 84px);">
+    <div style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: clamp(28px, 4vw, 64px); align-items: center;">
+      <div>
+        <span style="display: inline-flex; align-items: center; gap: 9px; padding: 8px 15px; border-radius: 999px; background: linear-gradient(150deg, rgba(255,255,255,.92), rgba(255,255,255,.74)); border: 1px solid rgba(95,60,168,.14); backdrop-filter: blur(10px); font-family: var(--font-ui); font-size: 11px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: #5B3DB7;">
+          <span style="width: 7px; height: 7px; border-radius: 50%; background: #A084E8; animation: pulsering 2.6s ease-in-out infinite;"></span>
+          Oaks Solutions · Jan 2025 → now
+        </span>
+        <h1 style="font-family: var(--font-display); font-weight: 800; font-size: clamp(42px, 7.4vw, 104px); line-height: 1.0; letter-spacing: -0.03em; margin: clamp(18px, 3vh, 30px) 0 0; text-wrap: balance;">
+          “It's just<br />six screens.”
+        </h1>
+        <p style="font-family: var(--font-body); font-size: clamp(16px, 1.4vw, 20px); line-height: 1.6; color: #4D4F58; max-width: 48ch; margin: 22px 0 0;">
+          An AI question-paper generator for teachers. One month, maybe. I took the call in Manali, halfway through a holiday. It is now a school ecosystem, six roles, an evaluation engine, a brand system, a mascot, running in India and Malta. I own all of it.
+        </p>
+        <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: clamp(22px, 3.5vh, 34px);">
+          <a href="#screens" style="display: inline-flex; align-items: center; gap: 9px; padding: 14px 22px; border-radius: 999px; background: #7050D5; color: #fff; font-family: var(--font-ui); font-size: 14px; font-weight: 600; letter-spacing: 0.01em; box-shadow: 0 14px 30px -18px rgba(75,44,135,.6);" style-hover="background: #5B3DB7;">See the product ↓</a>
+          <a href="https://heysiya.ai" style="display: inline-flex; align-items: center; gap: 9px; padding: 14px 22px; border-radius: 999px; background: linear-gradient(150deg, rgba(255,255,255,.92), rgba(255,255,255,.7)); border: 1px solid rgba(95,60,168,.18); color: #2E2F36; font-family: var(--font-ui); font-size: 14px; font-weight: 600;" style-hover="border-color: #A084E8; color: #5B3DB7;">Visit heysiya.ai ↗</a>
+        </div>
+      </div>
+      <div class="siya-stage" style="position: relative; justify-self: center; width: 100%; max-width: 470px; aspect-ratio: 1; display: grid; place-items: center;">
+        <div style="position: absolute; inset: 17%; border-radius: 50%; background: linear-gradient(160deg, rgba(160,132,232,.28) 0%, rgba(44,211,192,.13) 100%); border: 1px solid rgba(255,255,255,.6);"></div>
+        <div style="position: absolute; inset: 12%; border-radius: 50%; border: 1px solid rgba(95,60,168,.12);"></div>
+        <div style="position: absolute; inset: 20%; border-radius: 50%; border: 1px solid rgba(160,132,232,.5); animation: ripple 1.4s ease-out .35s both; pointer-events: none;"></div>
+        <img decoding="async" fetchpriority="high" src="assets/siya/mascot-hero.webp" alt="The siya mascot" style="position: relative; z-index: 1; width: 54%; height: auto; display: block; animation: mascotIntro .85s cubic-bezier(.34,1.4,.64,1) both, bob 5.5s ease-in-out 1.1s infinite; filter: drop-shadow(0 26px 36px rgba(75,44,135,.28));" />
+
+        <div class="siya-orbit" style="position: absolute; inset: 0; z-index: 2;">
+          <div class="siya-chip" style="position: absolute; top: 0; left: 0; width: 48%; padding: 12px 14px 13px; border-radius: 16px; background: #FFFFFF; border: 1px solid rgba(95,60,168,.14); box-shadow: 0 16px 34px -24px rgba(75,44,135,.45); animation: emitTL .95s cubic-bezier(.2,.8,.22,1) .5s both;">
+            <span style="display: block; font-family: var(--font-ui); font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: #8A8C96;">Screens</span>
+            <span style="display: flex; align-items: baseline; gap: 6px; margin-top: 6px; font-family: var(--font-ui); letter-spacing: -0.02em; white-space: nowrap;">
+              <span style="font-size: 14px; font-weight: 600; color: #A7A0BC;">6</span>
+              <span style="font-size: 11px; font-weight: 600; color: #C6BEDE;">→</span>
+              <span style="font-size: clamp(16px, 2vw, 25px); font-weight: 800; color: #5B3DB7;">100+</span>
+            </span>
+          </div>
+          <div class="siya-chip" style="position: absolute; top: 0; right: 0; width: 48%; padding: 12px 14px 13px; border-radius: 16px; background: #FFFFFF; border: 1px solid rgba(95,60,168,.14); box-shadow: 0 16px 34px -24px rgba(75,44,135,.45); animation: emitTR .95s cubic-bezier(.2,.8,.22,1) .68s both;">
+            <span style="display: block; font-family: var(--font-ui); font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: #8A8C96;">User roles</span>
+            <span style="display: flex; align-items: baseline; gap: 6px; margin-top: 6px; font-family: var(--font-ui); letter-spacing: -0.02em; white-space: nowrap;">
+              <span style="font-size: 14px; font-weight: 600; color: #A7A0BC;">1</span>
+              <span style="font-size: 11px; font-weight: 600; color: #C6BEDE;">→</span>
+              <span style="font-size: clamp(16px, 2vw, 25px); font-weight: 800; color: #5B3DB7;">6</span>
+            </span>
+          </div>
+          <div class="siya-chip" style="position: absolute; bottom: 0; left: 0; width: 48%; padding: 12px 14px 13px; border-radius: 16px; background: #FFFFFF; border: 1px solid rgba(95,60,168,.14); box-shadow: 0 16px 34px -24px rgba(75,44,135,.45); animation: emitBL .95s cubic-bezier(.2,.8,.22,1) .86s both;">
+            <span style="display: block; font-family: var(--font-ui); font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: #8A8C96;">Per paper</span>
+            <span style="display: flex; align-items: baseline; gap: 6px; margin-top: 6px; font-family: var(--font-ui); letter-spacing: -0.02em; white-space: nowrap;">
+              <span style="font-size: 14px; font-weight: 600; color: #A7A0BC;">3 hrs</span>
+              <span style="font-size: 11px; font-weight: 600; color: #C6BEDE;">→</span>
+              <span style="font-size: clamp(16px, 2vw, 25px); font-weight: 800; color: #5B3DB7;">3 min</span>
+            </span>
+          </div>
+          <div class="siya-chip" style="position: absolute; bottom: 0; right: 0; width: 48%; padding: 12px 14px 13px; border-radius: 16px; background: #FFFFFF; border: 1px solid rgba(95,60,168,.14); box-shadow: 0 16px 34px -24px rgba(75,44,135,.45); animation: emitBR .95s cubic-bezier(.2,.8,.22,1) 1.04s both;">
+            <span style="display: block; font-family: var(--font-ui); font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: #8A8C96;">Markets</span>
+            <span style="display: flex; align-items: baseline; gap: 6px; margin-top: 6px; font-family: var(--font-ui); letter-spacing: -0.02em; white-space: nowrap;">
+              <span style="font-size: 14px; font-weight: 600; color: #A7A0BC;">India</span>
+              <span style="font-size: 11px; font-weight: 600; color: #C6BEDE;">→</span>
+              <span style="font-size: clamp(16px, 2vw, 25px); font-weight: 800; color: #5B3DB7;">+ Malta</span>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- AT A GLANCE -->
+  <section data-screen-label="At a glance" style="padding: 0 clamp(20px, 6vw, 88px) clamp(30px, 5vh, 56px);">
+    <div style="max-width: 1200px; margin: 0 auto; padding: clamp(22px, 3vw, 32px); background: rgba(255,255,255,.78); border-radius: 24px; border: 1px solid rgba(95,60,168,.14); display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 210px), 1fr)); gap: clamp(18px, 2.4vw, 34px); align-items: start;">
+          <div style="display: flex; flex-direction: column; gap: 7px;">
+            <span style="font-family: var(--font-ui); font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #5B3DB7;">Role</span>
+            <span style="font-family: var(--font-body); font-size: 14.5px; line-height: 1.55; color: #2E2F36;">Product designer, sole design owner</span>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 7px;">
+            <span style="font-family: var(--font-ui); font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #5B3DB7;">Timeline</span>
+            <span style="font-family: var(--font-body); font-size: 14.5px; line-height: 1.55; color: #2E2F36;">Jan 2025 → now · Oaks Solutions</span>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 7px;">
+            <span style="font-family: var(--font-ui); font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #5B3DB7;">I owned</span>
+            <span style="font-family: var(--font-body); font-size: 14.5px; line-height: 1.55; color: #2E2F36;">Product UX and UI, the design system, brand, mascot, marketing site</span>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 7px;">
+            <span style="font-family: var(--font-ui); font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #5B3DB7;">Worked with</span>
+            <span style="font-family: var(--font-body); font-size: 14.5px; line-height: 1.55; color: #2E2F36;">CEO, in-house engineering, teachers in partner schools</span>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 7px;">
+            <span style="font-family: var(--font-ui); font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #5B3DB7;">Where it landed</span>
+            <span style="font-family: var(--font-body); font-size: 14.5px; line-height: 1.55; color: #2E2F36;">Running in schools in India and Malta. Six screens became 100+ across six roles; paper setup went from about three hours to about three minutes.</span>
+          </div>
+    </div>
+    <p style="max-width: 1200px; margin: 12px auto 0; font-family: var(--font-ui); font-size: 11px; font-weight: 600; letter-spacing: 0.08em; color: #6A6C76;">Product screens are under NDA. The thinking, the system and the brand work are all here; full screens on request.</p>
+  </section>
+
+  <!-- ░ 01 CONTEXT ░ -->
+  <section data-screen-label="Context" style="padding: clamp(52px, 9vh, 120px) clamp(20px, 6vw, 88px);">
+    <div style="max-width: 1200px; margin: 0 auto;">
+      <span style="font-family: var(--font-ui); font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: #5B3DB7;">✦ 01 · The context</span>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 290px), 1fr)); gap: clamp(24px, 4vw, 60px); margin-top: 18px; align-items: start;">
+        <h2 style="font-family: var(--font-ui); font-weight: 700; font-size: clamp(26px, 3.8vw, 48px); line-height: 1.1; letter-spacing: -0.02em; margin: 0; text-wrap: balance;">
+          Three hours to write one question paper.
+        </h2>
+        <div>
+          <p style="font-family: var(--font-body); font-size: clamp(15px, 1.3vw, 18px); line-height: 1.62; color: #4D4F58; margin: 0;">
+            Teachers were assembling papers by hand: hunting through textbooks and past papers, balancing marks, matching the board's pattern, retyping all of it. Three hours, every cycle, all year.
+            <br /><br />
+            The first siya was a straight line, nine steps and six screens for one user. It worked. Then we found MagicSchool and the question got harder: <strong style="font-weight: 600; color: #1A1B1E;">why would a teacher pick this one?</strong> The answer was the thing we already owned, an edtech repository with every board, publisher and grade in it.
+          </p>
+        </div>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr)); gap: 12px; margin-top: clamp(26px, 4vh, 44px);">
+        <sc-for list="{{ shift }}" as="s" hint-placeholder-count="3">
+          <div style="padding: 24px; border-radius: 22px; background: linear-gradient(150deg, rgba(255,255,255,.88) 0%, rgba(255,255,255,.58) 100%); border: 1px solid rgba(95,60,168,.1); box-shadow: 0 14px 34px -24px rgba(75,44,135,.3);">
+            <span style="font-family: var(--font-ui); font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #6A6C76;">{{ s.k }}</span>
+            <p style="font-family: var(--font-ui); font-weight: 700; font-size: clamp(22px, 2.6vw, 32px); letter-spacing: -0.02em; margin: 10px 0 0; color: {{ s.color }};">{{ s.v }}</p>
+            <p style="font-family: var(--font-body); font-size: 14px; line-height: 1.55; color: #4D4F58; margin: 8px 0 0;">{{ s.note }}</p>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- ░ 02 THE JOURNEY ░ -->
+  <section data-screen-label="Journey" style="padding: clamp(52px, 9vh, 120px) clamp(20px, 6vw, 88px); background: linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(255,255,255,.5) 45%, rgba(255,255,255,0) 100%);">
+    <div style="max-width: 1200px; margin: 0 auto;">
+      <span style="font-family: var(--font-ui); font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: #5B3DB7;">✦ 02 · The journey</span>
+      <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 18px; margin-top: 16px;">
+        <h2 style="font-family: var(--font-display); font-weight: 800; font-size: clamp(28px, 5vw, 68px); line-height: 1.02; letter-spacing: -0.03em; margin: 0; max-width: 20ch; text-wrap: balance;">
+          One year, eight turns, one product that kept refusing to stay small.
+        </h2>
+        <p style="font-family: var(--font-body); font-size: clamp(15px, 1.3vw, 17px); line-height: 1.62; color: #4D4F58; margin: 0; max-width: 34ch;">
+          Every stage below started as someone's small request and ended as a design problem I hadn't solved before. Tap a stage to see what broke and what I did about it.
+        </p>
+      </div>
+
+      <!-- scale rail -->
+      <div style="margin-top: clamp(28px, 4.5vh, 48px); padding: clamp(20px, 3vw, 32px); border-radius: 24px; background: linear-gradient(150deg, rgba(255,255,255,.9) 0%, rgba(255,255,255,.6) 100%); border: 1px solid rgba(95,60,168,.12); box-shadow: 0 24px 60px -42px rgba(75,44,135,.35);">
+        <div style="display: flex; align-items: stretch; gap: clamp(4px, 1vw, 10px); height: clamp(190px, 26vh, 260px);">
+          <sc-for list="{{ journey }}" as="j" hint-placeholder-count="8">
+            <button type="button" onClick="{{ j.go }}" aria-label="{{ j.title }}" style="flex: 1; display: flex; flex-direction: column; gap: 8px; height: 100%; padding: 0; background: none; border: 0; cursor: pointer; text-align: left;">
+              <span style="flex: 1; min-height: 0; display: flex; flex-direction: column; justify-content: flex-end; gap: 7px;">
+                <span style="display: block; font-family: var(--font-ui); font-size: 11px; font-weight: 700; letter-spacing: 0.1em; color: {{ j.labelColor }}; transition: color .26s;">{{ j.scale }}</span>
+                <span style="display: block; flex-shrink: 0; width: 100%; height: {{ j.barH }}; border-radius: 8px 8px 3px 3px; background: {{ j.barBg }}; box-shadow: {{ j.barShadow }}; transition: height .34s cubic-bezier(.22,.61,.36,1), background .34s, box-shadow .34s;"></span>
+              </span>
+              <span style="display: block; flex-shrink: 0; font-family: var(--font-ui); font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: {{ j.labelColor }}; transition: color .26s;">{{ j.n }}</span>
+            </button>
+          </sc-for>
+        </div>
+        <div style="display: flex; justify-content: space-between; margin-top: 12px; padding-top: 12px; border-top: 1px solid rgba(95,60,168,.1); font-family: var(--font-ui); font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #6A6C76;">
+          <span>Jan 2025 · one tool</span>
+          <span>Scope over time</span>
+          <span>Now · school ecosystem</span>
+        </div>
+      </div>
+
+      <!-- detail -->
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 270px), 1fr)); gap: 12px; margin-top: 14px; align-items: stretch;">
+        <div style="padding: clamp(22px, 3.2vw, 36px); border-radius: 24px; background: linear-gradient(135deg, #1B1D1E 0%, #2A2B2E 100%); color: #fff; box-shadow: 0 30px 70px -50px rgba(27,29,30,.9);">
+          <span style="font-family: var(--font-ui); font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: #BBA8F1;">Stage {{ stageN }} · {{ stageWhen }}</span>
+          <h3 style="font-family: var(--font-display); font-weight: 800; font-size: clamp(22px, 2.8vw, 36px); line-height: 1.08; letter-spacing: -0.025em; margin: 14px 0 0; color: #fff;">{{ stageTitle }}</h3>
+          <p style="font-family: var(--font-body); font-size: clamp(14.5px, 1.3vw, 17px); line-height: 1.62; color: #C8CACE; margin: 14px 0 0;">{{ stageAsk }}</p>
+        </div>
+        <div style="display: grid; gap: 12px;">
+          <div style="padding: clamp(20px, 2.6vw, 30px); border-radius: 20px; background: linear-gradient(150deg, rgba(247,217,238,.5) 0%, rgba(250,220,168,.34) 100%); border: 1px solid rgba(95,60,168,.1);">
+            <span style="font-family: var(--font-ui); font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: #9A5A2E;">What broke</span>
+            <p style="font-family: var(--font-body); font-size: clamp(14.5px, 1.25vw, 16.5px); line-height: 1.6; color: #3A2B22; margin: 10px 0 0;">{{ stageBroke }}</p>
+          </div>
+          <div style="padding: clamp(20px, 2.6vw, 30px); border-radius: 20px; background: linear-gradient(150deg, rgba(255,255,255,.92) 0%, rgba(232,224,251,.5) 100%); border: 1px solid rgba(95,60,168,.14);">
+            <span style="font-family: var(--font-ui); font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: #5B3DB7;">What I did</span>
+            <p style="font-family: var(--font-body); font-size: clamp(14.5px, 1.25vw, 16.5px); line-height: 1.6; color: #2E2F36; margin: 10px 0 0;">{{ stageDid }}</p>
+            <div style="display: flex; flex-wrap: wrap; gap: 7px; margin-top: 14px;">
+              <sc-for list="{{ stageTags }}" as="t" hint-placeholder-count="3">
+                <span style="padding: 6px 12px; border-radius: 999px; background: rgba(160,132,232,.14); color: #5B3DB7; font-family: var(--font-ui); font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;">{{ t }}</span>
+              </sc-for>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ░ 02 THE FLOW ░ -->
+  <section data-screen-label="Flow" style="padding: clamp(40px, 6vh, 80px) clamp(20px, 6vw, 88px) clamp(52px, 9vh, 120px);">
+    <div style="max-width: 1200px; margin: 0 auto; padding: clamp(22px, 3.4vw, 40px); border-radius: 28px; background: linear-gradient(150deg, rgba(255,255,255,.9) 0%, rgba(255,255,255,.62) 100%); border: 1px solid rgba(95,60,168,.12); box-shadow: 0 24px 60px -40px rgba(75,44,135,.35);">
+      <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 16px;">
+        <div>
+          <span style="font-family: var(--font-ui); font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: #5B3DB7;">✦ 03 · The flow, tested</span>
+          <h2 style="font-family: var(--font-ui); font-weight: 700; font-size: clamp(22px, 2.8vw, 34px); line-height: 1.14; letter-spacing: -0.02em; margin: 12px 0 0;">The first flow was never treated as final.</h2>
+        </div>
+        <div style="display: flex; gap: 8px;">
+          <sc-for list="{{ flowTabs }}" as="t" hint-placeholder-count="2">
+            <button type="button" onClick="{{ t.go }}" style="cursor: pointer; padding: 11px 18px; border-radius: 999px; border: 1px solid {{ t.border }}; background: {{ t.bg }}; color: {{ t.fg }}; font-family: var(--font-ui); font-size: 12px; font-weight: 600; letter-spacing: 0.02em; transition: all .24s cubic-bezier(.22,.61,.36,1);">{{ t.name }}</button>
+          </sc-for>
+        </div>
+      </div>
+      <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px;">
+        <sc-for list="{{ flowSteps }}" as="f" hint-placeholder-count="7">
+          <div style="flex: 1 1 min(100%, 140px); padding: 16px; border-radius: 16px; background: {{ f.bg }}; border: 1px solid {{ f.border }}; transition: all .26s cubic-bezier(.22,.61,.36,1);">
+            <span style="display: block; font-family: var(--font-ui); font-size: 11px; font-weight: 700; letter-spacing: 0.14em; color: {{ f.n_color }};">{{ f.n }}</span>
+            <span style="display: block; margin-top: 9px; font-family: var(--font-ui); font-weight: 600; font-size: 15px; line-height: 1.3; color: {{ f.fg }};">{{ f.label }}</span>
+            <span style="display: block; margin-top: 7px; font-family: var(--font-body); font-size: 12px; line-height: 1.5; color: #6A6C76;">{{ f.note }}</span>
+          </div>
+        </sc-for>
+      </div>
+      <p style="font-family: var(--font-body); font-size: 15px; line-height: 1.62; color: #4D4F58; margin: 20px 0 0; max-width: 70ch;">{{ flowCaption }}</p>
+    </div>
+  </section>
+
+  <!-- ░ 03 THE VAULT ░ -->
+  <section id="screens" data-screen-label="The product" style="padding: clamp(52px, 9vh, 120px) clamp(20px, 6vw, 88px); background: linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(255,255,255,.42) 40%, rgba(255,255,255,0) 100%);">
+    <div style="max-width: 1200px; margin: 0 auto;">
+      <span style="font-family: var(--font-ui); font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: #5B3DB7;">✦ 04 · The product</span>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 290px), 1fr)); gap: clamp(24px, 4vw, 60px); margin-top: 16px; align-items: start;">
+        <h2 style="font-family: var(--font-ui); font-weight: 700; font-size: clamp(26px, 3.8vw, 48px); line-height: 1.1; letter-spacing: -0.02em; margin: 0; max-width: 20ch;">
+          The screens stay behind the door.
+        </h2>
+        <p style="font-family: var(--font-body); font-size: clamp(15px, 1.35vw, 18px); line-height: 1.62; color: #4D4F58; margin: 0;">
+          siya is live. Teachers in India and Malta are marking real answer sheets on these screens this week, and the product is the company's advantage rather than a portfolio asset. So the screens stay locked.
+        </p>
+      </div>
+
+      <div style="position: relative; overflow: hidden; margin-top: clamp(26px, 4vh, 44px); padding: clamp(24px, 3.6vw, 44px); border-radius: 24px; background: linear-gradient(150deg, rgba(160,132,232,.16) 0%, rgba(255,255,255,.7) 55%, rgba(44,211,192,.12) 100%); border: 1px solid rgba(95,60,168,.16);">
+        <span style="font-family: var(--font-ui); font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: #5B3DB7;">Reason two · the one that actually decides it</span>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: clamp(20px, 3vw, 48px); margin-top: 16px; align-items: start;">
+          <p style="font-family: var(--font-body); font-size: clamp(15px, 1.35vw, 17px); line-height: 1.66; color: #4D4F58; margin: 0;">
+            The buyer kept changing. Teacher, then school, then group, and each move pivoted the product underneath it. siya is B2B, so no two schools run the same siya: dashboards, reports and permissions are configured to how that school already works, and the feature backlog is long and still moving.
+          </p>
+          <p style="font-family: var(--font-ui); font-weight: 700; font-size: clamp(20px, 2.5vw, 33px); line-height: 1.14; letter-spacing: -0.025em; color: #4B2C87; margin: 0; text-wrap: balance;">
+            Publishing one version would misrepresent every other one.
+          </p>
+        </div>
+      </div>
+
+      <div class="siya-lock" style="position: relative; overflow: hidden; margin-top: 14px; border-radius: 24px; border: 1px solid rgba(95,60,168,.14); background: linear-gradient(165deg, #F4F0FD 0%, #EAE3F9 100%);">
+        <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; gap: 16px; padding: clamp(34px, 6vw, 68px) clamp(24px, 4vw, 48px);">
+          <img decoding="async" loading="lazy" src="assets/siya/mascot-locked.webp" alt="Locked" class="siya-lock-mascot" style="width: clamp(104px, 13vw, 148px); height: auto; display: block; filter: drop-shadow(0 14px 20px rgba(75,44,135,.22));" />
+          <p style="font-family: var(--font-ui); font-weight: 700; font-size: clamp(19px, 2.6vw, 34px); line-height: 1.14; letter-spacing: -0.025em; color: #2B1D4A; margin: 0; max-width: 26ch;">Eight surfaces, six roles, one configuration per school.</p>
+          <p style="font-family: var(--font-body); font-size: clamp(13px, 1.2vw, 15px); line-height: 1.62; color: #4D4F58; margin: 0; max-width: 52ch;">
+            Paper builder, AI Edit, evaluation engine, class insight, student plan, parent report, school dashboard, tenant configuration.
+          </p>
+          <a href="mailto:vinaymandalaa@gmail.com?subject=SIYA%20walkthrough" style="display: inline-flex; align-items: center; gap: 8px; margin-top: 4px; padding: 14px 24px; border-radius: 999px; background: #5B3DB7; color: #fff; font-family: var(--font-ui); font-size: 13.5px; font-weight: 700; transition: transform .24s cubic-bezier(.22,.61,.36,1), background .24s;" style-hover="background: #1A1B1E; transform: translateY(-2px);">Ask for the walkthrough →</a>
+        </div>
+      </div>
+
+      <div style="margin-top: clamp(26px, 4vh, 44px);">
+        <span style="font-family: var(--font-ui); font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: #6A6C76;">What is behind it</span>
+        <div data-om-stack style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; margin-top: 14px;">
+          <sc-for list="{{ vault }}" as="v" hint-placeholder-count="8">
+            <div style="padding: 14px 15px 15px; border-radius: 14px; background: rgba(255,255,255,.9); border: 1px solid rgba(95,60,168,.12); border-top: 2px solid rgba(95,60,168,.28); display: flex; flex-direction: column; gap: 6px;">
+              <span style="font-family: var(--font-ui); font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #8A8C96;">{{ v.role }}</span>
+              <span style="font-family: var(--font-ui); font-weight: 700; font-size: 14.5px; line-height: 1.2; letter-spacing: -0.01em; color: #1A1B1E;">{{ v.name }}</span>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ░ 05 EVALUATION ░ -->
+  <section data-screen-label="Evaluation" style="padding: clamp(52px, 9vh, 120px) clamp(20px, 6vw, 88px);">
+    <div style="max-width: 1200px; margin: 0 auto;">
+      <span style="font-family: var(--font-ui); font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: #5B3DB7;">✦ 05 · The hardest screen</span>
+      <h2 style="font-family: var(--font-ui); font-weight: 700; font-size: clamp(26px, 3.8vw, 48px); line-height: 1.1; letter-spacing: -0.02em; margin: 16px 0 0; max-width: 24ch;">
+        Designing for a machine that is sometimes wrong.
+      </h2>
+      <p style="font-family: var(--font-body); font-size: clamp(15px, 1.35vw, 18px); line-height: 1.62; color: #4D4F58; max-width: 62ch; margin: 18px 0 0;">
+        A teacher hands over a scanned answer sheet in a child's handwriting and gets marks back. The model is confident and occasionally wrong, and a wrong mark on a report card is not a rounding error, it is a parent in the principal's office. So the interface was built around the override, not around the score.
+      </p>
+      <p style="font-family: var(--font-body); font-size: 15px; line-height: 1.62; color: #6A6C76; max-width: 62ch; margin: 14px 0 0;">
+        Four states carry the whole argument. The sequence is the work.
+      </p>
+
+      <div data-om-stack style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; margin-top: clamp(26px, 4vh, 44px);">
+        <sc-for list="{{ annSteps }}" as="a" hint-placeholder-count="4">
+          <div style="display: flex; flex-direction: column; gap: 12px;">
+            <div class="siya-lock" style="position: relative; border-radius: 18px; overflow: hidden; border: 1px solid rgba(95,60,168,.14); background: linear-gradient(165deg, #F4F0FD 0%, #EAE3F9 100%); aspect-ratio: 16 / 10;">
+              <div style="position: absolute; inset: 0; padding: 13% 5% 7%; display: grid; grid-template-columns: 1.55fr 1fr; gap: 8px;">
+                <div style="border-radius: 10px; background: #FFFFFF; border: 1px solid rgba(95,60,168,.12); padding: 10px; display: flex; flex-direction: column; justify-content: space-between; gap: 8px;">
+                  <div style="display: flex; align-items: flex-start; gap: 8px;">
+                    <div style="flex: 1; display: flex; flex-direction: column; gap: 4px;">
+                      <span style="display: block; height: 5px; border-radius: 3px; width: 94%; background: #DCD4EE;"></span>
+                      <span style="display: block; height: 5px; border-radius: 3px; width: 80%; background: #DCD4EE;"></span>
+                      <span style="display: block; height: 5px; border-radius: 3px; width: 58%; background: #E7E2F4;"></span>
+                    </div>
+                    <span style="flex: 0 0 auto; width: 26px; height: 13px; border-radius: 7px; background: #CFC4EA;"></span>
+                  </div>
+                  <div style="display: flex; align-items: flex-start; gap: 8px;">
+                    <div style="flex: 1; display: flex; flex-direction: column; gap: 4px;">
+                      <span style="display: block; height: 5px; border-radius: 3px; width: 94%; background: #DCD4EE;"></span>
+                      <span style="display: block; height: 5px; border-radius: 3px; width: 80%; background: #DCD4EE;"></span>
+                      <span style="display: block; height: 5px; border-radius: 3px; width: 58%; background: #E7E2F4;"></span>
+                    </div>
+                    <span style="flex: 0 0 auto; width: 26px; height: 13px; border-radius: 7px; background: #CFC4EA;"></span>
+                  </div>
+                  <div style="display: flex; align-items: flex-start; gap: 8px;">
+                    <div style="flex: 1; display: flex; flex-direction: column; gap: 4px;">
+                      <span style="display: block; height: 5px; border-radius: 3px; width: 94%; background: #DCD4EE;"></span>
+                      <span style="display: block; height: 5px; border-radius: 3px; width: 80%; background: #DCD4EE;"></span>
+                      <span style="display: block; height: 5px; border-radius: 3px; width: 58%; background: #E7E2F4;"></span>
+                    </div>
+                    <span style="flex: 0 0 auto; width: 26px; height: 13px; border-radius: 7px; background: #CFC4EA;"></span>
+                  </div>
+                </div>
+                <div style="display: flex; flex-direction: column; gap: 7px;">
+                  <div style="flex: 1.15; border-radius: 10px; background: #FFFFFF; border: 1px solid rgba(95,60,168,.12); padding: 9px; display: flex; flex-direction: column; gap: 5px;">
+                    <span style="display: block; height: 5px; border-radius: 3px; width: 42%; background: #C3B7E4;"></span>
+                    <span style="display: block; height: 5px; border-radius: 3px; width: 88%; background: #E7E2F4;"></span>
+                    <span style="display: block; height: 5px; border-radius: 3px; width: 66%; background: #E7E2F4;"></span>
+                  </div>
+                  <div style="flex: 0 0 auto; display: flex; flex-direction: column; gap: 4px;">
+                    <span style="display: block; height: 5px; border-radius: 3px; width: 54%; background: #BFE7E0;"></span>
+                    <span style="display: block; height: 5px; border-radius: 3px; width: 34%; background: #D9F0EC;"></span>
+                  </div>
+                  <div style="flex: 1; border-radius: 10px; background: #FFFFFF; border: 1px dashed rgba(95,60,168,.3); padding: 9px; display: flex; flex-direction: column; justify-content: center; gap: 6px;">
+                    <span style="display: block; height: 5px; border-radius: 3px; width: 40%; background: #DCD4EE; position: relative;"><span style="position: absolute; left: 0; right: 0; top: 50%; height: 1px; background: #9A8FBC;"></span></span>
+                    <span style="display: block; height: 5px; border-radius: 3px; width: 62%; background: #A084E8;"></span>
+                  </div>
+                </div>
+              </div>
+              <div style="position: absolute; top: {{ a.ft }}; left: {{ a.fl }}; width: {{ a.fw }}; height: {{ a.fh }}; border: 2px solid #7050D5; border-radius: 10px; background: rgba(112,80,213,.09);"></div>
+              <span style="position: absolute; top: 10px; left: 10px; padding: 5px 10px; border-radius: 999px; background: rgba(255,255,255,.9); font-family: var(--font-ui); font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #5B3DB7;">{{ a.n }}</span>
+              <span style="position: absolute; top: 10px; right: 10px; font-family: var(--font-ui); font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #8A8C96;">Schematic</span>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 6px;">
+              <span style="font-family: var(--font-ui); font-weight: 700; font-size: clamp(16px, 1.7vw, 20px); letter-spacing: -0.015em; color: #1A1B1E;">{{ a.label }}</span>
+              <span style="font-family: var(--font-body); font-size: 13.5px; line-height: 1.58; color: #4D4F58;">{{ a.note }}</span>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+      <p style="font-family: var(--font-ui); font-size: 11px; font-weight: 600; letter-spacing: 0.08em; color: #6A6C76; margin: 14px 0 0;">Layout schematics, redrawn without product data. The real screens are under NDA and available on request.</p>
+    </div>
+  </section>
+
+  <!-- ░ 08 LOGO ░ -->
+  <section data-screen-label="Logo evolution" style="padding: clamp(52px, 9vh, 120px) clamp(20px, 6vw, 88px);">
+    <div style="max-width: 1200px; margin: 0 auto;">
+      <span style="font-family: var(--font-ui); font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: #5B3DB7;">✦ 06 · The logo</span>
+      <h2 style="font-family: var(--font-ui); font-weight: 700; font-size: clamp(26px, 3.8vw, 48px); line-height: 1.1; letter-spacing: -0.02em; margin: 16px 0 0; max-width: 24ch;">
+Three elements became one, and it took an argument.
+      </h2>
+      <p style="font-family: var(--font-body); font-size: clamp(15px, 1.35vw, 18px); line-height: 1.62; color: #4D4F58; max-width: 62ch; margin: 18px 0 0;">
+        The product launched with an all caps wordmark, an atom mark and a tagline underneath. Nobody had asked for a brand system, and for months nobody wanted one.
+      </p>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: 14px; margin-top: clamp(26px, 4vh, 44px);">
+        <div style="padding: 26px; border-radius: 20px; background: rgba(255,255,255,.86); border: 1px solid rgba(95,60,168,.1); border-top: 3px solid #C6BEDE; display: flex; flex-direction: column; gap: 10px;">
+          <span style="font-family: var(--font-ui); font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: #6A6C76;">Act one · the ask</span>
+          <span style="font-family: var(--font-ui); font-weight: 700; font-size: 19px; line-height: 1.2; letter-spacing: -0.02em; color: #1A1B1E;">Branding can wait.</span>
+          <p style="font-family: var(--font-body); font-size: 13.5px; line-height: 1.6; color: #4D4F58; margin: 0;">Keep shipping product, the identity comes later. For months, it did.</p>
+        </div>
+        <div style="padding: 26px; border-radius: 20px; background: rgba(255,255,255,.86); border: 1px solid rgba(95,60,168,.1); border-top: 3px solid #F0A44E; display: flex; flex-direction: column; gap: 10px;">
+          <span style="font-family: var(--font-ui); font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: #B36A12;">Act two · what broke</span>
+          <span style="font-family: var(--font-ui); font-weight: 700; font-size: 19px; line-height: 1.2; letter-spacing: -0.02em; color: #1A1B1E;">A deck of cards that refused to stack.</span>
+          <p style="font-family: var(--font-body); font-size: 13.5px; line-height: 1.6; color: #4D4F58; margin: 0;">Every brochure, business card and deck looked like it came from a different company. Nothing was holding them together.</p>
+        </div>
+        <div style="padding: 26px; border-radius: 20px; background: linear-gradient(150deg, rgba(160,132,232,.16), rgba(44,211,192,.08)); border: 1px solid rgba(95,60,168,.16); border-top: 3px solid #5B3DB7; display: flex; flex-direction: column; gap: 10px;">
+          <span style="font-family: var(--font-ui); font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: #5B3DB7;">Act three · what I did</span>
+          <span style="font-family: var(--font-ui); font-weight: 700; font-size: 19px; line-height: 1.2; letter-spacing: -0.02em; color: #1A1B1E;">Built it anyway, then argued for it.</span>
+          <p style="font-family: var(--font-body); font-size: 13.5px; line-height: 1.6; color: #4D4F58; margin: 0;">A lavender led palette, a lowercase chalkboard wordmark, a companion mascot. The first mascot got laughed at in the room. It shipped.</p>
+        </div>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr)); gap: 14px; margin-top: 14px;">
+        <div style="padding: 26px; border-radius: 20px; background: rgba(255,255,255,.86); border: 1px solid rgba(95,60,168,.1); display: flex; flex-direction: column; gap: 16px;">
+          <span style="font-family: var(--font-ui); font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #6A6C76;">Before · the mark</span>
+          <div style="flex: 1; display: flex; align-items: center; justify-content: center; min-height: 96px;">
+            <img decoding="async" loading="lazy" src="siya/logo-old-mark.webp" alt="The original siya atom mark" style="width: 84px; height: auto; display: block;" />
+          </div>
+          <p style="font-family: var(--font-body); font-size: 13.5px; line-height: 1.55; color: #4D4F58; margin: 0;">An atom-style mark built from interlaced loops.</p>
+        </div>
+        <div style="padding: 26px; border-radius: 20px; background: rgba(255,255,255,.86); border: 1px solid rgba(95,60,168,.1); display: flex; flex-direction: column; gap: 16px;">
+          <span style="font-family: var(--font-ui); font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #6A6C76;">Before · the lockup</span>
+          <div style="flex: 1; display: flex; align-items: center; justify-content: center; min-height: 96px;">
+            <img decoding="async" loading="lazy" src="siya/logo-old.webp" alt="The original siya lockup with tagline" style="width: 100%; max-width: 220px; height: auto; display: block;" />
+          </div>
+          <p style="font-family: var(--font-body); font-size: 13.5px; line-height: 1.55; color: #4D4F58; margin: 0;">Caps wordmark, atom mark, tagline, three elements in one signature.</p>
+        </div>
+        <div style="padding: 26px; border-radius: 20px; background: linear-gradient(150deg, rgba(160,132,232,.14), rgba(44,211,192,.08)); border: 1px solid rgba(95,60,168,.16); display: flex; flex-direction: column; gap: 16px;">
+          <span style="font-family: var(--font-ui); font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #5B3DB7;">After · the wordmark</span>
+          <div style="flex: 1; display: flex; align-items: center; justify-content: center; min-height: 96px;">
+            <img decoding="async" loading="lazy" src="assets/siya/logo-lavender.webp" alt="The new lowercase siya wordmark" style="width: 100%; max-width: 168px; height: auto; display: block;" />
+          </div>
+          <p style="font-family: var(--font-body); font-size: 13.5px; line-height: 1.55; color: #4D4F58; margin: 0;">One element. Lowercase, rounded, lavender.</p>
+        </div>
+      </div>
+
+      <div style="margin-top: clamp(30px, 5vh, 52px);">
+        <span style="font-family: var(--font-ui); font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: #6A6C76;">The four decisions inside that change</span>
+        <div data-om-stack style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; margin-top: 14px;">
+          <div style="padding: 22px; border-radius: 18px; background: rgba(255,255,255,.8); border: 1px solid rgba(95,60,168,.12); border-left: 3px solid #A084E8;">
+            <span style="display: block; font-family: var(--font-ui); font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #5B3DB7;">Caps to lowercase</span>
+            <span style="display: block; margin-top: 8px; font-family: var(--font-body); font-size: 14px; line-height: 1.58; color: #1A1B1E;">The same mark has to be trusted by a principal and liked by a nine year old. Caps read institutional. Lowercase, with rounded terminals borrowed from the mascot's glasses, reads like a companion.</span>
+          </div>
+          <div style="padding: 22px; border-radius: 18px; background: rgba(255,255,255,.8); border: 1px solid rgba(95,60,168,.12); border-left: 3px solid #2CD3C0;">
+            <span style="display: block; font-family: var(--font-ui); font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #0A998E;">The atom had to go</span>
+            <span style="display: block; margin-top: 8px; font-family: var(--font-body); font-size: 14px; line-height: 1.58; color: #1A1B1E;">An atom promises a laboratory. siya reads handwriting and returns judgement. Three elements in one signature also meant no version of it survived a small size.</span>
+          </div>
+          <div style="padding: 22px; border-radius: 18px; background: rgba(255,255,255,.8); border: 1px solid rgba(95,60,168,.12); border-left: 3px solid #8FB8F0;">
+            <span style="display: block; font-family: var(--font-ui); font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #3E63A8;">One signature, five surfaces</span>
+            <span style="display: block; margin-top: 8px; font-family: var(--font-body); font-size: 14px; line-height: 1.58; color: #1A1B1E;">Product sidebar, browser tab, print header, hoarding, hoodie. One weight, one colour, one fixed position, so nobody downstream has a decision left to make.</span>
+          </div>
+          <div style="padding: 22px; border-radius: 18px; background: rgba(255,255,255,.8); border: 1px solid rgba(95,60,168,.12); border-left: 3px solid #F0A44E;">
+            <span style="display: block; font-family: var(--font-ui); font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #B36A12;">The old mark still lives</span>
+            <span style="display: block; margin-top: 8px; font-family: var(--font-body); font-size: 14px; line-height: 1.58; color: #1A1B1E;">Schools already had it in their bookmarks bar, so the atom stayed on as the favicon. Continuity for the people already using the product, a clean slate everywhere else.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ░ 05 BRAND ░ -->
+  <section data-screen-label="Brand" style="padding: clamp(52px, 9vh, 120px) clamp(20px, 6vw, 88px); background: linear-gradient(180deg, rgba(255,255,255,0), rgba(255,255,255,.5) 30%, rgba(255,255,255,.5) 70%, rgba(255,255,255,0));">
+    <div style="max-width: 1200px; margin: 0 auto;">
+      <span style="font-family: var(--font-ui); font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: #5B3DB7;">✦ 07 · The brand</span>
+      <h2 style="font-family: var(--font-ui); font-weight: 700; font-size: clamp(26px, 3.8vw, 48px); line-height: 1.1; letter-spacing: -0.02em; margin: 16px 0 0; max-width: 22ch;">
+        A deck of cards that finally stacked.
+      </h2>
+      <p style="font-family: var(--font-body); font-size: clamp(15px, 1.35vw, 18px); line-height: 1.62; color: #4D4F58; max-width: 62ch; margin: 18px 0 0;">
+        For months the answer to “can we do branding now?” was “branding can wait.” Meanwhile every brochure and business card looked like it came from a different company, because nothing held them together. When I got the go-ahead, I built the system before the artwork.
+      </p>
+
+      <!-- ratio -->
+      <div style="margin-top: clamp(26px, 4vh, 44px);">
+        <span style="font-family: var(--font-ui); font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #6A6C76;">The 70 / 20 / 10 rule</span>
+        <div style="display: flex; height: 84px; margin-top: 12px; border-radius: 18px; overflow: hidden; border: 1px solid rgba(95,60,168,.12);">
+          <sc-for list="{{ palette }}" as="c" hint-placeholder-count="4">
+            <div style="flex: {{ c.flex }}; background: {{ c.hex }}; display: flex; flex-direction: column; justify-content: flex-end; padding: 12px 10px; transition: flex .3s;">
+              <span style="font-family: var(--font-ui); font-size: 11px; font-weight: 700; letter-spacing: 0.1em; color: {{ c.fg }};">{{ c.label }}</span>
+              <span style="font-family: var(--font-ui); font-size: 11px; letter-spacing: 0.06em; color: {{ c.fg }}; opacity: .78;">{{ c.hex }}</span>
+            </div>
+          </sc-for>
+        </div>
+        <p style="font-family: var(--font-body); font-size: 14px; line-height: 1.6; color: #4D4F58; margin: 14px 0 0; max-width: 70ch;">
+          Every edtech brand reaches for blue and calls it trust. Lavender was already in the product, so I built out from it: teal as secondary, a light orange and champagne as tertiary, grayscale carrying the weight, and enough range for pending, error and success states to live inside the brand instead of being bolted on.
+        </p>
+      </div>
+
+      <!-- type + wordmark -->
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); gap: 12px; margin-top: 14px;">
+        <div style="padding: 26px; border-radius: 20px; background: rgba(255,255,255,.86); border: 1px solid rgba(95,60,168,.1);">
+          <span style="font-family: var(--font-ui); font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #5B3DB7;">Campaign type</span>
+          <p style="font-family: var(--font-display); font-weight: 800; font-size: 34px; letter-spacing: -0.025em; margin: 14px 0 4px;">Cabinet Grotesk</p>
+          <p style="font-family: var(--font-body); font-size: 14px; line-height: 1.55; color: #4D4F58; margin: 0;">Hoardings, covers, campaign headlines. Never product UI.</p>
+        </div>
+        <div style="padding: 26px; border-radius: 20px; background: rgba(255,255,255,.86); border: 1px solid rgba(95,60,168,.1);">
+          <span style="font-family: var(--font-ui); font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #5B3DB7;">Product type</span>
+          <p style="font-family: var(--font-ui); font-weight: 700; font-size: 30px; letter-spacing: -0.02em; margin: 14px 0 4px;">Plus Jakarta Sans</p>
+          <p style="font-family: var(--font-body); font-size: 14px; line-height: 1.55; color: #4D4F58; margin: 0;">Titles, labels, buttons. Inter for every line of body copy.</p>
+        </div>
+        <div style="padding: 26px; border-radius: 20px; background: rgba(255,255,255,.86); border: 1px solid rgba(95,60,168,.1); display: flex; flex-direction: column;">
+          <span style="font-family: var(--font-ui); font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #5B3DB7;">Wordmark</span>
+          <img decoding="async" loading="lazy" src="assets/siya/logo-lavender.webp" alt="siya wordmark" style="width: 128px; max-width: 100%; height: auto; margin: 16px 0 10px;" />
+          <p style="font-family: var(--font-body); font-size: 14px; line-height: 1.55; color: #4D4F58; margin: 0;">Lowercase, rounded, lavender. One weight, one colour, one fixed position in every layout.</p>
+        </div>
+      </div>
+
+      <!-- mascot -->
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 290px), 1fr)); gap: clamp(24px, 4vw, 56px); margin-top: clamp(30px, 5vh, 60px); align-items: center;">
+        <div>
+          <span style="font-family: var(--font-ui); font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #5B3DB7;">The mascot</span>
+          <h3 style="font-family: var(--font-ui); font-weight: 700; font-size: clamp(22px, 2.8vw, 34px); line-height: 1.12; letter-spacing: -0.02em; margin: 12px 0 0;">Fixed identity. Flexible expression.</h3>
+          <p style="font-family: var(--font-body); font-size: clamp(14px, 1.3vw, 17px); line-height: 1.62; color: #4D4F58; margin: 14px 0 0;">
+            siya isn't another AI assistant, it's a companion, and a companion needs a face. Two anchors never change: <strong style="font-weight: 600; color: #1A1B1E;">the lavender body</strong> and <strong style="font-weight: 600; color: #1A1B1E;">the glasses</strong>. Without glasses it's a generic blob; with them it reads intelligent, slightly nerdy, and credible in front of a principal.
+            <br /><br />
+            The CEO and PM laughed at the first version. The PM said it looked like a ghost. I didn't argue, I built mockups until the idea had context: on a hoodie, on a business card, in an empty state, in onboarding, disappointed when a student slips. Seeing it as a set is what turned the room around.
+          </p>
+          <p style="font-family: var(--font-ui); font-weight: 700; font-size: clamp(17px, 1.9vw, 23px); letter-spacing: -0.015em; color: #7050D5; margin: 18px 0 0;">A mascot is a character. A brand is a system.</p>
+        </div>
+        <div>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 96px), 1fr)); gap: 12px;">
+            <sc-for list="{{ mascots }}" as="m" hint-placeholder-count="6">
+              <div style="padding: 14px 10px; border-radius: 18px; background: linear-gradient(150deg, rgba(255,255,255,.9), rgba(248,245,255,.7)); border: 1px solid rgba(95,60,168,.1); display: flex; flex-direction: column; align-items: center; gap: 9px; transition: transform .24s cubic-bezier(.22,.61,.36,1);" style-hover="transform: translateY(-5px);">
+                <img decoding="async" loading="lazy" src="{{ m.src }}" alt="{{ m.label }}" style="width: 100%; max-width: 74px; height: auto; display: block;" />
+                <span style="font-family: var(--font-ui); font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #6A6C76; text-align: center;">{{ m.label }}</span>
+              </div>
+            </sc-for>
+          </div>
+          <p style="font-family: var(--font-body); font-size: 13px; line-height: 1.55; color: #6A6C76; margin: 14px 0 0;">Eight expressions, one rule set. Glossy lavender, 3D-rendered, never redrawn as flat vector. Minimum 64px, else the wordmark takes over.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ░ 10 COLLATERAL ░ -->
+  <section data-screen-label="Collateral" style="padding: clamp(52px, 9vh, 120px) clamp(20px, 6vw, 88px); background: linear-gradient(180deg, rgba(255,255,255,0), rgba(255,255,255,.5) 35%, rgba(255,255,255,0));">
+    <div style="max-width: 1200px; margin: 0 auto;">
+      <span style="font-family: var(--font-ui); font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: #5B3DB7;">✦ 08 · The collateral</span>
+      <h2 style="font-family: var(--font-ui); font-weight: 700; font-size: clamp(26px, 3.8vw, 48px); line-height: 1.1; letter-spacing: -0.02em; margin: 16px 0 0; max-width: 24ch;">
+        The argument I couldn't win in a meeting, I won in mockups.
+      </h2>
+      <p style="font-family: var(--font-body); font-size: clamp(15px, 1.35vw, 18px); line-height: 1.62; color: #4D4F58; max-width: 62ch; margin: 18px 0 0;">
+        A mascot on a slide is a drawing. The same mascot on a mug, a hoodie, a sticker sheet, a poster on the office wall and an ID card around a new joiner's neck is a company. So I stopped defending the character and started showing the surfaces.
+      </p>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr)); gap: 14px; margin-top: clamp(26px, 4vh, 44px);">
+        <sc-for list="{{ merch }}" as="m" hint-placeholder-count="8">
+          <figure style="margin: 0; border-radius: 20px; overflow: hidden; border: 1px solid rgba(95,60,168,.12); background: #fff; box-shadow: 0 18px 44px -32px rgba(75,44,135,.45);">
+            <img decoding="async" loading="lazy" src="{{ m.src }}" alt="{{ m.label }}" style="width: 100%; height: auto; display: block;" />
+            <figcaption style="padding: 13px 15px;">
+              <span style="display: block; font-family: var(--font-ui); font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #5B3DB7;">{{ m.label }}</span>
+              <span style="display: block; margin-top: 5px; font-family: var(--font-body); font-size: 13px; line-height: 1.5; color: #6A6C76;">{{ m.note }}</span>
+            </figcaption>
+          </figure>
+        </sc-for>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: clamp(20px, 3vw, 40px); margin-top: clamp(28px, 4.5vh, 52px); align-items: center;">
+        <div style="border-radius: 22px; overflow: hidden; border: 1px solid rgba(95,60,168,.12); background: #fff; box-shadow: 0 22px 56px -38px rgba(75,44,135,.5);">
+          <img decoding="async" loading="lazy" src="siya/idcard.webp" alt="siya employee ID card, front and back" style="width: 100%; height: auto; display: block;" />
+        </div>
+        <div>
+          <span style="font-family: var(--font-ui); font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #5B3DB7;">The internal surfaces</span>
+          <h3 style="font-family: var(--font-ui); font-weight: 700; font-size: clamp(20px, 2.4vw, 30px); line-height: 1.14; letter-spacing: -0.02em; margin: 12px 0 0;">Brand isn't only what customers see.</h3>
+          <p style="font-family: var(--font-body); font-size: clamp(14px, 1.3vw, 17px); line-height: 1.62; color: #4D4F58; margin: 14px 0 0;">
+            The ID card was the piece that made the system real inside the company. Two-sided: photo, name and role on the front against a lavender field; emergency contact, a QR to the site, and the mascot in a suit holding a briefcase on the back, the one place the character is allowed to be formal.
+            <br /><br />
+            The same rules produced the letterhead template and the brochure: one grid, one type pairing, the wordmark in a fixed position, and a strict rule that the mascot never appears on a legal document.
+          </p>
+          <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px;">
+            <span style="padding: 7px 13px; border-radius: 999px; background: rgba(160,132,232,.14); border: 1px solid rgba(95,60,168,.14); font-family: var(--font-ui); font-size: 11px; font-weight: 700; letter-spacing: 0.06em; color: #5B3DB7;">ID card</span>
+            <span style="padding: 7px 13px; border-radius: 999px; background: rgba(160,132,232,.14); border: 1px solid rgba(95,60,168,.14); font-family: var(--font-ui); font-size: 11px; font-weight: 700; letter-spacing: 0.06em; color: #5B3DB7;">Letterhead</span>
+            <span style="padding: 7px 13px; border-radius: 999px; background: rgba(160,132,232,.14); border: 1px solid rgba(95,60,168,.14); font-family: var(--font-ui); font-size: 11px; font-weight: 700; letter-spacing: 0.06em; color: #5B3DB7;">Brochure</span>
+            <span style="padding: 7px 13px; border-radius: 999px; background: rgba(160,132,232,.14); border: 1px solid rgba(95,60,168,.14); font-family: var(--font-ui); font-size: 11px; font-weight: 700; letter-spacing: 0.06em; color: #5B3DB7;">Lanyard</span>
+            <span style="padding: 7px 13px; border-radius: 999px; background: rgba(160,132,232,.14); border: 1px solid rgba(95,60,168,.14); font-family: var(--font-ui); font-size: 11px; font-weight: 700; letter-spacing: 0.06em; color: #5B3DB7;">Favicon</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ░ 12 CAROUSEL ░ -->
+  <section data-screen-label="Carousel" style="padding: clamp(52px, 9vh, 120px) clamp(20px, 6vw, 88px); background: linear-gradient(180deg, rgba(255,255,255,0), rgba(255,255,255,.5) 35%, rgba(255,255,255,0));">
+    <div style="max-width: 1200px; margin: 0 auto;">
+      <span style="font-family: var(--font-ui); font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: #5B3DB7;">✦ 09 · The social system</span>
+      <h2 style="font-family: var(--font-ui); font-weight: 700; font-size: clamp(26px, 3.8vw, 48px); line-height: 1.1; letter-spacing: -0.02em; margin: 16px 0 0; max-width: 26ch;">
+The post template the marketing team runs without me.
+      </h2>
+      <p style="font-family: var(--font-body); font-size: clamp(15px, 1.35vw, 18px); line-height: 1.62; color: #4D4F58; max-width: 62ch; margin: 18px 0 0;">
+        Social was the surface most likely to drift, it ships fastest and nobody asks a designer first. So instead of designing posts I designed slots: a base template with a dark opener and closer, light cards between them, a fixed logo position, a fixed page counter, one accent word per headline. Marketing fills it; nothing drifts.
+      </p>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 190px), 1fr)); gap: 14px; margin-top: clamp(26px, 4vh, 44px);">
+        <sc-for list="{{ carouselCards }}" as="c" hint-placeholder-count="5">
+          <figure style="margin: 0; border-radius: 18px; overflow: hidden; border: 1px solid rgba(95,60,168,.12); background: #fff; box-shadow: 0 18px 44px -34px rgba(75,44,135,.45);">
+            <img decoding="async" loading="lazy" src="{{ c.src }}" alt="{{ c.label }}" style="width: 100%; height: auto; display: block;" />
+            <figcaption style="padding: 12px 14px; font-family: var(--font-ui); font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #6A6C76;">{{ c.label }}</figcaption>
+          </figure>
+        </sc-for>
+        <figure class="siya-lock" style="margin: 0; position: relative; border-radius: 18px; overflow: hidden; border: 1px solid rgba(95,60,168,.12); background: #fff; box-shadow: 0 18px 44px -34px rgba(75,44,135,.45); display: flex; flex-direction: column;">
+          <div style="position: relative; flex: 1; aspect-ratio: 4 / 5; overflow: hidden; background: linear-gradient(165deg, #F4F0FD 0%, #EAE3F9 100%);">
+            <div style="position: absolute; inset: 0; display: grid; place-items: center; padding: 18px;">
+              <img decoding="async" loading="lazy" src="assets/siya/mascot-locked.webp" alt="Locked template" class="siya-lock-mascot" style="width: clamp(104px, 62%, 148px); height: auto; display: block; filter: drop-shadow(0 12px 18px rgba(75,44,135,.22));" />
+            </div>
+          </div>
+          <figcaption style="padding: 12px 14px; font-family: var(--font-ui); font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #6A6C76;">Case study slot</figcaption>
+          <a href="mailto:vinaymandalaa@gmail.com?subject=SIYA%20%C2%B7%20Social%20templates" style="padding: 12px 14px; text-align: center; background: rgba(160,132,232,.1); border-top: 1px solid rgba(95,60,168,.12); font-family: var(--font-ui); font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #5B3DB7; transition: background .24s, color .24s;" style-hover="background: #A084E8; color: #fff;">Ask to see it →</a>
+        </figure>
+        <figure class="siya-lock" style="margin: 0; position: relative; border-radius: 18px; overflow: hidden; border: 1px solid rgba(10,153,142,.16); background: #fff; box-shadow: 0 18px 44px -34px rgba(75,44,135,.45); display: flex; flex-direction: column;">
+          <div style="position: relative; flex: 1; aspect-ratio: 4 / 5; overflow: hidden; background: linear-gradient(165deg, #EFF9F7 0%, #DFF2EE 100%);">
+            <div style="position: absolute; inset: 0; display: grid; place-items: center; padding: 18px;">
+              <img decoding="async" loading="lazy" src="assets/siya/mascot-locked.webp" alt="Locked template" class="siya-lock-mascot" style="width: clamp(104px, 62%, 148px); height: auto; display: block; filter: drop-shadow(0 12px 18px rgba(10,90,80,.2));" />
+            </div>
+          </div>
+          <figcaption style="padding: 12px 14px; font-family: var(--font-ui); font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #6A6C76;">Hiring slot</figcaption>
+          <a href="mailto:vinaymandalaa@gmail.com?subject=SIYA%20%C2%B7%20Social%20templates" style="padding: 12px 14px; text-align: center; background: rgba(44,211,192,.12); border-top: 1px solid rgba(10,153,142,.14); font-family: var(--font-ui); font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #0A998E; transition: background .24s, color .24s;" style-hover="background: #2CD3C0; color: #10352F;">Ask to see it →</a>
+        </figure>
+      </div>
+
+      <div style="margin-top: clamp(30px, 5vh, 56px);">
+        <span style="font-family: var(--font-ui); font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #6A6C76;">Two templates that needed a second pass</span>
+        <p style="font-family: var(--font-body); font-size: 15px; line-height: 1.62; color: #4D4F58; max-width: 66ch; margin: 12px 0 0;">
+          Both first versions were structurally fine and unreadable at thumb size. The fix was the same each time: give the reader an entry point before the sentence.
+        </p>
+        <div data-om-stack style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin-top: 18px;">
+          <sc-for list="{{ carouselPairs }}" as="p" hint-placeholder-count="2">
+            <div style="padding: 18px; border-radius: 20px; background: rgba(255,255,255,.8); border: 1px solid rgba(95,60,168,.12);">
+              <span style="display: block; font-family: var(--font-ui); font-weight: 700; font-size: 15px; letter-spacing: -0.01em; color: #1A1B1E;">{{ p.name }}</span>
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 12px;">
+                <div>
+                  <img decoding="async" loading="lazy" src="{{ p.v1 }}" alt="First version" style="width: 100%; height: auto; display: block; border-radius: 12px; border: 1px solid rgba(95,60,168,.12);" />
+                  <span style="display: block; margin-top: 7px; font-family: var(--font-ui); font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #A084E8;">v1</span>
+                </div>
+                <div>
+                  <img decoding="async" loading="lazy" src="{{ p.v2 }}" alt="Shipped version" style="width: 100%; height: auto; display: block; border-radius: 12px; border: 1px solid rgba(95,60,168,.12);" />
+                  <span style="display: block; margin-top: 7px; font-family: var(--font-ui); font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #0A998E;">shipped</span>
+                </div>
+              </div>
+              <span style="display: block; margin-top: 12px; font-family: var(--font-body); font-size: 13.5px; line-height: 1.56; color: #4D4F58;">{{ p.fix }}</span>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+
+      <div style="margin-top: clamp(34px, 5.5vh, 64px);">
+        <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 16px;">
+          <div>
+            <span style="font-family: var(--font-ui); font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #5B3DB7;">Festival posts</span>
+            <h3 style="font-family: var(--font-ui); font-weight: 700; font-size: clamp(21px, 2.6vw, 32px); line-height: 1.14; letter-spacing: -0.02em; margin: 12px 0 0;">The one place the mascot is allowed to be silly.</h3>
+          </div>
+          <p style="font-family: var(--font-body); font-size: clamp(14px, 1.3vw, 16.5px); line-height: 1.6; color: #4D4F58; margin: 0; max-width: 40ch;">
+            Indian schools run on the festival calendar, and a brand that skips it reads as a foreign vendor. The rule: a greeting is never a pitch. No feature, no CTA, no numbers, the mascot in colour, one warm line, the wordmark, done.
+          </p>
+        </div>
+        <div style="display: grid; gap: 14px; margin-top: 22px;">
+          <sc-for list="{{ festival }}" as="p" hint-placeholder-count="3">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: clamp(18px, 3vw, 38px); align-items: center; padding: clamp(16px, 2.4vw, 26px); border-radius: 24px; background: linear-gradient(150deg, rgba(255,255,255,.9), rgba(255,255,255,.6)); border: 1px solid rgba(95,60,168,.12); box-shadow: 0 20px 50px -40px rgba(75,44,135,.4);">
+              <img decoding="async" loading="lazy" src="{{ p.src }}" alt="{{ p.label }}" style="width: 100%; height: auto; display: block; border-radius: 16px; border: 1px solid rgba(95,60,168,.1);" />
+              <div>
+                <span style="font-family: var(--font-ui); font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: #5B3DB7;">{{ p.occasion }}</span>
+                <h4 style="font-family: var(--font-ui); font-weight: 700; font-size: clamp(19px, 2.2vw, 27px); line-height: 1.14; letter-spacing: -0.02em; margin: 11px 0 0;">{{ p.label }}</h4>
+                <p style="font-family: var(--font-body); font-size: clamp(14px, 1.25vw, 16px); line-height: 1.62; color: #4D4F58; margin: 11px 0 0;">{{ p.note }}</p>
+                <span style="display: inline-block; margin-top: 14px; padding: 7px 13px; border-radius: 999px; background: rgba(160,132,232,.14); font-family: var(--font-ui); font-size: 11px; font-weight: 700; letter-spacing: 0.06em; color: #5B3DB7;">{{ p.rule }}</span>
+              </div>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ░ 13 PRESENTATIONS ░ -->
+  <section data-screen-label="Presentation module" style="padding: clamp(52px, 9vh, 120px) clamp(20px, 6vw, 88px);">
+    <div style="max-width: 1200px; margin: 0 auto;">
+      <span style="font-family: var(--font-ui); font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: #5B3DB7;">✦ 10 · The presentation module</span>
+      <h2 style="font-family: var(--font-ui); font-weight: 700; font-size: clamp(26px, 3.8vw, 48px); line-height: 1.1; letter-spacing: -0.02em; margin: 16px 0 0; max-width: 26ch;">
+        A slide system for teachers who are not designers.
+      </h2>
+      <p style="font-family: var(--font-body); font-size: clamp(15px, 1.35vw, 17.5px); line-height: 1.62; color: #4D4F58; margin: 16px 0 0; max-width: 78ch;">
+        A template library built long before it was needed, lesson content already lived in the product, so a classroom deck should have been a click away. The hard part was never generation; it was making sure a machine filling these templates could not produce an ugly slide. Fixed left-aligned titles, one idea per slide, image wells that hold their shape empty, bullet lists capped before they overflow, a “continued” state for anything longer.
+      </p>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(46%, 148px), 1fr)); gap: 8px; margin-top: clamp(22px, 3vh, 32px);">
+        <sc-for list="{{ slideTemplates }}" as="t" hint-placeholder-count="14">
+          <figure style="margin: 0; border-radius: 14px; overflow: hidden; border: 1px solid rgba(95,60,168,.12); background: #fff; box-shadow: 0 14px 36px -30px rgba(75,44,135,.4);">
+            <img decoding="async" loading="lazy" src="{{ t.src }}" alt="{{ t.label }} slide template" style="width: 100%; height: auto; display: block;" />
+            <figcaption style="padding: 8px 10px; font-family: var(--font-ui); font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #6A6C76;">{{ t.label }}</figcaption>
+          </figure>
+        </sc-for>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: clamp(20px, 3vw, 40px); margin-top: clamp(28px, 4.5vh, 52px); align-items: center;">
+        <div style="border-radius: 18px; overflow: hidden; border: 1px solid rgba(95,60,168,.12); box-shadow: 0 22px 56px -40px rgba(75,44,135,.5);">
+          <img decoding="async" loading="lazy" src="siya/s-player.webp" alt="The presentation player with thumbnail rail" style="width: 100%; height: auto; display: block;" />
+        </div>
+        <div>
+          <span style="font-family: var(--font-ui); font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #5B3DB7;">The player</span>
+          <h3 style="font-family: var(--font-ui); font-weight: 700; font-size: clamp(20px, 2.4vw, 30px); line-height: 1.14; letter-spacing: -0.02em; margin: 12px 0 0;">Built for a projector and one hand.</h3>
+          <p style="font-family: var(--font-body); font-size: clamp(14px, 1.3vw, 17px); line-height: 1.62; color: #4D4F58; margin: 14px 0 0;">
+            A thumbnail rail to jump mid-lesson without leaving the deck, a slide counter that stays visible, controls that fade until the cursor moves, and full-screen as the default rather than a setting. Everything a teacher needs while facing away from the laptop.
+          </p>
+        </div>
+      </div>
+
+      <div style="margin-top: clamp(24px, 4vh, 44px); padding: clamp(22px, 3vw, 34px); border-radius: 26px; background: linear-gradient(135deg, #1B1D1E 0%, #2A2B2E 100%); color: #fff; box-shadow: 0 30px 70px -46px rgba(27,29,30,.7);">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: clamp(20px, 3.4vw, 48px); align-items: start;">
+          <div>
+            <span style="font-family: var(--font-ui); font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #BBA8F1;">How it actually ended</span>
+            <h3 style="font-family: var(--font-ui); font-weight: 700; font-size: clamp(21px, 2.7vw, 34px); line-height: 1.12; letter-spacing: -0.02em; margin: 14px 0 0; color: #fff;">
+              I designed the whole module. It didn't ship the way I designed it.
+            </h3>
+            <p style="font-family: var(--font-ui); font-weight: 700; font-size: clamp(15px, 1.6vw, 20px); line-height: 1.3; letter-spacing: -0.015em; color: #C9B6F7; margin: 18px 0 0;">
+              Not every design you're proud of survives contact with a runway. Saying so is part of the job.
+            </p>
+          </div>
+          <div>
+            <p style="font-family: var(--font-body); font-size: clamp(14px, 1.3vw, 16.5px); line-height: 1.62; color: rgba(255,255,255,.76); margin: 0;">
+              Templates, player, empty and continued states, all built and approved in review. Then engineering costed it: a custom renderer that behaved identically on every teacher's laptop and projector was more work than the runway allowed. Reveal.js won.
+            </p>
+            <p style="font-family: var(--font-body); font-size: clamp(14px, 1.3vw, 16.5px); line-height: 1.62; color: rgba(255,255,255,.76); margin: 14px 0 0;">
+              Right call for the company, wrong outcome for the design. The type scale survived, the layouts mostly didn't, deep customisation is off the table. I documented the gap instead of quietly redesigning around it.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ░ 06 VOICE ░ -->
+  <section data-screen-label="Voice" style="padding: clamp(52px, 9vh, 120px) clamp(20px, 6vw, 88px);">
+    <div style="max-width: 1200px; margin: 0 auto;">
+      <span style="font-family: var(--font-ui); font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: #5B3DB7;">✦ 11 · The voice</span>
+      <h2 style="font-family: var(--font-ui); font-weight: 700; font-size: clamp(26px, 3.8vw, 48px); line-height: 1.1; letter-spacing: -0.02em; margin: 16px 0 0; max-width: 24ch;">
+        The hardest part of an AI product is what it's allowed to say.
+      </h2>
+      <p style="font-family: var(--font-body); font-size: clamp(15px, 1.35vw, 18px); line-height: 1.62; color: #4D4F58; max-width: 60ch; margin: 18px 0 0;">
+        siya suggests. The teacher always acts. That single rule decided the copy on every screen, so I wrote it down as four filters and ran everything through them.
+      </p>
+      <div data-om-stack style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; margin-top: clamp(24px, 4vh, 42px);">
+        <sc-for list="{{ filters }}" as="f" hint-placeholder-count="4">
+          <div style="padding: 22px; border-radius: 20px; background: linear-gradient(150deg, rgba(255,255,255,.9), rgba(255,255,255,.6)); border: 1px solid rgba(95,60,168,.1);">
+            <span style="font-family: var(--font-ui); font-weight: 700; font-size: clamp(16px, 1.7vw, 21px); letter-spacing: -0.015em; color: #1A1B1E;">{{ f.good }}</span>
+            <span style="display: block; margin-top: 4px; font-family: var(--font-ui); font-size: 13px; font-weight: 600; color: #A084E8; text-decoration: line-through;">{{ f.bad }}</span>
+          </div>
+        </sc-for>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr)); gap: 12px; margin-top: 14px;">
+        <sc-for list="{{ voicePairs }}" as="v" hint-placeholder-count="3">
+          <div style="padding: 20px; border-radius: 18px; background: rgba(255,255,255,.7); border-left: 3px solid #2CD3C0;">
+            <span style="display: block; font-family: var(--font-ui); font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #0A998E;">Never</span>
+            <span style="display: block; margin-top: 6px; font-family: var(--font-body); font-size: 14px; line-height: 1.5; color: #6A6C76;">{{ v.no }}</span>
+            <span style="display: block; margin-top: 14px; font-family: var(--font-ui); font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #5B3DB7;">Instead</span>
+            <span style="display: block; margin-top: 6px; font-family: var(--font-body); font-size: 14.5px; line-height: 1.5; color: #1A1B1E;">{{ v.yes }}</span>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- ░ 07 AI MIGRATION ░ -->
+  <section data-screen-label="AI migration" style="padding: clamp(52px, 9vh, 120px) clamp(20px, 6vw, 88px);">
+    <div style="max-width: 1200px; margin: 0 auto; padding: clamp(26px, 4vw, 56px); border-radius: 28px; background: linear-gradient(135deg, #1B1D1E 0%, #2A2B2E 100%); color: #fff; box-shadow: 0 30px 70px -46px rgba(27,29,30,.7);">
+      <span style="font-family: var(--font-ui); font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: #BBA8F1;">✦ 12 · The migration</span>
+      <h2 style="font-family: var(--font-ui); font-weight: 700; font-size: clamp(24px, 3.6vw, 46px); line-height: 1.1; letter-spacing: -0.02em; margin: 16px 0 0; max-width: 22ch; color: #FFFFFF;">
+        A new brand, 100+ screens, and a CEO who wanted it yesterday.
+      </h2>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: clamp(24px, 4vw, 56px); margin-top: clamp(22px, 3.5vh, 40px);">
+        <p style="font-family: var(--font-body); font-size: clamp(15px, 1.35vw, 17px); line-height: 1.65; color: rgba(255,255,255,.72); margin: 0;">
+          I'd deliberately not built a full design system, because I knew a redesign was coming and didn't want to systemise something we'd throw away. That made the migration expensive: three months by hand. My position was simple, if we redesign it, we redesign it properly.
+          <br /><br />
+          Stitch, UX Pilot and the first Claude attempts weren't close, and I said so. Months later Claude Design shipped with design systems in the loop, I tested it, and the results changed how we work. My whole workflow moved off Figma: I design in Claude, share the link, developers host from it. Where it can't get there, I pull the HTML into Figma, fix it by hand, and hand that over.
+        </p>
+        <div style="display: grid; gap: 8px;">
+          <sc-for list="{{ aiSteps }}" as="a" hint-placeholder-count="5">
+            <div style="display: flex; align-items: center; gap: 14px; padding: 15px 18px; border-radius: 16px; background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.1);">
+              <span style="font-family: var(--font-ui); font-size: 11px; font-weight: 700; color: #BBA8F1;">{{ a.n }}</span>
+              <span style="font-family: var(--font-ui); font-size: 15px; font-weight: 600;">{{ a.step }}</span>
+              <span style="margin-left: auto; font-family: var(--font-ui); font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,.5); white-space: nowrap;">{{ a.who }}</span>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+      <p style="font-family: var(--font-ui); font-weight: 700; font-size: clamp(18px, 2.2vw, 28px); letter-spacing: -0.02em; margin: clamp(22px, 3.5vh, 40px) 0 0; max-width: 30ch; color: #FFFFFF;">
+        AI is only useful inside a <span style="color: #BBA8F1;">defined design system.</span>
+      </p>
+    </div>
+  </section>
+
+  <!-- ░ 08 OUTCOME ░ -->
+  <section data-screen-label="Outcome" style="padding: clamp(52px, 9vh, 120px) clamp(20px, 6vw, 88px);">
+    <div style="max-width: 1200px; margin: 0 auto;">
+      <span style="font-family: var(--font-ui); font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: #5B3DB7;">✦ 13 · Where it is now</span>
+      <h2 style="font-family: var(--font-display); font-weight: 800; font-size: clamp(28px, 5.4vw, 76px); line-height: 1.02; letter-spacing: -0.03em; margin: 16px 0 0; max-width: 20ch; text-wrap: balance;">
+        It started with six screens.
+      </h2>
+      <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: clamp(24px, 4vh, 44px);">
+        <sc-for list="{{ growth }}" as="g" hint-placeholder-count="10">
+          <span style="padding: 11px 19px; border-radius: 999px; background: {{ g.bg }}; color: {{ g.fg }}; border: 1px solid {{ g.border }}; font-family: var(--font-ui); font-size: clamp(12.5px, 1.2vw, 15px); font-weight: 600;">{{ g.label }}</span>
+        </sc-for>
+      </div>
+      <p style="font-family: var(--font-body); font-size: clamp(15px, 1.35vw, 18px); line-height: 1.62; color: #4D4F58; max-width: 62ch; margin: clamp(24px, 4vh, 40px) 0 0;">
+        Schools in India were onboarded and testing. Then the CEO took siya to Malta, and Europe responded harder than home did, enough that the centre of gravity moved there with contracts following. I'm still designing it. <span style="color: #6A6C76;">[NUMBER OF SCHOOLS] · [CONTRACT DETAIL] · [EXACT DATES]</span>
+      </p>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: 12px; margin-top: clamp(26px, 4vh, 48px); align-items: stretch;">
+        <div style="padding: clamp(24px, 3.6vw, 42px); border-radius: 24px; background: linear-gradient(135deg, #F7D9EE 0%, #FADCA8 50%, #E8E0FB 100%);">
+          <span style="font-family: var(--font-ui); font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: #4B2C87;">What changed in my thinking</span>
+          <p style="font-family: var(--font-display); font-weight: 800; font-size: clamp(20px, 2.6vw, 34px); line-height: 1.12; letter-spacing: -0.025em; color: #010101; margin: 14px 0 0; max-width: 24ch;">
+            I stopped waiting for a brief to be big enough to take seriously. Six screens is how most products start.
+          </p>
+        </div>
+        <div style="padding: clamp(24px, 3.6vw, 42px); border-radius: 24px; background: linear-gradient(150deg, rgba(255,255,255,.9), rgba(255,255,255,.62)); border: 1px solid rgba(95,60,168,.12); display: flex; flex-direction: column; gap: 16px;">
+          <span style="font-family: var(--font-ui); font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: #5B3DB7;">✦ Live product · access on request</span>
+          <p style="font-family: var(--font-body); font-size: 15px; line-height: 1.6; color: #4D4F58; margin: 0;">siya is running with schools, so the real screens and the Figma file aren't public. I can walk you through the full product, the before-and-after, and the design system directly.</p>
+          <div style="display: grid; gap: 8px;">
+            <sc-for list="{{ gated }}" as="g" hint-placeholder-count="4">
+              <div style="display: flex; align-items: center; gap: 12px; padding: 12px 14px; border-radius: 14px; background: rgba(248,245,255,.8); border: 1px solid rgba(95,60,168,.08);">
+                <span style="font-family: var(--font-ui); font-size: 11px; font-weight: 700; color: #A084E8;">{{ g.n }}</span>
+                <span style="font-family: var(--font-ui); font-size: 13.5px; font-weight: 600; color: #2E2F36;">{{ g.label }}</span>
+              </div>
+            </sc-for>
+          </div>
+          <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: auto;">
+            <a href="mailto:vinaymandalaa@gmail.com?subject=SIYA%20case%20study%20access" style="display: inline-flex; padding: 13px 20px; border-radius: 999px; background: #7050D5; color: #fff; font-family: var(--font-ui); font-size: 13px; font-weight: 600;" style-hover="background: #5B3DB7;">Request access</a>
+            <a href="https://heysiya.ai" style="display: inline-flex; padding: 13px 20px; border-radius: 999px; border: 1px solid rgba(95,60,168,.18); color: #2E2F36; font-family: var(--font-ui); font-size: 13px; font-weight: 600;" style-hover="border-color: #A084E8; color: #5B3DB7;">heysiya.ai ↗</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <nav style="border-top: 1px solid rgba(95,60,168,.12); padding: clamp(36px, 6vh, 76px) clamp(20px, 6vw, 88px);">
+    <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 18px; align-items: center;">
+      <a href="index.html" style="font-family: var(--font-ui); font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase;">← Back to the story</a>
+      <a href="Mavricks.dc.html" style="font-family: var(--font-ui); font-weight: 700; font-size: clamp(20px, 3vw, 38px); letter-spacing: -0.02em; color: #1A1B1E;" style-hover="color: #7050D5;">Next case, Mavricks →</a>
+    </div>
+  </nav>
+  </div>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;: {&quot;width&quot;: 1440, &quot;height&quot;: 900}}">
+const S = 'assets/siya/';
+
+class Component extends DCLogic {
+  state = { progress: 0, flow: 'v1', stage: 0, challenge: 0 };
+
+  journeyVals() {
+    const stages = [
+      {
+        n: '01', scale: '6', when: 'Jan 2025 · month one', weight: 0.1,
+        title: '“It’s just six screens.”',
+        ask: 'A question paper generator for CBSE teachers. Enter the details, pick the board and grade, set marks and Bloom’s taxonomy, generate, review, download. One user, nine steps, no branding needed. I built it between two Mavricks tasks.',
+        broke: 'MagicSchool and half a dozen similar tools already did this. A teacher had no reason to switch, and “ours is nicer” is not a reason.',
+        did: 'Stopped designing the generator and started designing the advantage: the edtech repository the company already owned, with every board, publisher and grade in it. The paper became a product of real syllabus content, not a generic prompt.',
+        tags: ['Competitive audit', 'Repository as moat', 'Flow v1']
+      },
+      {
+        n: '02', scale: '12', when: 'The question', weight: 0.18,
+        title: 'One teacher asked the question that changed the product.',
+        ask: 'Testing went well. Teachers finished the flow, liked the output, and then asked: “what if I want my own questions?”',
+        broke: 'The repository was the moat, and the request was to leave the repository. Say yes and the differentiator dissolves; say no and the tool stays rigid.',
+        did: 'Built AI Edit as a bounded escape hatch: replacements from the repository stay free, generating something new costs credits. It answered the teacher, protected the moat, and gave the company a business model and a referral loop on top of the free tier.',
+        tags: ['AI Edit', 'Credits model', 'Referral loop']
+      },
+      {
+        n: '03', scale: '24', when: 'Expansion I', weight: 0.3,
+        title: 'Papers were never the whole job.',
+        ask: 'If we were already saving three hours a week on papers, the same content could carry lesson plans and classroom presentations.',
+        broke: 'Lesson planning has a completely different shape to paper generation, it is longitudinal, it spans weeks, and it belongs to a teacher’s calendar rather than a single output.',
+        did: 'Designed planning as its own surface rather than another tab on the generator, sharing the repository underneath but with its own model of time. Presentations rode on the same content spine.',
+        tags: ['Lesson plans', 'Content reuse', 'IA']
+      },
+      {
+        n: '04', scale: '38', when: 'Expansion II', weight: 0.42,
+        title: 'The feature we chose not to build ourselves.',
+        ask: 'Generated presentations, on brand, editable, from the same lesson content.',
+        broke: 'A presentation generator built in-house was too expensive for the stage the company was at. Every estimate came back longer than the runway for it.',
+        did: 'Integrated an external Reveal.js-based solution and designed around its limits instead of pretending they weren’t there. It works; deep visual customisation isn’t available. I documented that tradeoff rather than hiding it.',
+        tags: ['Build vs buy', 'Reveal.js', 'Honest limits']
+      },
+      {
+        n: '05', scale: '58', when: 'The hard one', weight: 0.58,
+        title: 'Reading a child’s handwriting at scale.',
+        ask: 'Evaluate scanned handwritten answer sheets, mark them, and hand the teacher a result she can trust.',
+        broke: 'Everything. Handwriting varies wildly, answers continue three pages later, students number things out of order, and pairing an answer to its question is guesswork for a model. Accuracy and cost per sheet moved in opposite directions.',
+        did: 'Ran repeated extraction tests across models, retrained on real sheets, and designed the interface to assume the machine is sometimes wrong: the teacher sees confidence, can jump to the source scan, and overrides in one action. The design absorbed the uncertainty instead of concealing it.',
+        tags: ['Evaluation engine', 'Human override', 'Cost per sheet']
+      },
+      {
+        n: '06', scale: '72', when: 'B2C → B2B', weight: 0.72,
+        title: 'One login became six roles.',
+        ask: 'Schools wanted to buy it, not individual teachers.',
+        broke: 'A tool for one person became a purchase for an institution overnight. Teacher, student, parent, principal, admin and tenant admin all needed to see a different product, and schools already had workflows on paper that they were not going to abandon.',
+        did: 'Rebuilt the information architecture around roles and permissions, and held one rule through every review: siya adapts to the school ecosystem, not the reverse. Onboarding maps to how a school already thinks about classes and terms.',
+        tags: ['Six roles', 'Permissions', 'School onboarding']
+      },
+      {
+        n: '07', scale: '86', when: 'The fight', weight: 0.86,
+        title: 'Branding can wait. For months, it did.',
+        ask: 'Keep shipping product. The identity would come later.',
+        broke: 'Every brochure, business card and deck looked like it came from a different company. There was nothing holding them together, a deck of cards that refused to stack. And the product had outgrown the logo it started with.',
+        did: 'Built the system anyway and argued for it: lavender-led palette, a companion mascot with fixed glasses and a flexible body, a lowercase chalkboard wordmark. The first mascot got laughed at. I answered with mockups until the room saw a system instead of a cartoon.',
+        tags: ['Brand system', 'Mascot', 'Held the line']
+      },
+      {
+        n: '08', scale: '100+', when: 'Now', weight: 1,
+        title: 'A new brand across a hundred screens, and Europe.',
+        ask: 'Migrate the entire product onto the new identity. Fast.',
+        broke: 'A manual redesign was roughly three months, which nobody wanted to hear. I had also deliberately not systemised the old UI, knowing it would be replaced, which made the migration bigger.',
+        did: 'Defined the design system first, then let AI generate against it and refined by hand, the order that made AI useful at all. My workflow moved off Figma: design in Claude, share the link, developers host from it, and pull HTML back into Figma only when it needs surgery. Meanwhile the CEO took siya to Malta and Europe responded harder than India did.',
+        tags: ['Design system first', 'AI in production', 'India + Europe']
+      }
+    ];
+    const i = Math.min(this.state.stage, stages.length - 1);
+    const s = stages[i];
+    return {
+      journey: stages.map((st, idx) => {
+        const active = idx === i;
+        return {
+          n: st.n, scale: st.scale, title: st.title,
+          barH: (18 + st.weight * 74).toFixed(0) + '%',
+          barBg: active
+            ? 'linear-gradient(180deg, #A084E8 0%, #5B3DB7 100%)'
+            : 'linear-gradient(180deg, rgba(160,132,232,.42) 0%, rgba(160,132,232,.2) 100%)',
+          barShadow: active ? '0 14px 30px -16px rgba(75,44,135,.6)' : 'none',
+          labelColor: active ? '#5B3DB7' : '#9A9CA4',
+          go: () => this.setState({ stage: idx })
+        };
+      }),
+      stageN: s.n, stageWhen: s.when, stageTitle: s.title,
+      stageAsk: s.ask, stageBroke: s.broke, stageDid: s.did, stageTags: s.tags
+    };
+  }
+
+  challengeVals() {
+    const items = [
+      {
+        title: 'Scope that never stopped growing', kind: 'Process',
+        summary: 'Six screens became a hundred plus, one role became six, and no single conversation ever felt like a big change.',
+        constraint: 'Each request was individually reasonable and arrived while the last one was still being built.',
+        decision: 'Stopped treating each ask as a feature and started keeping a live map of the product so I could show what a “small” request actually touched.',
+        status: 'Still the hardest ongoing part of the job, and the reason I now push for the system before the screens.'
+      },
+      {
+        title: 'Handwriting evaluation accuracy', kind: 'Technical',
+        summary: 'Reading real scanned answer sheets is not an OCR problem, it is a judgement problem with a cost attached.',
+        constraint: 'Poor handwriting, continuation pages, out-of-order numbering, and a per-sheet inference cost that rose with every accuracy gain.',
+        decision: 'Iterate on extraction models against real sheets, and design the UI to expose confidence and make teacher override a single action rather than a correction workflow.',
+        status: 'Accuracy improved through repeated testing and is good enough to trust with a human in the loop. Exact figures on request.'
+      },
+      {
+        title: 'Presentation generation', kind: 'Build vs buy',
+        summary: 'We wanted branded, editable decks from lesson content. We could not afford to build the generator.',
+        constraint: 'In-house development was priced out at that stage of the company.',
+        decision: 'Integrate an external Reveal.js-based solution and design within its ceiling instead of promising customisation we could not deliver.',
+        status: 'Shipped and working. Visual customisation is limited, and that limit is documented rather than hidden.'
+      },
+      {
+        title: 'B2C product, B2B buyer', kind: 'Business',
+        summary: 'A teacher tool became a school purchase, which changes who the design is really for.',
+        constraint: 'Schools had established paper workflows, hierarchy and approval chains that the product had to fit into.',
+        decision: 'Role-based architecture with a single governing rule: siya adapts to the school, not the other way round.',
+        status: 'Six roles live. Onboarding is the piece I would still redesign given time.'
+      },
+      {
+        title: 'Getting branding taken seriously', kind: 'Organisational',
+        summary: 'For months the answer was “branding can wait” while every artefact drifted further apart.',
+        constraint: 'Product velocity was the priority, and a mascot is an easy thing for a room to laugh at.',
+        decision: 'Build it anyway, then present it in context, hoodie, business card, empty state, onboarding, error state, so it read as a system rather than a drawing.',
+        status: 'Approved and rolled out across product, print and social. The mascot survived.'
+      },
+      {
+        title: 'Migrating 100+ screens on a deadline', kind: 'Craft vs speed',
+        summary: 'A new identity across a product this size was three months of manual work nobody had budgeted.',
+        constraint: 'I had intentionally not systemised the old UI, which made the migration larger; the CEO wanted it much faster.',
+        decision: 'Define the design system first, generate against it with AI, refine every screen by hand, and pull HTML into Figma only where it needed surgery.',
+        status: 'Shipped far faster than the manual estimate. The lesson: AI is only useful inside a defined system.'
+      }
+    ];
+    const open = this.state.challenge;
+    return {
+      challenges: items.map((c, i) => {
+        const isOpen = open === i;
+        return {
+          n: String(i + 1).padStart(2, '0'),
+          title: c.title, kind: c.kind, summary: c.summary,
+          constraint: c.constraint, decision: c.decision, status: c.status,
+          openDisplay: isOpen ? 'grid' : 'none',
+          iconRot: isOpen ? 'rotate(45deg)' : 'rotate(0deg)',
+          bg: isOpen
+            ? 'linear-gradient(150deg, rgba(255,255,255,.96) 0%, rgba(244,238,250,.8) 100%)'
+            : 'linear-gradient(150deg, rgba(255,255,255,.82) 0%, rgba(255,255,255,.56) 100%)',
+          border: isOpen ? 'rgba(160,132,232,.4)' : 'rgba(95,60,168,.1)',
+          shadow: isOpen ? '0 26px 60px -42px rgba(75,44,135,.45)' : 'none',
+          tagBg: isOpen ? 'rgba(160,132,232,.18)' : 'rgba(95,60,168,.08)',
+          tagFg: '#5B3DB7',
+          go: () => this.setState({ challenge: isOpen ? -1 : i })
+        };
+      })
+    };
+  }
+
+  componentDidMount() {
+    this.onScroll = () => {
+      const h = document.documentElement;
+      this.setState({ progress: Math.round((h.scrollTop / Math.max(1, h.scrollHeight - h.clientHeight)) * 100) });
+    };
+    window.addEventListener('scroll', this.onScroll, { passive: true });
+    this.onScroll();
+  }
+  componentWillUnmount() { window.removeEventListener('scroll', this.onScroll); }
+
+  renderVals() {
+    const isV1 = this.state.flow === 'v1';
+    const v1 = [
+      { n: '01', label: 'Enter paper details', note: 'Title, subject, duration' },
+      { n: '02', label: 'Board / grade / publication', note: 'Repository scope' },
+      { n: '03', label: 'Marks & parameters', note: 'Section-wise config' },
+      { n: '04', label: "Bloom's taxonomy", note: 'Cognitive spread' },
+      { n: '05', label: 'Generate', note: 'AI drafts the paper' },
+      { n: '06', label: 'Review & replace', note: 'Question-level edits' },
+      { n: '07', label: 'Preview & download', note: 'Print-ready' }
+    ];
+    const v2 = [
+      { n: '01', label: 'One setup screen', note: 'Details and scope merged' },
+      { n: '02', label: 'Smart defaults', note: 'Board pattern pre-filled' },
+      { n: '03', label: 'Generate', note: 'One outcome per action' },
+      { n: '04', label: 'AI Edit', note: 'Teacher writes their own ask', hi: true },
+      { n: '05', label: 'Review inline', note: 'Swap, regenerate, lock' },
+      { n: '06', label: 'Download', note: 'Fewer screens, fewer buttons' }
+    ];
+
+
+
+    return {
+      progress: this.state.progress + '%',
+      shift: [
+        { k: 'Before', v: '3 hours', note: 'Hunting, balancing marks, retyping. Every cycle, all year.', color: '#6A6C76' },
+        { k: 'After', v: '3 minutes', note: 'Configure, generate, review, download.', color: '#5B3DB7' },
+        { k: 'The moat', v: 'The repository', note: 'Every board, publisher and grade already in-house.', color: '#0A998E' }
+      ],
+      flowTabs: [
+        { name: 'Flow v1', bg: isV1 ? '#7050D5' : 'rgba(255,255,255,.7)', fg: isV1 ? '#fff' : '#2E2F36', border: isV1 ? '#7050D5' : 'rgba(95,60,168,.18)', go: () => this.setState({ flow: 'v1' }) },
+        { name: 'After testing', bg: !isV1 ? '#7050D5' : 'rgba(255,255,255,.7)', fg: !isV1 ? '#fff' : '#2E2F36', border: !isV1 ? '#7050D5' : 'rgba(95,60,168,.18)', go: () => this.setState({ flow: 'v2' }) }
+      ],
+      flowSteps: (isV1 ? v1 : v2).map((s) => ({
+        n: s.n, label: s.label, note: s.note,
+        bg: s.hi ? 'linear-gradient(150deg, rgba(232,224,251,.9), rgba(255,255,255,.7))' : 'rgba(255,255,255,.66)',
+        border: s.hi ? '#A084E8' : 'rgba(95,60,168,.1)',
+        fg: s.hi ? '#5B3DB7' : '#1A1B1E',
+        n_color: s.hi ? '#7050D5' : '#6A6C76'
+      })),
+      flowCaption: isV1
+        ? 'The original nine-step path. Teachers finished it and liked the output, then asked the question that changed the product: “what if I want my own questions?”'
+        : 'Fewer screens, fewer buttons, one purpose per action. AI Edit turned a repository tool into a personalisation tool, and gave the product a credit-based model on top of the free tier.',
+      vault: [
+        { role: 'Teacher', name: 'Question paper builder', state: 'Locked', plate: 'linear-gradient(150deg, #A084E8, #7050D5)',
+          body: 'Nine setup steps collapsed into one screen with the board pattern pre-filled. Three hours of assembly became about three minutes.',
+          decision: 'Every retyped field became a default she can override.' },
+        { role: 'Teacher', name: 'AI Edit', state: 'Locked', plate: 'linear-gradient(150deg, #BBA8F1, #5B3DB7)',
+          body: 'A teacher asks for a change in her own words. Swapping from the repository is free; generating something new spends credits.',
+          decision: 'A bounded escape hatch, it answered the teacher without dissolving the moat.' },
+        { role: 'Teacher', name: 'Evaluation engine', state: 'Locked', plate: 'linear-gradient(150deg, #2CD3C0, #12766D)',
+          body: 'Scanned handwritten sheets read, mapped back to their questions, continuation pages included, then handed to the teacher to confirm.',
+          decision: 'The UI assumes the model is sometimes wrong: confidence shown, source scan one tap away, override in one action.' },
+        { role: 'Teacher', name: 'Class insight dashboard', state: 'Locked', plate: 'linear-gradient(150deg, #8FB8F0, #3E63A8)',
+          body: 'Where each student stands, and, from the class average on a topic, which parts of her own syllabus landed and which did not.',
+          decision: 'It reads as feedback on the teaching, never as a scorecard on the teacher.' },
+        { role: 'Student', name: 'Personalised learning plan', state: 'Locked', plate: 'linear-gradient(150deg, #FADCA8, #C9954B)',
+          body: 'A plan built from what the student actually got wrong, with the areas the teacher should keep an eye on flagged to her in parallel.',
+          decision: 'One diagnosis, two audiences, the student gets a next step, the teacher gets a watchlist.' },
+        { role: 'Parent', name: 'Weekly report', state: 'Locked', plate: 'linear-gradient(150deg, #F2A888, #C9714B)',
+          body: 'Sent automatically: where she is now, where she could be, what is working and what is slipping, at whatever depth the school signs off on.',
+          decision: 'Direction of travel, never a leaderboard position.' },
+        { role: 'Principal', name: 'School dashboard', state: 'Locked', plate: 'linear-gradient(150deg, #A5A0E8, #4B2C87)',
+          body: 'Cohort and staff patterns across a term, assembled from the same evidence the teachers are already producing.',
+          decision: 'Patterns, never rankings. No risk scores, no red, no alarms.' },
+        { role: 'Admin · Tenant', name: 'Configuration', state: 'Locked', plate: 'linear-gradient(150deg, #6A6C76, #2A2B2E)',
+          body: 'Classes, terms, timetables, permissions, and which dashboards and reports a given school gets at all.',
+          decision: 'This is why no two deployments look alike, and why the screens are not public.' }
+      ],
+      roles: [
+        { name: 'Teacher', job: 'Papers, lesson plans, presentations, evaluation.' },
+        { name: 'Student', job: 'Assignments, results, personalised practice.' },
+        { name: 'Parent', job: 'Progress visibility without the noise.' },
+        { name: 'Principal', job: 'Cohort and staff level patterns.' },
+        { name: 'Admin', job: 'Timetables, classes, onboarding.' },
+        { name: 'Tenant admin', job: 'Multi-school configuration.' }
+      ],
+      ...this.journeyVals(),
+      ...this.challengeVals(),
+      hardParts: [
+        { tag: 'Technical', title: 'Reading handwriting', body: 'Real scanned sheets: bad handwriting, answers continued three pages later, mapping each one back to its question. Models tested and retrained until accuracy held, while cost per sheet climbed.' },
+        { tag: 'Constraint', title: 'Presentation generation', body: 'Building a generator in-house was too expensive, so we integrated an external Reveal.js-based solution. It works; visual customisation is limited. That tradeoff is part of the design.' },
+        { tag: 'Business', title: 'B2C → B2B', body: 'A teacher tool became a school purchase. Onboarding, roles and permissions had to fit workflows that already existed on paper.' }
+      ],
+      palette: [
+        { hex: '#A084E8', label: 'Lavender · 70%', flex: '70', fg: '#ffffff' },
+        { hex: '#2CD3C0', label: 'Teal · 20%', flex: '20', fg: '#00574F' },
+        { hex: '#F2A888', label: 'Orange', flex: '5', fg: '#010101' },
+        { hex: '#FADCA8', label: 'Champagne', flex: '5', fg: '#010101' }
+      ],
+      annSteps: [
+        { n: 'State 01', ft: '24%', fl: '47.5%', fw: '9.5%', fh: '60%', src: 'siya/sc-ann-base.webp', label: 'The marked sheet', note: 'Every answer highlighted in place on the original scan, with a per-question score floating beside it. The teacher reads her student\u2019s handwriting, not a table.' },
+        { n: 'State 02', ft: '42%', fl: '6%', fw: '42%', fh: '24%', src: 'siya/sc-ann-hover.webp', label: 'Hover to trace', note: 'Hovering a score lights up exactly which lines earned it. No trust without traceability, the mark has to point back at the evidence.' },
+        { n: 'State 03', ft: '21%', fl: '61%', fw: '33.5%', fh: '32%', src: 'siya/sc-ann-view.webp', label: 'View the question', note: 'The full question over the scan, because a teacher marking question seven has stopped remembering what question seven asked.' },
+        { n: 'State 04', ft: '62%', fl: '61%', fw: '33.5%', fh: '26%', src: 'siya/sc-ann-override.webp', label: 'Override and save', note: 'One field, one save. The machine\u2019s score stays visible struck through beside hers, nothing is silently overwritten.' }
+      ],
+      merch: [
+        { src: 'siya/merch-drinkware.webp', label: 'Drinkware', note: 'Wordmark on one side, mascot on the other. Never both.' },
+        { src: 'siya/merch-apparel.webp', label: 'Apparel', note: 'The mascot at desk-scale on the back, wordmark small on the chest.' },
+        { src: 'siya/merch-stationery.webp', label: 'Stationery', note: 'Pastel notebook set with the full sticker family.' },
+        { src: 'siya/merch-notebooks.webp', label: 'Notebooks', note: 'Lavender and teal only, the 70/20 ratio held in print.' },
+        { src: 'siya/merch-deskkit.webp', label: 'Desk kit', note: 'Sleeve, mousepad, case, stickers. The set a new joiner gets.' },
+        { src: 'siya/merch-poster.webp', label: 'Office poster', note: 'Learn. Grow. Succeed. The internal reminder of who we build for.' },
+        { src: 'siya/merch-figurines.webp', label: 'Character set', note: 'Reading, celebrating, sleeping, the expression range as objects.' },
+        { src: 'siya/mock-imac.webp', label: 'Product in context', note: 'The dashboard as a founder shows it in a meeting.' }
+      ],
+      carouselCards: [
+        { src: 'siya/c-cover.webp', label: 'Opener \u00b7 dark' },
+        { src: 'siya/c-bullets-v2.webp', label: 'Bulleted list' },
+        { src: 'siya/c-numbered-v2.webp', label: 'Numbered steps' },
+        { src: 'siya/c-stats-v2.webp', label: 'Stats' },
+        { src: 'siya/c-headline.webp', label: 'Headline & body' },
+        { src: 'siya/c-testimonial.webp', label: 'Testimonial' },
+        { src: 'siya/c-announcement.webp', label: 'Announcement' },
+        { src: 'siya/c-end.webp', label: 'Closer \u00b7 dark' }
+      ],
+      carouselPairs: [
+        { name: 'Bullet points', v1: 'siya/c-bullets-v1.webp', v2: 'siya/c-bullets-v2.webp', fix: 'Three sentences of equal weight gave the eye nowhere to land. v2 promotes a bold label above each line and demotes the sentence to support.' },
+        { name: 'Numbered steps', v1: 'siya/c-numbered-v1.webp', v2: 'siya/c-numbered-v2.webp', fix: 'Oversized numerals were louder than the steps they indexed. v2 shrinks them into quiet chips so the sequence reads as a process, not a countdown.' }
+      ],
+      slideTemplates: [
+        { src: 'siya/s-title.webp', label: 'Title' },
+        { src: 'siya/s-toc-v2.webp', label: 'Content overview' },
+        { src: 'siya/s-definition.webp', label: 'Definition' },
+        { src: 'siya/s-comparison2.webp', label: 'Comparison \u00b7 two-up' },
+        { src: 'siya/s-comparison3.webp', label: 'Comparison \u00b7 three-up' },
+        { src: 'siya/s-example.webp', label: 'Worked example' },
+        { src: 'siya/s-steps-img.webp', label: 'Steps with images' },
+        { src: 'siya/s-information.webp', label: 'Real-world connection' },
+        { src: 'siya/s-mcq.webp', label: 'MCQ' },
+        { src: 'siya/s-mcq-answer.webp', label: 'MCQ with answer' },
+        { src: 'siya/s-qa.webp', label: 'Check understanding' },
+        { src: 'siya/s-summary.webp', label: 'Summary' },
+        { src: 'siya/s-references.webp', label: 'References' },
+        { src: 'siya/s-infographic.webp', label: 'Media slide' }
+      ],
+      mascots: [
+        { src: S + 'mascot-wave.webp', label: 'Hello' },
+        { src: S + 'mascot-cheer.webp', label: 'Celebrating' },
+        { src: S + 'mascot-suit.webp', label: 'At work' },
+        { src: S + 'mascot-curious.webp', label: 'Curious' },
+        { src: S + 'mascot-peace.webp', label: 'Cheeky' },
+        { src: S + 'v-3.webp', label: 'Graduated' },
+        { src: S + 'mascot-unlock.webp', label: 'Impressed' },
+        { src: S + 'v-5.webp', label: 'Disappointed' }
+      ],
+      festival: [
+        { src: 'siya/post-holi.webp', occasion: 'Holi', label: 'Colours of joy', rule: 'No product on the post', note: 'The mascot covered in colour, pichkari in hand, on a wash of the festival\u2019s own palette. One warm line, the wordmark, nothing else. A greeting is never a pitch.' },
+        { src: S + 'post-ramzan.webp', occasion: 'Ramzan', label: 'Eid Mubarak', rule: 'Same skeleton, new mood', note: 'Identical structure, a completely different temperature: deep night blues, lanterns, the mascot dressed for the occasion. The system bends to the festival rather than stamping a brand on it.' },
+        { src: S + 'post-rama.webp', occasion: 'Rama Navami', label: 'Shri Rama Navami', rule: 'One hand across the year', note: 'Third occasion, same slots, same restraint, which is the point. Scroll the feed end to end and it reads as one company, not three vendors.' },
+        { src: S + 'social-banner.webp', occasion: 'Profile', label: 'The banner behind it all', rule: 'The frame, not a post', note: 'The fixed frame every festival post hangs off: wordmark left, breathing room right, no message competing with the feed below it.' }
+      ],
+      filters: [
+        { good: 'Observant', bad: 'Declarative' },
+        { good: 'Warm', bad: 'Clinical' },
+        { good: 'Empowering', bad: 'Commanding' },
+        { good: 'Honest', bad: 'Alarming' }
+      ],
+      voicePairs: [
+        { no: '“Student at risk. Immediate action required.”', yes: '“Three students showed early signs of disengagement. Worth a second look.”' },
+        { no: '“Our AI model predicts a 68% failure probability.”', yes: '“Arjun seems to process concepts better visually.”, Siya, Week 12' },
+        { no: '“Powerful AI-driven analytics platform.”', yes: '“800+ worksheets analysed every week.”' }
+      ],
+      aiSteps: [
+        { n: '01', step: 'Design system defined first', who: 'Human' },
+        { n: '02', step: 'Screen generation from the system', who: 'Claude' },
+        { n: '03', step: 'Manual refinement pass', who: 'Human' },
+        { n: '04', step: 'Export HTML → Figma surgery', who: 'Both' },
+        { n: '05', step: 'Share the link · devs host from it', who: 'Team' }
+      ],
+      growth: ['6 screens', '100+ screens', 'AI Edit', 'Lesson plans', 'Presentations', 'Evaluation', '6 user roles', 'Brand system', 'Schools in India', 'Malta & Europe'].map((label, i) => ({
+        label,
+        bg: i === 0 ? '#1B1D1E' : (i >= 8 ? '#7050D5' : 'rgba(255,255,255,.78)'),
+        fg: (i === 0 || i >= 8) ? '#fff' : '#2E2F36',
+        border: i === 0 ? '#1B1D1E' : (i >= 8 ? '#7050D5' : 'rgba(95,60,168,.14)'),
+        rs: (i * 3) + '%',
+        re: (12 + i * 3) + '%'
+      })),
+      gated: [
+        { n: '01', label: 'Product walkthrough, all six roles' },
+        { n: '02', label: 'Before and after the brand migration' },
+        { n: '03', label: 'Design system and component library' },
+        { n: '04', label: 'Evaluation and AI Edit flows' }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

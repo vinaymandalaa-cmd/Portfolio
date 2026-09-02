@@ -1,0 +1,951 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>Mavricks, Case Study · Vinay Mandala</title>
+<meta name="description" content="A gamified learning platform for grades 3 to 8. We built the game. The kids skipped the story." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600;700&family=Quantico:wght@400;700&display=swap" rel="stylesheet" />
+<style>
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: #000E1B; color: #e3e3e5; font-family: "Quantico", system-ui, sans-serif; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+  * { box-sizing: border-box; }
+  img { max-width: 100%; }
+  a { color: inherit; text-decoration: none; }
+  a:hover { color: #06e8e2; }
+  ::selection { background: #02938F; color: #001128; }
+  @keyframes rise { from { opacity: 0; transform: translateY(26px); } to { opacity: 1; transform: none; } }
+  @keyframes fadein { from { opacity: 0; } to { opacity: 1; } }
+  @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } html { scroll-behavior: auto; } }
+</style>
+<script src="./motion.js" data-accent="#06e8e2"></script>
+</helmet>
+
+<div style="position: relative; width: 100%; overflow-x: clip;">
+  <div style="position: fixed; top: 0; left: 0; height: 3px; width: {{ progress }}; background: linear-gradient(90deg, #024F93, #06e8e2); z-index: 90; transition: width .1s linear;"></div>
+
+  <nav style="position: sticky; top: 0; z-index: 60; display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 12px clamp(16px, 4vw, 48px); background: rgba(0,14,27,.92); backdrop-filter: blur(14px); border-bottom: 1px solid #012f5b;">
+    <a href="index.html" style="font-family: 'Quantico', sans-serif; font-size: clamp(11px, 1.1vw, 12px); letter-spacing: 0.14em; text-transform: uppercase;">← Vinay Mandala</a>
+    <span style="display: flex; align-items: center; gap: 9px; font-family: 'Rajdhani', sans-serif; font-weight: 700; font-size: clamp(11px, 1.2vw, 13px); letter-spacing: 0.18em; text-transform: uppercase; color: #06e8e2;">
+      <img decoding="async" fetchpriority="high" src="assets/mav/logo-13.webp" alt="" style="width: 20px; height: 20px; object-fit: contain; filter: brightness(2.4) saturate(.6);" />
+      Case 02 · Mavricks
+    </span>
+    <a href="NerdyOtaku.dc.html" style="font-family: 'Quantico', sans-serif; font-size: clamp(10px, 1.1vw, 12px); letter-spacing: 0.14em; text-transform: uppercase; color: #06e8e2;">Next →</a>
+  </nav>
+
+  <!-- ░ HERO ░ -->
+  <header data-screen-label="Mavricks hero" style="position: relative; padding: clamp(56px, 11vh, 128px) clamp(20px, 6vw, 96px) clamp(48px, 8vh, 96px); background: linear-gradient(165deg, #000E1B 0%, #01203c 46%, #024F93 100%); overflow: hidden;">
+    <div style="position: absolute; inset: 0; opacity: .16; background-image: linear-gradient(#4496fe 1px, transparent 1px), linear-gradient(90deg, #4496fe 1px, transparent 1px); background-size: 46px 46px; mask-image: radial-gradient(circle at 78% 12%, #000, transparent 68%);"></div>
+    <div style="position: relative; max-width: 1200px; margin: 0 auto;">
+      <div style="display: flex; flex-wrap: wrap; gap: 8px 18px; font-family: 'Quantico', sans-serif; font-size: clamp(11px, 1.05vw, 12px); letter-spacing: 0.16em; text-transform: uppercase; color: #9bbcff;">
+        <span>Oaks Solutions</span><span style="color: #02938F;">◆</span><span>Jul 2024, 2025</span><span style="color: #02938F;">◆</span><span>Product · Visual · Brand</span><span style="color: #02938F;">◆</span><span>Grades 3, 8</span>
+      </div>
+      <h1 style="font-family: 'Rajdhani', sans-serif; font-weight: 700; font-size: clamp(34px, 7.4vw, 116px); line-height: 0.94; letter-spacing: -0.01em; margin: clamp(18px, 3.5vh, 34px) 0 0; color: #FFFFFF; text-transform: uppercase;">
+        We built the game.<br /><span style="color: #06e8e2;">The kids skipped<br />the story.</span>
+      </h1>
+      <p style="max-width: 54ch; margin: clamp(20px, 3.5vh, 32px) 0 0; font-size: clamp(14.5px, 1.35vw, 18px); line-height: 1.7; color: #bbbbbf;">
+        A gamified learning platform: comics that teach, games that reward, a community to compete in. I joined because it was the closest thing to the games I wanted to make as a kid. I inherited a half-built prototype with no product language, gave it one, and then watched real classrooms break the premise the whole thing was built on.
+      </p>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 140px), 1fr)); gap: 10px; margin-top: clamp(28px, 5vh, 52px);">
+        <sc-for list="{{ stats }}" as="s" hint-placeholder-count="4">
+          <div style="padding: 16px 18px; background: rgba(1,17,40,.6); border: 1px solid #012f5b; clip-path: polygon(16px 0, 100% 0, 100% calc(100% - 16px), calc(100% - 16px) 100%, 0 100%, 0 16px);">
+            <span style="display: block; font-family: 'Rajdhani', sans-serif; font-weight: 700; font-size: clamp(20px, 2.6vw, 34px); line-height: 1; color: #06e8e2;">{{ s.v }}</span>
+            <span style="display: block; margin-top: 7px; font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: #94959a;">{{ s.k }}</span>
+          </div>
+        </sc-for>
+      </div>
+      <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: clamp(22px, 4vh, 36px);">
+        <a href="https://play.google.com/store/apps/details?id=com.youroaks.learning" style="display: inline-flex; padding: 13px 22px; background: #06e8e2; color: #001128; font-family: 'Rajdhani', sans-serif; font-weight: 700; font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; clip-path: polygon(12px 0, 100% 0, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0 100%, 0 12px);" style-hover="background: #FFFFFF;">On Google Play ↗</a>
+        <a href="#access" style="display: inline-flex; padding: 13px 22px; border: 1px solid #0472cf; color: #9bbcff; font-family: 'Rajdhani', sans-serif; font-weight: 600; font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; clip-path: polygon(12px 0, 100% 0, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0 100%, 0 12px);" style-hover="background: #012f5b; color: #FFFFFF;">Figma on request</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- AT A GLANCE -->
+  <section data-screen-label="At a glance" style="padding: 0 clamp(20px, 6vw, 88px) clamp(30px, 5vh, 56px);">
+    <div style="max-width: 1200px; margin: 0 auto; padding: clamp(22px, 3vw, 32px); background: rgba(1,17,40,.6); border: 1px solid #012f5b; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 210px), 1fr)); gap: clamp(18px, 2.4vw, 34px); align-items: start;">
+          <div style="display: flex; flex-direction: column; gap: 7px;">
+            <span style="font-family: 'Quantico', sans-serif; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: #06e8e2;">Role</span>
+            <span style="font-size: 14.5px; line-height: 1.6; color: #d3d4d8;">Product and visual designer, joined a half-built prototype</span>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 7px;">
+            <span style="font-family: 'Quantico', sans-serif; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: #06e8e2;">Timeline</span>
+            <span style="font-size: 14.5px; line-height: 1.6; color: #d3d4d8;">Jul 2024 → 2025 · Oaks Solutions</span>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 7px;">
+            <span style="font-family: 'Quantico', sans-serif; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: #06e8e2;">I owned</span>
+            <span style="font-size: 14.5px; line-height: 1.6; color: #d3d4d8;">The product language, 40+ screens redrawn by hand, four game designs, the icon system and brand lockups</span>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 7px;">
+            <span style="font-family: 'Quantico', sans-serif; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: #06e8e2;">Worked with</span>
+            <span style="font-size: 14.5px; line-height: 1.6; color: #d3d4d8;">Engineering, the illustration pipeline, and grade 3 and 8 students in school testing</span>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 7px;">
+            <span style="font-family: 'Quantico', sans-serif; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: #06e8e2;">Where it landed</span>
+            <span style="font-size: 14.5px; line-height: 1.6; color: #d3d4d8;">Live on Google Play, and the interface drew the strongest response of anything I have shipped. Classroom testing showed children skipping the comics, so progression was rebuilt around play instead of story.</span>
+          </div>
+    </div>
+    <p style="max-width: 1200px; margin: 12px auto 0; font-family: 'Quantico', sans-serif; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: #7d7f85;">Source files are under NDA · Figma on request</p>
+  </section>
+
+  <!-- ░ 01 INHERITANCE ░ -->
+  <section data-screen-label="The inheritance" style="padding: clamp(56px, 10vh, 120px) clamp(20px, 6vw, 96px); background: #010101;">
+    <div style="max-width: 1200px; margin: 0 auto;">
+      <span style="font-family: 'Quantico', sans-serif; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: #02938F;">01 / the inheritance</span>
+      <h2 style="font-family: 'Rajdhani', sans-serif; font-weight: 700; font-size: clamp(26px, 4.4vw, 60px); line-height: 1.02; margin: 14px 0 0; max-width: 24ch; color: #FFFFFF; text-transform: uppercase;">There was a product idea. There wasn't a product language.</h2>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 290px), 1fr)); gap: clamp(22px, 3.5vw, 54px); margin-top: clamp(22px, 4vh, 40px); align-items: start;">
+        <p style="margin: 0; font-size: clamp(14px, 1.3vw, 16.5px); line-height: 1.75; color: #bbbbbf;">
+          Development was already half done. What existed was a demonstration, not an interface: Freepik illustrations next to AI art in three different styles, screens handed to developers as flat PNGs, they'd pushed back before I arrived. No components, no hierarchy, no icon set, no website. An idea and a demo story.
+          <br /><br />
+          I wanted to build the brand first. The answer was ship now, redesign later. So I cleaned up the scrap, vectors instead of PNGs, an SVG icon set, primary and secondary buttons, repeatable card patterns, got consistency into the build, and only then designed the world of Mavricks properly and rebuilt every screen by hand. Every screen, icon and component in this case study was drawn by hand, no AI anywhere in the product. In 2024 there was nothing worth using, and by the time there was, this had already shipped.
+        </p>
+        <div style="display: grid; gap: 8px;">
+          <sc-for list="{{ fixes }}" as="f" hint-placeholder-count="6">
+            <div data-om-stack style="display: grid; grid-template-columns: 1fr auto 1fr; gap: 10px; align-items: center; padding: 12px 14px; background: #101112; border: 1px solid #2d2e31;">
+              <span style="font-size: 12.5px; color: #6f7176; text-decoration: line-through;">{{ f.before }}</span>
+              <span data-om-arrow style="color: #02938F; font-size: 13px;">▸</span>
+              <span style="font-size: 12.5px; text-align: right; color: #e3e3e5;">{{ f.after }}</span>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+
+      <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; margin-top: clamp(32px, 5vh, 56px);">
+        <p style="margin: 0; font-family: 'Rajdhani', sans-serif; font-weight: 600; font-size: clamp(15px, 1.7vw, 21px); letter-spacing: 0.02em; color: #94959a; text-transform: uppercase;">{{ eraCaption }}</p>
+        <div style="display: flex; gap: 8px;">
+          <sc-for list="{{ eraTabs }}" as="t" hint-placeholder-count="2">
+            <button type="button" onClick="{{ t.go }}" style="cursor: pointer; padding: 10px 18px; border: 1px solid {{ t.border }}; background: {{ t.bg }}; color: {{ t.fg }}; font-family: 'Rajdhani', sans-serif; font-weight: 700; font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; transition: all .3s; clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px);">{{ t.name }}</button>
+          </sc-for>
+        </div>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 210px), 1fr)); gap: 10px; margin-top: 16px;">
+        <sc-for list="{{ eraShots }}" as="s" hint-placeholder-count="8">
+          <figure style="margin: 0; background: #101112; border: 1px solid #2d2e31; overflow: hidden; animation: fadein .5s ease both;">
+            <img decoding="async" loading="lazy" src="{{ s.src }}" alt="{{ s.label }}" style="display: block; width: 100%; height: auto;" />
+            <figcaption style="padding: 10px 12px; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: #6f7176;">{{ s.label }}</figcaption>
+          </figure>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- ░ 02 THE RENAME + SYSTEM ░ -->
+  <section data-screen-label="Rename and system" style="padding: clamp(56px, 10vh, 120px) clamp(20px, 6vw, 96px); background: #FFFFFF; color: #101112;">
+    <div style="max-width: 1200px; margin: 0 auto;">
+      <span style="font-family: 'Quantico', sans-serif; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: #024F93;">02 / the system</span>
+      <h2 style="font-family: 'Rajdhani', sans-serif; font-weight: 700; font-size: clamp(28px, 5vw, 68px); line-height: 1; margin: 14px 0 0; text-transform: uppercase; color: #001128;">
+        Mav<span style="color: #bbbbbf; text-decoration: line-through;">e</span>ricks → <span style="color: #024F93;">Mavricks</span>
+      </h2>
+      <p style="max-width: 58ch; margin: 18px 0 0; font-size: clamp(14px, 1.3vw, 16.5px); line-height: 1.75; color: #4d4e52;">
+        Dropping a letter sounds cosmetic. It wasn't. “Mavericks” was a generic word owned by other people; “Mavricks” was ours, and it forced the whole identity to be rebuilt rather than patched, a mark, a lockup set, one type system and one palette, before a single screen was redrawn.
+      </p>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 270px), 1fr)); gap: clamp(20px, 3vw, 44px); margin-top: clamp(28px, 5vh, 52px); align-items: start;">
+        <div>
+          <span style="font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: #024F93;">The mark</span>
+          <p style="margin: 12px 0 0; font-size: clamp(13.5px, 1.3vw, 16px); line-height: 1.75; color: #4d4e52; max-width: 44ch;">
+            I wanted a superhero mask in the logo. That was the whole brief I gave myself, and it took a few iterations to get out of drawing a face: the mask became a pair of wings closing into a V, and the brow became an arc sitting above them. It kept the mask silhouette and picked up a second meaning, ascent.
+            <br /><br />
+            One colour treatment, three lockups. Gradient navy only, because a nine-year-old recognises a shape long before a palette, so the shape got the variety and the colour stayed fixed.
+          </p>
+        </div>
+        <div style="display: grid; gap: 10px;">
+          <sc-for list="{{ logos }}" as="l" hint-placeholder-count="3">
+            <div style="display: flex; align-items: center; gap: clamp(14px, 2vw, 24px); padding: 18px 22px; border: 1px solid #e3e3e5; background: #FFFFFF;">
+              <div style="flex: 0 0 auto; width: clamp(76px, 11vw, 120px); display: grid; place-items: center;">
+                <img decoding="async" loading="lazy" src="{{ l.src }}" alt="Mavricks logo lockup" style="max-width: 100%; max-height: 84px; object-fit: contain;" />
+              </div>
+              <div>
+                <span style="display: block; font-family: 'Rajdhani', sans-serif; font-weight: 700; font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; color: #001128;">{{ l.name }}</span>
+                <span style="display: block; margin-top: 5px; font-size: 12px; line-height: 1.6; color: #6f7176;">{{ l.use }}</span>
+              </div>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: 14px; margin-top: clamp(28px, 5vh, 52px);">
+        <div style="padding: 24px; border: 1px solid #e3e3e5; background: #FFFFFF;">
+          <span style="font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: #024F93;">Type</span>
+          <p style="font-family: 'Rajdhani', sans-serif; font-weight: 700; font-size: clamp(26px, 3vw, 40px); line-height: 1; margin: 12px 0 2px; text-transform: uppercase;">Rajdhani</p>
+          <p style="margin: 0 0 14px; font-size: 12px; letter-spacing: 0.1em; color: #6f7176;">Bold · Semibold, titles, buttons, top bar</p>
+          <p style="font-family: 'Quantico', sans-serif; font-size: clamp(17px, 1.9vw, 24px); margin: 0 0 2px;">Quantico</p>
+          <p style="margin: 0; font-size: 12px; letter-spacing: 0.1em; color: #6f7176;">Regular, body, labels, in-game text</p>
+          <div style="display: grid; gap: 5px; margin-top: 16px; padding-top: 14px; border-top: 1px solid #e3e3e5;">
+            <sc-for list="{{ typeScale }}" as="t" hint-placeholder-count="5">
+              <div style="display: flex; justify-content: space-between; gap: 10px; font-size: 11.5px; color: #4d4e52;">
+                <span style="font-family: 'Rajdhani', sans-serif; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;">{{ t.n }}</span>
+                <span style="color: #94959a;">{{ t.v }}</span>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+        <div style="padding: 24px; border: 1px solid #e3e3e5;">
+          <span style="font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: #024F93;">Palette · analogous blue</span>
+          <div style="display: flex; gap: 8px; margin-top: 14px;">
+            <sc-for list="{{ coreColors }}" as="c" hint-placeholder-count="4">
+              <div style="flex: 1;">
+                <div style="height: clamp(48px, 6vw, 64px); background: {{ c.hex }}; border: 1px solid #e3e3e5;"></div>
+                <span style="display: block; margin-top: 7px; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: #6f7176;">{{ c.name }}</span>
+                <span style="display: block; font-size: 11px; color: #94959a;">{{ c.hex }}</span>
+              </div>
+            </sc-for>
+          </div>
+          <div style="display: grid; gap: 5px; margin-top: 18px;">
+            <sc-for list="{{ ramps }}" as="r" hint-placeholder-count="4">
+              <div>
+                <span style="display: block; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: #94959a; margin-bottom: 4px;">{{ r.name }}</span>
+                <div style="display: flex; height: 18px;">
+                  <sc-for list="{{ r.steps }}" as="h" hint-placeholder-count="7">
+                    <span style="flex: 1; background: {{ h }};"></span>
+                  </sc-for>
+                </div>
+              </div>
+            </sc-for>
+          </div>
+          <p style="margin: 16px 0 0; font-size: 12.5px; line-height: 1.65; color: #4d4e52;">Navy carries structure, the teal tertiary carries every interactive state in-game. That split is why the arcade reads as one place even across four different games.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ░ 03 ONBOARDING FUNNEL ░ -->
+  <section data-screen-label="Onboarding funnel" style="padding: clamp(56px, 10vh, 120px) clamp(20px, 6vw, 96px); background: #000E1B;">
+    <div style="max-width: 1200px; margin: 0 auto;">
+      <span style="font-family: 'Quantico', sans-serif; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: #02938F;">03 / getting in</span>
+      <h2 style="font-family: 'Rajdhani', sans-serif; font-weight: 700; font-size: clamp(26px, 4.6vw, 62px); line-height: 1.02; margin: 14px 0 0; max-width: 22ch; color: #FFFFFF; text-transform: uppercase;">Six steps before a kid can play. Each one had to earn its place.</h2>
+      <p style="max-width: 62ch; margin: 18px 0 0; font-size: clamp(14px, 1.3vw, 16.5px); line-height: 1.75; color: #bbbbbf;">
+        Phone-number auth is a hard requirement for a product schools buy, and every extra field is a place to lose a nine-year-old. So the copy speaks in-world, “Yo! Welcome Aboard”, “Hi Maverick!”, validation is inline rather than blocking, and the avatar only appears once there's a name to attach it to. The last step is a playable demo instead of a tutorial: solve the Kohinoor Diamond case before you have anything to lose.
+        <br /><br />
+        This is the spine, taken from the fast prototype I built to argue the flow. The edge cases, the toasts and the skip confirm live in the file.
+      </p>
+      <div style="display: flex; gap: 8px; margin-top: clamp(22px, 4vh, 38px); overflow-x: auto; padding-bottom: 14px;">
+        <sc-for list="{{ funnel }}" as="f" hint-placeholder-count="8">
+          <figure style="margin: 0; flex: 0 0 auto; width: clamp(230px, 30vw, 350px); border: 1px solid {{ f.border }}; background: #010101;">
+            <div style="position: relative;">
+              <img decoding="async" loading="lazy" src="{{ f.src }}" alt="{{ f.label }}" style="display: block; width: 100%; height: auto;" />
+              <sc-if value="{{ f.lock }}" hint-placeholder-val="{{ false }}">
+                <div style="position: absolute; inset: 0; display: grid; place-items: center; padding: 16px; text-align: center; background: rgba(0,14,27,.72); backdrop-filter: blur(9px);">
+                  <div>
+                    <span style="display: block; font-family: 'Rajdhani', sans-serif; font-weight: 700; font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: #06e8e2;">&#9635; locked</span>
+                    <a href="#access" style="display: inline-block; margin-top: 9px; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: #FFFFFF; border-bottom: 1px solid #02938F;">On request &#8594;</a>
+                  </div>
+                </div>
+              </sc-if>
+            </div>
+            <figcaption style="padding: 11px 13px; border-top: 1px solid #012f5b;">
+              <span style="display: block; font-family: 'Quantico', sans-serif; font-size: 11px; letter-spacing: 0.16em; color: #02938F;">{{ f.n }}</span>
+              <span style="display: block; margin-top: 5px; font-family: 'Rajdhani', sans-serif; font-weight: 700; font-size: 14.5px; letter-spacing: 0.02em; text-transform: uppercase; color: {{ f.fg }};">{{ f.label }}</span>
+              <span style="display: block; margin-top: 4px; font-size: 11px; line-height: 1.5; color: #7f8388;">{{ f.note }}</span>
+            </figcaption>
+          </figure>
+        </sc-for>
+      </div>
+      <p style="margin: 0; font-family: 'Quantico', sans-serif; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: #6f7176;">← scroll the funnel →</p>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr)); gap: 12px; margin-top: clamp(26px, 4vh, 44px);">
+        <sc-for list="{{ funnelRules }}" as="r" hint-placeholder-count="3">
+          <div style="padding: 20px; background: rgba(1,17,40,.55); border: 1px solid #012f5b; clip-path: polygon(16px 0, 100% 0, 100% calc(100% - 16px), calc(100% - 16px) 100%, 0 100%, 0 16px);">
+            <span style="display: block; font-family: 'Rajdhani', sans-serif; font-weight: 700; font-size: clamp(15px, 1.6vw, 19px); text-transform: uppercase; color: #06e8e2;">{{ r.title }}</span>
+            <p style="margin: 9px 0 0; font-size: 12.5px; line-height: 1.65; color: #bbbbbf;">{{ r.body }}</p>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- ░ 04 APP STRUCTURE ░ -->
+  <section data-screen-label="App structure" style="padding: clamp(56px, 10vh, 120px) clamp(20px, 6vw, 96px); background: #010101;">
+    <div style="max-width: 1200px; margin: 0 auto;">
+      <span style="font-family: 'Quantico', sans-serif; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: #02938F;">04 / the structure</span>
+      <h2 style="font-family: 'Rajdhani', sans-serif; font-weight: 700; font-size: clamp(26px, 4.6vw, 62px); line-height: 1.02; margin: 14px 0 0; max-width: 20ch; color: #FFFFFF; text-transform: uppercase;">Four pillars, one HUD, never a hamburger.</h2>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 290px), 1fr)); gap: clamp(22px, 3.5vw, 54px); margin-top: clamp(22px, 4vh, 40px); align-items: start;">
+        <div>
+          <p style="margin: 0; font-size: clamp(14px, 1.3vw, 16.5px); line-height: 1.75; color: #bbbbbf;">
+            Everything hangs off a permanent left rail and a permanent top HUD. The rail carries the four destinations; the HUD carries the four things they always want to know, energy, coins, level progress, streak.
+            <br /><br />
+            No nested menus, no hidden navigation. A ten-year-old should never have to remember where something lives, and a parent glancing over a shoulder should be able to read the state of the account in one second.
+          </p>
+          <div style="display: grid; gap: 8px; margin-top: 22px;">
+            <sc-for list="{{ pillars }}" as="p" hint-placeholder-count="4">
+              <div style="display: flex; align-items: baseline; gap: 12px; padding: 13px 16px; background: rgba(255,255,255,.03); border-left: 2px solid #02938F;">
+                <span style="font-family: 'Rajdhani', sans-serif; font-weight: 700; font-size: 15px; letter-spacing: 0.06em; text-transform: uppercase; color: #FFFFFF; min-width: 92px;">{{ p.name }}</span>
+                <span style="font-size: 12.5px; line-height: 1.55; color: #94959a;">{{ p.job }}</span>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+        <div style="display: grid; gap: 10px;">
+          <figure style="margin: 0; border: 1px solid #2d2e31; background: #000E1B;">
+            <img decoding="async" loading="lazy" src="assets/mav2/arcade-games.webp" alt="Arcade games grid with the persistent rail and HUD" style="display: block; width: 100%; height: auto;" />
+            <figcaption style="padding: 11px 14px; border-top: 1px solid #2d2e31; font-size: 11.5px; line-height: 1.55; color: #94959a;">Rail left, HUD top, content in one clipped panel. Every screen in the app is this frame with a different centre.</figcaption>
+          </figure>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 150px), 1fr)); gap: 10px;">
+            <figure style="margin: 0; border: 1px solid #2d2e31; background: #000E1B;">
+              <img decoding="async" loading="lazy" src="assets/mav2/loading-hint.webp" alt="Loading screen with gameplay hint" style="display: block; width: 100%; height: auto;" />
+              <figcaption style="padding: 9px 11px; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: #6f7176;">Loading · hints</figcaption>
+            </figure>
+            <figure style="margin: 0; border: 1px solid #2d2e31; background: #000E1B;">
+              <img decoding="async" loading="lazy" src="assets/mav2/daily-energy.webp" alt="Daily energy reward" style="display: block; width: 100%; height: auto;" />
+              <figcaption style="padding: 9px 11px; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: #6f7176;">Daily energy</figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ░ 05 SEASONS ░ -->
+  <section data-screen-label="Seasons" style="padding: clamp(56px, 10vh, 120px) clamp(20px, 6vw, 96px); background: #000E1B;">
+    <div style="max-width: 1200px; margin: 0 auto;">
+      <span style="font-family: 'Quantico', sans-serif; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: #02938F;">05 / seasons</span>
+      <h2 style="font-family: 'Rajdhani', sans-serif; font-weight: 700; font-size: clamp(26px, 4.6vw, 62px); line-height: 1.02; margin: 14px 0 0; max-width: 22ch; color: #FFFFFF; text-transform: uppercase;">The story is a map, and the download state is the interface.</h2>
+      <p style="max-width: 62ch; margin: 18px 0 0; font-size: clamp(14px, 1.3vw, 16.5px); line-height: 1.75; color: #bbbbbf;">
+        Each season is an episode, Become a Mavrick, Defeat Mad Scientist, The Origins, and each one is a real download on a real school phone with real storage limits. So the season card carries its own lifecycle: fetch it, watch it pull, play it, clear it. Progress is stated as missions completed, never as a vague percentage, because “3/10” is a promise a child can hold, and it sits on the island node itself rather than in a screen of its own.
+      </p>
+      <div style="display: flex; flex-wrap: wrap; gap: 7px; margin-top: clamp(22px, 4vh, 36px);">
+        <sc-for list="{{ seasonTabs }}" as="t" hint-placeholder-count="3">
+          <button type="button" onClick="{{ t.go }}" style="cursor: pointer; padding: 10px 18px; border: 1px solid {{ t.border }}; background: {{ t.bg }}; color: {{ t.fg }}; font-family: 'Rajdhani', sans-serif; font-weight: 700; font-size: 11.5px; letter-spacing: 0.14em; text-transform: uppercase; transition: all .28s; clip-path: polygon(9px 0, 100% 0, 100% calc(100% - 9px), calc(100% - 9px) 100%, 0 100%, 0 9px);">{{ t.name }}</button>
+        </sc-for>
+      </div>
+      <figure style="margin: 14px 0 0; border: 1px solid #012f5b; background: #010101; overflow: hidden;">
+        <img decoding="async" loading="lazy" src="{{ seasonSrc }}" alt="{{ seasonLabel }}" style="display: block; width: 100%; height: auto;" />
+      </figure>
+      <p style="margin: 14px 0 0; max-width: 66ch; font-size: clamp(13px, 1.25vw, 15.5px); line-height: 1.7; color: #9bbcff;">{{ seasonNote }}</p>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 230px), 1fr)); gap: 10px; margin-top: clamp(26px, 4vh, 44px);">
+        <sc-for list="{{ missionShots }}" as="m" hint-placeholder-count="4">
+          <figure style="margin: 0; border: 1px solid #012f5b; background: #010101;">
+            <div style="position: relative;">
+              <img decoding="async" loading="lazy" src="{{ m.src }}" alt="{{ m.label }}" style="display: block; width: 100%; height: auto;" />
+              <sc-if value="{{ m.lock }}" hint-placeholder-val="{{ false }}">
+                <div style="position: absolute; inset: 0; display: grid; place-items: center; padding: 16px; text-align: center; background: rgba(0,14,27,.72); backdrop-filter: blur(9px);">
+                  <div>
+                    <span style="display: block; font-family: 'Rajdhani', sans-serif; font-weight: 700; font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: #06e8e2;">&#9635; locked</span>
+                    <a href="#access" style="display: inline-block; margin-top: 9px; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: #FFFFFF; border-bottom: 1px solid #02938F;">On request &#8594;</a>
+                  </div>
+                </div>
+              </sc-if>
+            </div>
+            <figcaption style="padding: 11px 13px; border-top: 1px solid #012f5b;">
+              <span style="display: block; font-family: 'Rajdhani', sans-serif; font-weight: 700; font-size: 12px; letter-spacing: 0.13em; text-transform: uppercase; color: #06e8e2;">{{ m.label }}</span>
+              <span style="display: block; margin-top: 5px; font-size: 11.5px; line-height: 1.55; color: #94959a;">{{ m.note }}</span>
+            </figcaption>
+          </figure>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- ░ 06 MULTIPLAYER ░ -->
+  <section data-screen-label="Multiplayer" style="padding: clamp(56px, 10vh, 120px) clamp(20px, 6vw, 96px); background: #010101;">
+    <div style="max-width: 1200px; margin: 0 auto;">
+      <span style="font-family: 'Quantico', sans-serif; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: #02938F;">06 / multiplayer</span>
+      <h2 style="font-family: 'Rajdhani', sans-serif; font-weight: 700; font-size: clamp(26px, 4.6vw, 62px); line-height: 1.02; margin: 14px 0 0; max-width: 22ch; color: #FFFFFF; text-transform: uppercase;">Eight kids, one board, and only two seats.</h2>
+      <div style="display: inline-flex; align-items: center; gap: 9px; margin-top: 16px; padding: 8px 14px; border: 1px solid #02938F; font-family: 'Quantico', sans-serif; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: #06e8e2;">Status · exploration, never shipped</div>
+      <p style="max-width: 62ch; margin: 16px 0 0; font-size: clamp(14px, 1.3vw, 16.5px); line-height: 1.75; color: #bbbbbf;">
+        The arcade never went live. This was early UX and UI, me experimenting with flows and gameplay to see whether a classroom-sized room could work at all. Three screens carry the whole idea: the room, the choice, the match. Tic Tac Toe seats two, so eight can join and the admin decides who plays; everyone else becomes a spectator instead of being dropped. Coins are pooled before the first move, so the stake is stated once, centrally, and never discovered after losing.
+      </p>
+      <div style="display: flex; flex-wrap: wrap; gap: 7px; margin-top: clamp(22px, 4vh, 36px);">
+        <sc-for list="{{ mpTabs }}" as="t" hint-placeholder-count="3">
+          <button type="button" onClick="{{ t.go }}" style="cursor: pointer; padding: 10px 16px; border: 1px solid {{ t.border }}; background: {{ t.bg }}; color: {{ t.fg }}; font-family: 'Rajdhani', sans-serif; font-weight: 700; font-size: 11.5px; letter-spacing: 0.14em; text-transform: uppercase; transition: all .28s; clip-path: polygon(9px 0, 100% 0, 100% calc(100% - 9px), calc(100% - 9px) 100%, 0 100%, 0 9px);">{{ t.name }}</button>
+        </sc-for>
+      </div>
+      <figure style="margin: 14px 0 0; border: 1px solid #2d2e31; background: #000E1B; overflow: hidden;">
+        <img decoding="async" loading="lazy" src="{{ mpSrc }}" alt="{{ mpLabel }}" style="display: block; width: 100%; height: auto;" />
+      </figure>
+      <p style="margin: 14px 0 0; max-width: 66ch; font-size: clamp(13px, 1.25vw, 15.5px); line-height: 1.7; color: #9bbcff;">{{ mpNote }}</p>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr)); gap: 12px; margin-top: clamp(26px, 4vh, 44px);">
+        <sc-for list="{{ arcadeRules }}" as="r" hint-placeholder-count="4">
+          <div style="padding: 20px; background: rgba(1,17,40,.55); border: 1px solid #012f5b; clip-path: polygon(16px 0, 100% 0, 100% calc(100% - 16px), calc(100% - 16px) 100%, 0 100%, 0 16px);">
+            <span style="display: block; font-family: 'Rajdhani', sans-serif; font-weight: 700; font-size: clamp(15px, 1.6vw, 19px); text-transform: uppercase; color: #06e8e2;">{{ r.title }}</span>
+            <p style="margin: 9px 0 0; font-size: 12.5px; line-height: 1.65; color: #bbbbbf;">{{ r.body }}</p>
+          </div>
+        </sc-for>
+      </div>
+
+      <div style="margin-top: clamp(34px, 6vh, 64px); padding-top: clamp(26px, 4vh, 40px); border-top: 1px solid #2d2e31;">
+        <span style="font-family: 'Quantico', sans-serif; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: #02938F;">The hardest screen</span>
+        <h3 style="font-family: 'Rajdhani', sans-serif; font-weight: 700; font-size: clamp(21px, 3.2vw, 42px); line-height: 1.05; margin: 12px 0 0; max-width: 26ch; color: #FFFFFF; text-transform: uppercase;">Nobody had drawn Pictionary sideways.</h3>
+        <p style="max-width: 62ch; margin: 16px 0 0; font-size: clamp(14px, 1.3vw, 16.5px); line-height: 1.75; color: #bbbbbf;">
+          Every drawing-and-guessing game I could find at the time was built portrait, canvas on top, chat underneath. Mavricks is played on a phone held sideways, so there was no layout to borrow and no convention to lean on. The frame ended up as three vertical bands: players and score hard left, canvas centre, chat and guess field right, with the word, the round count and the drawer's name floating over the canvas instead of stealing a band from it. Both side panels collapse, because the moment someone is actually drawing, the canvas is the only thing that matters.
+        </p>
+        <figure style="margin: 18px 0 0; border: 1px solid #2d2e31; background: #000E1B;">
+          <img decoding="async" loading="lazy" src="assets/mav/pict-2.webp" alt="Pictionary in landscape, three band layout" style="display: block; width: 100%; height: auto;" />
+          <figcaption style="padding: 12px 14px; border-top: 1px solid #2d2e31; font-size: 11.5px; line-height: 1.6; color: #94959a;">Round state, nine players, live chat and a drawing surface, in landscape, with nothing overlapping the canvas.</figcaption>
+        </figure>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr)); gap: 10px; margin-top: 10px;">
+          <figure style="margin: 0; border: 1px solid #2d2e31; background: #000E1B;">
+            <img decoding="async" loading="lazy" src="assets/mav/pict-4.webp" alt="Pictionary with both side panels collapsed" style="display: block; width: 100%; height: auto;" />
+            <figcaption style="padding: 10px 12px; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: #6f7176;">Panels collapsed · full canvas</figcaption>
+          </figure>
+          <figure style="margin: 0; border: 1px solid #2d2e31; background: #000E1B;">
+            <div style="position: relative;">
+              <img decoding="async" loading="lazy" src="assets/mav/pict-5.webp" alt="" style="display: block; width: 100%; height: auto;" />
+              <div style="position: absolute; inset: 0; display: grid; place-items: center; padding: 16px; text-align: center; background: rgba(0,14,27,.72); backdrop-filter: blur(9px);">
+                <div>
+                  <span style="display: block; font-family: 'Rajdhani', sans-serif; font-weight: 700; font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: #06e8e2;">&#9635; locked</span>
+                  <span style="display: block; margin-top: 7px; font-size: 11px; line-height: 1.55; color: #bbbbbf;">Six layout attempts, the tool rail and the round-end states.</span>
+                  <a href="#access" style="display: inline-block; margin-top: 10px; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: #FFFFFF; border-bottom: 1px solid #02938F;">On request &#8594;</a>
+                </div>
+              </div>
+            </div>
+            <figcaption style="padding: 10px 12px; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: #6f7176;">The iterations</figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ░ 07 PROGRESSION ░ -->
+  <section data-screen-label="Progression" style="padding: clamp(56px, 10vh, 120px) clamp(20px, 6vw, 96px); background: #000E1B;">
+    <div style="max-width: 1200px; margin: 0 auto;">
+      <span style="font-family: 'Quantico', sans-serif; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: #02938F;">07 / progression</span>
+      <h2 style="font-family: 'Rajdhani', sans-serif; font-weight: 700; font-size: clamp(26px, 4.6vw, 62px); line-height: 1.02; margin: 14px 0 0; max-width: 24ch; color: #FFFFFF; text-transform: uppercase;">Leagues and ranks shipped. The rest we parked on purpose.</h2>
+      <p style="max-width: 62ch; margin: 18px 0 0; font-size: clamp(14px, 1.3vw, 16.5px); line-height: 1.75; color: #bbbbbf;">
+        XP measures learning, coins buy play, energy limits it. Keeping the three separate is what lets a parent see progress and a child see a reward on the same screen. Leagues turned that into a weekly rhythm, a promotion zone you can see yourself sitting in, and ranks unlock rather than expire, so the ladder reads as a route instead of a wall. That is what we actually built. The rest of the progression list was a good idea with no evidence behind it yet, so it stayed on paper.
+      </p>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); gap: 12px; margin-top: clamp(22px, 4vh, 40px);">
+        <sc-for list="{{ progression }}" as="p" hint-placeholder-count="4">
+          <figure style="margin: 0; border: 1px solid #012f5b; background: #010101;">
+            <img decoding="async" loading="lazy" src="{{ p.src }}" alt="{{ p.label }}" style="display: block; width: 100%; height: auto;" />
+            <figcaption style="padding: 12px 14px; border-top: 1px solid #012f5b;">
+              <span style="display: block; font-family: 'Rajdhani', sans-serif; font-weight: 700; font-size: 12.5px; letter-spacing: 0.13em; text-transform: uppercase; color: #06e8e2;">{{ p.label }}</span>
+              <span style="display: block; margin-top: 6px; font-size: 11.5px; line-height: 1.6; color: #94959a;">{{ p.note }}</span>
+            </figcaption>
+          </figure>
+        </sc-for>
+      </div>
+
+      <div style="margin-top: clamp(26px, 4vh, 44px); padding: clamp(20px, 3vw, 30px); border: 1px dashed #0472cf;">
+        <span style="font-family: 'Quantico', sans-serif; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: #6f7176;">Designed, then parked</span>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 230px), 1fr)); gap: 14px; margin-top: 16px;">
+          <sc-for list="{{ parked }}" as="p" hint-placeholder-count="3">
+            <div>
+              <span style="display: block; font-family: 'Rajdhani', sans-serif; font-weight: 700; font-size: 14px; letter-spacing: 0.08em; text-transform: uppercase; color: #94959a;">{{ p.name }}</span>
+              <span style="display: block; margin-top: 6px; font-size: 12px; line-height: 1.65; color: #7f8388;">{{ p.note }}</span>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ░ 08 COMPONENTS ░ -->
+  <section data-screen-label="Component system" style="padding: clamp(56px, 10vh, 120px) clamp(20px, 6vw, 96px); background: #101112;">
+    <div style="max-width: 1200px; margin: 0 auto;">
+      <span style="font-family: 'Quantico', sans-serif; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: #02938F;">08 / the component layer</span>
+      <h2 style="font-family: 'Rajdhani', sans-serif; font-weight: 700; font-size: clamp(26px, 4.4vw, 58px); line-height: 1.02; margin: 14px 0 0; max-width: 24ch; color: #FFFFFF; text-transform: uppercase;">Every dialogue is the same dialogue.</h2>
+      <p style="max-width: 62ch; margin: 18px 0 0; font-size: clamp(14px, 1.3vw, 16.5px); line-height: 1.75; color: #bbbbbf;">
+        One modal component, one confirm pattern, one toast family, reskinned by intent, never redrawn. That is what made the redesign shippable at speed: a developer implements the shell once, and quit, logout, skip, rename, cache-clear and success all fall out of it. Destructive actions always sit right, cancel always sits left, and nothing important is ever a bare icon.
+      </p>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 210px), 1fr)); gap: 10px; margin-top: clamp(22px, 4vh, 40px);">
+        <sc-for list="{{ components }}" as="c" hint-placeholder-count="6">
+          <figure style="margin: 0; border: 1px solid #2d2e31; background: #000E1B;" style-hover="border-color: #02938F;">
+            <img decoding="async" loading="lazy" src="{{ c.src }}" alt="{{ c.label }}" style="display: block; width: 100%; height: auto;" />
+            <figcaption style="padding: 10px 12px; border-top: 1px solid #2d2e31;">
+              <span style="display: block; font-family: 'Rajdhani', sans-serif; font-weight: 700; font-size: 11.5px; letter-spacing: 0.13em; text-transform: uppercase; color: #06e8e2;">{{ c.label }}</span>
+              <span style="display: block; margin-top: 4px; font-size: 11px; line-height: 1.5; color: #7f8388;">{{ c.note }}</span>
+            </figcaption>
+          </figure>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- ░ 09 ITERATIONS ░ -->
+  <section data-screen-label="Iterations" style="padding: clamp(56px, 10vh, 120px) clamp(20px, 6vw, 96px); background: #010101;">
+    <div style="max-width: 1200px; margin: 0 auto;">
+      <span style="font-family: 'Quantico', sans-serif; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: #02938F;">09 / iterations</span>
+      <h2 style="font-family: 'Rajdhani', sans-serif; font-weight: 700; font-size: clamp(26px, 4.4vw, 58px); line-height: 1.02; margin: 14px 0 0; max-width: 24ch; color: #FFFFFF; text-transform: uppercase;">Version one is never the argument. It's the start of one.</h2>
+      <p style="max-width: 62ch; margin: 18px 0 0; font-size: clamp(14px, 1.3vw, 16.5px); line-height: 1.75; color: #bbbbbf;">
+        Almost nothing here shipped on the first pass. These are the pairs I took into review: same job, different bet on hierarchy. Flip between them, the second version usually wins by removing something rather than adding it.
+      </p>
+      <div style="display: flex; flex-wrap: wrap; gap: 7px; margin-top: clamp(22px, 4vh, 36px);">
+        <sc-for list="{{ iterTabs }}" as="t" hint-placeholder-count="3">
+          <button type="button" onClick="{{ t.go }}" style="cursor: pointer; padding: 10px 18px; border: 1px solid {{ t.border }}; background: {{ t.bg }}; color: {{ t.fg }}; font-family: 'Rajdhani', sans-serif; font-weight: 700; font-size: 11.5px; letter-spacing: 0.14em; text-transform: uppercase; transition: all .28s; clip-path: polygon(9px 0, 100% 0, 100% calc(100% - 9px), calc(100% - 9px) 100%, 0 100%, 0 9px);">{{ t.name }}</button>
+        </sc-for>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: 12px; margin-top: 14px;">
+        <figure style="margin: 0; border: 1px solid #2d2e31; background: #000E1B;">
+          <img decoding="async" loading="lazy" src="{{ iterA }}" alt="Version one" style="display: block; width: 100%; height: auto;" />
+          <figcaption style="padding: 11px 13px; border-top: 1px solid #2d2e31; font-family: 'Rajdhani', sans-serif; font-weight: 700; font-size: 11.5px; letter-spacing: 0.14em; text-transform: uppercase; color: #6f7176;">Version 01</figcaption>
+        </figure>
+        <figure style="margin: 0; border: 1px solid #02938F; background: #000E1B;">
+          <img decoding="async" loading="lazy" src="{{ iterB }}" alt="Version two" style="display: block; width: 100%; height: auto;" />
+          <figcaption style="padding: 11px 13px; border-top: 1px solid #02938F; font-family: 'Rajdhani', sans-serif; font-weight: 700; font-size: 11.5px; letter-spacing: 0.14em; text-transform: uppercase; color: #06e8e2;">Version 02 · shipped</figcaption>
+        </figure>
+      </div>
+      <p style="margin: 14px 0 0; max-width: 66ch; font-size: clamp(13px, 1.25vw, 15.5px); line-height: 1.7; color: #9bbcff;">{{ iterNote }}</p>
+    </div>
+  </section>
+
+  <!-- ░ 10 EVIDENCE ░ -->
+  <section data-screen-label="The evidence" style="padding: clamp(56px, 10vh, 120px) clamp(20px, 6vw, 96px); background: linear-gradient(180deg, #000E1B, #001128);">
+    <div style="max-width: 1200px; margin: 0 auto;">
+      <span style="font-family: 'Quantico', sans-serif; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: #02938F;">10 / the evidence</span>
+      <h2 style="font-family: 'Rajdhani', sans-serif; font-weight: 700; font-size: clamp(28px, 5vw, 68px); line-height: 1; margin: 14px 0 0; max-width: 20ch; color: #FFFFFF; text-transform: uppercase;">So we stopped guessing and went to schools.</h2>
+      <p style="max-width: 60ch; margin: 18px 0 0; font-size: clamp(14px, 1.3vw, 16.5px); line-height: 1.75; color: #bbbbbf;">
+        I presented the rebuilt product to the CEO, tech lead, PM and team as a working prototype rather than a screen deck. They backed the direction and engineering re-planned around it. Then we put it in front of actual students and watched.
+      </p>
+      <div style="display: flex; flex-wrap: wrap; gap: 7px; margin-top: clamp(22px, 4vh, 40px);">
+        <sc-for list="{{ tabs }}" as="t" hint-placeholder-count="2">
+          <button type="button" onClick="{{ t.go }}" style="cursor: pointer; padding: 11px 20px; border: 1px solid {{ t.border }}; background: {{ t.bg }}; color: {{ t.fg }}; font-family: 'Rajdhani', sans-serif; font-weight: 700; font-size: 11.5px; letter-spacing: 0.14em; text-transform: uppercase; transition: all .3s; clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px);">{{ t.name }}</button>
+        </sc-for>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 160px), 1fr)); gap: 10px; margin-top: 16px;">
+        <sc-for list="{{ flow }}" as="f" hint-placeholder-count="4">
+          <div style="min-height: 128px; padding: 18px; border: 1px solid {{ f.border }}; background: {{ f.bg }}; display: flex; flex-direction: column; justify-content: space-between; gap: 10px; transition: all .4s cubic-bezier(.2,.8,.2,1); clip-path: polygon(14px 0, 100% 0, 100% calc(100% - 14px), calc(100% - 14px) 100%, 0 100%, 0 14px);">
+            <span style="font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: #6f7176;">Step {{ f.n }}</span>
+            <span style="font-family: 'Rajdhani', sans-serif; font-weight: 700; font-size: clamp(16px, 1.9vw, 24px); text-transform: uppercase; color: {{ f.fg }};">{{ f.label }}</span>
+            <span style="font-size: 11.5px; line-height: 1.55; color: #94959a;">{{ f.note }}</span>
+          </div>
+        </sc-for>
+      </div>
+      <p style="margin: 16px 0 0; max-width: 66ch; font-size: clamp(13px, 1.25vw, 15.5px); line-height: 1.7; color: #9bbcff;">{{ caption }}</p>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 230px), 1fr)); gap: 12px; margin-top: clamp(28px, 5vh, 48px);">
+        <sc-for list="{{ tension }}" as="t" hint-placeholder-count="3">
+          <div style="padding: 22px; background: rgba(255,255,255,.03); border: 1px solid #012f5b; clip-path: polygon(16px 0, 100% 0, 100% calc(100% - 16px), calc(100% - 16px) 100%, 0 100%, 0 16px);">
+            <span style="font-family: 'Rajdhani', sans-serif; font-weight: 700; font-size: clamp(16px, 1.7vw, 20px); text-transform: uppercase; color: {{ t.color }};">{{ t.title }}</span>
+            <p style="margin: 9px 0 0; font-size: 12.5px; line-height: 1.7; color: #bbbbbf;">{{ t.body }}</p>
+          </div>
+        </sc-for>
+      </div>
+      <div style="margin-top: 14px; padding: 22px 24px; border: 1px dashed #0472cf;">
+        <span style="font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: #6f7176;">Parent research · malls &amp; metro</span>
+        <p style="margin: 12px 0 0; font-family: 'Rajdhani', sans-serif; font-weight: 600; font-size: clamp(15px, 1.8vw, 22px); line-height: 1.45; color: #FFFFFF; max-width: 56ch;">
+          “I'm trying to get him off the phone, not give him another reason to be on it.” And, from others, “if it actually teaches her something, I'm fine with it.” Both were true at once. That's the tension we couldn't design away.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ░ 11 CONTENT ░ -->
+  <section data-screen-label="The content problem" style="padding: clamp(56px, 10vh, 120px) clamp(20px, 6vw, 96px); background: #000E1B;">
+    <div style="max-width: 1200px; margin: 0 auto;">
+      <span style="font-family: 'Quantico', sans-serif; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: #02938F;">11 / the real problem</span>
+      <h2 style="font-family: 'Rajdhani', sans-serif; font-weight: 700; font-size: clamp(26px, 4.6vw, 62px); line-height: 1.02; margin: 14px 0 0; max-width: 22ch; color: #FFFFFF; text-transform: uppercase;">Generating one good image is easy. Generating a universe isn't.</h2>
+      <p style="max-width: 62ch; margin: 18px 0 0; font-size: clamp(14px, 1.3vw, 16.5px); line-height: 1.75; color: #bbbbbf;">
+        The UI was never the hardest part. Content was. A comic universe needs the same character to look like the same character on page 40 as on page 1, same faces, same environments, week after week.
+      </p>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); gap: 12px; margin-top: clamp(22px, 4vh, 40px);">
+        <figure style="margin: 0; border: 1px solid #012f5b; background: #010101;">
+          <img decoding="async" src="assets/mav/flyer-1.webp" alt="The Rise of Mavricks flyer, front" loading="lazy" style="display: block; width: 100%; height: clamp(230px, 30vw, 380px); object-fit: contain; background: #000E1B;" />
+          <figcaption style="padding: 11px 14px; border-top: 1px solid #012f5b; font-size: 11.5px; line-height: 1.6; color: #94959a;">
+            <span style="display: block; font-family: 'Rajdhani', sans-serif; font-weight: 700; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: #06e8e2; margin-bottom: 4px;">Flyer &middot; front</span>
+            Key art, one question and the cast, the side a student sees from across a corridor.
+          </figcaption>
+        </figure>
+        <figure style="margin: 0; border: 1px solid #012f5b; background: #010101;">
+          <img decoding="async" src="assets/mav/flyer-2.webp" alt="The Rise of Mavricks flyer, back" loading="lazy" style="display: block; width: 100%; height: clamp(230px, 30vw, 380px); object-fit: contain; background: #000E1B;" />
+          <figcaption style="padding: 11px 14px; border-top: 1px solid #012f5b; font-size: 11.5px; line-height: 1.6; color: #94959a;">
+            <span style="display: block; font-family: 'Rajdhani', sans-serif; font-weight: 700; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: #06e8e2; margin-bottom: 4px;">Flyer &middot; back &middot; issue one</span>
+            Eight origin panels ending on a locked one and a QR code, read the free page, scan to find out what happens, land in the app.
+          </figcaption>
+        </figure>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: clamp(22px, 3.5vw, 54px); margin-top: clamp(30px, 5vh, 56px); padding-top: clamp(26px, 4vh, 44px); border-top: 1px solid #012f5b; align-items: start;">
+        <div style="display: flex; flex-direction: column; gap: 16px;">
+          <span style="font-family: 'Quantico', sans-serif; font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: #02938F;">What we tried</span>
+          <p style="margin: 0; font-size: clamp(14px, 1.3vw, 16.5px); line-height: 1.75; color: #bbbbbf;">
+            As a team we pushed everything available on the content side: ChatGPT, DALL&middot;E, Midjourney, seed numbers, reference chaining. Interesting images, inconsistent worlds, the same character came back with a different face every third render.
+          </p>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 16px;">
+          <span style="font-family: 'Quantico', sans-serif; font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: #02938F;">Where it landed</span>
+          <p style="margin: 0; font-size: clamp(14px, 1.3vw, 16.5px); line-height: 1.75; color: #bbbbbf;">
+            None of it ever touched the product UI, which stayed hand-drawn throughout. So the team changed shape instead: a marketing manager for schools, a professional story writer, two digital comic artists.
+          </p>
+          <p style="margin: 0; font-size: clamp(14px, 1.3vw, 16.5px); line-height: 1.75; color: #94959a;">
+            Three months later the content still wasn't landing, and I was the bridge between product, design, story, illustration and video, briefing editors, cutting assets myself, keeping one visual world across all of it.
+          </p>
+        </div>
+      </div>
+
+      <figure style="margin: clamp(26px, 4vh, 44px) 0 0; border: 1px solid #012f5b; background: #010101;">
+        <div style="overflow-x: auto; background: #000E1B; padding: 18px 0;">
+          <img decoding="async" loading="lazy" src="assets/mav/sprite.webp" alt="Character sprite sheet, twenty frames" style="display: block; height: clamp(96px, 11vw, 132px); width: auto; max-width: none; margin: 0 auto; image-rendering: crisp-edges;" />
+        </div>
+        <figcaption style="padding: 14px 16px; border-top: 1px solid #012f5b; font-size: 11.5px; line-height: 1.65; color: #94959a; max-width: 78ch;">
+          <span style="display: block; font-family: 'Rajdhani', sans-serif; font-weight: 700; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: #06e8e2; margin-bottom: 5px;">The fix &middot; sprite sheet</span>
+          Twenty frames of one character, so the maze levels could animate without re-rendering art per level. Consistency by construction rather than by prompt.
+        </figcaption>
+      </figure>
+
+      <div style="margin-top: clamp(30px, 5vh, 56px);">
+        <span style="font-family: 'Quantico', sans-serif; font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: #02938F;">The episode pipeline &middot; five layers</span>
+        <div data-om-stack style="display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 8px; margin-top: 14px;">
+          <sc-for list="{{ layers }}" as="l" hint-placeholder-count="5">
+            <div style="padding: 16px 16px 18px; background: {{ l.bg }}; border: 1px solid #012f5b; border-top: 2px solid #02938F; display: flex; flex-direction: column; gap: 6px;">
+              <span style="font-family: 'Quantico', sans-serif; font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: #02938F;">Layer {{ l.n }}</span>
+              <span style="font-family: 'Rajdhani', sans-serif; font-weight: 700; font-size: clamp(14px, 1.5vw, 18px); line-height: 1.12; text-transform: uppercase; color: #FFFFFF;">{{ l.name }}</span>
+              <span style="font-size: 11.5px; line-height: 1.5; color: #94959a;">{{ l.note }}</span>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 12px; margin-top: clamp(30px, 5vh, 56px);">
+        <div style="position: relative; border: 1px solid #012f5b; background: #010101; overflow: hidden;">
+          <img decoding="async" loading="lazy" src="assets/mav/flyer-1.webp" alt="Mavricks key art" style="display: block; width: 100%; height: 100%; min-height: clamp(260px, 34vw, 400px); object-fit: cover;" />
+          <div style="position: absolute; inset: 0; display: grid; place-items: center; text-align: center; padding: clamp(22px, 4vw, 40px); background: rgba(0,14,27,.82); backdrop-filter: blur(10px);">
+            <div>
+              <span style="display: block; font-family: 'Quantico', sans-serif; font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: #02938F;">&#9635; Trailer &middot; the world</span>
+              <h3 style="font-family: 'Rajdhani', sans-serif; font-weight: 700; font-size: clamp(22px, 3.4vw, 44px); line-height: 1.04; margin: 12px 0 0; color: #FFFFFF; text-transform: uppercase;">The World of Mavricks</h3>
+              <p style="margin: 14px auto 0; max-width: 46ch; font-size: clamp(12.5px, 1.2vw, 14px); line-height: 1.7; color: #bbbbbf;">
+                The cast, the tone and the pipeline in under a minute. Everything in it was made in-house, on the system in this case study.
+              </p>
+              <a href="mailto:vinaymandalaa@gmail.com?subject=Mavricks%20%C2%B7%20The%20World%20of%20Mavricks%20trailer" style="display: inline-flex; margin-top: 20px; padding: 13px 20px; background: #06e8e2; color: #001128; font-family: 'Rajdhani', sans-serif; font-weight: 700; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase;" style-hover="background: #FFFFFF;">Ask to watch it &#8599;</a>
+              <span style="display: block; margin-top: 14px; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: #6f7176;">Not published &middot; shared in a call</span>
+            </div>
+          </div>
+        </div>
+        <div style="position: relative; border: 1px solid #012f5b; background: #010101; overflow: hidden;">
+          <img decoding="async" loading="lazy" src="assets/mav/maze-jungle.webp" alt="Episode one, environment plate" style="display: block; width: 100%; height: 100%; min-height: clamp(260px, 34vw, 400px); object-fit: cover;" />
+          <div style="position: absolute; inset: 0; display: grid; place-items: center; text-align: center; padding: clamp(22px, 4vw, 40px); background: rgba(0,14,27,.82); backdrop-filter: blur(10px);">
+            <div>
+              <span style="display: block; font-family: 'Quantico', sans-serif; font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: #02938F;">&#9635; Episode 01 &middot; dynamic story</span>
+              <h3 style="font-family: 'Rajdhani', sans-serif; font-weight: 700; font-size: clamp(22px, 3.4vw, 44px); line-height: 1.04; margin: 12px 0 0; color: #FFFFFF; text-transform: uppercase;">The Wright Brothers</h3>
+              <p style="margin: 14px auto 0; max-width: 46ch; font-size: clamp(12.5px, 1.2vw, 14px); line-height: 1.7; color: #bbbbbf;">
+                The first full episode, and the only real proof the pipeline worked. I briefed it, cut it and kept one visual world across all of it.
+              </p>
+              <a href="mailto:vinaymandalaa@gmail.com?subject=Mavricks%20%C2%B7%20Episode%2001" style="display: inline-flex; margin-top: 20px; padding: 13px 20px; background: #06e8e2; color: #001128; font-family: 'Rajdhani', sans-serif; font-weight: 700; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase;" style-hover="background: #FFFFFF;">Ask to watch it &#8599;</a>
+              <span style="display: block; margin-top: 14px; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: #6f7176;">Not published &middot; shared in a call</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ░ 12 OFF SCREEN ░ -->
+  <section data-screen-label="Brand beyond the app" style="padding: clamp(56px, 10vh, 120px) clamp(20px, 6vw, 96px); background: #101112;">
+    <div style="max-width: 1200px; margin: 0 auto;">
+      <span style="font-family: 'Quantico', sans-serif; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: #02938F;">12 / off the screen</span>
+      <h2 style="font-family: 'Rajdhani', sans-serif; font-weight: 700; font-size: clamp(26px, 4.4vw, 58px); line-height: 1.02; margin: 14px 0 0; max-width: 24ch; color: #FFFFFF; text-transform: uppercase;">The product had to exist in a school corridor.</h2>
+      <p style="max-width: 60ch; margin: 18px 0 0; font-size: clamp(14px, 1.3vw, 16.5px); line-height: 1.75; color: #bbbbbf;">
+        Mavricks was going into schools and malls, which meant the identity had to survive print, merch and a stranger's ten-second glance. Every piece asks one question and answers it with a QR: can you solve the mystery?
+      </p>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr)); gap: 12px; margin-top: clamp(22px, 4vh, 40px);">
+        <sc-for list="{{ merch }}" as="m" hint-placeholder-count="3">
+          <figure style="margin: 0; border: 1px solid #2d2e31; background: #010101; overflow: hidden;" style-hover="border-color: #02938F;">
+            <img decoding="async" loading="lazy" src="{{ m.src }}" alt="{{ m.label }}" style="display: block; width: 100%; height: auto;" />
+            <figcaption style="padding: 12px 14px; border-top: 1px solid #2d2e31;">
+              <span style="display: block; font-family: 'Rajdhani', sans-serif; font-weight: 700; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: #06e8e2;">{{ m.label }}</span>
+              <span style="display: block; margin-top: 5px; font-size: 11.5px; line-height: 1.6; color: #94959a;">{{ m.note }}</span>
+            </figcaption>
+          </figure>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- ░ 13 OUTCOME ░ -->
+  <section id="access" data-screen-label="Where it landed" style="padding: clamp(56px, 10vh, 120px) clamp(20px, 6vw, 96px); background: linear-gradient(180deg, #001128, #000E1B);">
+    <div style="max-width: 1200px; margin: 0 auto;">
+      <span style="font-family: 'Quantico', sans-serif; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: #02938F;">13 / where it landed</span>
+      <h2 style="font-family: 'Rajdhani', sans-serif; font-weight: 700; font-size: clamp(26px, 4.8vw, 64px); line-height: 1.02; margin: 14px 0 0; max-width: 22ch; color: #FFFFFF; text-transform: uppercase;">It shipped. Then the business case didn't close.</h2>
+      <div style="margin-top: clamp(22px, 4vh, 38px);">
+        <span style="font-family: 'Quantico', sans-serif; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: #06e8e2;">Shipped</span>
+        <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px;">
+          <sc-for list="{{ shipped }}" as="s" hint-placeholder-count="9">
+            <span style="padding: 10px 16px; background: rgba(1,17,40,.7); border: 1px solid #02938F; font-size: 12px; color: #e3e3e5;">{{ s }}</span>
+          </sc-for>
+        </div>
+      </div>
+      <div style="margin-top: 22px;">
+        <span style="font-family: 'Quantico', sans-serif; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: #6f7176;">Designed, not shipped</span>
+        <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px;">
+          <sc-for list="{{ notShipped }}" as="s" hint-placeholder-count="6">
+            <span style="padding: 10px 16px; border: 1px dashed #2d2e31; font-size: 12px; color: #7f8388;">{{ s }}</span>
+          </sc-for>
+        </div>
+      </div>
+      <p style="max-width: 60ch; margin: clamp(22px, 4vh, 36px) 0 0; font-size: clamp(14px, 1.3vw, 16.5px); line-height: 1.75; color: #bbbbbf;">
+Seasons, the funnel, the comics and the design system all went out, the app is on Google Play. The arcade and the multiplayer rooms never left design. What didn't close was the economics: content production at that quality costs real money, and the revenue path wasn't clear enough yet. The CEO paused Mavricks.
+      </p>
+      <p style="font-family: 'Rajdhani', sans-serif; font-weight: 700; font-size: clamp(20px, 3.4vw, 44px); margin: 22px 0 0; color: #06e8e2; text-transform: uppercase;">I thought it would be a two-week pause.</p>
+
+      <div style="position: relative; margin-top: clamp(30px, 5vh, 52px); border: 1px solid #012f5b; background: rgba(1,17,40,.55); padding: clamp(22px, 4vw, 40px); clip-path: polygon(22px 0, 100% 0, 100% calc(100% - 22px), calc(100% - 22px) 100%, 0 100%, 0 22px);">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr)); gap: clamp(20px, 3vw, 40px); align-items: center;">
+          <div>
+            <span style="font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: #02938F;">◆ Paused product · access on request</span>
+            <h3 style="font-family: 'Rajdhani', sans-serif; font-weight: 700; font-size: clamp(19px, 2.4vw, 32px); line-height: 1.1; margin: 12px 0 0; color: #FFFFFF; text-transform: uppercase;">Figma file shared on request.</h3>
+            <p style="margin: 12px 0 0; font-size: 13px; line-height: 1.7; color: #94959a; max-width: 42ch;">The app is public on Google Play. The working files aren't, happy to walk you through the component library, the prototype and the unreleased screens directly.</p>
+            <div style="display: flex; flex-wrap: wrap; gap: 9px; margin-top: 20px;">
+              <a href="mailto:vinaymandalaa@gmail.com?subject=Mavricks%20case%20study%20access" style="display: inline-flex; padding: 13px 20px; background: #06e8e2; color: #001128; font-family: 'Rajdhani', sans-serif; font-weight: 700; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase;" style-hover="background: #FFFFFF;">Request access ↗</a>
+              <a href="https://play.google.com/store/apps/details?id=com.youroaks.learning" style="display: inline-flex; padding: 13px 20px; border: 1px solid #0472cf; color: #9bbcff; font-family: 'Rajdhani', sans-serif; font-weight: 600; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase;" style-hover="background: #012f5b; color: #FFFFFF;">Google Play ↗</a>
+            </div>
+          </div>
+          <div style="display: grid; gap: 7px;">
+            <sc-for list="{{ gated }}" as="g" hint-placeholder-count="4">
+              <div style="display: flex; align-items: center; gap: 11px; padding: 13px 15px; background: rgba(255,255,255,.03); border: 1px solid #012f5b;">
+                <span style="font-size: 11px; letter-spacing: 0.14em; color: #6f7176;">{{ g.n }}</span>
+                <span style="font-size: 12.5px; color: #e3e3e5;">{{ g.label }}</span>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top: clamp(28px, 5vh, 52px); padding: clamp(22px, 4vw, 40px); background: #024F93; clip-path: polygon(22px 0, 100% 0, 100% calc(100% - 22px), calc(100% - 22px) 100%, 0 100%, 0 22px);">
+        <span style="font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: #affffb;">What changed in my thinking</span>
+        <p style="font-family: 'Rajdhani', sans-serif; font-weight: 600; font-size: clamp(18px, 2.8vw, 38px); line-height: 1.2; margin: 14px 0 0; max-width: 28ch; color: #FFFFFF;">
+          A confident assumption survives exactly until you watch a ten-year-old use your product.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <nav style="border-top: 1px solid #012f5b; padding: clamp(34px, 6vh, 70px) clamp(20px, 6vw, 96px); background: #000E1B;">
+    <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px; align-items: center;">
+      <a href="index.html" style="font-size: clamp(11px, 1.1vw, 12px); letter-spacing: 0.14em; text-transform: uppercase; color: #94959a;">← Back to the story</a>
+      <a href="NerdyOtaku.dc.html" style="font-family: 'Rajdhani', sans-serif; font-weight: 700; font-size: clamp(18px, 2.6vw, 36px); text-transform: uppercase; color: #FFFFFF;">Next, Nerdy Otaku →</a>
+    </div>
+  </nav>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;: {&quot;width&quot;: 1440, &quot;height&quot;: 900}}">
+class Component extends DCLogic {
+  state = { tab: 'expected', progress: 0, era: 'before', season: 0, mp: 0, iter: 0 };
+
+  componentDidMount() {
+    this.onScroll = () => {
+      const h = document.documentElement;
+      this.setState({ progress: Math.round((h.scrollTop / Math.max(1, h.scrollHeight - h.clientHeight)) * 100) });
+    };
+    window.addEventListener('scroll', this.onScroll, { passive: true });
+    this.onScroll();
+  }
+  componentWillUnmount() { window.removeEventListener('scroll', this.onScroll); }
+
+  tab(active, label, go) {
+    return {
+      name: label, go,
+      bg: active ? '#06e8e2' : 'transparent',
+      fg: active ? '#001128' : '#94959a',
+      border: active ? '#06e8e2' : '#2d2e31'
+    };
+  }
+
+  renderVals() {
+    const isExp = this.state.tab === 'expected';
+    const expected = [
+      { n: '1', label: 'Open', note: 'Student launches the app' },
+      { n: '2', label: 'Read comic', note: 'Story carries the concept' },
+      { n: '3', label: 'Play game', note: 'Game reinforces it' },
+      { n: '4', label: 'Learn', note: 'Retention through story' }
+    ];
+    const actual = [
+      { n: '1', label: 'Open', note: 'Student launches the app' },
+      { n: '2', label: 'Skip comic', note: 'Straight past the story', hi: true },
+      { n: '3', label: 'Play game', note: 'Strong, repeated engagement' },
+      { n: '4', label: 'Play again', note: 'And again' }
+    ];
+
+    const before = [
+      { src: 'assets/mav0/splash.webp', label: 'Wordmark · MAVERICKS' },
+      { src: 'assets/mav0/login-invalid.webp', label: 'Login + captcha' },
+      { src: 'assets/mav0/otp-filled.webp', label: 'OTP verification' },
+      { src: 'assets/mav0/carousel-1.webp', label: 'Onboarding carousel' },
+      { src: 'assets/mav0/demo-museum.webp', label: 'Mission map · node graph' },
+      { src: 'assets/mav0/hidden-lab-game.webp', label: 'Hidden object level' },
+      { src: 'assets/mav0/leaderboard.webp', label: 'Leaderboard' },
+      { src: 'assets/mav0/profile-quests.webp', label: 'Profile · quests' }
+    ];
+    const after = [
+      { src: 'assets/mav2/splash.webp', label: 'Splash · MAVRICKS' },
+      { src: 'assets/mav2/phone-login.webp', label: 'Login · one field' },
+      { src: 'assets/mav2/create-1.webp', label: 'Create profile' },
+      { src: 'assets/mav2/ranking.webp', label: 'Ranking' },
+      { src: 'assets/mav2/seasons-during.webp', label: 'Seasons map' },
+      { src: 'assets/mav2/ttt-live.webp', label: 'Arcade · explored' },
+      { src: 'assets/mav2/leagues.webp', label: 'Leagues' },
+      { src: 'assets/mav2/profile.webp', label: 'Profile' }
+    ];
+    const isBefore = this.state.era === 'before';
+
+    const seasons = [
+      { src: 'assets/mav2/seasons-before.webp', label: 'Not downloaded', note: 'A season you do not have yet is still a card, not a gap. Cover art, mission count and a cloud icon, the only affordance is fetch, so there is nothing to misread.' },
+      { src: 'assets/mav2/seasons-during.webp', label: 'Downloading', note: 'A live percentage on the card itself, in place of the cloud. On a shared school phone with 200MB free, the download is the most important thing happening, so it gets the primary slot rather than a toast.' },
+      { src: 'assets/mav2/seasons-after.webp', label: 'Ready to play', note: 'Play becomes primary, and a cache control appears beside it, the child can clear a finished season to make room for the next one without an adult or a settings menu.' }
+    ];
+    const s = seasons[this.state.season];
+
+    const mp = [
+      { src: 'assets/mav2/lobby.webp', label: 'Waiting room', note: 'Lobby and waiting are the same screen. Invite link, game picker and emojis on the left; who is in the room on the right. The admin sees Select Players where everyone else sees a Waiting button, one control changes, not the screen.' },
+      { src: 'assets/mav2/select-final.webp', label: 'Select players', note: 'Eight can join, two can sit down. The admin picks, each player carries their stake, and anyone not picked becomes a viewer instead of being thrown out of the room.' },
+      { src: 'assets/mav2/ttt-live.webp', label: 'Live match', note: 'Both avatars, both timers, the board and the spectator list in one landscape frame. Turn ownership is colour and scale, not a text label, kids read glow faster than words.' }
+    ];
+    const m = mp[this.state.mp];
+
+    const iters = [
+      { name: 'Info panel', a: 'assets/mav2/info-v1.webp', b: 'assets/mav2/info-v2.webp', note: 'Version one explained the game in a paragraph. Version two turned it into labelled rows a child can scan mid-match, the copy got shorter, the hierarchy did the work.' },
+      { name: 'Rank card', a: 'assets/mav2/rank-v1.webp', b: 'assets/mav2/rank-v2.webp', note: 'Version one showed every rank at once and read as a wall. Version two anchors on the player\u2019s current rank and lets the rest fall away, progress you can find in a second.' },
+      { name: 'Player select', a: 'assets/mav2/select-v1.webp', b: 'assets/mav2/select-final.webp', note: 'Version one made selection a list. The shipped version made it a grid with joined, selected and viewers as three separate counts, because one number could not carry three meanings, and kids kept starting matches with the wrong people in the seats.' }
+    ];
+    const it = iters[this.state.iter];
+
+    return {
+      progress: this.state.progress + '%',
+      stats: [
+        { v: '3, 8', k: 'Grades' },
+        { v: '40+', k: 'Screens redrawn by hand' },
+        { v: '4', k: 'Games designed' },
+        { v: 'Live', k: 'Seasons on Google Play' }
+      ],
+      fixes: [
+        { before: 'Freepik stock art', after: 'Owned illustration direction' },
+        { before: 'PNG screens to devs', after: 'Vector components' },
+        { before: 'Three AI art styles', after: 'One visual language' },
+        { before: 'No icon set', after: 'SVG icon system' },
+        { before: 'Ad-hoc buttons', after: 'Primary / secondary hierarchy' },
+        { before: 'Static mockups', after: 'Working prototype' }
+      ],
+      eraTabs: [
+        this.tab(isBefore, 'What I inherited', () => this.setState({ era: 'before' })),
+        this.tab(!isBefore, 'What I redesigned', () => this.setState({ era: 'after' }))
+      ],
+      eraShots: isBefore ? before : after,
+      eraCaption: isBefore ? 'Before · MAVERICKS, mixed sources, no system' : 'After · MAVRICKS, one system, one world',
+      logos: [
+        { src: 'assets/mav/logo-13.webp', name: 'The mark', use: 'App icon, splash, the shield in the HUD. Holds at 20px on the nav rail.' },
+        { src: 'assets/mav/logo-10.webp', name: 'Stacked lockup', use: 'Store listing, poster, flyer, anywhere vertical space is free.' },
+        { src: 'assets/mav/logo-16.webp', name: 'Horizontal lockup', use: 'Website header, deck footer, print sign-off.' }
+      ],
+      typeScale: [
+        { n: 'Title xl', v: '48 / 62 Bold' },
+        { n: 'Title lg', v: '40 / 52 Bold' },
+        { n: 'Title md', v: '32 / 40 Bold' },
+        { n: 'Text lg', v: '32 / 48 Regular' },
+        { n: 'Button', v: '28 / 36 Semibold' }
+      ],
+      coreColors: [
+        { name: 'Primary', hex: '#024F93' },
+        { name: 'Secondary', hex: '#020693' },
+        { name: 'Tertiary', hex: '#02938F' },
+        { name: 'Base', hex: '#000E1B' }
+      ],
+      ramps: [
+        { name: 'Primary', steps: ['#d9e4ff', '#9bbcff', '#4496fe', '#0472cf', '#024F93', '#012f5b', '#001128'] },
+        { name: 'Secondary', steps: ['#dadaff', '#aeaefe', '#8182fe', '#5052fd', '#0611ef', '#020693', '#00014c'] },
+        { name: 'Tertiary', steps: ['#affffb', '#06e8e2', '#03bdb7', '#02938F', '#016c69', '#004744', '#002523'] },
+        { name: 'Grayscale', steps: ['#e3e3e5', '#bbbbbf', '#94959a', '#6f7176', '#4d4e52', '#2d2e31', '#101112'] }
+      ],
+      funnel: [
+        { n: 'Step 01', src: 'assets/mav2/splash.webp', label: 'Splash', note: 'Mark animates in on black. Three seconds, no copy.', fg: '#FFFFFF', border: '#012f5b' },
+        { n: 'Step 02', src: 'assets/mav2/phone-login.webp', label: 'Phone number', note: 'One field. The captcha the old build had is gone.', fg: '#FFFFFF', border: '#012f5b' },
+        { n: 'Step 03', src: 'assets/mav2/otp-ctx.webp', label: 'OTP', note: 'Six boxes, live timer, resend in place. No new screen.', fg: '#FFFFFF', border: '#012f5b' },
+        { n: 'Step 04', src: 'assets/mav2/create-1.webp', label: 'Create profile', note: 'Name and date of birth. “Hi Maverick!”', fg: '#FFFFFF', border: '#012f5b' },
+        { n: 'Step 05', src: 'assets/mav2/avatar-pick.webp', label: 'Pick avatar', note: 'After the profile exists, so the face attaches to a name.', fg: '#FFFFFF', border: '#012f5b' },
+        { n: 'Step 06', src: 'assets/mav2/demo-game.webp', label: 'Demo game', note: 'A playable case, not a tutorial. Kohinoor Diamond.', fg: '#06e8e2', border: '#02938F' },
+        { n: 'Rest', src: 'assets/mav2/demo-skip.webp', label: 'The rest of the flow', note: 'Toasts, invalid states, the skip confirm and the prototype.', fg: '#94959a', border: '#012f5b', lock: true }
+      ],
+      funnelRules: [
+        { title: 'In-world copy', body: '“Yo! Welcome Aboard”, “Hi Maverick!”, “Let\u2019s Go!”. The voice starts before the product does, so auth feels like part of the game rather than a gate in front of it.' },
+        { title: 'Toasts, not screens', body: 'Every error and confirmation is a coloured toast in the same frame, amber for missing, red for invalid, teal for success. A child never gets bounced somewhere new to be told they typed something wrong.' },
+        { title: 'Play before commitment', body: 'The demo sits before the ask, not after. If the game cannot hold a nine-year-old for ninety seconds, no onboarding copy is going to save the download.' }
+      ],
+      pillars: [
+        { name: 'Seasons', job: 'The story spine, episodes, tasks, the mission map.' },
+        { name: 'Profile', job: 'Avatar, streak, leagues, ranks.' },
+        { name: 'Arcade', job: 'Four games, coin-staked, designed, never shipped.' },
+        { name: 'Settings', job: 'Audio, cache, account. Parked last, deliberately.' }
+      ],
+      seasonTabs: seasons.map((x, i) => this.tab(this.state.season === i, x.label, () => this.setState({ season: i }))),
+      seasonSrc: s.src,
+      seasonLabel: s.label,
+      seasonNote: s.note,
+      missionShots: [
+        { src: 'assets/mav2/task-detail.webp', label: 'Task detail', note: 'The task opens over the island you were already looking at. Story beat, the three things it costs, one primary action, you never leave the map to read what you are about to play.' },
+        { src: 'assets/mav2/rewards.webp', label: 'Reward claim', note: 'Coins and XP land separately in their own modal, because they buy different things. The one place ceremony is worth an interruption.' },
+        { src: 'assets/mav2/seasons-after.webp', label: 'Season 01, in full', note: 'Ten missions, the outcome screens and the cache states.', lock: true }
+      ],
+      mpTabs: mp.map((x, i) => this.tab(this.state.mp === i, x.label, () => this.setState({ mp: i }))),
+      mpSrc: m.src,
+      mpLabel: m.label,
+      mpNote: m.note,
+      arcadeRules: [
+        { title: 'Corner cuts', body: 'Every panel is clipped on two opposite corners. The cheapest possible signature: one shape everywhere, and four unrelated games start reading as one arcade.' },
+        { title: 'Cyan means live', body: 'Navy is structure, cyan is anything happening right now, your turn, your row, the primary action. Nothing decorative is ever cyan.' },
+        { title: 'Landscape first', body: 'Kids play these on a shared phone held sideways. Rails, not stacks, and nothing critical inside thumb-cover range at the edges.' },
+        { title: 'Stakes up front', body: 'The pooled coin total is stated once, centrally, before a move is made. Nobody discovers what they wagered after losing it.' }
+      ],
+      progression: [
+        { src: 'assets/mav2/leagues.webp', label: 'Leagues', note: 'Five levels, your current one anchored in the centre with the point thresholds under it. Ranking is motivation only if you can find yourself in it.' },
+        { src: 'assets/mav2/rank-levels.webp', label: 'Ranks', note: 'Keys unlock rather than expire. Locked ranks stay visible so the ladder reads as a route, not a wall.' }
+      ],
+      parked: [
+        { name: 'Daily quests', note: 'Halted. What exists is a first-pass exploration, not a feature, we could not show a child a daily promise the content calendar could not keep.' },
+        { name: 'Stats & badges', note: 'Pushed to a later release. Without months of play history, a stats screen is decoration.' },
+        { name: 'Badges into leagues', note: 'Rather than a second reward surface competing with the first, badges folded into the league ladder itself.' }
+      ],
+      components: [
+        { src: 'assets/mav2/otp-comp.webp', label: 'OTP input', note: 'Six boxes, timer, resend link.' },
+        { src: 'assets/mav2/quit-comp.webp', label: 'Quit confirm', note: 'Destructive right, cancel left. Always.' },
+        { src: 'assets/mav2/logout-comp.webp', label: 'Logout', note: 'Same shell, different verb.' },
+        { src: 'assets/mav2/cache-comp.webp', label: 'Clear cache', note: 'States the consequence, not just the action.' },
+        { src: 'assets/mav2/editname-comp.webp', label: 'Edit name', note: 'Inline edit, one field, one save.' },
+        { src: 'assets/mav2/success-comp.webp', label: 'Success', note: 'The only green in the system.' }
+      ],
+      iterTabs: iters.map((x, i) => this.tab(this.state.iter === i, x.name, () => this.setState({ iter: i }))),
+      iterA: it.a,
+      iterB: it.b,
+      iterNote: it.note,
+      tabs: [
+        this.tab(isExp, 'What we expected', () => this.setState({ tab: 'expected' })),
+        this.tab(!isExp, 'What students did', () => this.setState({ tab: 'actual' }))
+      ],
+      flow: (isExp ? expected : actual).map((f) => ({
+        n: f.n, label: f.label, note: f.note,
+        bg: f.hi ? 'rgba(6,232,226,.1)' : 'rgba(255,255,255,.03)',
+        border: f.hi ? '#06e8e2' : '#012f5b',
+        fg: f.hi ? '#06e8e2' : '#FFFFFF'
+      })),
+      caption: isExp
+        ? 'The model the whole product was built on: the comic teaches, the game rewards. Every screen, content plan and production cost assumed this order.'
+        : 'What we watched instead. Games held them completely, the healthiest numbers in the product. The comics, the expensive part, were the part being skipped.',
+      tension: [
+        { title: 'Engagement', body: 'Games worked. Repeat play, competition, spectating, students needed no persuading at all.', color: '#06e8e2' },
+        { title: 'Educational value', body: 'The teaching lived in the comics. Skipping them didn\u2019t break a screen, it broke the premise.', color: '#FFFFFF' },
+        { title: 'Screen time', body: 'Parents were both the buyer and the brake. Some were cutting phone time on principle; others would allow anything that genuinely taught.', color: '#4496fe' }
+      ],
+      layers: [
+        { n: '01', name: 'AI background', note: 'Environment, lighting, era', bg: 'rgba(255,255,255,.03)', indent: '0px' },
+        { n: '02', name: 'Illustrated characters', note: 'Drawn by artists for consistency', bg: 'rgba(255,255,255,.05)', indent: '12px' },
+        { n: '03', name: 'Layered composition', note: 'Depth and parallax planes', bg: 'rgba(2,79,147,.2)', indent: '24px' },
+        { n: '04', name: 'Motion & camera', note: 'Pans, reveals, timing', bg: 'rgba(2,147,143,.18)', indent: '36px' },
+        { n: '05', name: 'Final episode', note: 'Voice, edit, export', bg: 'rgba(6,232,226,.16)', indent: '48px' }
+      ],
+      merch: [
+        { src: 'assets/mav/badge.webp', label: 'Sticker / badge', note: 'Can you solve the mystery? A QR at the centre of a character portrait, handed out at school events.' },
+        { src: 'assets/mav/tshirt.webp', label: 'Merch', note: 'Oversized tee with the graffiti wordmark. The mark had to read as streetwear, not as a school logo.' },
+        { src: 'assets/mav/poster-new.webp', label: 'Poster', note: 'One frame of the whole cast, wordmark locked to the bottom, download and social in the footer. Built for a corridor wall and a phone screenshot at the same time.' }
+      ],
+      shipped: ['Design system', 'Icon set', 'Component library', 'Onboarding funnel', 'Seasons & episodes', 'Leagues & ranks', 'Comics', 'Content pipeline', 'Dynamic storytelling'],
+      notShipped: ['Four arcade games', 'Multiplayer rooms', 'Spectating', 'Coin economy', 'Daily quests', 'Stats & badges'],
+      gated: [
+        { n: '01', label: 'Component library and design system' },
+        { n: '02', label: 'The screens I inherited, in full' },
+        { n: '03', label: 'The full onboarding flow and prototype' },
+        { n: '04', label: 'The arcade, Pictionary, Battleship, Comet 4' },
+        { n: '05', label: 'Episode 01 · The Wright Brothers' }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

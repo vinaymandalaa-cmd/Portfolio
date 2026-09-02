@@ -1,0 +1,6 @@
+/* ==========================================================================
+   SIYA DESIGN SYSTEM — styles.css
+   Root entry point. Consumers link THIS one file; it pulls in the
+   single source of truth for tokens, fonts, and base element styles.
+   ========================================================================== */
+@import url('./colors_and_type.css');

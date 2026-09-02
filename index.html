@@ -1,0 +1,1061 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>Vinay Mandala. Product Designer</title>
+<meta name="description" content="From physical spaces to digital products. The story of how Vinay Mandala became a product designer.">
+<meta property="og:title" content="Vinay Mandala. Product Designer">
+<meta property="og:description" content="Not a portfolio. A digital autobiography of a designer.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,500;12..96,700;12..96,800&amp;family=Space+Grotesk:wght@400;500;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<style>
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: #f6f3ee; color: #1a1917; font-family: "Space Grotesk", system-ui, sans-serif; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+  * { box-sizing: border-box; }
+  a { color: inherit; text-decoration: none; }
+  a:hover { color: #c2591f; }
+  ::selection { background: #1a1917; color: #f6f3ee; }
+  input[type=range] { -webkit-appearance: none; appearance: none; background: transparent; }
+  input[type=range]::-webkit-slider-runnable-track { height: 2px; background: #1a1917; }
+  input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; width: 34px; height: 34px; margin-top: -16px; border-radius: 50%; background: #1a1917; border: 4px solid #f6f3ee; box-shadow: 0 0 0 1px #1a1917; cursor: grab; }
+  @keyframes rise { from { opacity: 0; transform: translateY(34px); } to { opacity: 1; transform: none; } }
+  @keyframes fadein { from { opacity: 0; } to { opacity: 1; } }
+  @keyframes pbpRise { from { opacity: 0; transform: translateY(26px); } to { opacity: 1; transform: none; } }
+  @keyframes pbpFig  { 0% { opacity: 0; transform: translateY(30px) scale(.96); } 70% { opacity: 1; } 100% { opacity: 1; transform: none; } }
+  @keyframes pbpPop  { 0% { opacity: 0; transform: translateY(14px) scale(.95); } 68% { opacity: 1; transform: translateY(0) scale(1.02); } 100% { opacity: 1; transform: none; } }
+  html[data-pbp] .pbp-eyebrow,
+  html[data-pbp] .pbp-line,
+  html[data-pbp] .pbp-sub,
+  html[data-pbp] .pbp-fig { opacity: 0; }
+  html[data-pbpc] .pbp-cta,
+  html[data-pbpc] #about-chips .chip { opacity: 0; }
+  @media (max-width: 900px) { #about-chips { grid-template-columns: repeat(2, auto) !important; } }
+  @media (max-width: 900px) { .ch03-lead { position: static !important; top: auto !important; } }
+  @media (max-width: 760px) {
+    .morph-stage { aspect-ratio: 4 / 5 !important; min-height: 0 !important; }
+    .m-room { font-size: 8px !important; letter-spacing: 0 !important; overflow-wrap: anywhere; word-break: break-word; hyphens: auto; }
+    .m-dim { display: none !important; }
+    .desk-list > div { padding-left: 0 !important; padding-right: 0 !important; }
+  }
+  @media (max-width: 400px) { #about-chips .chip { padding: 9px 12px !important; font-size: 9.5px !important; letter-spacing: 0.06em !important; } }
+  @media (prefers-reduced-motion: reduce) {
+    html[data-pbp] .pbp-eyebrow, html[data-pbp] .pbp-line, html[data-pbp] .pbp-sub,
+    html[data-pbp] .pbp-fig, html[data-pbpc] .pbp-cta, html[data-pbpc] #about-chips .chip { animation: none !important; opacity: 1 !important; }
+  }
+  @keyframes wipe { from { clip-path: inset(0 100% 0 0); } to { clip-path: inset(0 0 0 0); } }
+  @keyframes growline { from { transform: scaleY(0); } to { transform: scaleY(1); } }
+  @keyframes drift { from { transform: translateY(0); } to { transform: translateY(-90px); } }
+  @keyframes blink { 0%, 60% { opacity: 1; } 61%, 100% { opacity: 0.15; } }
+  @keyframes bob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-9px); } }
+  @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+  @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } html { scroll-behavior: auto; } }
+</style>
+<script src="./motion.js" data-accent="#1a1917"></script>
+</helmet>
+
+<div style="position: relative; width: 100%; overflow-x: clip; background: #f6f3ee;">
+
+  <nav style="position: sticky; top: 0; z-index: 60; display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 13px clamp(16px, 4vw, 48px); background: rgba(246,243,238,.86); backdrop-filter: blur(14px); border-bottom: 1px solid #e3ddd2;">
+    <a href="#top" style="font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; white-space: nowrap;">Vinay Mandala</a>
+    <div style="display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 8px clamp(10px, 2vw, 26px); font-family: 'JetBrains Mono', monospace; font-size: clamp(11px, 1.1vw, 12px); letter-spacing: 0.14em; text-transform: uppercase;">
+      <a href="#work">Work</a>
+      <a href="About.dc.html">About</a>
+      <a href="Resume.dc.html">Résumé</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+
+  <!-- ░░ HERO ░░ -->
+  <header id="top" data-chapter="00" data-screen-label="Hero" style="position: relative; min-height: min(100svh, 900px); display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); align-content: center; align-items: center; gap: clamp(24px, 3vw, 48px); padding: clamp(48px, 7vh, 88px) clamp(20px, 6vw, 96px) clamp(72px, 9vh, 100px); background: #f6f3ee; color: #1a1917; overflow: hidden;">
+    <div style="position: absolute; inset: 0; pointer-events: none; background-image: linear-gradient(#1a1917 1px, transparent 1px), linear-gradient(90deg, #1a1917 1px, transparent 1px); background-size: 96px 96px; opacity: 0.045;"></div>
+
+    <div style="position: relative; z-index: 2; display: flex; flex-direction: column; gap: clamp(18px, 2.6vh, 30px); max-width: 660px;">
+      <div style="display: flex; flex-wrap: wrap; gap: 8px 22px; font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: #8a827a;">
+        <span style="color: #c2591f;">✳ Product Designer</span>
+        <span>Hyderabad, India</span>
+        <span>2018 → Now</span>
+      </div>
+
+      <h1 style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: clamp(40px, 5.8vw, 96px); line-height: 0.86; letter-spacing: -0.05em; margin: 0;">
+        <span style="display: block; font-weight: 300; font-size: 0.44em; letter-spacing: -0.03em; line-height: 1.12; color: #6a635c; margin-bottom: 0.34em;">I started by designing spaces.<br>Now I design</span>
+        <span style="display: block; color: {{ wordColor }}; transition: color .5s;">{{ word }}</span>
+      </h1>
+
+      <p style="max-width: 44ch; margin: 0; font-size: clamp(15.5px, 1.3vw, 19px); line-height: 1.55; color: #4a453f;">
+        Spaces → screens → systems → products → brands. The medium keeps changing. The instinct that came from the first one hasn't.
+      </p>
+
+      <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 10px;">
+        <a href="#ch01" style="display: inline-flex; align-items: center; gap: 10px; padding: 15px 24px; background: #1a1917; color: #f6f3ee; border-radius: 100px; font-family: 'JetBrains Mono', monospace; font-size: 11.5px; letter-spacing: 0.14em; text-transform: uppercase;" style-hover="background: #c2591f;">Start the story ↓</a>
+        <a href="#work" style="display: inline-flex; align-items: center; gap: 10px; padding: 15px 24px; border: 1px solid #1a1917; border-radius: 100px; font-family: 'JetBrains Mono', monospace; font-size: 11.5px; letter-spacing: 0.14em; text-transform: uppercase;" style-hover="background: #1a1917; color: #f6f3ee;">The work</a>
+        <a href="Resume.dc.html" style="display: inline-flex; align-items: center; gap: 10px; padding: 15px 24px; border: 1px solid #ded8cd; color: #6a635c; border-radius: 100px; font-family: 'JetBrains Mono', monospace; font-size: 11.5px; letter-spacing: 0.14em; text-transform: uppercase;" style-hover="border-color: #1a1917; color: #1a1917;">Résumé</a>
+      </div>
+    </div>
+
+    <div style="position: relative; z-index: 1; justify-self: center; width: 100%; max-width: 520px; aspect-ratio: 1;">
+      <div style="position: absolute; inset: 0; border-radius: 50%; border: 1px solid #ded8cd;"></div>
+      <div style="position: absolute; inset: 4%; border-radius: 50%; background: #ece5d6; overflow: hidden;">
+        <img decoding="async" fetchpriority="high" src="assets/vinay-portrait.webp" alt="Vinay Mandala" style="position: absolute; left: 42%; bottom: -1%; transform: translateX(-50%); width: 168%; max-width: none; height: auto; animation: fadein 1.4s ease both;">
+      </div>
+      <span style="position: absolute; bottom: -34px; left: 50%; transform: translateX(-50%); font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: #8a827a; white-space: nowrap;">Fig. 00 / the designer</span>
+    </div>
+
+    <div style="position: absolute; left: 0; right: 0; bottom: 0; z-index: 3; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 10px 24px; padding: 14px clamp(20px, 6vw, 96px); border-top: 1px solid #ded8cd; background: #f0ece4; font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: #8a827a;">
+      <span><span style="color: #1a1917;">4 years</span> design experience</span>
+      <span><span style="color: #1a1917;">Oaks Solutions</span> · siya</span>
+      <span style="animation: blink 1.7s steps(1) infinite; color: #c2591f;">● scroll</span>
+    </div>
+  </header>
+
+  <!-- ░░ POSITIONING STRIP ░░ -->
+  <section style="border-top: 1px solid #ded8cd; border-bottom: 1px solid #ded8cd; overflow-x: auto; overflow-y: hidden; scrollbar-width: none; padding: 22px 0; background: #f0ece4;">
+    <div style="display: flex; width: max-content; gap: 40px; align-items: center; white-space: nowrap; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 500; font-size: clamp(18px, 2.2vw, 30px); letter-spacing: -0.02em; color: #4a453f; animation: marquee 34s linear infinite; padding-right: 40px;">
+      <span>I design products where UX, visual systems and brand work together.</span>
+      <span style="color: #c2591f;">✳</span>
+      <span>I don't just design screens. I design the system around them.</span>
+      <span style="color: #c2591f;">✳</span>
+      <span>From physical spaces to digital products.</span>
+      <span style="color: #c2591f;">✳</span>
+      <span aria-hidden="true">I design products where UX, visual systems and brand work together.</span>
+      <span style="color: #c2591f;" aria-hidden="true">✳</span>
+      <span aria-hidden="true">I don't just design screens. I design the system around them.</span>
+      <span style="color: #c2591f;" aria-hidden="true">✳</span>
+      <span aria-hidden="true">From physical spaces to digital products.</span>
+      <span style="color: #c2591f;" aria-hidden="true">✳</span>
+    </div>
+  </section>
+
+  <!-- ░░ CH 01 / SPACES ░░ -->
+  <section id="ch01" data-chapter="01" data-screen-label="01 Spaces" style="position: relative; padding: clamp(80px, 14vh, 170px) clamp(20px, 6vw, 96px);">
+    <div style="max-width: 1240px; margin: 0 auto;">
+      <div style="display: flex; align-items: baseline; gap: 18px; flex-wrap: wrap;">
+        <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.2em; color: #c2591f;">CHAPTER 01 / 2018 → 2022</span>
+        <span style="height: 1px; flex: 1; min-width: 40px; background: #ded8cd;"></span>
+        <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.2em; color: #8a827a;">B.DES INTERIOR DESIGN · JNAFAU</span>
+      </div>
+      <h2 style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; font-size: clamp(34px, 5.6vw, 82px); line-height: 0.95; letter-spacing: -0.04em; margin: clamp(22px, 4vh, 40px) 0 0; max-width: 18ch;">
+        The medium changed.<br>The instinct didn't.
+      </h2>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: clamp(20px, 3vw, 48px); margin-top: clamp(36px, 6vh, 64px); align-items: start;">
+        <p style="margin: 0; font-size: clamp(16px, 1.4vw, 19px); line-height: 1.6; color: #4a453f;">
+          Four years of interiors taught me proportion, hierarchy, materiality, and how to talk to a client standing in an unfinished room. It also taught me constraints, a wall costs money to move.
+          <br><br>
+          Screens had my attention long before rooms did. Somewhere between a site visit and a floor plan I realised the thing I loved about a room was the same thing I'd love about an interface: deciding where a person's attention goes next.
+        </p>
+        <div style="display: grid; gap: 10px;">
+          <sc-for list="{{ interiorSkills }}" as="s" hint-placeholder-count="6">
+            <div style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px; padding: 12px 0; border-bottom: 1px solid #ded8cd; font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase;">
+              <span>{{ s.from }}</span>
+              <span style="color: #c2591f;">→</span>
+              <span style="color: #8a827a; text-align: right;">{{ s.to }}</span>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+
+      <!-- morph -->
+      <div style="margin-top: clamp(44px, 8vh, 90px); border: 1px solid #ded8cd; background: #fffdf9; padding: clamp(16px, 2.6vw, 32px);">
+        <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase;">
+          <span style="color: {{ planLabelColor }};">A / studio office plan · 1:100</span>
+          <span style="color: #1a1917;">{{ morphState }}</span>
+          <span style="color: {{ uiLabelColor }};">B / product dashboard · 12-col bento</span>
+        </div>
+
+        <div class="morph-stage" style="position: relative; margin-top: 16px; aspect-ratio: 16 / 9; min-height: 320px; padding: {{ shellPad }}; border: {{ shellBorderW }} solid #1a1917; border-radius: {{ shellRadius }}; background: {{ shellBg }}; transition: none;">
+          <div style="position: absolute; top: -1px; left: 12%; width: 16%; height: 3px; background: #fffdf9; opacity: {{ planDetail }};"></div>
+          <div style="position: absolute; bottom: -1px; right: 22%; width: 12%; height: 3px; background: #fffdf9; opacity: {{ planDetail }};"></div>
+          <div style="position: absolute; top: {{ chromeTop }}; left: 0; right: 0; height: 26px; display: flex; align-items: center; gap: 6px; padding: 0 12px; opacity: {{ uiDetail }};">
+            <span style="width: 9px; height: 9px; border-radius: 50%; background: #d9d3c8;"></span>
+            <span style="width: 9px; height: 9px; border-radius: 50%; background: #d9d3c8;"></span>
+            <span style="width: 9px; height: 9px; border-radius: 50%; background: #c2591f;"></span>
+          </div>
+
+          <div style="position: relative; width: 100%; height: 100%; padding-top: {{ chromeSpace }}; box-sizing: border-box; display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); grid-template-rows: repeat(8, minmax(0, 1fr)); gap: {{ cellGap }};" class="morph-grid">
+            <sc-for list="{{ cells }}" as="c" hint-placeholder-count="7">
+              <div style="position: relative; overflow: hidden; grid-column: {{ c.col }}; grid-row: {{ c.row }}; border: {{ c.borderW }} solid {{ c.borderColor }}; border-radius: {{ c.radius }}; background: {{ c.bg }}; display: flex; flex-direction: column; justify-content: space-between; padding: {{ c.pad }};">
+                <div style="position: absolute; inset: 0; background-image: repeating-linear-gradient(45deg, rgba(26,25,23,.1) 0 1px, transparent 1px 7px); opacity: {{ planDetail }};"></div>
+                <div style="position: relative; display: flex; flex-direction: column; gap: 2px;">
+                  <span class="m-room" style="position: relative; font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.13em; text-transform: uppercase; line-height: 1.3; color: #1a1917; opacity: {{ planText }};">{{ c.room }}</span>
+                  <span class="m-room" style="position: absolute; font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.13em; text-transform: uppercase; line-height: 1.3; color: #4a453f; opacity: {{ uiText }};">{{ c.block }}</span>
+                </div>
+                <div style="position: relative; display: flex; flex-direction: column; gap: 5px; opacity: {{ uiDetail }};">
+                  <sc-for list="{{ c.bars }}" as="b" hint-placeholder-count="2">
+                    <span style="height: 6px; border-radius: 3px; width: {{ b.w }}; background: {{ b.color }};"></span>
+                  </sc-for>
+                </div>
+                <div style="position: relative; display: flex; justify-content: space-between; gap: 6px; align-items: flex-end;">
+                  <span class="m-dim" style="position: relative; font-family: 'JetBrains Mono', monospace; font-size: 9px; color: #8a827a; opacity: {{ planText }};">{{ c.dim }}</span>
+                  <span class="m-dim" style="position: absolute; right: 0; font-family: 'JetBrains Mono', monospace; font-size: 9px; color: #8a827a; opacity: {{ uiText }};">{{ c.token }}</span>
+                </div>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+
+        <input type="range" min="0" max="100" value="{{ morph }}" onChange="{{ setMorph }}" onInput="{{ setMorph }}" aria-label="Transform the floor plan into a dashboard layout" style="width: 100%; margin-top: 22px; height: 34px;">
+        <div style="display: flex; justify-content: space-between; font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: #8a827a;">
+          <span>Plan</span><span>Transition</span><span>Interface</span>
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 180px), 1fr)); gap: 8px; margin-top: 20px; border-top: 1px solid #ded8cd; padding-top: 20px;">
+          <sc-for list="{{ mapping }}" as="m" hint-placeholder-count="7">
+            <div style="display: flex; align-items: baseline; gap: 8px; font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;">
+              <span style="color: {{ m.fromColor }};">{{ m.from }}</span>
+              <span style="color: #c2591f;">→</span>
+              <span style="color: {{ m.toColor }};">{{ m.to }}</span>
+            </div>
+          </sc-for>
+        </div>
+        <p style="margin: 18px 0 0; max-width: 62ch; font-size: 15px; line-height: 1.6; color: #4a453f;">{{ morphNote }}</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ░░ CH 02 / INTERFACES ░░ -->
+  <section id="ch02" data-chapter="02" data-screen-label="02 Interfaces" style="position: relative; background: #1a1917; color: #f6f3ee; padding: clamp(80px, 14vh, 170px) clamp(20px, 6vw, 96px);">
+    <div style="max-width: 1240px; margin: 0 auto;">
+      <div style="display: flex; align-items: baseline; gap: 18px; flex-wrap: wrap;">
+        <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.2em; color: #e08a4e;">CHAPTER 02 / 2022 → 2023</span>
+        <span style="height: 1px; flex: 1; min-width: 40px; background: #3a3733;"></span>
+        <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.2em; color: #8a827a;">GUVI UI/UX · IIT MADRAS RESEARCH PARK · SELECTED VIA BOOTCAMP</span>
+      </div>
+      <h2 style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; font-size: clamp(32px, 5.2vw, 76px); line-height: 0.98; letter-spacing: -0.04em; margin: clamp(22px, 4vh, 40px) 0 0; max-width: 20ch;">
+        The year I learned that designing an interface is nothing like designing a room.
+      </h2>
+      <p style="max-width: 52ch; margin: 24px 0 0; font-size: clamp(16px, 1.4vw, 19px); line-height: 1.6; color: #b3aca3;">
+        A room is finished when you leave it. An interface keeps being used. Six months: three of fundamentals, UX laws and heuristic evaluation, three of building case studies under review. Nerdy Otaku and Drop. That's where the six-step spine I still fall back on came from.
+      </p>
+
+      <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: clamp(36px, 6vh, 60px);">
+        <sc-for list="{{ steps }}" as="st" hint-placeholder-count="6">
+          <button type="button" onClick="{{ st.go }}" style="flex: 1 1 min(100%, 150px); text-align: left; cursor: pointer; padding: 16px; border: 1px solid #3a3733; background: {{ st.bg }}; color: {{ st.fg }}; border-radius: 4px; transition: background .3s, color .3s, transform .3s;" style-hover="transform: translateY(-4px);">
+            <span style="display: block; font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.16em; opacity: .6;">{{ st.n }}</span>
+            <span style="display: block; margin-top: 10px; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; font-size: clamp(15px, 1.4vw, 19px); letter-spacing: -0.02em;">{{ st.name }}</span>
+          </button>
+        </sc-for>
+      </div>
+      <div style="margin-top: 24px; border-left: 2px solid #e08a4e; padding: 6px 0 6px 20px; min-height: 92px;">
+        <p style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-size: clamp(19px, 2.2vw, 28px); line-height: 1.35; letter-spacing: -0.02em; max-width: 42ch;">{{ stepBody }}</p>
+        <p style="margin: 10px 0 0; font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: #8a827a;">{{ stepMeta }}</p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: clamp(20px, 3vw, 44px); align-items: center; margin-top: clamp(44px, 7vh, 84px); padding-top: clamp(28px, 4vh, 44px); border-top: 1px solid #3a3733;">
+        <div>
+          <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: #e08a4e;">Case study from this chapter</span>
+          <h3 style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: clamp(26px, 3.6vw, 46px); line-height: 0.96; letter-spacing: -0.04em; margin: 14px 0 0;">Nerdy Otaku</h3>
+          <p style="margin: 14px 0 0; font-size: clamp(15px, 1.4vw, 18px); line-height: 1.6; color: #b3aca3; max-width: 46ch;">
+            India's first anime embroidery merch store, as an app. 53 survey responses, 5 interviews, 2 personas, a competitor teardown, and a customisation flow with a 360° builder. It's also where I designed a feature, then argued it out of the product.
+          </p>
+          <a href="NerdyOtaku.dc.html" style="display: inline-flex; align-items: center; gap: 10px; margin-top: 22px; padding: 15px 24px; border-radius: 100px; background: #f6f3ee; color: #1a1917; font-family: 'JetBrains Mono', monospace; font-size: 11.5px; letter-spacing: 0.14em; text-transform: uppercase;" style-hover="background: #e08a4e;">Read the case study →</a>
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(96px, 1fr)); gap: 10px;">
+          <sc-for list="{{ noPeek }}" as="p" hint-placeholder-count="3">
+            <img decoding="async" loading="lazy" src="{{ p }}" alt="Nerdy Otaku screen" style="width: 100%; height: auto; display: block; border-radius: 8px;">
+          </sc-for>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ░░ CH 03 / PRODUCTION ░░ -->
+  <section id="ch03" data-chapter="03" data-screen-label="03 Production" style="padding: clamp(80px, 14vh, 170px) clamp(20px, 6vw, 96px);">
+    <div style="max-width: 1240px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: clamp(28px, 4vw, 72px); align-items: start;">
+      <div class="ch03-lead" style="position: sticky; top: 96px;">
+        <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.2em; color: #c2591f;">CHAPTER 03 / 2023 · CHENNAI</span>
+        <h2 style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; font-size: clamp(32px, 4.6vw, 68px); line-height: 0.96; letter-spacing: -0.04em; margin: 18px 0 0;">FULL Creative</h2>
+        <p style="margin: 18px 0 0; font-size: clamp(16px, 1.4vw, 19px); line-height: 1.6; color: #4a453f; max-width: 40ch;">
+          Brand designer + UI/UX intern, three months. I walked in expecting to design screens and instead learned how design actually gets shipped: through other people.
+          <br><br>
+          The tasks were small, image swaps, type fixes, marketing assets, small UI updates. The lesson wasn't. Content has to fit the interface. Decisions have to survive review. Developers need assets that work. Auto Layout, components and consistency stopped being vocabulary and became habits, fast.
+        </p>
+      </div>
+      <div style="display: grid; gap: 12px;">
+        <sc-for list="{{ collab }}" as="c" hint-placeholder-count="6">
+          <div style="display: flex; align-items: center; gap: 14px; padding: 18px; background: #fffdf9; border: 1px solid #ded8cd;" style-hover="border-color: #1a1917;">
+            <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #8a827a; min-width: 26px;">{{ c.n }}</span>
+            <span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 500; font-size: clamp(16px, 1.6vw, 21px); letter-spacing: -0.02em;">{{ c.role }}</span>
+            <span style="margin-left: auto; font-size: 13px; color: #8a827a; text-align: right; max-width: 22ch;">{{ c.note }}</span>
+          </div>
+        </sc-for>
+        <div style="margin-top: 20px; padding: clamp(20px, 3vw, 32px); background: #1a1917; color: #f6f3ee;">
+          <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: #e08a4e;">Case study from this chapter</span>
+          <p style="margin: 14px 0 0; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 500; font-size: clamp(20px, 2.4vw, 32px); line-height: 1.25; letter-spacing: -0.03em;">
+            “Show us how far you can push visual design.” That request became <strong style="font-weight: 800;">Drop</strong>.
+          </p>
+          <p style="margin: 12px 0 0; font-size: 15px; line-height: 1.6; color: #b3aca3; max-width: 44ch;">
+            A homepage for a digital marketing agency that didn't exist. I invented the brand, wrote its founder a backstory, tore down six real agency sites, then built the type scale, the palette, a UI kit and eleven folds at two breakpoints.
+          </p>
+          <a href="Drop.dc.html" style="display: inline-flex; align-items: center; gap: 10px; margin-top: 20px; padding: 14px 22px; border-radius: 100px; background: #c2591f; color: #fff6ee; font-family: 'JetBrains Mono', monospace; font-size: 11.5px; letter-spacing: 0.14em; text-transform: uppercase;" style-hover="background: #f6f3ee; color: #1a1917;">Read the case study →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ░░ THE DETOUR ░░ -->
+  <section id="detour" data-chapter="04" data-screen-label="04 Detour" style="position: relative; background: #12110f; color: #f6f3ee; overflow: hidden; padding: clamp(90px, 18vh, 200px) clamp(20px, 6vw, 96px);">
+    <div style="position: absolute; inset: 0; background-image: radial-gradient(circle at 70% 30%, rgba(194,89,31,.22), transparent 55%); pointer-events: none;"></div>
+    <div style="position: relative; max-width: 1240px; margin: 0 auto;">
+      <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.2em; color: #8a827a;">INTERLUDE / 2023 → 2024</span>
+      <h2 style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 300; font-size: clamp(36px, 7vw, 104px); line-height: 0.95; letter-spacing: -0.045em; margin: 20px 0 0; max-width: 16ch;">
+        The plan changed.<br><span style="font-weight: 800;">The direction didn't.</span>
+      </h2>
+      <div style="display: flex; flex-wrap: wrap; align-items: center; gap: clamp(12px, 3vw, 36px); margin-top: clamp(40px, 7vh, 72px);">
+        <sc-for list="{{ detour }}" as="d" hint-placeholder-count="4">
+          <div style="display: flex; align-items: center; gap: clamp(12px, 3vw, 36px);">
+            <div style="opacity: {{ d.op }};">
+              <span style="display: block; font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.16em; color: #8a827a;">{{ d.label }}</span>
+              <span style="display: block; margin-top: 8px; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; font-size: clamp(20px, 2.6vw, 34px); letter-spacing: -0.03em; color: {{ d.color }};">{{ d.name }}</span>
+            </div>
+            <span style="font-size: 20px; color: #4a453f;">{{ d.arrow }}</span>
+          </div>
+        </sc-for>
+      </div>
+      <p style="max-width: 46ch; margin: clamp(36px, 6vh, 60px) 0 0; font-size: clamp(16px, 1.4vw, 19px); line-height: 1.6; color: #b3aca3;">
+        I was heading to Australia for a master's in product design. RMIT, University of Queensland. Finances said no. That cost me roughly a year. It also made the next decision very easy.
+      </p>
+      <p style="margin: 22px 0 0; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: clamp(28px, 4.4vw, 60px); letter-spacing: -0.04em; color: #e08a4e;">So I started again.</p>
+    </div>
+  </section>
+
+  <!-- ░░ CH 05 / INCEPTEO ░░ -->
+  <section id="ch05" data-chapter="05" data-screen-label="05 Speed" style="padding: clamp(80px, 14vh, 170px) clamp(20px, 6vw, 96px);">
+    <div style="max-width: 1240px; margin: 0 auto;">
+      <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.2em; color: #c2591f;">CHAPTER 05 / MAR 2024 · INCEPTEO</span>
+      <h2 style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; font-size: clamp(32px, 5.2vw, 76px); line-height: 0.96; letter-spacing: -0.04em; margin: 18px 0 0; max-width: 17ch;">
+        Hired as one designer. Used as four.
+      </h2>
+      <p style="max-width: 52ch; margin: 22px 0 0; font-size: clamp(16px, 1.4vw, 19px); line-height: 1.6; color: #4a453f;">
+        Junior UX Designer on the offer letter. In practice I was the only person doing product <em style="font-style: normal; color: #c2591f;">and</em> marketing. Two designers sat purely on Stratpilot; I backed them up when deadlines closed in and owned everything else. Four months. It felt like a year, in the useful way.
+      </p>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 160px), 1fr)); gap: 8px; margin-top: clamp(30px, 5vh, 52px);">
+        <sc-for list="{{ hats }}" as="h" hint-placeholder-count="6">
+          <div style="padding: 18px; border: 1px solid #ded8cd; background: #fffdf9;" style-hover="border-color: #c2591f;">
+            <span style="display: block; font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: #c2591f;">{{ h.n }}</span>
+            <span style="display: block; margin-top: 10px; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; font-size: clamp(15px, 1.5vw, 19px); letter-spacing: -0.02em;">{{ h.name }}</span>
+            <span style="display: block; margin-top: 6px; font-size: 12.5px; line-height: 1.45; color: #8a827a;">{{ h.note }}</span>
+          </div>
+        </sc-for>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 290px), 1fr)); gap: clamp(20px, 3vw, 48px); margin-top: clamp(36px, 6vh, 64px); align-items: start;">
+        <div style="border-left: 2px solid #c2591f; padding-left: 20px;">
+          <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: #8a827a;">The turn</span>
+          <p style="margin: 12px 0 0; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 500; font-size: clamp(19px, 2.2vw, 28px); line-height: 1.28; letter-spacing: -0.03em;">
+            Then the CEO started taking me into client rooms.
+          </p>
+          <p style="margin: 14px 0 0; font-size: clamp(15px, 1.35vw, 18px); line-height: 1.6; color: #4a453f;">
+            Requirement gathering, discovery calls, the awkward question nobody wants to ask about scope. On a community platform for autistic users, a UK-based designer ran the meeting and I watched how it's actually done: ask, don't present. Confirm, don't assume. Write the constraint down while they're still in the room.
+          </p>
+          <p style="margin: 14px 0 0; font-size: clamp(15px, 1.35vw, 18px); line-height: 1.6; color: #4a453f;">
+            That's the month I stopped being only a designer and became a designer who understands stakeholders.
+          </p>
+        </div>
+        <div style="padding: clamp(22px, 3.4vw, 40px); background: #1a1917; color: #f6f3ee;">
+          <p style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-size: clamp(20px, 2.5vw, 32px); line-height: 1.22; letter-spacing: -0.03em;">
+            I was getting very good at producing screens. I still didn't understand the product behind them.
+          </p>
+          <div style="display: grid; gap: 10px; margin-top: 26px; padding-top: 22px; border-top: 1px solid #3a3733; font-family: 'JetBrains Mono', monospace; font-size: 11.5px; letter-spacing: 0.14em; text-transform: uppercase; color: #8a827a;">
+            <span>Why I left</span>
+            <span style="color: #f6f3ee;">Not the company. The gap between a pretty screen and a real product.</span>
+            <span>Two offers on the table. I took the one with a game in it.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ░░ CH 06 / MAVERICKS ░░ -->
+  <section id="ch06" data-chapter="06" data-screen-label="06 Mavricks" style="position: relative; background: #101a2b; color: #eef2f8; padding: clamp(80px, 14vh, 170px) clamp(20px, 6vw, 96px); overflow: hidden;">
+    <div style="position: absolute; inset: 0; opacity: .18; background-image: linear-gradient(#4f7ec9 1px, transparent 1px), linear-gradient(90deg, #4f7ec9 1px, transparent 1px); background-size: 40px 40px; mask-image: radial-gradient(circle at 80% 20%, #000, transparent 70%);"></div>
+    <div style="position: relative; max-width: 1240px; margin: 0 auto;">
+      <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.2em; color: #7fa8e8;">CHAPTER 06 / JUL 2024 · OAKS SOLUTIONS</span>
+      <h2 style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: clamp(36px, 6.4vw, 96px); line-height: 0.92; letter-spacing: -0.045em; margin: 18px 0 0; max-width: 16ch;">
+        We built the game.<br>The kids skipped the story.
+      </h2>
+      <p style="max-width: 50ch; margin: 24px 0 0; font-size: clamp(16px, 1.4vw, 19px); line-height: 1.6; color: #9db0cc;">
+        Mavricks: a gamified learning platform for grades 3 to 8, comics, games, community, values. I joined for the gaming part of my childhood and inherited a product idea with no product language. Then we took it into schools.
+      </p>
+
+      <div style="display: flex; gap: 8px; margin-top: clamp(36px, 6vh, 56px);">
+        <sc-for list="{{ mavTabs }}" as="t" hint-placeholder-count="2">
+          <button type="button" onClick="{{ t.go }}" style="cursor: pointer; padding: 12px 20px; border-radius: 100px; border: 1px solid #33507e; background: {{ t.bg }}; color: {{ t.fg }}; font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; transition: background .3s, color .3s;">{{ t.name }}</button>
+        </sc-for>
+      </div>
+      <div style="display: flex; flex-wrap: wrap; align-items: stretch; gap: 12px; margin-top: 20px;">
+        <sc-for list="{{ mavFlow }}" as="f" hint-placeholder-count="4">
+          <div style="flex: 1 1 min(100%, 170px); min-height: 130px; padding: 18px; border-radius: 10px; border: 1px solid {{ f.border }}; background: {{ f.bg }}; display: flex; flex-direction: column; justify-content: space-between; transition: all .4s cubic-bezier(.2,.8,.2,1); opacity: {{ f.op }};">
+            <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.16em; color: #7fa8e8;">STEP {{ f.n }}</span>
+            <span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; font-size: clamp(18px, 2vw, 26px); letter-spacing: -0.03em; color: {{ f.fg }};">{{ f.label }}</span>
+            <span style="font-size: 12px; color: #7f92ad;">{{ f.note }}</span>
+          </div>
+        </sc-for>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 230px), 1fr)); gap: 12px; margin-top: clamp(36px, 6vh, 56px);">
+        <sc-for list="{{ tension }}" as="t" hint-placeholder-count="3">
+          <div style="padding: 22px; border-radius: 10px; background: rgba(255,255,255,.04); border: 1px solid #23375a;">
+            <span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; font-size: clamp(17px, 1.8vw, 22px); letter-spacing: -0.02em; color: {{ t.color }};">{{ t.title }}</span>
+            <p style="margin: 10px 0 0; font-size: 14px; line-height: 1.55; color: #9db0cc;">{{ t.body }}</p>
+          </div>
+        </sc-for>
+      </div>
+      <a href="Mavricks.dc.html" style="display: inline-flex; align-items: center; gap: 12px; margin-top: clamp(32px, 5vh, 52px); padding: 16px 26px; border-radius: 100px; background: #4f7ec9; color: #06101f; font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase;" style-hover="background: #eef2f8;">Read the Mavricks case study →</a>
+    </div>
+  </section>
+
+  <!-- ░░ CH 07 / siya ░░ -->
+  <section id="ch07" data-chapter="07" data-screen-label="07 siya" style="position: relative; background: #efeafb; color: #201a33; padding: clamp(80px, 14vh, 170px) clamp(20px, 6vw, 96px); overflow: hidden;">
+    <div style="position: relative; max-width: 1240px; margin: 0 auto;">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: clamp(28px, 4vw, 64px); align-items: center;">
+        <div>
+          <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.2em; color: #7d5cc6;">CHAPTER 07 / JAN 2025 → PRESENT</span>
+          <p style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 300; font-size: clamp(24px, 3.2vw, 44px); letter-spacing: -0.04em; margin: 20px 0 0; color: #5b5175;">A call from my PM, while I was in Manali:</p>
+          <h2 style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: clamp(40px, 7vw, 104px); line-height: 0.9; letter-spacing: -0.05em; margin: 10px 0 0;">
+            “It's just<br>six screens.”
+          </h2>
+          <p style="max-width: 40ch; margin: 26px 0 0; font-size: clamp(16px, 1.4vw, 19px); line-height: 1.6; color: #5b5175;">
+            One month, maybe. It runs in schools in India and Malta now, six roles, an evaluation engine, a brand system. Product, brand, mascot, marketing: mine.
+          </p>
+          <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: clamp(26px, 4vh, 40px);">
+            <a href="Siya.dc.html" style="display: inline-flex; align-items: center; gap: 12px; padding: 16px 26px; border-radius: 100px; background: #201a33; color: #efeafb; font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase;" style-hover="background: #7d5cc6;">Read the case study →</a>
+            <a href="https://heysiya.ai" style="display: inline-flex; align-items: center; gap: 12px; padding: 16px 26px; border-radius: 100px; border: 1px solid #ddd4f2; color: #5b5175; font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase;" style-hover="border-color: #7d5cc6; color: #7d5cc6;">heysiya.ai ↗</a>
+          </div>
+        </div>
+        <div style="position: relative;">
+          <div style="position: relative; border-radius: 26px; overflow: hidden; background: linear-gradient(155deg, #e3daf8 0%, #f4f0fd 55%, #ded2f6 100%); aspect-ratio: 4 / 3; display: grid; place-items: center;">
+            <div style="position: absolute; inset: 12%; border-radius: 50%; background: radial-gradient(circle, rgba(255,255,255,.85), rgba(255,255,255,0) 70%);"></div>
+            <img decoding="async" loading="lazy" src="assets/siya/mascot-suit.webp" alt="The siya mascot" style="position: relative; width: 46%; max-width: 240px; height: auto; display: block; filter: drop-shadow(0 26px 30px rgba(45,25,90,.28));" />
+            <span style="position: absolute; left: 22px; top: 20px; font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: #7d5cc6;">Mascot · 8 expressions</span>
+          </div>
+          <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-top: 14px; font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: #7d5cc6;">
+            <span>Product · Brand · Mascot · Marketing</span>
+            <span style="padding: 7px 12px; border-radius: 100px; background: #201a33; color: #efeafb;">Screens locked</span>
+          </div>
+        </div>
+      </div>
+
+      <blockquote style="margin: clamp(48px, 9vh, 96px) 0 0; padding: 0; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 500; font-size: clamp(24px, 4vw, 56px); line-height: 1.1; letter-spacing: -0.04em; max-width: 20ch;">
+        siya should adapt to the school ecosystem · <span style="color: #7d5cc6;">not make the school adapt to siya.</span>
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- ░░ CH 08 / AI WORKFLOW ░░ -->
+  <section id="ch08" data-chapter="08" data-screen-label="08 AI workflow" style="padding: clamp(80px, 14vh, 170px) clamp(20px, 6vw, 96px);">
+    <div style="max-width: 1240px; margin: 0 auto;">
+      <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.2em; color: #c2591f;">CHAPTER 08 / NOW</span>
+      <h2 style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; font-size: clamp(32px, 5.6vw, 82px); line-height: 0.95; letter-spacing: -0.04em; margin: 18px 0 0; max-width: 17ch;">
+        AI didn't replace the designer. It joined the toolkit.
+      </h2>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: clamp(20px, 3vw, 48px); margin-top: clamp(32px, 5vh, 56px); align-items: start;">
+        <p style="margin: 0; font-size: clamp(16px, 1.4vw, 19px); line-height: 1.6; color: #4a453f;">
+          When the new siya brand had to reach a product that had grown past a hundred screens, a manual redesign was a three-month job. So AI entered the workflow. Claude, Stitch, UX Pilot. The first outputs weren't good enough, and the reason was instructive: <strong style="font-weight: 700;">AI is only useful inside a defined design system.</strong>
+        </p>
+        <div style="display: grid; gap: 8px;">
+          <sc-for list="{{ pipeline }}" as="p" hint-placeholder-count="5">
+            <div style="display: flex; align-items: center; gap: 16px; padding: 16px 18px; border: 1px solid #ded8cd; background: #fffdf9;">
+              <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #c2591f;">{{ p.n }}</span>
+              <span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 500; font-size: clamp(16px, 1.6vw, 20px); letter-spacing: -0.02em;">{{ p.step }}</span>
+              <span style="margin-left: auto; font-size: 12px; font-family: 'JetBrains Mono', monospace; color: #8a827a;">{{ p.who }}</span>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ░░ WORK ░░ -->
+  <section id="work" data-chapter="09" data-screen-label="Work" style="border-top: 1px solid #ded8cd; padding: clamp(70px, 12vh, 140px) clamp(20px, 6vw, 96px) clamp(80px, 14vh, 160px);">
+    <div style="max-width: 1240px; margin: 0 auto;">
+      <div style="display: flex; justify-content: space-between; align-items: baseline; gap: 20px; flex-wrap: wrap;">
+        <h2 style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: clamp(34px, 6vw, 88px); letter-spacing: -0.045em; margin: 0;">Four worlds.</h2>
+        <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; color: #8a827a;">Each case study keeps its own identity</span>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); gap: 16px; margin-top: clamp(30px, 5vh, 52px);">
+
+        <!-- siya -->
+        <a href="Siya.dc.html" style="display: flex; flex-direction: column; background: #fffdf9; border: 1px solid #ded8cd; border-radius: 6px; overflow: hidden; transition: transform .45s cubic-bezier(.2,.8,.2,1), border-color .3s, box-shadow .45s;" style-hover="transform: translateY(-6px); border-color: #1a1917; box-shadow: 0 26px 50px -34px rgba(26,25,23,.4);">
+          <div style="position: relative; aspect-ratio: 16 / 10; background: #f2eefb; overflow: hidden; display: flex; align-items: flex-end; justify-content: center; gap: 14px; padding: 26px 22px 0;">
+            <span style="position: absolute; top: 14px; right: 16px; z-index: 3; font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: #7d5cc6;">brand system</span>
+            <div style="flex: 0 0 auto; width: 41%; aspect-ratio: 4 / 5; border-radius: 12px 12px 0 0; overflow: hidden; background: #fff; box-shadow: 0 22px 40px -24px rgba(45,25,90,.5);">
+              <img loading="eager" decoding="async" src="siya/merch-apparel.webp" alt="siya apparel" style="width: 100%; height: 100%; object-fit: cover; object-position: top; display: block;" />
+            </div>
+            <div style="flex: 0 0 auto; width: 41%; aspect-ratio: 4 / 5; border-radius: 12px 12px 0 0; overflow: hidden; background: #fff; box-shadow: 0 22px 40px -24px rgba(45,25,90,.5);">
+              <img loading="eager" decoding="async" src="siya/merch-deskkit.webp" alt="siya desk kit" style="width: 100%; height: 100%; object-fit: cover; object-position: top; display: block;" />
+            </div>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 10px; padding: clamp(20px, 2.2vw, 26px); flex: 1;">
+            <div style="display: flex; justify-content: space-between; gap: 10px; font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: #8a827a;">
+              <span>01 · Product · Brand · AI</span><span>2025 → now</span>
+            </div>
+            <span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: clamp(26px, 2.8vw, 38px); line-height: 1; letter-spacing: -0.04em; color: #1a1917;">siya</span>
+            <span style="font-size: 15px; line-height: 1.5; color: #4a453f;">Six screens became an AI school ecosystem, and a brand that had to earn its place.</span>
+            <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-top: auto; padding-top: 14px;">
+              <span style="padding: 6px 11px; border-radius: 100px; background: #f2eefb; color: #7d5cc6; font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase;">Screens on request</span>
+              <span style="margin-left: auto; font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: #1a1917;">Read →</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- MAVRICKS -->
+        <a href="Mavricks.dc.html" style="display: flex; flex-direction: column; background: #fffdf9; border: 1px solid #ded8cd; border-radius: 6px; overflow: hidden; transition: transform .45s cubic-bezier(.2,.8,.2,1), border-color .3s, box-shadow .45s;" style-hover="transform: translateY(-6px); border-color: #1a1917; box-shadow: 0 26px 50px -34px rgba(26,25,23,.4);">
+          <div style="position: relative; aspect-ratio: 16 / 10; background: #0f1a2c; overflow: hidden; display: flex; flex-direction: column; align-items: center; gap: 12px; padding: 26px 24px 0;">
+            <span style="position: absolute; top: 14px; right: 16px; z-index: 3; font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: #7fa8e8;">landscape only</span>
+            <div style="flex: 0 0 auto; width: 84%; aspect-ratio: 1200 / 540; border-radius: 10px; overflow: hidden; background: #06101f; box-shadow: 0 18px 34px -18px rgba(0,0,0,.8);">
+              <img loading="eager" decoding="async" width="1200" height="540" src="assets/mav2/ttt-live.webp" alt="Mavricks live match screen" style="width: 100%; height: 100%; object-fit: cover; display: block;" />
+            </div>
+            <div style="flex: 0 0 auto; width: 84%; aspect-ratio: 1200 / 540; border-radius: 10px 10px 0 0; overflow: hidden; background: #06101f; box-shadow: 0 18px 34px -18px rgba(0,0,0,.8);">
+              <img loading="eager" decoding="async" width="1200" height="540" src="assets/mav2/leagues.webp" alt="Mavricks leagues screen" style="width: 100%; height: 100%; object-fit: cover; object-position: top; display: block;" />
+            </div>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 10px; padding: clamp(20px, 2.2vw, 26px); flex: 1;">
+            <div style="display: flex; justify-content: space-between; gap: 10px; font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: #8a827a;">
+              <span>02 · Product · Research</span><span>2024</span>
+            </div>
+            <span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: clamp(26px, 2.8vw, 38px); line-height: 1; letter-spacing: -0.04em; color: #1a1917;">Mavricks</span>
+            <span style="font-size: 15px; line-height: 1.5; color: #4a453f;">We built the game. The kids skipped the story. What school testing taught us.</span>
+            <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-top: auto; padding-top: 14px;">
+              <span style="padding: 6px 11px; border-radius: 100px; background: #eaf0f9; color: #2c4f89; font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase;">Screens on request</span>
+              <span style="margin-left: auto; font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: #1a1917;">Read →</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- NERDY OTAKU -->
+        <a href="NerdyOtaku.dc.html" style="display: flex; flex-direction: column; background: #fffdf9; border: 1px solid #ded8cd; border-radius: 6px; overflow: hidden; transition: transform .45s cubic-bezier(.2,.8,.2,1), border-color .3s, box-shadow .45s;" style-hover="transform: translateY(-6px); border-color: #1a1917; box-shadow: 0 26px 50px -34px rgba(26,25,23,.4);">
+          <div style="position: relative; aspect-ratio: 16 / 10; background: #141312; overflow: hidden; display: flex; align-items: flex-end; justify-content: center; gap: 18px; padding: 30px 26px 0;">
+            <span style="position: absolute; top: 14px; right: 16px; z-index: 3; font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: #e0475f;">feature removed</span>
+            <div style="flex: 0 0 auto; width: 31%; aspect-ratio: 620 / 900; border-radius: 14px 14px 0 0; overflow: hidden; background: #0e1319; box-shadow: 0 22px 40px -20px rgba(0,0,0,.75);">
+              <img loading="eager" decoding="async" width="620" height="1168" src="assets/no/home.webp" alt="Nerdy Otaku home screen" style="width: 100%; height: 100%; object-fit: cover; object-position: top; display: block;" />
+            </div>
+            <div style="flex: 0 0 auto; width: 31%; aspect-ratio: 620 / 900; border-radius: 14px 14px 0 0; overflow: hidden; background: #0e1319; box-shadow: 0 22px 40px -20px rgba(0,0,0,.75);">
+              <img loading="eager" decoding="async" width="620" height="1168" src="assets/no/customize-tee.webp" alt="Nerdy Otaku customiser" style="width: 100%; height: 100%; object-fit: cover; object-position: top; display: block;" />
+            </div>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 10px; padding: clamp(20px, 2.2vw, 26px); flex: 1;">
+            <div style="display: flex; justify-content: space-between; gap: 10px; font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: #8a827a;">
+              <span>03 · UX · Research</span><span>2023</span>
+            </div>
+            <span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: clamp(26px, 2.8vw, 38px); line-height: 1; letter-spacing: -0.04em; color: #1a1917;">Nerdy Otaku</span>
+            <span style="font-size: 15px; line-height: 1.5; color: #4a453f;">The feature looked useful. Then we realised it shouldn't exist.</span>
+            <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-top: auto; padding-top: 14px;">
+              <span style="padding: 6px 11px; border-radius: 100px; background: #f7e7ea; color: #a8283c; font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase;">Figma open</span>
+              <span style="margin-left: auto; font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: #1a1917;">Read →</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- DROP -->
+        <a href="Drop.dc.html" style="display: flex; flex-direction: column; background: #fffdf9; border: 1px solid #ded8cd; border-radius: 6px; overflow: hidden; transition: transform .45s cubic-bezier(.2,.8,.2,1), border-color .3s, box-shadow .45s;" style-hover="transform: translateY(-6px); border-color: #1a1917; box-shadow: 0 26px 50px -34px rgba(26,25,23,.4);">
+          <div style="position: relative; aspect-ratio: 16 / 10; background: #101010; overflow: hidden; display: flex; align-items: flex-end; justify-content: center; padding: 34px 26px 0;">
+            <span style="position: absolute; top: 14px; right: 16px; z-index: 3; font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: #b8afda;">10 folds · 2 breakpoints</span>
+            <div style="flex: 0 0 auto; width: 82%; aspect-ratio: 1200 / 780; border-radius: 10px 10px 0 0; overflow: hidden; background: #191919; box-shadow: 0 24px 44px -22px rgba(0,0,0,.8);">
+              <img loading="eager" decoding="async" width="1200" height="780" src="assets/drop/fold-hero.webp" alt="DROP hero fold" style="width: 100%; height: 100%; object-fit: cover; object-position: top; display: block;" />
+            </div>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 10px; padding: clamp(20px, 2.2vw, 26px); flex: 1;">
+            <div style="display: flex; justify-content: space-between; gap: 10px; font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: #8a827a;">
+              <span>04 · Visual · Brand · Web</span><span>2023</span>
+            </div>
+            <span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: clamp(26px, 2.8vw, 38px); line-height: 1; letter-spacing: -0.04em; color: #1a1917;">DROP</span>
+            <span style="font-size: 15px; line-height: 1.5; color: #4a453f;">An agency that didn't exist, and a homepage that had to sell it.</span>
+            <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-top: auto; padding-top: 14px;">
+              <span style="padding: 6px 11px; border-radius: 100px; background: #ece9f5; color: #4b4460; font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase;">Figma + prototype</span>
+              <span style="margin-left: auto; font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: #1a1917;">Read →</span>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <div style="margin-top: clamp(46px, 7vh, 82px); padding-top: 26px; border-top: 1px solid #ded8cd; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 270px), 1fr)); gap: 22px clamp(30px, 5vw, 70px); align-items: start;">
+        <div>
+          <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: #8a827a;">Also on the desk</span>
+          <p style="margin: 10px 0 0; font-size: 13.5px; line-height: 1.55; color: #6a635c; max-width: 42ch;">
+            Contract and freelance work, mostly through a close circle. My contribution was temporary and service-based, so none of it is written up as a case study.
+          </p>
+        </div>
+        <div class="desk-list" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 190px), 1fr)); gap: 1px; background: #ded8cd;">
+          <div style="background: #f6f3ee; padding: 12px 2px 12px 0;">
+            <span style="display: block; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; font-size: 15px; letter-spacing: -0.03em; color: #302c28;">TechKendr</span>
+            <span style="display: block; margin-top: 3px; font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: #8a827a;">Contract</span>
+          </div>
+          <div style="background: #f6f3ee; padding: 12px 2px 12px 14px;">
+            <span style="display: block; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; font-size: 15px; letter-spacing: -0.03em; color: #302c28;">ORBOL</span>
+            <span style="display: block; margin-top: 3px; font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: #8a827a;">Freelance</span>
+          </div>
+          <div style="background: #f6f3ee; padding: 12px 2px 12px 0;">
+            <span style="display: block; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; font-size: 15px; letter-spacing: -0.03em; color: #302c28;">PeekAZoo</span>
+            <span style="display: block; margin-top: 3px; font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: #8a827a;">At Oaks · service work</span>
+          </div>
+          <div style="background: #f6f3ee; padding: 12px 2px 12px 14px;">
+            <span style="display: block; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; font-size: 15px; letter-spacing: -0.03em; color: #302c28;">BGR Mining</span>
+            <span style="display: block; margin-top: 3px; font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: #8a827a;">At Oaks · service work</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ░░ ABOUT TEASER ░░ -->
+  <section id="about" data-chapter="10" data-screen-label="About teaser" data-om-motion="skip" style="background: #1a1917; color: #f6f3ee; padding: clamp(70px, 12vh, 150px) clamp(20px, 6vw, 96px);">
+    <div style="max-width: 1240px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 290px), 1fr)); gap: clamp(28px, 4vw, 72px); align-items: end;">
+      <div>
+        <span class="pbp-eyebrow" style="display: block; font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; color: #e08a4e;">✳ The person behind the pixels</span>
+        <h2 id="pbp-title" style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: clamp(34px, 6.4vw, 92px); line-height: 0.9; letter-spacing: -0.045em; margin: 18px 0 0; max-width: 18ch;">
+          <span class="pbp-line" style="display: block;">One designer.</span>
+          <span class="pbp-line" style="display: block; font-weight: 300;">Many surfaces.</span>
+          <span class="pbp-line" style="display: block;">No handoff.</span>
+        </h2>
+        <p class="pbp-sub" style="max-width: 46ch; margin: 22px 0 0; font-size: clamp(16px, 1.4vw, 19px); line-height: 1.6; color: #cfc6bb;">
+          Interior design at JNAFAU, then screens, I still lay out an interface the way I laid out a room. Today I own siya end to end: product, brand, mascot, marketing.
+        </p>
+        <a class="pbp-cta" href="About.dc.html" style="display: inline-flex; align-items: center; gap: 10px; margin-top: 26px; padding: 15px 24px; border-radius: 100px; background: #f6f3ee; color: #1a1917; font-family: 'JetBrains Mono', monospace; font-size: 11.5px; letter-spacing: 0.14em; text-transform: uppercase;" style-hover="background: #e08a4e;">The longer story →</a>
+      </div>
+      <div style="display: flex; flex-direction: column; align-items: center; gap: clamp(20px, 3vh, 32px);">
+        <div id="about-figure" class="pbp-fig" style="position: relative; width: 100%; max-width: min(340px, 46vh); display: flex; justify-content: center;">
+          <div style="position: absolute; left: 50%; bottom: 1.2%; transform: translateX(-50%); width: 96%; aspect-ratio: 1; border-radius: 50%; background: #241f1b;"></div>
+          <div style="position: absolute; left: 50%; bottom: 1.2%; transform: translateX(-50%); width: 106%; aspect-ratio: 1; border-radius: 50%; border: 1px solid #33302b;"></div>
+          <div style="position: absolute; left: 50%; bottom: 0.1%; transform: translateX(-50%); width: 84%; height: 15px; border-radius: 50%; background: radial-gradient(ellipse at center, rgba(0,0,0,.62), transparent 72%);"></div>
+          <div style="position: absolute; left: 8%; right: 8%; bottom: 1.2%; height: 1px; background: linear-gradient(90deg, transparent, #4a443d 22%, #4a443d 78%, transparent);"></div>
+          <img loading="lazy" decoding="async" width="1024" height="1536" src="assets/vinay-full.webp" alt="Vinay Mandala" style="position: relative; display: block; width: 100%; height: auto; aspect-ratio: 1024 / 1536;">
+        </div>
+        <div id="about-chips" style="display: grid; grid-template-columns: repeat(3, auto); justify-content: center; align-items: center; gap: 9px;">
+          <sc-for list="{{ chips }}" as="c" hint-placeholder-count="6">
+            <span class="chip" style="padding: 10px 15px; border-radius: 100px; border: 1px solid #33302b; font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.09em; text-transform: uppercase; color: #cfc6bb; text-align: center; white-space: nowrap; transition: border-color .26s ease, color .26s ease, transform .26s cubic-bezier(.22,.61,.36,1);" style-hover="border-color: #e08a4e; color: #e08a4e; transform: translateY(-2px);">{{ c }}</span>
+          </sc-for>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ░░ CONTACT ░░ -->
+  <footer id="contact" data-chapter="11" data-screen-label="Contact" style="position: relative; padding: clamp(80px, 16vh, 190px) clamp(20px, 6vw, 96px) clamp(40px, 6vh, 70px);">
+    <div style="max-width: 1240px; margin: 0 auto;">
+      <p style="font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; color: #8a827a; margin: 0;">And I'm still designing.</p>
+      <h2 style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: clamp(40px, 9vw, 150px); line-height: 0.86; letter-spacing: -0.05em; margin: 22px 0 0;">
+        This is where<br>I am <em style="font-style: normal; color: #c2591f;">right now.</em>
+      </h2>
+      <p style="max-width: 40ch; margin: 26px 0 0; font-size: clamp(16px, 1.4vw, 19px); line-height: 1.6; color: #4a453f;">There's more coming, the next chapter isn't written yet. If you're building something where product, brand and story have to hold together, let's talk.</p>
+      <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 10px 20px; margin-top: 22px; font-family: 'JetBrains Mono', monospace; font-size: 11.5px; letter-spacing: 0.14em; text-transform: uppercase; color: #6a635c;">
+        <span style="display: inline-flex; align-items: center; gap: 8px; color: #1a1917;"><span style="width: 8px; height: 8px; border-radius: 50%; background: #2f8f5b;"></span>Open to product design roles</span>
+        <span>Hyderabad · open to remote and relocation</span>
+      </div>
+      <div style="display: flex; flex-wrap: wrap; gap: 12px; margin-top: clamp(28px, 4vh, 44px);">
+        <a href="mailto:vinaymandalaa@gmail.com" style="padding: 16px 26px; border-radius: 100px; background: #1a1917; color: #f6f3ee; font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase;" style-hover="background: #c2591f;">vinaymandalaa@gmail.com</a>
+        <a href="tel:+917032263322" style="padding: 16px 26px; border-radius: 100px; border: 1px solid #1a1917; font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase;" style-hover="background: #1a1917; color: #f6f3ee;">+91 70322 63322</a>
+        <a href="https://in.linkedin.com/in/vinay-mandala" style="padding: 16px 26px; border-radius: 100px; border: 1px solid #1a1917; font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase;" style-hover="background: #1a1917; color: #f6f3ee;">LinkedIn</a>
+        <a href="Resume.dc.html" style="padding: 16px 26px; border-radius: 100px; border: 1px solid #ded8cd; color: #8a827a; font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase;" style-hover="border-color: #1a1917; color: #1a1917;">View résumé</a>
+      </div>
+      <div style="display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; margin-top: clamp(50px, 9vh, 110px); padding-top: 20px; border-top: 1px solid #ded8cd; font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: #8a827a;">
+        <span>© 2026 Vinay Mandala</span>
+        <span>Designed and built as one continuous story</span>
+      </div>
+    </div>
+  </footer>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;: {&quot;width&quot;: 1440, &quot;height&quot;: 900}}">
+class Component extends DCLogic {
+  state = { active: '00', morph: 0, step: 0, mav: 'expected', narrow: false, wordI: 0 };
+
+  /* ── "The person behind the pixels" fold: one choreographed sequence ──
+     Title lines → subtext → portrait → chips out of the backpack, one orbit, land →
+     CTA. The page is held still for the duration, then released. All timing lives in a
+     head stylesheet keyed off a root attribute, so the component's own re-renders
+     (the word ticker) cannot wipe it. */
+  armChips() {
+    if (this.pbpArmed) return;
+    const tryArm = (tries) => {
+      if (this.pbpArmed) return;
+      const sec = document.getElementById('about');
+      const wrap = document.getElementById('about-chips');
+      const fig = document.getElementById('about-figure');
+      const lines = sec ? Array.from(sec.querySelectorAll('.pbp-line')) : [];
+      const chips = wrap ? Array.from(wrap.querySelectorAll('.chip')) : [];
+      if (!sec || !wrap || !fig || lines.length < 3 || chips.length < 2) {
+        if (tries > 0) setTimeout(() => tryArm(tries - 1), 240);
+        return;
+      }
+      this.pbpArmed = true;
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+      document.documentElement.dataset.pbp = 'hold';
+      document.documentElement.dataset.pbpc = 'hold';
+
+      /* the sequence never takes the scroll away: any leftover lock from an older
+         build is dropped the moment this arms */
+      if (window.__pbpRelease) window.__pbpRelease();
+
+      const play = (waits, lock) => {
+        const f = fig.getBoundingClientRect();
+        /* geometry is all the flight needs; explicit image dimensions give it before load */
+        if (f.height < 120 && waits > 0) { setTimeout(() => play(waits - 1, lock), 160); return; }
+
+        const E = 'cubic-bezier(.16,.66,.24,1)';
+        const chipDur = 520, chipGap = 85;
+        const T = { eyebrow: 0, line: 420, lineGap: 560 };
+        T.sub = T.line + T.lineGap * 2 + 620;
+        T.fig = T.sub + 560;
+        const textEnd = T.fig + 900;
+
+        let tag = document.getElementById('pbp-timeline');
+        if (!tag) {
+          tag = document.createElement('style');
+          tag.id = 'pbp-timeline';
+          document.head.appendChild(tag);
+        }
+
+        const textRules = [
+          'html[data-pbp="run"] .pbp-eyebrow{animation:pbpRise .8s ' + E + ' ' + T.eyebrow + 'ms both}',
+          'html[data-pbp="run"] .pbp-sub{animation:pbpRise .95s ' + E + ' ' + T.sub + 'ms both}',
+          'html[data-pbp="run"] .pbp-fig{animation:pbpFig 1.5s cubic-bezier(.3,.5,.2,1) ' + T.fig + 'ms both}'
+        ];
+        lines.forEach((l, i) => {
+          textRules.push('html[data-pbp="run"] .pbp-line:nth-child(' + (i + 1) + '){animation:pbpRise .9s ' + E + ' ' + (T.line + i * T.lineGap) + 'ms both}');
+        });
+
+        /* tags simply rise into place in their own row, one after the other */
+        const chipRules = (start) => {
+          const out = [];
+          chips.forEach((c, i) => {
+            out.push('html[data-pbpc="run"] #about-chips .chip:nth-child(' + (i + 1) + '){' +
+              'animation:pbpRise ' + chipDur + 'ms ' + E + ' ' + (start + i * chipGap) + 'ms both}');
+          });
+          const ctaAt = start + chipDur + chipGap * (chips.length - 1) + 200;
+          out.push('html[data-pbpc="run"] .pbp-cta{animation:pbpPop .85s ' + E + ' ' + ctaAt + 'ms both}');
+          return { rules: out, end: ctaAt + 1000 };
+        };
+
+        const de = document.documentElement;
+        const sweep = () => {
+          if (!de.dataset.pbp && !de.dataset.pbpc && tag && tag.parentNode) tag.parentNode.removeChild(tag);
+        };
+        const endText = (ms) => setTimeout(() => { delete de.dataset.pbp; sweep(); }, ms + 260);
+        const endChips = (ms) => setTimeout(() => { delete de.dataset.pbpc; sweep(); }, ms + 260);
+
+        if (lock) {
+          /* the fold is framed; if every beat is already on screen, run the whole
+             sequence as one timeline — the reader keeps the scroll either way */
+          const ctaEl = document.querySelector('.pbp-cta');
+          const lowest = Math.max(
+            wrap.getBoundingClientRect().bottom,
+            ctaEl ? ctaEl.getBoundingClientRect().bottom : 0
+          );
+          const eyebrow = sec.querySelector('.pbp-eyebrow');
+          const highest = Math.min(
+            eyebrow ? eyebrow.getBoundingClientRect().top : 0,
+            lines[0].getBoundingClientRect().top
+          );
+          if (lowest <= innerHeight - 4 && highest >= 0) {
+            const c = chipRules(textEnd + 80);
+            tag.textContent = textRules.concat(c.rules).join('\n');
+            requestAnimationFrame(() => {
+              de.dataset.pbp = 'run';
+              de.dataset.pbpc = 'run';
+            });
+            endText(c.end);
+            endChips(c.end);
+            return;
+          }
+          /* payoff would be below the fold: fall through and never lock */
+        }
+
+        /* Fold is taller than the viewport: never trap the user off screen.
+           Text and portrait play now; the chips and CTA wait until that cluster
+           is actually on screen, so the payoff is never missed. */
+        tag.textContent = textRules.join('\n');
+        requestAnimationFrame(() => { de.dataset.pbp = 'run'; });
+        endText(textEnd);
+
+        let fired = false;
+        const startChips = () => {
+          if (fired) return;
+          fired = true;
+          if (this.pbpFailsafe) clearTimeout(this.pbpFailsafe);
+          const c = chipRules(220);
+          tag.textContent = (de.dataset.pbp ? textRules.concat(c.rules) : c.rules).join('\n');
+          requestAnimationFrame(() => { de.dataset.pbpc = 'run'; });
+          endChips(c.end);
+        };
+        /* failsafe: if the chip row is never scrolled into view, drop the gate anyway
+           so the tags and the About link can never stay hidden */
+        this.pbpFailsafe = setTimeout(() => {
+          if (fired) return;
+          fired = true;
+          if (this.pbpChipIo) this.pbpChipIo.disconnect();
+          delete de.dataset.pbpc;
+          sweep();
+        }, textEnd + 12000);
+
+        const wr = wrap.getBoundingClientRect();
+        if (wr.top < innerHeight * 0.9 && wr.bottom > 0) {
+          setTimeout(startChips, textEnd);
+        } else {
+          const cio = new IntersectionObserver((es) => {
+            es.forEach((en) => {
+              if (!en.isIntersecting) return;
+              cio.disconnect();
+              setTimeout(startChips, 320);
+            });
+          }, { threshold: 0.1, rootMargin: '0px 0px 12% 0px' });
+          cio.observe(wrap);
+          this.pbpChipIo = cio;
+        }
+      };
+
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach((e) => {
+          if (!e.isIntersecting) return;
+          io.disconnect();
+          /* No framing scroll and no hold: the reader keeps control. play() runs the whole
+             timeline when every beat is already on screen, otherwise it gates the closing
+             beats until the tag row arrives. */
+          requestAnimationFrame(() => requestAnimationFrame(() => play(60, true)));
+        });
+      }, { threshold: 0.35 });
+      io.observe(sec);
+      this.chipIo = io;
+    };
+    tryArm(24);
+  }
+
+  componentDidMount() {
+    this.words = [
+      { w: 'products.', c: '#1a1917' },
+      { w: 'systems.', c: '#c2591f' },
+      { w: 'brands.', c: '#1a1917' },
+      { w: 'stories.', c: '#c2591f' },
+      { w: 'companions.', c: '#1a1917' }
+    ];
+    this.wordTimer = setInterval(() => {
+      this.setState((s) => ({ wordI: (s.wordI + 1) % 5 }));
+    }, 2300);
+    this.onResize = () => this.setState({ narrow: window.innerWidth < 1100 });
+    this.onResize();
+    window.addEventListener('resize', this.onResize);
+    this.armChips();
+    this.io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (e.isIntersecting) this.setState({ active: e.target.dataset.chapter });
+      });
+    }, { rootMargin: '-45% 0px -50% 0px', threshold: 0 });
+    document.querySelectorAll('[data-chapter]').forEach((el) => this.io.observe(el));
+  }
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.onResize);
+    if (this.io) this.io.disconnect();
+    if (this.chipIo) this.chipIo.disconnect();
+    if (this.pbpChipIo) this.pbpChipIo.disconnect();
+    if (this.pbpFailsafe) clearTimeout(this.pbpFailsafe);
+    if (this.pbpRelease) this.pbpRelease();
+    if (this.wordTimer) clearInterval(this.wordTimer);
+  }
+
+  jump(id) {
+    const el = document.getElementById(id);
+    if (!el) return;
+    window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 12, behavior: 'smooth' });
+  }
+
+  morphVals(m) {
+    const t = Math.min(1, Math.max(0, m / 100));
+    const lerp = (a, b) => a + (b - a) * t;
+    const clamp01 = (x) => Math.min(1, Math.max(0, x));
+    const planText = clamp01((0.55 - t) / 0.2).toFixed(2);
+    const uiText = clamp01((t - 0.45) / 0.2).toFixed(2);
+    const planDetail = clamp01((0.6 - t) / 0.45).toFixed(2);
+    const uiDetail = clamp01((t - 0.5) / 0.4).toFixed(2);
+    const bar = (w, color) => ({ w, color });
+    const cells = [
+      { room: 'Circulation core', dim: 'W 1500', block: 'Primary nav', token: 'w 260 · sticky', col: '1 / 3', row: '1 / 9', bars: [bar('82%', '#d9d3c8'), bar('64%', '#d9d3c8'), bar('72%', '#d9d3c8'), bar('58%', '#d9d3c8')] },
+      { room: 'Reception + lounge', dim: '6400 × 4800', block: 'Overview panel', token: 'span 6 · rows 4', col: '3 / 9', row: '1 / 5', bars: [bar('56%', '#c2591f'), bar('34%', '#d9d3c8')] },
+      { room: 'Conference room', dim: '5200 × 3600', block: 'Trend chart', token: 'span 4 · rows 3', col: '9 / 13', row: '1 / 4', bars: [bar('72%', '#d9d3c8')] },
+      { room: 'Director cabin', dim: '3600 × 3200', block: 'Action panel', token: 'buttons · 44 min', col: '9 / 13', row: '4 / 7', bars: [bar('46%', '#c2591f'), bar('46%', '#d9d3c8')] },
+      { room: 'Open workstations', dim: '10 seats @ 1500', block: 'Data table', token: 'rows · gap 12', col: '3 / 7', row: '5 / 9', bars: [bar('92%', '#d9d3c8'), bar('76%', '#d9d3c8'), bar('84%', '#d9d3c8')] },
+      { room: 'Breakout + pantry', dim: '3000 × 3600', block: 'Filter rail', token: 'chips · wrap', col: '7 / 9', row: '5 / 9', bars: [bar('62%', '#d9d3c8'), bar('42%', '#d9d3c8')] },
+      { room: 'Services / server', dim: '2400 × 1800', block: 'Account + status', token: 'avatar · menu', col: '9 / 13', row: '7 / 9', bars: [bar('52%', '#d9d3c8')] }
+    ];
+    const mapping = [
+      { from: 'Circulation spine', to: 'Primary navigation' },
+      { from: 'Zoning', to: 'Visual hierarchy' },
+      { from: 'Setbacks in mm', to: 'Spacing tokens' },
+      { from: 'Structural grid', to: 'Layout grid' },
+      { from: 'Sightlines', to: 'Scan path' },
+      { from: 'Daylight', to: 'Contrast' },
+      { from: 'Furniture schedule', to: 'Component library' }
+    ];
+    return {
+      cells: cells.map((c) => ({
+        ...c,
+        borderW: lerp(1, 0).toFixed(2) + 'px',
+        borderColor: 'rgba(26,25,23,' + (1 - t).toFixed(2) + ')',
+        radius: lerp(0, 14).toFixed(1) + 'px',
+        bg: 'rgba(239,236,229,' + (t * 0.95).toFixed(2) + ')',
+        pad: lerp(8, 12).toFixed(0) + 'px'
+      })),
+      mapping: mapping.map((x) => ({
+        ...x,
+        fromColor: 'rgba(26,25,23,' + (1 - t * 0.65).toFixed(2) + ')',
+        toColor: 'rgba(26,25,23,' + (0.35 + t * 0.65).toFixed(2) + ')'
+      })),
+      planText, uiText, planDetail, uiDetail,
+      cellGap: lerp(2, 10).toFixed(1) + 'px',
+      shellPad: lerp(0, 10).toFixed(1) + 'px',
+      shellRadius: lerp(0, 16).toFixed(1) + 'px',
+      shellBorderW: lerp(2, 1).toFixed(2) + 'px',
+      shellBg: 'rgba(246,243,238,' + (t * 0.85).toFixed(2) + ')',
+      chromeTop: lerp(-30, 0).toFixed(0) + 'px',
+      chromeSpace: lerp(0, 30).toFixed(0) + 'px',
+      planLabelColor: 'rgba(26,25,23,' + Math.max(0.28, 1 - t).toFixed(2) + ')',
+      uiLabelColor: 'rgba(26,25,23,' + Math.max(0.28, t).toFixed(2) + ')',
+      morphState: t < 0.15 ? '← drag to transform →' : (t > 0.85 ? 'same plan, different medium' : 'walls becoming containers…'),
+      morphNote: t < 0.4
+        ? 'A studio office layout: circulation core along the entry edge, public zones on the daylight face, focus work deep in the plan, services tucked at the back. Every line is a decision about where a person goes next.'
+        : (t > 0.7
+          ? 'The same plan as a product dashboard. Navigation where the circulation core was, the overview panel in the reception zone, the data table on the workstation floor, account and status where the services were. Nothing moved, only the medium.'
+          : 'Watch what stays put. Every zone holds its position; only the material changes, walls to containers, millimetres to spacing tokens.')
+    };
+  }
+
+  renderVals() {
+    const m = this.state.morph;
+    const chapters = [
+      { id: 'top', n: '00', year: '·', label: 'Intro' },
+      { id: 'ch01', n: '01', year: '2018', label: 'Spaces' },
+      { id: 'ch02', n: '02', year: '2022', label: 'Interfaces' },
+      { id: 'ch03', n: '03', year: '2023', label: 'Production' },
+      { id: 'detour', n: '04', year: '2023', label: 'Detour' },
+      { id: 'ch05', n: '05', year: '2024', label: 'Speed' },
+      { id: 'ch06', n: '06', year: '2024', label: 'Mavricks' },
+      { id: 'ch07', n: '07', year: '2025', label: 'siya' },
+      { id: 'ch08', n: '08', year: 'Now', label: 'AI' },
+      { id: 'work', n: '09', year: '·', label: 'Work' }
+    ];
+    const stepData = [
+      { name: 'Observation', body: 'Watch first. Most product problems are visible before anyone describes them.', meta: 'Field notes · behaviour logs' },
+      { name: 'Research', body: 'Interviews and surveys until the pattern repeats, not until it confirms me.', meta: 'Qual + quant' },
+      { name: 'Wireframes', body: 'Structure before style. If it fails in grey boxes, colour will not save it.', meta: 'Low fidelity · fast' },
+      { name: 'UI', body: 'Now the craft: type scale, spacing rhythm, hierarchy, states, restraint.', meta: 'Type · grid · colour' },
+      { name: 'Prototype', body: 'A clickable thing makes a room full of opinions agree much faster than screens do.', meta: 'Flow · motion · logic' },
+      { name: 'Case study', body: 'Writing it down is where I find out whether I actually understood the problem.', meta: 'Decisions · evidence' }
+    ];
+    const expected = [
+      { n: '1', label: 'Open', note: 'App launch' },
+      { n: '2', label: 'Read comic', note: 'Story teaches the concept' },
+      { n: '3', label: 'Play game', note: 'Reinforces the lesson' },
+      { n: '4', label: 'Learn', note: 'Retention' }
+    ];
+    const actual = [
+      { n: '1', label: 'Open', note: 'App launch' },
+      { n: '2', label: 'Skip comic', note: 'Straight past the story' },
+      { n: '3', label: 'Play game', note: 'High engagement' },
+      { n: '4', label: 'Play again', note: 'Assumption broken' }
+    ];
+    const isExp = this.state.mav === 'expected';
+    return {
+      word: (this.words || [{ w: 'products.' }])[this.state.wordI % 5].w,
+      wordColor: (this.words || [{ c: '#1a1917' }])[this.state.wordI % 5].c,
+
+      morph: m,
+      setMorph: (e) => {
+        const v = Number(e.target.value);
+        this._pendingMorph = v;
+        if (this._morphRaf) return;
+        this._morphRaf = requestAnimationFrame(() => {
+          this._morphRaf = null;
+          this.setState({ morph: this._pendingMorph });
+        });
+      },
+      ...this.morphVals(m),
+      interiorSkills: [
+        { from: 'Spatial thinking', to: 'Information architecture' },
+        { from: 'Proportion', to: 'Type scale' },
+        { from: 'Materiality', to: 'Visual language' },
+        { from: 'Site constraints', to: 'Technical constraints' },
+        { from: 'Client walkthrough', to: 'Stakeholder review' },
+        { from: 'Circulation', to: 'User flow' }
+      ],
+      steps: stepData.map((s, i) => ({
+        n: '0' + (i + 1), name: s.name,
+        bg: this.state.step === i ? '#f6f3ee' : 'transparent',
+        fg: this.state.step === i ? '#1a1917' : '#f6f3ee',
+        go: () => this.setState({ step: i })
+      })),
+      stepBody: stepData[this.state.step].body,
+      stepMeta: stepData[this.state.step].meta,
+      noPeek: ['assets/no/home.webp', 'assets/no/customize-hoodie.webp', 'assets/no/product.webp'],
+      collab: [
+        { n: '01', role: 'Content writers', note: 'Copy shapes the layout' },
+        { n: '02', role: 'Copy & marketing', note: 'Message before decoration' },
+        { n: '03', role: 'Developers', note: 'Assets that actually build' },
+        { n: '04', role: 'Design leads', note: 'Decisions survive review' },
+        { n: '05', role: 'Figma comments', note: 'The real feedback loop' },
+        { n: '06', role: 'Auto Layout', note: 'One pointer. Aced it in a week' }
+      ],
+      hats: [
+        { n: '01', name: 'Product UX', note: 'Stratpilot support, flows, screens' },
+        { n: '02', name: 'Marketing', note: 'Posters, campaigns, brochures' },
+        { n: '03', name: 'Web', note: 'The Stratpilot website, end to end' },
+        { n: '04', name: 'AI Studio', note: 'Elevate, a translation tool, prototypes' },
+        { n: '05', name: 'Client rooms', note: 'Discovery and requirement gathering' },
+        { n: '06', name: 'Whoever needed it', note: 'Nearest deadline wins' }
+      ],
+      detour: [
+        { label: 'The plan', name: 'RMIT · Melbourne', color: '#f6f3ee', op: '1', arrow: '→' },
+        { label: 'Also considered', name: 'Univ. of Queensland', color: '#b3aca3', op: '0.65', arrow: '⤳' },
+        { label: 'Reality', name: 'Finances', color: '#8a827a', op: '0.4', arrow: '↺' },
+        { label: 'Back to', name: 'India', color: '#e08a4e', op: '1', arrow: '' }
+      ],
+      mavTabs: [
+        { name: 'What we expected', bg: isExp ? '#eef2f8' : 'transparent', fg: isExp ? '#101a2b' : '#9db0cc', go: () => this.setState({ mav: 'expected' }) },
+        { name: 'What students did', bg: !isExp ? '#eef2f8' : 'transparent', fg: !isExp ? '#101a2b' : '#9db0cc', go: () => this.setState({ mav: 'actual' }) }
+      ],
+      mavFlow: (isExp ? expected : actual).map((f, i) => ({
+        n: f.n, label: f.label, note: f.note,
+        bg: !isExp && i === 1 ? 'rgba(224,138,78,.12)' : 'rgba(255,255,255,.04)',
+        border: !isExp && i === 1 ? '#e08a4e' : '#23375a',
+        fg: !isExp && i === 1 ? '#e08a4e' : '#eef2f8',
+        op: !isExp && i === 1 ? '1' : '0.94'
+      })),
+      tension: [
+        { title: 'Engagement', body: 'Games worked. Kids played, replayed and competed, the game metrics were the healthiest part of the product.', color: '#7fa8e8' },
+        { title: 'Educational value', body: 'The comics carried the teaching, and the comics were the part being skipped. Content, not UI, was the hard problem.', color: '#eef2f8' },
+        { title: 'Screen time', body: 'Parents in malls and metros split cleanly: some were cutting phone time, others would allow it if it genuinely taught something.', color: '#e08a4e' }
+      ],
+      siyaChain: [
+        { label: '6 screens', bg: '#201a33', fg: '#efeafb' },
+        { label: 'Product', bg: '#ffffff', fg: '#201a33' },
+        { label: 'AI Edit', bg: '#ffffff', fg: '#201a33' },
+        { label: 'Evaluation', bg: '#ffffff', fg: '#201a33' },
+        { label: 'Lesson plans', bg: '#ffffff', fg: '#201a33' },
+        { label: 'School ecosystem', bg: '#ffffff', fg: '#201a33' },
+        { label: 'Brand system', bg: '#ffffff', fg: '#201a33' },
+        { label: 'International', bg: '#7d5cc6', fg: '#ffffff' }
+      ].map((s, i) => ({ ...s, rangeStart: (i * 4) + '%', rangeEnd: (14 + i * 4) + '%' })),
+      pipeline: [
+        { n: '01', step: 'Design system defined first', who: 'Human' },
+        { n: '02', step: 'Rapid UI generation from the system', who: 'Claude' },
+        { n: '03', step: 'Manual refinement of the output', who: 'Human' },
+        { n: '04', step: 'Export HTML → Figma when it needs surgery', who: 'Both' },
+        { n: '05', step: 'Handoff to developers', who: 'Human' }
+      ],
+      siyaGrid: Array.from({ length: 42 }, (_, i) => (0.14 + (i % 7) * 0.055).toFixed(2)),
+      mavExpected: [1, 2, 3, 4],
+      dropFolds: ['#1c1c1c', '#FBF8F3', '#1c1c1c', '#B8AFDA', '#1c1c1c', '#C7D8C5', '#1c1c1c', '#FBF8F3', '#1c1c1c', '#B8AFDA'],
+      chips: ['Anime', 'Gaming', 'Writing fiction', 'Cricket', 'Wandering soul', 'Long conversations']
+    };
+  }
+}
+</script>
+</body>
+</html>

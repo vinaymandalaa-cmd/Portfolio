@@ -1,0 +1,12 @@
+# Raw source material for the case studies (403MB of PDFs, PNGs, GIFs).
+# Nothing in the built pages references uploads/ — see HANDOFF.md.
+uploads/
+
+# Canvas editor artifact
+.thumbnail
+
+# Local / tooling
+.vercel
+.DS_Store
+Thumbs.db
+node_modules/

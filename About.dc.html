@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>About, Vinay Mandala</title>
+<meta name="description" content="Interiors to interfaces. The longer story of Vinay Mandala." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,500;12..96,700;12..96,800&family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: #f6f3ee; color: #1a1917; font-family: "Space Grotesk", system-ui, sans-serif; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+  * { box-sizing: border-box; }
+  a { color: inherit; text-decoration: none; }
+  a:hover { color: #c2591f; }
+  ::selection { background: #1a1917; color: #f6f3ee; }
+  @keyframes rise { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: none; } }
+  @keyframes fadein { from { opacity: 0; } to { opacity: 1; } }
+  @keyframes wipe { from { clip-path: inset(0 100% 0 0); } to { clip-path: inset(0 0 0 0); } }
+  @keyframes blink { 0%, 60% { opacity: 1; } 61%, 100% { opacity: 0.15; } }
+  @keyframes abRise { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+  .ab-hero > *:nth-child(-n+3) { animation: abRise .75s cubic-bezier(.22,.7,.2,1) both; }
+  .ab-hero > *:nth-child(2) { animation-delay: .16s; }
+  .ab-hero > *:nth-child(3) { animation-delay: .34s; }
+  @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } html { scroll-behavior: auto; } }
+</style>
+<script src="./motion.js" data-accent="#c2591f"></script>
+</helmet>
+
+<div style="position: relative; width: 100%; overflow-x: clip;">
+  <div style="position: fixed; top: 0; left: 0; height: 3px; width: {{ progress }}; background: #c2591f; z-index: 80; transition: width .1s linear;"></div>
+
+  <nav style="position: sticky; top: 0; z-index: 60; display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 13px clamp(16px, 4vw, 48px); background: rgba(246,243,238,.86); backdrop-filter: blur(14px); border-bottom: 1px solid #e3ddd2;">
+    <a href="index.html" style="font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; white-space: nowrap;">← Vinay Mandala</a>
+    <div style="display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 8px clamp(10px, 2vw, 26px); font-family: 'JetBrains Mono', monospace; font-size: clamp(11px, 1.1vw, 12px); letter-spacing: 0.14em; text-transform: uppercase;">
+      <a href="index.html#work">Work</a>
+      <a href="Resume.dc.html">Résumé</a>
+      <a href="index.html#contact">Contact</a>
+    </div>
+  </nav>
+
+  <!-- FOLD 01 -->
+  <header data-screen-label="About hero" style="position: relative; min-height: min(94svh, 900px); display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); align-content: center; align-items: center; gap: clamp(24px, 4vw, 64px); padding: clamp(48px, 8vh, 100px) clamp(20px, 6vw, 96px); overflow: hidden;">
+    <div style="position: absolute; inset: 0; pointer-events: none; background-image: linear-gradient(#1a1917 1px, transparent 1px), linear-gradient(90deg, #1a1917 1px, transparent 1px); background-size: 96px 96px; opacity: 0.045;"></div>
+    <div class="ab-hero" style="position: relative; display: flex; flex-direction: column; gap: clamp(18px, 2.6vh, 30px);">
+      <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; color: #8a827a;">✳ About / fold 01 of 07</span>
+      <h1 style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: clamp(40px, 6.4vw, 108px); line-height: 0.84; letter-spacing: -0.055em; margin: 0;">
+        <span style="display: block; font-weight: 300; font-size: 0.38em; letter-spacing: -0.03em; color: #6a635c; margin-bottom: 0.32em;">I spent four years designing rooms.</span>
+        Now I design <em style="font-style: normal; color: #c2591f;">the things inside them.</em>
+      </h1>
+      <p style="max-width: 44ch; margin: 0; font-size: clamp(16px, 1.4vw, 20px); line-height: 1.55; color: #4a453f;">
+        Hyderabad-based product designer, eight years in the city, four of them spent learning how physical space moves people before I moved the work onto screens.
+      </p>
+      <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: #c2591f; animation: blink 1.8s steps(1) infinite;">● scroll to keep reading</span>
+    </div>
+    <div style="position: relative; justify-self: center; width: 100%; max-width: min(400px, 58vh); display: flex; flex-direction: column; align-items: center;">
+      <div style="position: relative; width: 100%;">
+        <div style="position: absolute; left: 50%; bottom: 1.2%; transform: translateX(-50%); width: 92%; aspect-ratio: 1; border-radius: 50%; background: #ece5d6;"></div>
+        <div style="position: absolute; left: 50%; bottom: 1.2%; transform: translateX(-50%); width: 102%; aspect-ratio: 1; border-radius: 50%; border: 1px solid #ded8cd;"></div>
+        <div style="position: absolute; left: 50%; bottom: 0.1%; transform: translateX(-50%); width: 84%; height: 15px; border-radius: 50%; background: radial-gradient(ellipse at center, rgba(26,25,23,.3), transparent 72%);"></div>
+        <div style="position: absolute; left: 8%; right: 8%; bottom: 1.2%; height: 1px; background: linear-gradient(90deg, transparent, #cfc5b6 22%, #cfc5b6 78%, transparent);"></div>
+        <img decoding="async" fetchpriority="high" src="assets/vinay-full.webp" alt="Vinay Mandala" style="position: relative; display: block; width: 100%; height: auto; animation: fadein 1.4s ease both;" />
+      </div>
+      <span style="margin-top: 14px; font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: #8a827a;">Fig. 01 / off the clock</span>
+    </div>
+  </header>
+
+  <!-- QUICK FACTS -->
+  <section data-screen-label="Quick facts" style="padding: 0 clamp(20px, 6vw, 96px) clamp(30px, 5vh, 56px);">
+    <div style="max-width: 1180px; margin: 0 auto; padding: clamp(22px, 3vw, 34px); background: #fffdf9; border: 1px solid #ded8cd; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 210px), 1fr)); gap: clamp(18px, 2.4vw, 34px); align-items: start;">
+        <div style="display: flex; flex-direction: column; gap: 7px;">
+          <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: #c2591f;">Now</span>
+          <span style="font-size: 14.5px; line-height: 1.6; color: #1a1917;">Product designer at Oaks Solutions, owning siya end to end: product, brand, mascot, marketing.</span>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 7px;">
+          <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: #c2591f;">Before</span>
+          <span style="font-size: 14.5px; line-height: 1.6; color: #1a1917;">B.Des Interior Design, JNAFAU. Four years designing physical space before I moved onto screens.</span>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 7px;">
+          <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: #c2591f;">Works across</span>
+          <span style="font-size: 14.5px; line-height: 1.6; color: #1a1917;">Product UX, UI systems, visual identity, illustration direction and the marketing around all of it.</span>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 7px;">
+          <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: #c2591f;">Based</span>
+          <span style="font-size: 14.5px; line-height: 1.6; color: #1a1917;">Hyderabad, India. Open to product design roles, remote or relocation.</span>
+        </div>
+    </div>
+    <p style="max-width: 1180px; margin: 12px auto 0; font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.08em; color: #8a827a;">Seven folds below, in the order things actually happened.</p>
+  </section>
+
+  <!-- FOLD 02 -->
+  <section data-screen-label="The move" style="border-top: 1px solid #ded8cd; padding: clamp(64px, 11vh, 140px) clamp(20px, 6vw, 96px);">
+    <div style="max-width: 1180px; margin: 0 auto;">
+      <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: #c2591f;">Fold 02 / the move</span>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: clamp(24px, 4vw, 64px); margin-top: clamp(22px, 3.5vh, 40px); align-items: start;">
+        <h2 style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; font-size: clamp(28px, 4.4vw, 62px); line-height: 0.98; letter-spacing: -0.04em; margin: 0;">
+          Spaces first. Screens after.
+        </h2>
+        <p style="margin: 0; font-size: clamp(16px, 1.4vw, 19px); line-height: 1.62; color: #4a453f;">
+          I grew up in Karimnagar, Telangana and moved to Hyderabad for design school, the city gave me scale, competition and the first rooms I ever designed for someone else's money.
+          <br /><br />
+          I studied interior design at JNAFAU and spent four years learning how physical space moves people: where they enter, what they see first, where they slow down. Then I realised the thing I actually wanted to move people through was an interface.
+        </p>
+      </div>
+      <div style="display: flex; flex-wrap: wrap; align-items: center; gap: clamp(10px, 2vw, 22px); margin-top: clamp(32px, 5vh, 56px);">
+        <sc-for list="{{ geo }}" as="g" hint-placeholder-count="4">
+          <div style="display: flex; align-items: center; gap: clamp(10px, 2vw, 22px);">
+            <div>
+              <span style="display: block; font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: #8a827a;">{{ g.tag }}</span>
+              <span style="display: block; margin-top: 6px; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; font-size: clamp(18px, 2.4vw, 32px); letter-spacing: -0.03em; color: {{ g.color }};">{{ g.name }}</span>
+            </div>
+            <span style="font-size: 18px; color: #b9b1a6;">{{ g.arrow }}</span>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOLD 03 -->
+  <section data-screen-label="What shaped the work" style="background: #1a1917; color: #f6f3ee; padding: clamp(70px, 12vh, 160px) clamp(20px, 6vw, 96px);">
+    <div style="max-width: 1180px; margin: 0 auto;">
+      <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: #e08a4e;">Fold 03 / what shaped the work</span>
+      <h2 style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: clamp(30px, 6vw, 92px); line-height: 0.92; letter-spacing: -0.05em; margin: 18px 0 0; max-width: 20ch;">
+        A lot of things made me, and none of them were design school alone.
+      </h2>
+      <p style="max-width: 54ch; margin: 22px 0 0; font-size: clamp(16px, 1.4vw, 19px); line-height: 1.6; color: #cfc6bb;">
+        Money being tight and learning to work around it. Friendships, love, loss, the conversations that go past midnight. Films, comics, games, music, long journeys, and a decade of the internet teaching me things nobody assigned. All of it turns into the same instinct at work: read the person first, then the problem. I'm still collecting.
+      </p>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr)); gap: 12px; margin-top: clamp(32px, 5vh, 56px);">
+        <sc-for list="{{ raised }}" as="r" hint-placeholder-count="4">
+          <div style="padding: 26px; border: 1px solid #33302b;" style-hover="border-color: #e08a4e; transform: translateY(-4px);">
+            <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: #e08a4e;">{{ r.tag }}</span>
+            <h3 style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; font-size: clamp(19px, 2vw, 26px); letter-spacing: -0.03em; margin: 12px 0 0;">{{ r.title }}</h3>
+            <p style="margin: 10px 0 0; font-size: 14.5px; line-height: 1.55; color: #b3aca3;">{{ r.body }}</p>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOLD 04 -->
+  <section data-screen-label="What I do now" style="padding: clamp(70px, 12vh, 160px) clamp(20px, 6vw, 96px);">
+    <div style="max-width: 1180px; margin: 0 auto;">
+      <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: #c2591f;">Fold 04 / today</span>
+      <h2 style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; font-size: clamp(28px, 4.8vw, 68px); line-height: 0.96; letter-spacing: -0.045em; margin: 18px 0 0; max-width: 20ch;">
+        One designer, a lot of surfaces.
+      </h2>
+      <p style="max-width: 54ch; margin: 20px 0 0; font-size: clamp(16px, 1.4vw, 19px); line-height: 1.62; color: #4a453f;">
+        I'm a product designer at Oaks Solutions, where I own siya end to end: the UX, the design system, the brand, the mascot, the marketing, the demo videos. I like it that way, because a product only feels like something when the same hand touches all of it.
+      </p>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 230px), 1fr)); gap: 12px; margin-top: clamp(30px, 5vh, 52px);">
+        <sc-for list="{{ doing }}" as="d" hint-placeholder-count="3">
+          <div style="padding: 26px; background: #fffdf9; border: 1px solid #ded8cd;" style-hover="border-color: #1a1917; transform: translateY(-4px);">
+            <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: #c2591f;">{{ d.tag }}</span>
+            <h3 style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; font-size: clamp(18px, 1.9vw, 24px); letter-spacing: -0.03em; margin: 12px 0 0;">{{ d.title }}</h3>
+            <p style="margin: 10px 0 0; font-size: 14.5px; line-height: 1.55; color: #4a453f;">{{ d.body }}</p>
+          </div>
+        </sc-for>
+      </div>
+      <div style="display: grid; gap: 8px; margin-top: clamp(28px, 4vh, 44px);">
+        <sc-for list="{{ surfaces }}" as="s" hint-placeholder-count="8">
+          <div style="display: flex; align-items: center; gap: 14px; padding: 13px 16px; border: 1px solid #ded8cd; background: #fffdf9;">
+            <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #c2591f; min-width: 24px;">{{ s.n }}</span>
+            <span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 500; font-size: clamp(15px, 1.5vw, 19px); letter-spacing: -0.02em;">{{ s.name }}</span>
+            <span style="margin-left: auto; font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: #8a827a; text-align: right;">{{ s.who }}</span>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOLD 05 -->
+  <section data-screen-label="How I work" style="background: #12110f; color: #f6f3ee; padding: clamp(70px, 12vh, 160px) clamp(20px, 6vw, 96px); overflow: hidden;">
+    <div style="position: relative; max-width: 1180px; margin: 0 auto;">
+      <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: #e08a4e;">Fold 05 / how I work</span>
+      <h2 style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 300; font-size: clamp(30px, 6.2vw, 100px); line-height: 0.92; letter-spacing: -0.05em; margin: 18px 0 0; max-width: 17ch;">
+        Strong opinions,<br /><span style="font-weight: 800;">loosely held.</span>
+      </h2>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 270px), 1fr)); gap: clamp(24px, 4vw, 64px); margin-top: clamp(26px, 4vh, 48px);">
+        <p style="margin: 0; font-size: clamp(16px, 1.4vw, 19px); line-height: 1.62; color: #cfc6bb;">
+          Everyone in the room sees the product from somewhere I can't stand, engineering knows the cost, sales knows the objection, support knows the complaint. I want those opinions early and I take them seriously, including the ones I disagree with.
+        </p>
+        <p style="margin: 0; font-size: clamp(16px, 1.4vw, 19px); line-height: 1.62; color: #cfc6bb;">
+          Then I decide, and I say why: what the data showed, what users did, what my gut says when the data is thin. I'll argue for an idea until it earns its place and drop it the moment the evidence says it shouldn't exist, both have happened on projects on this site. Fast to learn, easy to correct, hard to bore.
+        </p>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr)); gap: 12px; margin-top: clamp(32px, 5vh, 56px);">
+        <sc-for list="{{ beliefs }}" as="b" hint-placeholder-count="4">
+          <div style="padding: 26px; border-left: 2px solid #e08a4e; background: rgba(255,255,255,.03);">
+            <p style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 500; font-size: clamp(17px, 1.9vw, 23px); line-height: 1.25; letter-spacing: -0.03em;">{{ b.line }}</p>
+            <span style="display: block; margin-top: 12px; font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: #8a827a;">{{ b.proof }}</span>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOLD 06 -->
+  <section data-screen-label="Off the clock" style="padding: clamp(70px, 12vh, 160px) clamp(20px, 6vw, 96px);">
+    <div style="max-width: 1180px; margin: 0 auto;">
+      <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: #c2591f;">Fold 06 / off the clock</span>
+      <h2 style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; font-size: clamp(28px, 4.8vw, 68px); line-height: 0.96; letter-spacing: -0.045em; margin: 18px 0 0; max-width: 22ch;">
+        Slightly hippie, mildly funky, fully serious about the craft.
+      </h2>
+      <p style="max-width: 50ch; margin: 20px 0 0; font-size: clamp(16px, 1.4vw, 19px); line-height: 1.62; color: #4a453f;">
+        I write fiction, travel whenever I can get out, play cricket, and lose entire evenings to a good conversation.
+      </p>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr)); gap: 12px; margin-top: clamp(30px, 5vh, 52px);">
+        <sc-for list="{{ life }}" as="l" hint-placeholder-count="5">
+          <div style="padding: 24px; border: 1px solid #ded8cd; background: #fffdf9;" style-hover="border-color: #c2591f;">
+            <span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; font-size: clamp(17px, 1.8vw, 22px); letter-spacing: -0.03em;">{{ l.title }}</span>
+            <p style="margin: 8px 0 0; font-size: 14px; line-height: 1.5; color: #8a827a;">{{ l.note }}</p>
+          </div>
+        </sc-for>
+      </div>
+      <div style="margin-top: clamp(28px, 4vh, 48px); padding: clamp(22px, 3.4vw, 40px); border: 1px dashed #ded8cd; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px;">
+        <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: #8a827a;">Gallery / coming soon</span>
+        <span style="font-size: 15px; color: #4a453f; max-width: 46ch;">Photographs from the road, sketchbook pages and the odd cricket scorecard will live here.</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOLD 07 -->
+  <section data-screen-label="Timeline" style="background: #1a1917; color: #f6f3ee; padding: clamp(70px, 12vh, 160px) clamp(20px, 6vw, 96px);">
+    <div style="max-width: 1180px; margin: 0 auto;">
+      <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: #e08a4e;">Fold 07 / how I got here</span>
+      <h2 style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: clamp(30px, 5.4vw, 80px); line-height: 0.94; letter-spacing: -0.045em; margin: 18px 0 0;">Eight entries, not a biography.</h2>
+      <div style="display: grid; gap: 0; margin-top: clamp(30px, 5vh, 52px);">
+        <sc-for list="{{ arc }}" as="a" hint-placeholder-count="8">
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 150px), 1fr)); gap: clamp(10px, 2vw, 32px); align-items: baseline; padding: clamp(16px, 2vw, 24px) 0; border-top: 1px solid #33302b;" style-hover="background: rgba(255,255,255,.03);">
+            <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.12em; color: #8a827a;">{{ a.year }}</span>
+            <span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; font-size: clamp(18px, 2.2vw, 28px); letter-spacing: -0.03em;">{{ a.name }}</span>
+            <span style="grid-column: span 2; font-size: clamp(14px, 1.3vw, 17px); line-height: 1.55; color: #b3aca3;">{{ a.learned }}</span>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <footer style="padding: clamp(60px, 11vh, 140px) clamp(20px, 6vw, 96px);">
+    <div style="max-width: 1180px; margin: 0 auto;">
+      <h2 style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: clamp(32px, 6.4vw, 96px); line-height: 0.9; letter-spacing: -0.05em; margin: 0; max-width: 18ch;">
+        That's the person. <em style="font-style: normal; color: #c2591f;">Here's the work.</em>
+      </h2>
+      <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: clamp(26px, 4vh, 42px);">
+        <a href="index.html#work" style="padding: 15px 24px; border-radius: 100px; background: #1a1917; color: #f6f3ee; font-family: 'JetBrains Mono', monospace; font-size: 11.5px; letter-spacing: 0.14em; text-transform: uppercase;" style-hover="background: #c2591f;">See the four case studies →</a>
+        <a href="mailto:vinaymandalaa@gmail.com" style="padding: 15px 24px; border-radius: 100px; border: 1px solid #1a1917; font-family: 'JetBrains Mono', monospace; font-size: 11.5px; letter-spacing: 0.14em; text-transform: uppercase;" style-hover="background: #1a1917; color: #f6f3ee;">vinaymandalaa@gmail.com</a>
+        <a href="https://in.linkedin.com/in/vinay-mandala" style="padding: 15px 24px; border-radius: 100px; border: 1px solid #ded8cd; color: #6a635c; font-family: 'JetBrains Mono', monospace; font-size: 11.5px; letter-spacing: 0.14em; text-transform: uppercase;" style-hover="border-color: #1a1917; color: #1a1917;">LinkedIn</a>
+      </div>
+    </div>
+  </footer>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;: {&quot;width&quot;: 1440, &quot;height&quot;: 900}}">
+class Component extends DCLogic {
+  state = { progress: 0 };
+  componentDidMount() {
+    this.onScroll = () => {
+      const h = document.documentElement;
+      this.setState({ progress: Math.round((h.scrollTop / Math.max(1, h.scrollHeight - h.clientHeight)) * 100) });
+    };
+    window.addEventListener('scroll', this.onScroll, { passive: true });
+    this.onScroll();
+  }
+  componentWillUnmount() { window.removeEventListener('scroll', this.onScroll); }
+  renderVals() {
+    return {
+      progress: this.state.progress + '%',
+      geo: [
+        { tag: 'Grew up', name: 'Karimnagar', color: '#1a1917', arrow: '→' },
+        { tag: '8 years', name: 'Hyderabad', color: '#1a1917', arrow: '→' },
+        { tag: '4 years', name: 'Interior design, JNAFAU', color: '#1a1917', arrow: '→' },
+        { tag: 'Now', name: 'Product design', color: '#c2591f', arrow: '' }
+      ],
+      raised: [
+        { tag: 'People', title: 'Conversations', body: 'Most of what I know about users I learned from talking to people with no interest in design, family, friends, strangers on long journeys.' },
+        { tag: 'Constraint', title: 'Making it work', body: 'Growing up watching money get stretched teaches you to judge an idea by what it costs, not by how it looks in a deck.' },
+        { tag: 'Pacing', title: 'Stories & film', body: 'Most scenes exist so one scene can land. Products work the same way, and I write fiction for the same reason I design them.' },
+        { tag: 'Systems', title: 'Games & the internet', body: 'Rules, feedback, progression, and a decade of self-teaching online. I read interfaces as systems because I read those as systems first.' }
+      ],
+      doing: [
+        { tag: 'What I do 01', title: 'Product design', body: 'Research, flows, prototypes, design systems. The unglamorous part where a product either makes sense or doesn\u2019t.' },
+        { tag: 'What I do 02', title: 'Brand & visual systems', body: 'Identity, colour, type, mascots, then the discipline to keep it consistent across a hundred screens and a print run.' },
+        { tag: 'What I do 03', title: 'Storytelling & content', body: 'Demo videos, storyboards, campaigns, comics. If the product has a story, someone has to actually tell it.' }
+      ],
+      surfaces: [
+        { n: '01', name: 'Product UX and flows', who: 'siya · Mavricks' },
+        { n: '02', name: 'Design system and components', who: 'siya' },
+        { n: '03', name: 'Brand identity and wordmark', who: 'siya' },
+        { n: '04', name: 'Mascot and illustration system', who: 'siya' },
+        { n: '05', name: 'Marketing, print and social', who: 'siya · Incepteo' },
+        { n: '06', name: 'Demo videos and storyboards', who: 'siya · Mavricks' },
+        { n: '07', name: 'Websites and landing pages', who: 'Stratpilot · Drop' },
+        { n: '08', name: 'AI-assisted production workflow', who: 'siya' }
+      ],
+      beliefs: [
+        { line: 'Structure before style. If it fails in grey boxes, colour won\u2019t save it.', proof: 'Every case study on this site' },
+        { line: 'A feature isn\u2019t good just because it\u2019s possible.', proof: 'Nerdy Otaku, the tracking rollback' },
+        { line: 'The best argument in the room wins, whoever makes it.', proof: 'Mentor feedback I acted on' },
+        { line: 'A confident assumption survives until a ten-year-old uses your product.', proof: 'Mavricks, school testing' },
+        { line: 'A mascot is a character. A brand is a system.', proof: 'siya, the identity fight' }
+      ],
+      life: [
+        { title: 'Writing fiction', note: 'Long-form, slowly, for myself' },
+        { title: 'Wandering soul', note: 'Loves to travel' },
+        { title: 'Cricket', note: 'Weekends, competitively' },
+        { title: 'Films, comics, games', note: 'Still the best structure lessons going' },
+        { title: 'Long conversations', note: 'Entire evenings, no regrets' }
+      ],
+      arc: [
+        { year: '2018', name: 'Interiors', learned: 'Designing physical environments: proportion, hierarchy, and the cost of moving a wall.' },
+        { year: '2022', name: 'Visual design', learned: 'Visual communication: type, colour and composition as a way of saying something.' },
+        { year: '2022', name: 'UI/UX · GUVI', learned: 'Interfaces, UX laws, heuristics, and how people behave versus how we assume they behave.' },
+        { year: '2023', name: 'FULL Creative', learned: 'Professional production: components, systems, review, and shipping alongside other people.' },
+        { year: '2024', name: 'Incepteo', learned: 'Speed, business context, and how to sit in a client room without wasting it.' },
+        { year: '2024', name: 'Mavricks', learned: 'Product experimentation, and that real-world testing beats a confident assumption.' },
+        { year: '2025', name: 'siya', learned: 'Ownership: systems, branding, cross-functional design, and how to argue for an idea.' },
+        { year: 'Now', name: 'AI workflow', learned: 'How the design process itself is changing, and where the designer still decides.' }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>DROP, Case Study · Vinay Mandala</title>
+<meta name="description" content="DROP: a fictitious agency built as a training brief at FULL Creative: research, visual design, prototyping and auto layout, tested at corporate standard." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: #FBF8F3; color: #101010; font-family: 'Inter', system-ui, sans-serif; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+  * { box-sizing: border-box; }
+  a { color: #101010; text-decoration: none; }
+  a:hover { color: #646361; }
+  ::selection { background: #B8AFDA; color: #101010; }
+  @keyframes rise { from { opacity: 0; transform: translateY(28px); } to { opacity: 1; transform: none; } }
+  @keyframes fadein { from { opacity: 0; } to { opacity: 1; } }
+  @keyframes grow { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+  @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+  @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } html { scroll-behavior: auto; } }
+</style>
+<script src="./motion.js" data-accent="#B8AFDA"></script>
+</helmet>
+
+<div style="position: relative; width: 100%; overflow-x: clip;">
+  <div style="position: fixed; top: 0; left: 0; height: 3px; width: {{ progress }}; background: #B8AFDA; z-index: 80; transition: width .1s linear;"></div>
+
+  <nav style="position: sticky; top: 0; z-index: 60; display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 13px clamp(16px, 4vw, 48px); background: rgba(251,248,243,.9); backdrop-filter: blur(14px); border-bottom: 1px solid #E4DFD6;">
+    <a href="index.html" style="font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; white-space: nowrap;">← Vinay Mandala</a>
+    <div style="display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 8px clamp(10px, 2vw, 22px); font-family: 'Inter', sans-serif; font-size: clamp(11px, 1.1vw, 12px); font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase;">
+      <span style="color: #646361;">Case 04 · DROP</span>
+      <a href="Siya.dc.html">Next →</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header data-screen-label="DROP hero" style="position: relative; background: #101010; color: #FFFFFF; padding: clamp(52px, 9vh, 120px) clamp(20px, 6vw, 88px) clamp(44px, 8vh, 100px); overflow: hidden;">
+    <div style="position: absolute; top: -20%; right: -8%; width: 46%; aspect-ratio: 1; border-radius: 50%; background: radial-gradient(circle at 50% 50%, rgba(184,175,218,.32), transparent 68%); pointer-events: none;"></div>
+    <div style="position: relative; max-width: 1200px; margin: 0 auto;">
+      <div style="display: flex; flex-wrap: wrap; gap: 8px 18px; font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: #979592;">
+        <span>FULL Creative · 2023</span><span>Training brief</span><span>Visual design · prototyping</span><span style="color: #B8AFDA;">Fictitious brand</span>
+      </div>
+      <h1 style="font-family: 'Playfair Display', serif; font-weight: 400; font-size: clamp(34px, 6.4vw, 100px); line-height: 1.02; letter-spacing: -0.01em; text-transform: uppercase; margin: clamp(20px, 4vh, 36px) 0 0; max-width: 22ch;">
+        Power up your <span style="color: #B8AFDA;">digital media</span> presence with DROP
+      </h1>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: clamp(24px, 4vw, 60px); margin-top: clamp(26px, 4vh, 44px); align-items: end;">
+        <p style="font-family: 'Inter', sans-serif; font-size: clamp(16px, 1.4vw, 20px); line-height: 1.6; color: #C9C6C2; margin: 0;">
+DROP was never meant to launch. It was the brief my team at FULL Creative used to find out whether I could work at their standard: build a brand that doesn't exist and take its homepage all the way, research, visual design, UX reasoning, a working prototype, and a file clean enough for someone else to open. Everything you see here was judged as if a client were paying for it.
+        </p>
+        <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px;">
+          <sc-for list="{{ stats }}" as="s" hint-placeholder-count="4">
+            <div style="padding: 16px; border: 1px solid #323231;">
+              <span style="display: block; font-family: 'Inter', sans-serif; font-weight: 600; font-size: clamp(20px, 2.4vw, 30px); letter-spacing: -0.03em; color: #B8AFDA;">{{ s.v }}</span>
+              <span style="display: block; margin-top: 5px; font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #979592;">{{ s.k }}</span>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+      <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: clamp(24px, 3.6vh, 38px);">
+        <sc-for list="{{ tested }}" as="t" hint-placeholder-count="6">
+          <span style="padding: 9px 14px; border: 1px solid #323231; font-family: 'Inter', sans-serif; font-size: 11.5px; font-weight: 600; letter-spacing: 0.04em; color: #C9C6C2;">{{ t }}</span>
+        </sc-for>
+      </div>
+      <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: clamp(26px, 4vh, 44px);">
+        <a href="https://www.figma.com/design/X6lN2ABc6YXJNDiyvLXxnA/DROP_Homepage_Design?node-id=701-779&amp;t=fxR9iFHrfomr7lbc-1" style="display: inline-flex; align-items: center; gap: 9px; padding: 15px 24px; border-radius: 999px; background: #B8AFDA; color: #101010; font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 600;" style-hover="background: #FFFFFF;">Open the Figma file ↗</a>
+        <a href="https://www.figma.com/proto/X6lN2ABc6YXJNDiyvLXxnA/DROP_Homepage_Design?node-id=7-4064&amp;viewport=-1032%2C867%2C0.1&amp;t=jxmHLQZVGtbKPO9f-1&amp;scaling=min-zoom&amp;content-scaling=fixed&amp;starting-point-node-id=7%3A4064&amp;page-id=701%3A779" style="display: inline-flex; align-items: center; gap: 9px; padding: 15px 24px; border-radius: 999px; border: 1px solid #646361; color: #FFFFFF; font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 600;" style-hover="background: #FFFFFF; color: #101010;">Play the prototype ↗</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- AT A GLANCE -->
+  <section data-screen-label="At a glance" style="padding: 0 clamp(20px, 6vw, 88px) clamp(30px, 5vh, 56px);">
+    <div style="max-width: 1200px; margin: 0 auto; padding: clamp(22px, 3vw, 32px); background: #FFFFFF; border: 1px solid #E4DFD6; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 210px), 1fr)); gap: clamp(18px, 2.4vw, 34px); align-items: start;">
+          <div style="display: flex; flex-direction: column; gap: 7px;">
+            <span style="font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: #646361;">Role</span>
+            <span style="font-family: 'Inter', sans-serif; font-size: 14.5px; line-height: 1.6; color: #101010;">Brand and visual designer, solo brief</span>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 7px;">
+            <span style="font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: #646361;">Timeline</span>
+            <span style="font-family: 'Inter', sans-serif; font-size: 14.5px; line-height: 1.6; color: #101010;">2023 · FULL Creative, Chennai</span>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 7px;">
+            <span style="font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: #646361;">I owned</span>
+            <span style="font-family: 'Inter', sans-serif; font-size: 14.5px; line-height: 1.6; color: #101010;">The invented brand, a teardown of six agency sites, type scale, palette, UI kit, ten folds at two breakpoints and a clickable prototype</span>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 7px;">
+            <span style="font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: #646361;">Worked with</span>
+            <span style="font-family: 'Inter', sans-serif; font-size: 14.5px; line-height: 1.6; color: #101010;">Design leads at FULL Creative, who reviewed it as client work</span>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 7px;">
+            <span style="font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: #646361;">Where it landed</span>
+            <span style="font-family: 'Inter', sans-serif; font-size: 14.5px; line-height: 1.6; color: #101010;">Taken to a shippable standard and defended fold by fold. It is the work that got me the job at FULL Creative.</span>
+          </div>
+    </div>
+    <p style="max-width: 1200px; margin: 12px auto 0; font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #646361;">Fictitious brand, built as a training brief · Figma file and prototype open</p>
+  </section>
+
+  <!-- MARQUEE -->
+  <section style="border-bottom: 1px solid #E4DFD6; background: #B8AFDA; overflow-x: auto; overflow-y: hidden; scrollbar-width: none; padding: 16px 0;">
+    <div style="display: flex; width: max-content; gap: 34px; align-items: center; white-space: nowrap; font-family: 'Inter', sans-serif; font-weight: 600; font-size: clamp(14px, 1.6vw, 20px); letter-spacing: -0.01em; color: #101010; animation: marquee 32s linear infinite; padding-right: 34px;">
+      <span>Brand identity</span><span style="color: #FBF8F3;">✳</span><span>User experience</span><span style="color: #FBF8F3;">✳</span><span>Optimization</span><span style="color: #FBF8F3;">✳</span><span>Social proof</span><span style="color: #FBF8F3;">✳</span>
+      <span aria-hidden="true">Brand identity</span><span style="color: #FBF8F3;" aria-hidden="true">✳</span><span aria-hidden="true">User experience</span><span style="color: #FBF8F3;" aria-hidden="true">✳</span><span aria-hidden="true">Optimization</span><span style="color: #FBF8F3;" aria-hidden="true">✳</span><span aria-hidden="true">Social proof</span><span style="color: #FBF8F3;" aria-hidden="true">✳</span>
+    </div>
+  </section>
+
+  <!-- 01 THE BRIEF -->
+  <section data-screen-label="The brief" style="padding: clamp(52px, 9vh, 120px) clamp(20px, 6vw, 88px);">
+    <div style="max-width: 1200px; margin: 0 auto;">
+      <span style="font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: #646361;">01 / the brief</span>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 290px), 1fr)); gap: clamp(24px, 4vw, 64px); margin-top: 18px; align-items: start;">
+        <h2 style="font-family: 'Inter', sans-serif; font-weight: 500; font-size: clamp(26px, 4vw, 56px); line-height: 1.04; letter-spacing: -0.03em; margin: 0; max-width: 18ch;">
+          A fake client, judged like a real one.
+        </h2>
+        <div>
+          <p style="font-family: 'Inter', sans-serif; font-size: clamp(15px, 1.35vw, 18px); line-height: 1.64; color: #323231; margin: 0;">
+            DROP is a digital media marketing agency that doesn't exist: custom strategies, real results, small businesses growing online. Inventing the client was the point, with no stakeholder to hide behind, every decision on the page had to be one I could defend out loud.
+            <br /><br />
+            So the exercise ran like a real engagement. Competitor research first, then identity, then a ten-fold homepage at two breakpoints, then a clickable prototype, with reviews in between. The design question was never “what does DROP do”, it was <strong style="font-weight: 600;">what does a visitor need to believe in eight seconds,</strong> and can I prove why I answered it that way.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 02 RESEARCH -->
+  <section data-screen-label="Research" style="background: #FFFFFF; border-top: 1px solid #E4DFD6; border-bottom: 1px solid #E4DFD6; padding: clamp(52px, 9vh, 120px) clamp(20px, 6vw, 88px);">
+    <div style="max-width: 1200px; margin: 0 auto;">
+      <span style="font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: #646361;">02 / research and analysis</span>
+      <h2 style="font-family: 'Inter', sans-serif; font-weight: 500; font-size: clamp(26px, 4vw, 56px); line-height: 1.04; letter-spacing: -0.03em; margin: 16px 0 0; max-width: 20ch;">
+        Six agencies, torn down fold by fold.
+      </h2>
+      <p style="font-family: 'Inter', sans-serif; font-size: clamp(15px, 1.35vw, 18px); line-height: 1.64; color: #323231; max-width: 58ch; margin: 18px 0 0;">
+        I pulled the top three agencies from Influencer Marketing Hub and the top three from a story in The Hindu, then read their homepages as structures rather than as visuals: what comes first, what gets proven, where the ask sits.
+      </p>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 170px), 1fr)); gap: 10px; margin-top: clamp(24px, 4vh, 42px);">
+        <sc-for list="{{ refs }}" as="r" hint-placeholder-count="6">
+          <div style="padding: 20px; background: #FBF8F3; border: 1px solid #E4DFD6;" style-hover="border-color: #101010;">
+            <span style="display: block; font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #979592;">{{ r.src }}</span>
+            <span style="display: block; margin-top: 10px; font-family: 'Inter', sans-serif; font-weight: 600; font-size: 17px; letter-spacing: -0.01em;">{{ r.name }}</span>
+            <span style="display: block; margin-top: 7px; font-family: 'Inter', sans-serif; font-size: 13px; line-height: 1.5; color: #646361;">{{ r.note }}</span>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- 03 BRAINSTORM -->
+  <section data-screen-label="Brainstorming" style="padding: clamp(52px, 9vh, 120px) clamp(20px, 6vw, 88px);">
+    <div style="max-width: 1200px; margin: 0 auto;">
+      <span style="font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: #646361;">03 / brainstorming</span>
+      <h2 style="font-family: 'Inter', sans-serif; font-weight: 500; font-size: clamp(26px, 4vw, 56px); line-height: 1.04; letter-spacing: -0.03em; margin: 16px 0 0; max-width: 22ch;">
+        Eight elements every good agency homepage had.
+      </h2>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr)); gap: 12px; margin-top: clamp(24px, 4vh, 42px);">
+        <sc-for list="{{ elements }}" as="e" hint-placeholder-count="8">
+          <div style="padding: 24px; background: {{ e.bg }}; border: 1px solid {{ e.border }};">
+            <span style="display: block; font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: {{ e.meta }};">{{ e.n }}</span>
+            <h3 style="font-family: 'Inter', sans-serif; font-weight: 600; font-size: clamp(17px, 1.8vw, 22px); letter-spacing: -0.015em; margin: 11px 0 0; color: {{ e.fg }};">{{ e.name }}</h3>
+            <p style="font-family: 'Inter', sans-serif; font-size: 13.5px; line-height: 1.55; color: {{ e.body2 }}; margin: 8px 0 0;">{{ e.body }}</p>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- 04 IDENTITY -->
+  <section data-screen-label="Brand identity" style="background: #101010; color: #FFFFFF; padding: clamp(52px, 9vh, 120px) clamp(20px, 6vw, 88px);">
+    <div style="max-width: 1200px; margin: 0 auto;">
+      <span style="font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: #B8AFDA;">04 / defining the identity</span>
+      <h2 style="font-family: 'Inter', sans-serif; font-weight: 500; font-size: clamp(26px, 4.4vw, 62px); line-height: 1.02; letter-spacing: -0.035em; margin: 16px 0 0; max-width: 20ch; color: #FFFFFF;">
+        Four questions I answered before opening Figma.
+      </h2>
+      <div data-om-stack style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin-top: clamp(24px, 4vh, 42px);">
+        <sc-for list="{{ pillars }}" as="p" hint-placeholder-count="4">
+          <div style="padding: 26px; border: 1px solid #323231;" style-hover="border-color: #B8AFDA;">
+            <span style="display: block; font-family: 'Playfair Display', serif; font-size: 30px; color: #B8AFDA;">{{ p.n }}</span>
+            <h3 style="font-family: 'Inter', sans-serif; font-weight: 600; font-size: 19px; letter-spacing: -0.015em; margin: 12px 0 0; color: #FFFFFF;">{{ p.name }}</h3>
+            <p style="font-family: 'Inter', sans-serif; font-size: 13.5px; line-height: 1.6; color: #C9C6C2; margin: 9px 0 0;">{{ p.body }}</p>
+          </div>
+        </sc-for>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: clamp(24px, 4vw, 56px); margin-top: clamp(34px, 6vh, 72px); padding-top: clamp(28px, 4.5vh, 52px); border-top: 1px solid #323231; align-items: center;">
+        <div>
+          <span style="font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: #B8AFDA;">The backstory</span>
+          <h3 style="font-family: 'Inter', sans-serif; font-weight: 500; font-size: clamp(22px, 3vw, 40px); line-height: 1.06; letter-spacing: -0.03em; margin: 14px 0 0; color: #FFFFFF;">
+            I gave a fake agency a <span style="font-family: 'Playfair Display', serif; font-style: italic; color: #B8AFDA;">real</span> reason to exist.
+          </h3>
+          <p style="font-family: 'Inter', sans-serif; font-size: clamp(15px, 1.35vw, 17px); line-height: 1.64; color: #C9C6C2; margin: 14px 0 0;">
+            A brand with no history has nothing for a visitor to hold onto, so I wrote the founder's journey: the struggle, and the decision to back young entrepreneurs through a social-service initiative. That became the <strong style="font-weight: 600; color: #FFFFFF;">“Ignite your dreams”</strong> fold, the one section on the page that isn't selling anything. It's the reason the rest of the page feels like a company instead of a template.
+          </p>
+        </div>
+        <div style="padding: clamp(24px, 3.6vw, 44px); background: #C7D8C5; color: #101010;">
+          <span style="font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: #323231;">Fold copy</span>
+          <p style="font-family: 'Inter', sans-serif; font-weight: 500; font-size: clamp(20px, 2.6vw, 34px); line-height: 1.08; letter-spacing: -0.03em; margin: 12px 0 0;">Empowering entrepreneurs to soar.</p>
+          <p style="font-family: 'Inter', sans-serif; font-size: 14.5px; line-height: 1.6; color: #323231; margin: 12px 0 0;">DROP believes in dreams, so we support emerging visionaries with resources, mentorship, and game-changing opportunities.</p>
+          <span style="display: inline-block; margin-top: 18px; padding: 12px 20px; border-radius: 999px; background: #101010; color: #FFFFFF; font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 600;">Ignite your dreams</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 05 SYSTEM -->
+  <section data-screen-label="Design system" style="padding: clamp(52px, 9vh, 120px) clamp(20px, 6vw, 88px);">
+    <div style="max-width: 1200px; margin: 0 auto;">
+      <span style="font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: #646361;">05 / the system</span>
+      <h2 style="font-family: 'Inter', sans-serif; font-weight: 500; font-size: clamp(26px, 4vw, 56px); line-height: 1.04; letter-spacing: -0.03em; margin: 16px 0 0; max-width: 22ch;">
+        Bold enough to feel confident, quiet enough to read.
+      </h2>
+      <p style="font-family: 'Inter', sans-serif; font-size: clamp(15px, 1.35vw, 18px); line-height: 1.64; color: #323231; max-width: 60ch; margin: 18px 0 0;">
+        Black and white backgrounds gave me a minimalist canvas so the bold elements could carry the personality. Inter does the work; Playfair appears only where the page needs a human voice. One accent per fold, never two.
+      </p>
+
+      <!-- type -->
+      <div style="margin-top: clamp(26px, 4vh, 44px); border: 1px solid #E4DFD6; background: #FFFFFF;">
+        <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; padding: 16px 20px; border-bottom: 1px solid #E4DFD6; font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: #646361;">
+          <span>Type scale</span>
+          <span>Inter · Playfair Display</span>
+        </div>
+        <sc-for list="{{ typeScale }}" as="t" hint-placeholder-count="6">
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 130px), 1fr)); gap: 12px; align-items: baseline; padding: 16px 20px; border-bottom: 1px solid #F0EBE2;">
+            <span style="font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #979592;">{{ t.token }}</span>
+            <span style="grid-column: span 2; font-family: {{ t.family }}; font-weight: {{ t.weight }}; font-style: {{ t.style }}; font-size: {{ t.display }}; line-height: 1.1; letter-spacing: -0.025em; color: #101010;">{{ t.sample }}</span>
+            <span style="justify-self: end; font-family: 'Inter', sans-serif; font-size: 12px; color: #646361; text-align: right;">{{ t.spec }}</span>
+          </div>
+        </sc-for>
+      </div>
+
+      <!-- colour -->
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 120px), 1fr)); gap: 10px; margin-top: 14px;">
+        <sc-for list="{{ swatches }}" as="s" hint-placeholder-count="9">
+          <div style="border: 1px solid #E4DFD6; background: #FFFFFF;">
+            <div style="height: 74px; background: {{ s.hex }}; border-bottom: 1px solid #E4DFD6;"></div>
+            <div style="padding: 12px;">
+              <span style="display: block; font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 600;">{{ s.name }}</span>
+              <span style="display: block; margin-top: 3px; font-family: 'Inter', sans-serif; font-size: 11px; color: #979592;">{{ s.hex }}</span>
+              <span style="display: block; margin-top: 6px; font-family: 'Inter', sans-serif; font-size: 11px; line-height: 1.4; color: #646361;">{{ s.use }}</span>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+
+      <!-- ui kit -->
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr)); gap: 12px; margin-top: 14px;">
+        <div style="padding: 26px; border: 1px solid #E4DFD6; background: #FFFFFF;">
+          <span style="font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: #646361;">Buttons</span>
+          <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 16px;">
+            <span style="padding: 13px 22px; border-radius: 999px; background: #101010; color: #FFFFFF; font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 600;">Primary button</span>
+            <span style="padding: 13px 22px; border-radius: 999px; border: 1px solid #101010; font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 600;">Secondary</span>
+            <span style="padding: 13px 4px; font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 600; border-bottom: 2px solid #B8AFDA;">Tertiary →</span>
+          </div>
+        </div>
+        <div style="padding: 26px; border: 1px solid #E4DFD6; background: #FFFFFF;">
+          <span style="font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: #646361;">Result card</span>
+          <p style="font-family: 'Inter', sans-serif; font-weight: 600; font-size: 20px; letter-spacing: -0.015em; margin: 14px 0 10px;">Periscope</p>
+          <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+            <span style="padding: 7px 13px; background: #B8AFDA; font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 600;">+510% traffic</span>
+            <span style="padding: 7px 13px; background: #F6F361; font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 600;">SEO</span>
+          </div>
+          <p style="font-family: 'Inter', sans-serif; font-size: 13.5px; line-height: 1.55; color: #646361; margin: 12px 0 0;">See how we created a base of high value keywords to power Periscope's growth.</p>
+        </div>
+        <div style="padding: 26px; border: 1px solid #E4DFD6; background: #FFFFFF;">
+          <span style="font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: #646361;">Form field</span>
+          <div style="margin-top: 18px; padding: 0 2px 10px; border-bottom: 1px solid #101010; font-family: 'Inter', sans-serif; font-size: 14px; color: #979592;">Email*</div>
+          <div style="margin-top: 18px; padding: 0 2px 10px; border-bottom: 1px solid #C9C6C2; display: flex; justify-content: space-between; font-family: 'Inter', sans-serif; font-size: 14px; color: #979592;"><span>Monthly Budget*</span><span>⌄</span></div>
+          <p style="font-family: 'Inter', sans-serif; font-size: 12.5px; line-height: 1.5; color: #646361; margin: 14px 0 0;">Underline-only fields. No boxes, no fills, on a page this dense, a box around every input reads as clutter, and the line alone still says “type here”.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 05b OG IMAGE -->
+  <section data-screen-label="OG image" style="background: #101010; color: #FFFFFF; padding: clamp(52px, 9vh, 120px) clamp(20px, 6vw, 88px);">
+    <div style="max-width: 1200px; margin: 0 auto;">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 290px), 1fr)); gap: clamp(24px, 4vw, 60px); align-items: start;">
+        <div>
+          <span style="font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: #B8AFDA;">05b / exploration</span>
+          <h2 style="font-family: 'Inter', sans-serif; font-weight: 500; font-size: clamp(26px, 4vw, 52px); line-height: 1.04; letter-spacing: -0.03em; margin: 16px 0 0; max-width: 20ch; color: #FFFFFF;">
+Two picks out of nine, at 1200 × 630.
+          </h2>
+          <p style="font-family: 'Inter', sans-serif; font-size: clamp(15px, 1.35vw, 18px); line-height: 1.64; color: #C9C6C2; margin: 18px 0 0;">
+            A link to DROP gets pasted into Slack, WhatsApp and LinkedIn long before anyone opens it, so the share card is a real design problem rather than an export setting. Nine explorations on one black canvas, everything variable except three constants: the DR✳P mark, a serif headline in white, and exactly one word in lavender.
+          </p>
+          <div style="display: grid; gap: 10px; margin-top: clamp(22px, 3.5vh, 36px);">
+            <sc-for list="{{ ogNotes }}" as="o" hint-placeholder-count="3">
+              <div style="padding: 16px 18px; border: 1px solid #323231;">
+                <span style="display: block; font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: #B8AFDA;">{{ o.tag }}</span>
+                <span style="display: block; margin-top: 7px; font-family: 'Inter', sans-serif; font-size: 14px; line-height: 1.55; color: #C9C6C2;">{{ o.body }}</span>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+        <div style="display: grid; gap: 12px;">
+          <figure style="margin: 0; border: 1px solid #323231; background: #0B0B0B;">
+            <img decoding="async" loading="lazy" src="assets/drop/og-portrait.webp" alt="OG image exploration, portrait bleeding off the right edge" style="display: block; width: 100%; height: auto;" />
+            <figcaption style="padding: 13px 15px; border-top: 1px solid #323231; font-family: 'Inter', sans-serif; font-size: 12.5px; line-height: 1.55; color: #979592;">
+              <span style="display: block; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; font-size: 11px; color: #B8AFDA; margin-bottom: 5px;">The one that survived thumbnail size</span>
+              Type left, subject bleeding off the right edge. At feed scale the face reads before the words do, which is the only job this card has.
+            </figcaption>
+          </figure>
+          <figure style="margin: 0; border: 1px solid #323231; background: #0B0B0B;">
+            <img decoding="async" loading="lazy" src="assets/drop/og-knockout.webp" alt="OG image exploration, imagery knocked out of the wordmark" style="display: block; width: 100%; height: auto;" />
+            <figcaption style="padding: 13px 15px; border-top: 1px solid #323231; font-family: 'Inter', sans-serif; font-size: 12.5px; line-height: 1.55; color: #979592;">
+              <span style="display: block; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; font-size: 11px; color: #B8AFDA; margin-bottom: 5px;">The one I liked and cut</span>
+              Client imagery knocked out of the wordmark. Beautiful at full size, unreadable at 240px, a good lesson in designing for where a thing is actually seen.
+            </figcaption>
+          </figure>
+          <p style="font-family: 'Inter', sans-serif; font-size: 12.5px; line-height: 1.55; color: #646361; margin: 2px 0 0;">Two of nine. The rest of the sheet is in the Figma file.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 06 THE FOLDS -->
+  <section data-screen-label="The folds" style="background: #FFFFFF; border-top: 1px solid #E4DFD6; padding: clamp(52px, 9vh, 120px) clamp(20px, 6vw, 88px);">
+    <div style="max-width: 1200px; margin: 0 auto;">
+      <span style="font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: #646361;">06 / the homepage</span>
+      <h2 style="font-family: 'Inter', sans-serif; font-weight: 500; font-size: clamp(26px, 4vw, 56px); line-height: 1.04; letter-spacing: -0.03em; margin: 16px 0 0; max-width: 20ch;">
+        Ten folds, two breakpoints, one rhythm.
+      </h2>
+      <p style="font-family: 'Inter', sans-serif; font-size: clamp(15px, 1.35vw, 18px); line-height: 1.64; color: #323231; max-width: 62ch; margin: 18px 0 0;">
+        Every fold changes surface, black, desert white, lavender, sage, so someone scrolling fast still feels rhythm instead of one long page. One accent per fold, never two, and the ask repeats exactly twice: mid-page at fold 04 and at the contact form. The 375px version re-stacks the same folds rather than dropping any of them.
+      </p>
+      <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin-top: clamp(22px, 3.5vh, 36px); padding: clamp(20px, 3vw, 30px); background: #101010; color: #FFFFFF;">
+        <div style="flex: 1 1 min(100%, 380px);">
+          <span style="font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: #B8AFDA;">Best seen moving</span>
+          <p style="font-family: 'Inter', sans-serif; font-weight: 500; font-size: clamp(17px, 2vw, 24px); line-height: 1.25; letter-spacing: -0.02em; margin: 10px 0 0;">The whole page is clickable in Figma, hovers, dropdowns and the scroll behaviour included.</p>
+        </div>
+        <a href="https://www.figma.com/proto/X6lN2ABc6YXJNDiyvLXxnA/DROP_Homepage_Design?node-id=7-4064&amp;viewport=-1032%2C867%2C0.1&amp;t=jxmHLQZVGtbKPO9f-1&amp;scaling=min-zoom&amp;content-scaling=fixed&amp;starting-point-node-id=7%3A4064&amp;page-id=701%3A779" style="display: inline-flex; padding: 15px 24px; border-radius: 999px; background: #B8AFDA; color: #101010; font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 600;" style-hover="background: #FFFFFF;">Open the prototype ↗</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 07 TAKEAWAYS -->
+  <section data-screen-label="Takeaways" style="padding: clamp(52px, 9vh, 130px) clamp(20px, 6vw, 88px);">
+    <div style="max-width: 1200px; margin: 0 auto;">
+      <span style="font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: #646361;">07 / takeaways</span>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: clamp(24px, 4vw, 60px); margin-top: 18px; align-items: start;">
+        <h2 style="font-family: 'Inter', sans-serif; font-weight: 500; font-size: clamp(26px, 4vw, 56px); line-height: 1.04; letter-spacing: -0.03em; margin: 0; max-width: 18ch;">
+          Feedback is the part that actually changes the design.
+        </h2>
+        <div style="display: grid; gap: 10px;">
+          <sc-for list="{{ lessons }}" as="l" hint-placeholder-count="3">
+            <div style="padding: 20px; background: #FFFFFF; border-left: 3px solid #B8AFDA;">
+              <p style="font-family: 'Inter', sans-serif; font-weight: 500; font-size: clamp(16px, 1.7vw, 20px); line-height: 1.35; letter-spacing: -0.015em; margin: 0;">{{ l }}</p>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+      <div style="margin-top: clamp(30px, 5vh, 60px); padding: clamp(24px, 4vw, 48px); background: #101010; color: #FFFFFF;">
+        <span style="font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: #B8AFDA;">What changed in my thinking</span>
+        <p style="font-family: 'Inter', sans-serif; font-weight: 500; font-size: clamp(20px, 3vw, 40px); line-height: 1.1; letter-spacing: -0.03em; margin: 14px 0 0; max-width: 26ch; color: #FFFFFF;">
+Visual confidence isn't decoration. It's what makes people trust the rest of your thinking, and I came out of this able to defend every fold.
+        </p>
+        <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: clamp(22px, 3.5vh, 36px);">
+          <a href="https://www.figma.com/design/X6lN2ABc6YXJNDiyvLXxnA/DROP_Homepage_Design?node-id=701-779&amp;t=fxR9iFHrfomr7lbc-1" style="display: inline-flex; padding: 14px 22px; border-radius: 999px; background: #B8AFDA; color: #101010; font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 600;" style-hover="background: #FFFFFF;">Every fold in Figma ↗</a>
+          <a href="https://www.figma.com/proto/X6lN2ABc6YXJNDiyvLXxnA/DROP_Homepage_Design?node-id=7-4064&amp;viewport=-1032%2C867%2C0.1&amp;t=jxmHLQZVGtbKPO9f-1&amp;scaling=min-zoom&amp;content-scaling=fixed&amp;starting-point-node-id=7%3A4064&amp;page-id=701%3A779" style="display: inline-flex; padding: 14px 22px; border-radius: 999px; border: 1px solid #646361; color: #FFFFFF; font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 600;" style-hover="background: #FFFFFF; color: #101010;">Play the prototype ↗</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <nav style="border-top: 1px solid #E4DFD6; padding: clamp(36px, 6vh, 76px) clamp(20px, 6vw, 88px);">
+    <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 18px; align-items: center;">
+      <a href="index.html" style="font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase;">← Back to the story</a>
+      <a href="Siya.dc.html" style="font-family: 'Inter', sans-serif; font-weight: 500; font-size: clamp(20px, 3vw, 38px); letter-spacing: -0.03em;">Next case, siya →</a>
+    </div>
+  </nav>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;: {&quot;width&quot;: 1440, &quot;height&quot;: 900}}">
+class Component extends DCLogic {
+  state = { progress: 0 };
+
+  componentDidMount() {
+    this.onScroll = () => {
+      const h = document.documentElement;
+      this.setState({ progress: Math.round((h.scrollTop / Math.max(1, h.scrollHeight - h.clientHeight)) * 100) });
+    };
+    window.addEventListener('scroll', this.onScroll, { passive: true });
+    this.onScroll();
+  }
+  componentWillUnmount() { window.removeEventListener('scroll', this.onScroll); }
+
+  renderVals() {
+    const chip = (t, bg, fg) => ({ t, bg, fg: fg || '#101010' });
+
+    const folds = [
+      {
+        n: '01', label: 'Hero', bg: '#101010', fg: '#FFFFFF', border: '#323231',
+        title: 'Power up your DIGITAL media presence with DROP',
+        body: 'Expert digital media marketing services that drive results.',
+        chips: [], cta: 'Request a Free Consultation', ctaBg: '#B8AFDA', ctaFg: '#101010',
+        eyebrowColor: '#979592', bodyColor: '#C9C6C2'
+      },
+      {
+        n: '02', label: 'Differentiator', bg: '#FBF8F3', fg: '#101010', border: '#E4DFD6',
+        title: 'What makes DROP different from other agencies?',
+        body: 'Every day, our mission is to innovate creative solutions, connecting brands with highly targeted audiences that convert into loyal users.',
+        chips: [chip('TOTAL RESULTS +80%', '#B8AFDA')], cta: 'Dive Into DROP', ctaBg: '#101010', ctaFg: '#FFFFFF',
+        eyebrowColor: '#979592', bodyColor: '#323231'
+      },
+      {
+        n: '03', label: 'Services', bg: '#FFFFFF', fg: '#101010', border: '#E4DFD6',
+        title: 'Revolutionary solutions for Digital Dominance',
+        body: 'Four service cards, each with a real explanation rather than a slogan. Content marketing, SEO, website design, social media.',
+        chips: [chip('Content Marketing', '#F0EBE2'), chip('SEO', '#F0EBE2'), chip('Website Design', '#F0EBE2'), chip('Social Media', '#F0EBE2')],
+        cta: 'View all Services', ctaBg: '#101010', ctaFg: '#FFFFFF',
+        eyebrowColor: '#979592', bodyColor: '#323231'
+      },
+      {
+        n: '04', label: 'Mid-page CTA', bg: '#B8AFDA', fg: '#101010', border: '#A79DCB',
+        title: "Let's craft a winning social media strategy!",
+        body: "We'll work with you to develop a customized strategy tailored to you. Don't wait, book your appointment with DROP today.",
+        chips: [], cta: 'Book A FREE Consultation', ctaBg: '#101010', ctaFg: '#FFFFFF',
+        eyebrowColor: '#4B4460', bodyColor: '#323231'
+      },
+      {
+        n: '05', label: 'Results', bg: '#101010', fg: '#FFFFFF', border: '#323231',
+        title: 'Results that SPEAK FOR THEMSELVES',
+        body: 'Four client cases with lead and traffic lift on the card face, so the proof is readable before anyone clicks.',
+        chips: [chip('Periscope +532%', '#B8AFDA'), chip('On Live +375%', '#C7D8C5'), chip('JD Sports +183%', '#F6F361'), chip('Thrive +467%', '#FBF8F3')],
+        cta: 'View all Case Studies', ctaBg: '#B8AFDA', ctaFg: '#101010',
+        eyebrowColor: '#979592', bodyColor: '#C9C6C2'
+      },
+      {
+        n: '06', label: 'Team', bg: '#FBF8F3', fg: '#101010', border: '#E4DFD6',
+        title: 'The Powerhouse Behind DROP.',
+        body: 'Fueled by passion and commitment to our clients, our team of digital experts drives performance for small businesses.',
+        chips: [chip('Co-Founder', '#F0EBE2'), chip('Co-Founder', '#F0EBE2'), chip('Director of SEO', '#F0EBE2'), chip('Director of Design', '#F0EBE2')],
+        cta: 'Meet Our titans', ctaBg: '#101010', ctaFg: '#FFFFFF',
+        eyebrowColor: '#979592', bodyColor: '#323231'
+      },
+      {
+        n: '07', label: 'Testimonials', bg: '#FFFFFF', fg: '#101010', border: '#E4DFD6',
+        title: 'Success Stories Unleashed',
+        body: '“DROP didn\u2019t take much time in understanding the requirements of my business. I could see the results faster. I was absolutely amazed by this quick growth.”',
+        chips: [chip('Filmmaker & Producer', '#F0EBE2'), chip('Managing Director', '#F0EBE2'), chip('Marketing Coordinator', '#F0EBE2')],
+        cta: 'View all Testimonials', ctaBg: '#101010', ctaFg: '#FFFFFF',
+        eyebrowColor: '#979592', bodyColor: '#323231'
+      },
+      {
+        n: '08', label: 'Purpose', bg: '#C7D8C5', fg: '#101010', border: '#B4C7B2',
+        title: 'Empowering Entrepreneurs to Soar.',
+        body: 'DROP believes in dreams, so we support emerging visionaries with resources, mentorship, and game-changing opportunities. The one fold that sells nothing.',
+        chips: [], cta: 'Ignite Your Dreams', ctaBg: '#101010', ctaFg: '#FFFFFF',
+        eyebrowColor: '#3F4A3E', bodyColor: '#323231'
+      },
+      {
+        n: '09', label: 'Blog', bg: '#FBF8F3', fg: '#101010', border: '#E4DFD6',
+        title: 'CHEckout our latest Blogosphere',
+        body: 'Three posts with date and read time, because expertise is easier to show than to claim.',
+        chips: [chip('5 mins read', '#F0EBE2'), chip('10 mins read', '#F0EBE2'), chip('8 mins read', '#F0EBE2')],
+        cta: 'View all Blogs', ctaBg: '#101010', ctaFg: '#FFFFFF',
+        eyebrowColor: '#979592', bodyColor: '#323231'
+      },
+      {
+        n: '10', label: 'Contact', bg: '#101010', fg: '#FFFFFF', border: '#323231',
+        title: 'Connect and Conquer. Reach Out to DROP!',
+        body: "Ready to make waves? Name, email, services, monthly budget, message. Qualifying fields on the page so the first reply can already be useful.",
+        chips: [chip('Name*', '#323231', '#FFFFFF'), chip('Email*', '#323231', '#FFFFFF'), chip('Services*', '#323231', '#FFFFFF'), chip('Monthly Budget*', '#323231', '#FFFFFF')],
+        cta: 'Submit', ctaBg: '#B8AFDA', ctaFg: '#101010',
+        eyebrowColor: '#979592', bodyColor: '#C9C6C2'
+      }
+    ];
+
+    return {
+      progress: this.state.progress + '%',
+      stats: [
+        { v: '10', k: 'Homepage folds' },
+        { v: '6', k: 'Agencies analysed' },
+        { v: '2', k: 'Breakpoints' },
+        { v: '1', k: 'Clickable prototype' }
+      ],
+      tested: ['Research & references', 'Visual design', 'UX decisions I can defend', 'Prototyping', 'Auto layout & file hygiene', 'Communicating the work'],
+      refs: [
+        { src: 'Influencer Marketing Hub', name: 'Moburst', note: 'Case-study led. Proof arrives before the pitch.' },
+        { src: 'Influencer Marketing Hub', name: 'Smart Sites', note: 'Service grid with plain-English explanations.' },
+        { src: 'Influencer Marketing Hub', name: 'Thrive', note: 'Numbers on the card face, not buried in a page.' },
+        { src: 'The Hindu', name: 'Social Cubical', note: 'Personality first, credentials second.' },
+        { src: 'The Hindu', name: 'SEO Discovery', note: 'Dense, but a clear path to the enquiry form.' },
+        { src: 'The Hindu', name: 'California Infotech', note: 'Team and testimonials doing the trust work.' }
+      ],
+      elements: [
+        { n: '01', name: 'Hero section', body: 'Video or image background showing the work, with the promise in one line.', bg: '#101010', border: '#101010', fg: '#FFFFFF', body2: '#C9C6C2', meta: '#979592' },
+        { n: '02', name: 'CTA button', body: 'One prominent, action-oriented ask, repeated where intent is highest.', bg: '#B8AFDA', border: '#A79DCB', fg: '#101010', body2: '#323231', meta: '#4B4460' },
+        { n: '03', name: 'Dropdown menu', body: 'Clear navigation with dropdowns for each service the agency offers.', bg: '#FFFFFF', border: '#E4DFD6', fg: '#101010', body2: '#323231', meta: '#646361' },
+        { n: '04', name: 'Stats', body: 'Statistics and infographics that demonstrate real delivered results.', bg: '#C7D8C5', border: '#B4C7B2', fg: '#101010', body2: '#323231', meta: '#3F4A3E' },
+        { n: '05', name: 'Portfolio', body: 'Case studies and client work, to build credibility with potential clients.', bg: '#FFFFFF', border: '#E4DFD6', fg: '#101010', body2: '#323231', meta: '#646361' },
+        { n: '06', name: 'Testimonials', body: 'Named clients with roles. Trust is transferred, not asserted.', bg: '#B8AFDA', border: '#A79DCB', fg: '#101010', body2: '#323231', meta: '#4B4460' },
+        { n: '07', name: 'Team', body: 'Photos and bios, so a visitor connects with people rather than a logo.', bg: '#FFFFFF', border: '#E4DFD6', fg: '#101010', body2: '#323231', meta: '#646361' },
+        { n: '08', name: 'Blogs', body: 'Posts and social feeds that show expertise and keep visitors engaged.', bg: '#FBF8F3', border: '#E4DFD6', fg: '#101010', body2: '#323231', meta: '#646361' }
+      ],
+      pillars: [
+        { n: '01', name: 'Brand identity', body: 'Colour scheme, logo and aesthetic working together, so every element reads as one company.' },
+        { n: '02', name: 'User experience', body: 'Easy to navigate, easy to find. Labels say what happens next, and information is presented to be understood, not admired.' },
+        { n: '03', name: 'Optimization', body: 'CTAs and the contact form placed where intent peaks, with action-oriented language aimed at the target audience.' },
+        { n: '04', name: 'Social proof', body: 'Testimonials, statistics and past work, plus real faces and bios, so trust has somewhere to attach.' }
+      ],
+      typeScale: [
+        { token: 'Display · serif', sample: 'POWER UP', spec: 'Serif Regular · 80px · caps', family: "'Playfair Display', serif", weight: '400', display: 'clamp(28px, 4.2vw, 54px)', style: 'normal' },
+        { token: 'Display · highlight', sample: 'DIGITAL MEDIA', spec: 'Serif Regular · lavender', family: "'Playfair Display', serif", weight: '400', display: 'clamp(22px, 3.2vw, 40px)', style: 'normal' },
+        { token: 'Title LG', sample: 'Results that speak', spec: 'Inter Medium · 72px', family: "'Inter', sans-serif", weight: '500', display: 'clamp(24px, 3.4vw, 42px)', style: 'normal' },
+        { token: 'Title MD', sample: 'The Powerhouse', spec: 'Inter SemiBold · 56px', family: "'Inter', sans-serif", weight: '600', display: 'clamp(20px, 2.6vw, 32px)', style: 'normal' },
+        { token: 'Text XL', sample: 'Card titles and sub-heads', spec: 'Inter Regular / SemiBold · 28px', family: "'Inter', sans-serif", weight: '400', display: 'clamp(16px, 1.8vw, 22px)', style: 'normal' },
+        { token: 'Text MD', sample: 'Supporting body copy', spec: 'Inter Regular / SemiBold · 20px', family: "'Inter', sans-serif", weight: '400', display: 'clamp(14px, 1.4vw, 18px)', style: 'normal' },
+        { token: 'Text SM', sample: 'The actual body text for DROP folds', spec: 'Inter Regular / SemiBold · 16px', family: "'Inter', sans-serif", weight: '400', display: '15px', style: 'normal' }
+      ],
+      swatches: [
+        { name: 'Black 900', hex: '#101010', use: 'Backgrounds and text' },
+        { name: 'White 900', hex: '#FFFFFF', use: 'Backgrounds and text' },
+        { name: 'Purple 900', hex: '#B8AFDA', use: 'Primary accent, CTA' },
+        { name: 'Accent Yellow', hex: '#F6F361', use: 'Service & result cards' },
+        { name: 'Accent Green', hex: '#C7D8C5', use: 'Backgrounds' },
+        { name: 'Desert White', hex: '#FBF8F3', use: 'Buttons, surfaces' },
+        { name: 'Grey 200', hex: '#C9C6C2', use: 'Borders, tags' },
+        { name: 'Grey 400', hex: '#979592', use: 'Metadata' },
+        { name: 'Grey 600', hex: '#646361', use: 'Secondary text' },
+        { name: 'Grey 800', hex: '#323231', use: 'Details, dividers' }
+      ],
+      footerCols: [
+        { head: 'DROP', items: 'A community of like-minded people helping clients build content strategy that converts.' },
+        { head: 'Our Specialization', items: 'Social Media · SEO · Content Writing · Local SEO · Web Analytics · Influencer · Paid' },
+        { head: 'We Serve', items: 'Real Estate · Interiors · Finance · E-Commerce · Automobiles · Hotels · Health' },
+        { head: 'Our Company', items: 'About Us · Contact Us · Latest Blogs · Portfolio · Careers' }
+      ],
+      ogNotes: [
+        { tag: 'The constant', body: 'The DR✳P mark, a serif headline in white, and exactly one word in lavender. Everything else is a variable I got to push.' },
+        { tag: 'The range', body: 'Pure type, thumbnail collage, full-bleed portrait, oversized wordmark behind the subject, imagery knocked out of the letters, avatar cloud, split black and white.' },
+        { tag: 'Why nine', body: 'A share card is read at thumbnail size in a feed. The only way to know which composition survives that is to lay them all out and squint.' }
+      ],
+      lessons: [
+        'The brief was a test, so I treated the fake client like a real one, research first, then decisions I could defend in review.',
+        'Reviews with the team found the flow problems my own eye had stopped seeing. That loop, not taste, is what moved the design.',
+        'Auto layout and a clean file are part of the deliverable. If someone else can\u2019t open your work and change it, it isn\u2019t finished.'
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>Nerdy Otaku, Case Study · Vinay Mandala</title>
+<meta name="description" content="India's first anime embroidery merch store, designed as an app. 53 survey responses, 5 interviews, and one feature I argued out of the product." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: #0e1319; color: #f5f5f5; font-family: "Space Grotesk", system-ui, sans-serif; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+  * { box-sizing: border-box; }
+  a { color: inherit; text-decoration: none; }
+  a:hover { color: #e0475f; }
+  ::selection { background: #e0475f; color: #0e1319; }
+  input[type=range] { -webkit-appearance: none; appearance: none; background: transparent; }
+  input[type=range]::-webkit-slider-runnable-track { height: 2px; background: rgba(245,245,245,.28); }
+  input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; width: 30px; height: 30px; margin-top: -14px; border-radius: 50%; background: #e0475f; border: 4px solid #0e1319; box-shadow: 0 0 0 1px #e0475f; cursor: grab; }
+  @keyframes rise { from { opacity: 0; transform: translateY(28px); } to { opacity: 1; transform: none; } }
+  @keyframes fadein { from { opacity: 0; } to { opacity: 1; } }
+  @keyframes wipe { from { clip-path: inset(0 100% 0 0); } to { clip-path: inset(0 0 0 0); } }
+  @keyframes grow { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+  @keyframes blink { 0%, 60% { opacity: 1; } 61%, 100% { opacity: 0.15; } }
+  @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } html { scroll-behavior: auto; } }
+</style>
+<script src="./motion.js" data-accent="#e0475f"></script>
+</helmet>
+
+<div style="position: relative; width: 100%; overflow-x: clip;">
+  <div style="position: fixed; top: 0; left: 0; height: 3px; width: {{ progress }}; background: #e0475f; z-index: 80; transition: width .1s linear;"></div>
+
+  <nav style="position: sticky; top: 0; z-index: 60; display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 13px clamp(16px, 4vw, 48px); background: rgba(14,19,25,.88); backdrop-filter: blur(14px); border-bottom: 1px solid #262b33;">
+    <a href="index.html" style="font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; white-space: nowrap;">← Vinay Mandala</a>
+    <div style="display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 8px clamp(10px, 2vw, 24px); font-family: 'JetBrains Mono', monospace; font-size: clamp(11px, 1.1vw, 12px); letter-spacing: 0.14em; text-transform: uppercase;">
+      <span style="color: #e0475f;">Case 03 · Nerdy Otaku</span>
+      <a href="Drop.dc.html">Next →</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header data-screen-label="Hero" style="position: relative; padding: clamp(50px, 9vh, 110px) clamp(20px, 6vw, 96px) clamp(50px, 8vh, 90px); overflow: hidden;">
+    <div style="position: absolute; inset: 0; pointer-events: none; background: radial-gradient(60% 70% at 82% 12%, rgba(224,71,95,.2), transparent 70%);"></div>
+    <div style="position: relative; max-width: 1180px; margin: 0 auto;">
+      <div style="display: flex; flex-wrap: wrap; gap: 8px 18px; font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: #86898b;">
+        <span>Self-directed · GUVI</span><span>2022</span><span>E-commerce · Research · UI/UX</span><span style="color: #e0475f;">Shelved</span>
+      </div>
+      <h1 style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: clamp(38px, 8.4vw, 132px); line-height: 0.86; letter-spacing: -0.052em; margin: clamp(20px, 4vh, 36px) 0 0; max-width: 17ch;">
+        India's first anime embroidery store, <em style="font-style: normal; color: #e0475f;">as an app.</em>
+      </h1>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: clamp(24px, 4vw, 56px); margin-top: clamp(26px, 4vh, 42px); align-items: start;">
+        <p style="margin: 0; font-size: clamp(16px, 1.4vw, 20px); line-height: 1.58; color: #cfd0d1;">
+          Nerdy Otaku was a real business started by my seniors: embroidered anime hoodies and sweatshirts, sold mostly through Instagram DMs. I took it as my first serious UX project and asked a harder question than they had. Not “how do we get a website?” but <strong style="font-weight: 700;">“what would this actually feel like as a product?”</strong>
+        </p>
+        <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px;">
+          <sc-for list="{{ stats }}" as="s" hint-placeholder-count="4">
+            <div style="padding: 16px; border: 1px solid #262b33; background: #141a21;">
+              <span style="display: block; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: clamp(22px, 2.8vw, 34px); letter-spacing: -0.04em; color: #e0475f;">{{ s.v }}</span>
+              <span style="display: block; margin-top: 4px; font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: #86898b;">{{ s.k }}</span>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+      <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: clamp(26px, 4vh, 40px);">
+        <a href="https://www.figma.com/design/0O1hzsygsUB96RORxyHnzA/Portfolio_Nerdy_Otaku?node-id=0-1&amp;t=XN0Y2FfbUblJMq9q-1" style="display: inline-flex; padding: 14px 22px; border-radius: 100px; background: #e0475f; color: #0e1319; font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;" style-hover="background: #f5f5f5;">Open the Figma file ↗</a>
+        <a href="https://www.instagram.com/nerdyy_otakuu/?hl=en" style="display: inline-flex; padding: 14px 22px; border-radius: 100px; border: 1px solid #262b33; font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: #cfd0d1;" style-hover="border-color: #e0475f; color: #e0475f;">The brand on Instagram ↗</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- AT A GLANCE -->
+  <section data-screen-label="At a glance" style="padding: 0 clamp(20px, 6vw, 88px) clamp(30px, 5vh, 56px);">
+    <div style="max-width: 1200px; margin: 0 auto; padding: clamp(22px, 3vw, 32px); background: #141a21; border: 1px solid #262b33; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 210px), 1fr)); gap: clamp(18px, 2.4vw, 34px); align-items: start;">
+          <div style="display: flex; flex-direction: column; gap: 7px;">
+            <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: #e0475f;">Role</span>
+            <span style="font-size: 14.5px; line-height: 1.6; color: #cfd0d1;">UX designer, self-directed</span>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 7px;">
+            <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: #e0475f;">Timeline</span>
+            <span style="font-size: 14.5px; line-height: 1.6; color: #cfd0d1;">2022 → 2023 · GUVI programme</span>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 7px;">
+            <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: #e0475f;">I owned</span>
+            <span style="font-size: 14.5px; line-height: 1.6; color: #cfd0d1;">Research, IA, user and task flows, UI, the prototype and usability testing</span>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 7px;">
+            <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: #e0475f;">Worked with</span>
+            <span style="font-size: 14.5px; line-height: 1.6; color: #cfd0d1;">The founders as client, a GUVI mentor for review, five interview participants and Maze testers</span>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 7px;">
+            <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: #e0475f;">Where it landed</span>
+            <span style="font-size: 14.5px; line-height: 1.6; color: #cfd0d1;">Shelved as a business, and still the work people bring up first. It is the case study that got me hired, and the tracking rollback is the decision interviewers remember.</span>
+          </div>
+    </div>
+    <p style="max-width: 1200px; margin: 12px auto 0; font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: #86898b;">Everything here is open · Figma file and prototype linked above</p>
+  </section>
+
+  <!-- SCREEN STRIP -->
+  <section data-screen-label="Screen strip" style="border-top: 1px solid #262b33; border-bottom: 1px solid #262b33; background: #11161d; padding: clamp(28px, 5vh, 56px) clamp(20px, 6vw, 96px);">
+    <div style="max-width: 1180px; margin: 0 auto;">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 12px;">
+        <sc-for list="{{ strip }}" as="s" hint-placeholder-count="6">
+          <div style="display: flex; flex-direction: column; gap: 8px;">
+            <img decoding="async" loading="lazy" src="{{ s.src }}" alt="{{ s.label }}" style="width: 100%; height: auto; display: block; border-radius: 10px;" />
+            <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: #86898b; text-align: center;">{{ s.label }}</span>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- ONBOARDING MOTION -->
+  <section data-screen-label="Onboarding motion" style="background: #000; padding: clamp(48px, 8vh, 110px) clamp(20px, 6vw, 96px);">
+    <div style="max-width: 1180px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: clamp(24px, 4vw, 60px); align-items: center;">
+      <div>
+        <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: #e0475f;">00 / first three seconds</span>
+        <h2 style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; font-size: clamp(24px, 3.8vw, 50px); line-height: 1; letter-spacing: -0.042em; margin: 14px 0 0; max-width: 20ch;">
+          The splash had to sound like the brand before a word was read.
+        </h2>
+        <p style="margin: 18px 0 0; max-width: 46ch; font-size: clamp(15px, 1.35vw, 18px); line-height: 1.62; color: #cfd0d1;">
+          A rounded, hand-drawn wordmark sliding through frame on pure black, then straight into the intent questions. Onboarding asks which products and which characters you care about, so the very first session already personalises the catalogue, and it's skippable for anyone who just wants to shop.
+        </p>
+        <span style="display: inline-block; margin-top: 18px; font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: #86898b;">Prototype capture · loops</span>
+      </div>
+      <div style="justify-self: center; width: 100%; max-width: 250px;">
+        <div style="position: relative; width: 100%; aspect-ratio: 350 / 736; overflow: hidden; background: #000000;">
+          <sc-if value="{{ gifOn }}" hint-placeholder-val="{{ false }}">
+            <img decoding="async" src="assets/no/onboarding.gif" alt="Nerdy Otaku splash and onboarding animation" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 534%; max-width: none; height: auto; display: block;" />
+          </sc-if>
+          <sc-if value="{{ gifOff }}" hint-placeholder-val="{{ true }}">
+            <img decoding="async" fetchpriority="high" src="assets/no/signup.webp" alt="Nerdy Otaku onboarding, first question" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; display: block;" />
+            <button type="button" onClick="{{ playGif }}" style="position: absolute; inset: 0; width: 100%; border: 0; cursor: pointer; background: rgba(0,0,0,.45); color: #FFFFFF; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase;" style-hover="background: rgba(0,0,0,.6);">
+              <span style="font-size: 22px; line-height: 1;">&#9654;</span>
+              Play the capture
+            </button>
+          </sc-if>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 01 WHY ANIME -->
+  <section data-screen-label="Why anime" style="padding: clamp(64px, 11vh, 140px) clamp(20px, 6vw, 96px);">
+    <div style="max-width: 1180px; margin: 0 auto;">
+      <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: #e0475f;">01 / the bet</span>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: clamp(24px, 4vw, 64px); margin-top: 18px; align-items: start;">
+        <h2 style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; font-size: clamp(26px, 4.4vw, 60px); line-height: 0.98; letter-spacing: -0.042em; margin: 0;">
+          Why anime merch, in 2022?
+        </h2>
+        <p style="margin: 0; font-size: clamp(16px, 1.4vw, 18.5px); line-height: 1.62; color: #cfd0d1;">
+          For years the received wisdom in India was “anime is for kids”, which is why the shows that landed here were the ones aimed at children. By 2020 that myth was gone: millions were deep in anime and manga, and the entertainment industry still hadn't caught up.
+          <br /><br />
+          Meanwhile the pandemic had pushed streaming and merch demand through the roof. A market that big with almost no serious homegrown merch experience is not a niche, it's a gap. That's the bet the whole project sits on.
+        </p>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 230px), 1fr)); gap: 12px; margin-top: clamp(28px, 4.5vh, 48px);">
+        <sc-for list="{{ bet }}" as="b" hint-placeholder-count="3">
+          <div style="padding: 24px; border: 1px solid #262b33; background: #141a21;" style-hover="border-color: #e0475f;">
+            <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: #e0475f;">{{ b.tag }}</span>
+            <p style="margin: 12px 0 0; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 500; font-size: clamp(17px, 1.8vw, 22px); line-height: 1.25; letter-spacing: -0.03em;">{{ b.line }}</p>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- 02 PROCESS -->
+  <section data-screen-label="Process" style="background: #11161d; border-top: 1px solid #262b33; padding: clamp(64px, 11vh, 140px) clamp(20px, 6vw, 96px);">
+    <div style="max-width: 1180px; margin: 0 auto;">
+      <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: #e0475f;">02 / the process</span>
+      <h2 style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; font-size: clamp(26px, 4.4vw, 58px); line-height: 0.98; letter-spacing: -0.042em; margin: 16px 0 0; max-width: 22ch;">
+        Five phases. Non-linear, on purpose.
+      </h2>
+      <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: clamp(26px, 4vh, 44px);">
+        <sc-for list="{{ phases }}" as="p" hint-placeholder-count="5">
+          <button type="button" onClick="{{ p.go }}" style="flex: 1 1 min(100%, 160px); text-align: left; cursor: pointer; padding: 18px; border: 1px solid #262b33; background: {{ p.bg }}; color: {{ p.fg }}; transition: all .3s;" style-hover="transform: translateY(-4px);">
+            <span style="display: block; font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.16em; opacity: .65;">{{ p.n }}</span>
+            <span style="display: block; margin-top: 10px; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; font-size: clamp(16px, 1.6vw, 21px); letter-spacing: -0.03em;">{{ p.name }}</span>
+          </button>
+        </sc-for>
+      </div>
+      <div style="margin-top: 20px; border-left: 2px solid #e0475f; padding: 8px 0 8px 20px; min-height: 96px;">
+        <p style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-size: clamp(18px, 2.1vw, 27px); line-height: 1.32; letter-spacing: -0.025em; max-width: 44ch;">{{ phaseBody }}</p>
+        <p style="margin: 10px 0 0; font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: #86898b;">{{ phaseMeta }}</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 03 RESEARCH -->
+  <section data-screen-label="Research" style="padding: clamp(64px, 11vh, 140px) clamp(20px, 6vw, 96px);">
+    <div style="max-width: 1180px; margin: 0 auto;">
+      <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: #e0475f;">03 / the evidence</span>
+      <h2 style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; font-size: clamp(26px, 4.4vw, 58px); line-height: 0.98; letter-spacing: -0.042em; margin: 16px 0 0; max-width: 20ch;">
+        53 responses. 5 interviews. One very clear pattern.
+      </h2>
+      <p style="max-width: 56ch; margin: 18px 0 0; font-size: clamp(15.5px, 1.35vw, 18px); line-height: 1.62; color: #cfd0d1;">
+        A quantitative survey to size the appetite, then five long-form interviews with 16, 25 year olds, run in person and over Meet and Zoom. The survey told me the market existed. The interviews told me what was broken.
+      </p>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 210px), 1fr)); gap: 12px; margin-top: clamp(28px, 4.5vh, 48px);">
+        <sc-for list="{{ donuts }}" as="d" hint-placeholder-count="4">
+          <figure style="margin: 0; padding: 22px; border: 1px solid #262b33; background: #141a21; display: flex; flex-direction: column; gap: 16px;">
+            <figcaption style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: #86898b; line-height: 1.45; min-height: 2.9em;">{{ d.q }}</figcaption>
+            <div style="position: relative; width: 132px; height: 132px; align-self: center; border-radius: 50%; background: {{ d.ring }};">
+              <div style="position: absolute; inset: 21px; border-radius: 50%; background: #141a21; display: grid; place-items: center; text-align: center;">
+                <span>
+                  <span style="display: block; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 25px; line-height: 1; letter-spacing: -0.04em; color: {{ d.color }};">{{ d.v }}</span>
+                  <span style="display: block; margin-top: 4px; font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: #86898b;">{{ d.unit }}</span>
+                </span>
+              </div>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 6px;">
+              <sc-for list="{{ d.legend }}" as="l" hint-placeholder-count="2">
+                <span style="display: flex; align-items: center; gap: 8px; font-size: 12px; line-height: 1.35; color: #cfd0d1;">
+                  <span style="flex: 0 0 auto; width: 9px; height: 9px; border-radius: 2px; background: {{ l.c }};"></span>
+                  {{ l.t }}
+                </span>
+              </sc-for>
+            </div>
+          </figure>
+        </sc-for>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 12px; margin-top: 12px;">
+        <figure style="margin: 0; padding: 24px; border: 1px solid #262b33; background: #141a21;">
+          <figcaption style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: #86898b;">What decides a clothing purchase · multi-select</figcaption>
+          <div style="display: flex; flex-direction: column; gap: 14px; margin-top: 20px;">
+            <sc-for list="{{ criteria }}" as="c" hint-placeholder-count="5">
+              <div>
+                <div style="display: flex; justify-content: space-between; gap: 10px; font-size: 12.5px; color: #cfd0d1;">
+                  <span>{{ c.t }}</span>
+                  <span style="font-family: 'JetBrains Mono', monospace; color: {{ c.color }};">{{ c.v }}</span>
+                </div>
+                <div style="height: 8px; margin-top: 7px; background: #1b2129;">
+                  <div style="height: 100%; width: {{ c.bar }}; background: {{ c.color }}; transform-origin: left;"></div>
+                </div>
+              </div>
+            </sc-for>
+          </div>
+        </figure>
+        <figure style="margin: 0; padding: 24px; border: 1px solid #262b33; background: #141a21;">
+          <figcaption style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: #86898b;">Who answered · age distribution</figcaption>
+          <div style="display: flex; align-items: flex-end; gap: 10px; height: 168px; margin-top: 20px;">
+            <sc-for list="{{ ages }}" as="a" hint-placeholder-count="4">
+              <div style="flex: 1 1 0; display: flex; flex-direction: column; justify-content: flex-end; align-items: center; gap: 8px; height: 100%;">
+                <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: {{ a.color }};">{{ a.v }}</span>
+                <div style="width: 100%; height: {{ a.h }}; background: {{ a.color }}; transform-origin: bottom;"></div>
+                <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.08em; color: #86898b;">{{ a.t }}</span>
+              </div>
+            </sc-for>
+          </div>
+          <p style="margin: 16px 0 0; font-size: 12.5px; line-height: 1.5; color: #86898b;">53 responses. Six in ten sat inside the 16, 25 band the brand was written for, which is why I trusted the appetite numbers and not the purchase-intent ones.</p>
+        </figure>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 270px), 1fr)); gap: 12px; margin-top: 14px;">
+        <sc-for list="{{ interviews }}" as="i" hint-placeholder-count="4">
+          <div style="padding: 24px; border: 1px dashed #35404d;">
+            <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: #e0475f;">{{ i.tag }}</span>
+            <div style="display: flex; flex-direction: column; gap: 9px; margin-top: 14px;">
+              <sc-for list="{{ i.points }}" as="p" hint-placeholder-count="3">
+                <span style="font-size: 14px; line-height: 1.5; color: #cfd0d1;"><span style="font-family: 'JetBrains Mono', monospace; color: #e0475f;">{{ p.n }}</span> {{ p.t }}</span>
+              </sc-for>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- 04 PERSONAS -->
+  <section data-screen-label="Personas" style="background: #11161d; border-top: 1px solid #262b33; padding: clamp(64px, 11vh, 140px) clamp(20px, 6vw, 96px);">
+    <div style="max-width: 1180px; margin: 0 auto;">
+      <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: #e0475f;">04 / who I was designing for</span>
+      <h2 style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; font-size: clamp(26px, 4.4vw, 58px); line-height: 0.98; letter-spacing: -0.042em; margin: 16px 0 0;">Two personas, two different frustrations.</h2>
+      <div style="display: flex; gap: 8px; margin-top: clamp(24px, 4vh, 40px);">
+        <sc-for list="{{ personaTabs }}" as="t" hint-placeholder-count="2">
+          <button type="button" onClick="{{ t.go }}" style="cursor: pointer; padding: 12px 20px; border-radius: 100px; border: 1px solid #262b33; background: {{ t.bg }}; color: {{ t.fg }}; font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; transition: all .3s;">{{ t.name }}</button>
+        </sc-for>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: clamp(20px, 3vw, 44px); margin-top: 22px; padding: clamp(22px, 3.4vw, 40px); border: 1px solid #262b33; background: #141a21;">
+        <div>
+          <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: #86898b;">{{ persona.meta }}</span>
+          <h3 style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: clamp(24px, 3.2vw, 40px); letter-spacing: -0.04em; margin: 12px 0 0;">{{ persona.name }}</h3>
+          <p style="margin: 14px 0 0; font-size: 15px; line-height: 1.6; color: #cfd0d1;">{{ persona.bio }}</p>
+          <p style="margin: 16px 0 0; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 500; font-size: clamp(16px, 1.7vw, 21px); line-height: 1.3; letter-spacing: -0.02em; color: #e0475f;">“{{ persona.quote }}”</p>
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 150px), 1fr)); gap: 18px;">
+          <div>
+            <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: #86898b;">Goals</span>
+            <div style="display: flex; flex-direction: column; gap: 8px; margin-top: 10px;">
+              <sc-for list="{{ persona.goals }}" as="g" hint-placeholder-count="3">
+                <span style="font-size: 13.5px; line-height: 1.45; color: #cfd0d1;">{{ g }}</span>
+              </sc-for>
+            </div>
+          </div>
+          <div>
+            <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: #e0475f;">Frustrations</span>
+            <div style="display: flex; flex-direction: column; gap: 8px; margin-top: 10px;">
+              <sc-for list="{{ persona.pains }}" as="p" hint-placeholder-count="3">
+                <span style="font-size: 13.5px; line-height: 1.45; color: #cfd0d1;">{{ p }}</span>
+              </sc-for>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 05 PAIN → SOLUTION -->
+  <section data-screen-label="Pain to solution" style="padding: clamp(64px, 11vh, 140px) clamp(20px, 6vw, 96px);">
+    <div style="max-width: 1180px; margin: 0 auto;">
+      <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: #e0475f;">05 / from complaint to feature</span>
+      <h2 style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; font-size: clamp(26px, 4.4vw, 58px); line-height: 0.98; letter-spacing: -0.042em; margin: 16px 0 0; max-width: 20ch;">
+        Nine pain points. Nine decisions.
+      </h2>
+      <p style="max-width: 54ch; margin: 18px 0 0; font-size: clamp(15.5px, 1.35vw, 18px); line-height: 1.62; color: #cfd0d1;">
+        Empathy mapping turned the interview transcripts into something I could design against. Every row below is a real complaint on the left and the thing I built because of it on the right.
+      </p>
+      <div style="display: grid; gap: 8px; margin-top: clamp(26px, 4vh, 44px);">
+        <sc-for list="{{ pairs }}" as="p" hint-placeholder-count="9">
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); gap: 12px; align-items: center; padding: 16px 18px; border: 1px solid #262b33; background: #141a21;" style-hover="border-color: #e0475f;">
+            <span style="font-size: 14.5px; line-height: 1.5; color: #86898b;">{{ p.pain }}</span>
+            <span style="font-size: 14.5px; line-height: 1.5; color: #f5f5f5;"><span style="color: #e0475f;">→</span> {{ p.fix }}</span>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- 06 COMPETITORS -->
+  <section data-screen-label="Competitive analysis" style="background: #11161d; border-top: 1px solid #262b33; padding: clamp(64px, 11vh, 140px) clamp(20px, 6vw, 96px);">
+    <div style="max-width: 1180px; margin: 0 auto;">
+      <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: #e0475f;">06 / the competition</span>
+      <h2 style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; font-size: clamp(26px, 4.4vw, 58px); line-height: 0.98; letter-spacing: -0.042em; margin: 16px 0 0; max-width: 22ch;">
+        Three competitors. Nobody had all three things.
+      </h2>
+      <p style="max-width: 54ch; margin: 18px 0 0; font-size: clamp(15.5px, 1.35vw, 18px); line-height: 1.62; color: #cfd0d1;">
+        I audited the three strongest players in the space. Between them they had good catalogues, decent support, and one had T-shirt customisation. None of them had deep anime range, real customisation and a fast-delivery option in the same product. That absence was the strategy.
+      </p>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: 12px; margin-top: clamp(26px, 4vh, 44px);">
+        <sc-for list="{{ competitors }}" as="c" hint-placeholder-count="3">
+          <div style="padding: 24px; border: 1px solid #262b33; background: #141a21;">
+            <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: #86898b;">{{ c.tag }}</span>
+            <h3 style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; font-size: 20px; letter-spacing: -0.03em; margin: 10px 0 16px;">{{ c.name }}</h3>
+            <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: #6ecf9a;">Strengths</span>
+            <div style="display: flex; flex-direction: column; gap: 6px; margin-top: 8px;">
+              <sc-for list="{{ c.up }}" as="u" hint-placeholder-count="2">
+                <span style="font-size: 13.5px; line-height: 1.45; color: #cfd0d1;">{{ u }}</span>
+              </sc-for>
+            </div>
+            <span style="display: block; margin-top: 16px; font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: #e0475f;">Gaps</span>
+            <div style="display: flex; flex-direction: column; gap: 6px; margin-top: 8px;">
+              <sc-for list="{{ c.down }}" as="d" hint-placeholder-count="2">
+                <span style="font-size: 13.5px; line-height: 1.45; color: #86898b;">{{ d }}</span>
+              </sc-for>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- 07 FEATURES -->
+  <section data-screen-label="Features" style="padding: clamp(64px, 11vh, 140px) clamp(20px, 6vw, 96px);">
+    <div style="max-width: 1180px; margin: 0 auto;">
+      <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: #e0475f;">07 / what I built</span>
+      <h2 style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; font-size: clamp(26px, 4.6vw, 62px); line-height: 0.96; letter-spacing: -0.042em; margin: 16px 0 0; max-width: 20ch;">
+        Five features, each one answering a transcript.
+      </h2>
+      <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: clamp(26px, 4vh, 44px);">
+        <sc-for list="{{ featureTabs }}" as="t" hint-placeholder-count="5">
+          <button type="button" onClick="{{ t.go }}" style="cursor: pointer; padding: 12px 18px; border-radius: 100px; border: 1px solid #262b33; background: {{ t.bg }}; color: {{ t.fg }}; font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; transition: all .3s;">{{ t.name }}</button>
+        </sc-for>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: clamp(22px, 3.4vw, 52px); margin-top: 24px; align-items: center;">
+        <div>
+          <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: #e0475f;">{{ feature.tag }}</span>
+          <h3 style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: clamp(24px, 3.2vw, 42px); line-height: 1; letter-spacing: -0.04em; margin: 12px 0 0;">{{ feature.title }}</h3>
+          <p style="margin: 16px 0 0; font-size: clamp(15px, 1.4vw, 18px); line-height: 1.62; color: #cfd0d1;">{{ feature.body }}</p>
+          <p style="margin: 14px 0 0; font-size: 14.5px; line-height: 1.6; color: #86898b;">{{ feature.note }}</p>
+          <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px;">
+            <sc-for list="{{ feature.chips }}" as="c" hint-placeholder-count="3">
+              <span style="padding: 8px 14px; border-radius: 100px; border: 1px solid #262b33; font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: #cfd0d1;">{{ c }}</span>
+            </sc-for>
+          </div>
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 12px;">
+          <sc-for list="{{ feature.shots }}" as="s" hint-placeholder-count="3">
+            <img decoding="async" loading="lazy" src="{{ s }}" alt="{{ feature.title }} screen" style="width: 100%; height: auto; display: block; border-radius: 10px; animation: fadein .5s ease both;" />
+          </sc-for>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 08 CUSTOMISATION DEEP DIVE -->
+  <section data-screen-label="Customisation" style="background: #11161d; border-top: 1px solid #262b33; padding: clamp(64px, 11vh, 140px) clamp(20px, 6vw, 96px);">
+    <div style="max-width: 1180px; margin: 0 auto;">
+      <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: #e0475f;">08 / the hard one</span>
+      <h2 style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: clamp(28px, 5.4vw, 82px); line-height: 0.92; letter-spacing: -0.05em; margin: 16px 0 0; max-width: 18ch;">
+        Embroidery doesn't forgive a free canvas.
+      </h2>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: clamp(24px, 4vw, 60px); margin-top: clamp(24px, 4vh, 44px); align-items: start;">
+        <p style="margin: 0; font-size: clamp(16px, 1.4vw, 18.5px); line-height: 1.62; color: #cfd0d1;">
+          Customisation was the most requested feature and the hardest to design honestly. A printed tee can take anything you upload. An embroidered hoodie can't: every extra colour and curve is machine time, and a design that works on screen can be unstitchable.
+          <br /><br />
+          So the interface tells the truth about the medium. <strong style="font-weight: 700;">Printable products get full freedom</strong>, upload art, add text, place it anywhere. <strong style="font-weight: 700;">Embroidered products get constrained freedom</strong>, curated placements and components instead of a blank canvas. Same builder, two different permission sets.
+        </p>
+        <div style="display: grid; gap: 10px;">
+          <sc-for list="{{ custRules }}" as="c" hint-placeholder-count="4">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 10px; padding: 15px 16px; border: 1px solid #262b33; background: #141a21;">
+              <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: #86898b;">{{ c.k }}</span>
+              <span style="font-size: 13.5px; color: #6ecf9a;">{{ c.print }}</span>
+              <span style="font-size: 13.5px; color: #e0475f;">{{ c.emb }}</span>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 150px), 1fr)); gap: 12px; margin-top: clamp(28px, 4.5vh, 48px);">
+        <sc-for list="{{ custFlow }}" as="c" hint-placeholder-count="5">
+          <div style="display: flex; flex-direction: column; gap: 10px;">
+            <img decoding="async" loading="lazy" src="{{ c.src }}" alt="{{ c.label }}" style="width: 100%; height: auto; display: block; border-radius: 10px;" />
+            <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: #e0475f;">{{ c.n }}</span>
+            <span style="font-size: 13.5px; line-height: 1.45; color: #cfd0d1;">{{ c.label }}</span>
+          </div>
+        </sc-for>
+      </div>
+
+      <div style="margin-top: clamp(26px, 4vh, 44px); padding: clamp(22px, 3.4vw, 40px); border: 1px solid #35404d;">
+        <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: #e0475f;">The loop that closes it</span>
+        <p style="margin: 14px 0 0; font-size: clamp(15px, 1.4vw, 18px); line-height: 1.62; color: #cfd0d1; max-width: 62ch;">
+          If the user doesn't like what they made, they message support, support passes the intent to the design team, and the design team finishes it. If they do like it, they check out straight from the builder. Every user design then enters a weekly vote, and the winners get shelf space in <strong style="font-weight: 700;">Best Customized Designs</strong>. A customisation feature that produces the catalogue is a feature that pays for itself.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 09 THE ROLLBACK -->
+  <section data-screen-label="The rollback" style="padding: clamp(64px, 11vh, 150px) clamp(20px, 6vw, 96px);">
+    <div style="max-width: 1180px; margin: 0 auto;">
+      <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: #e0475f;">09 / the decision I'm proudest of</span>
+      <h2 style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: clamp(30px, 6vw, 96px); line-height: 0.9; letter-spacing: -0.05em; margin: 16px 0 0; max-width: 17ch;">
+        I designed live tracking. Then I argued it out.
+      </h2>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: clamp(24px, 4vw, 60px); margin-top: clamp(24px, 4vh, 44px); align-items: start;">
+        <div>
+          <p style="margin: 0; font-size: clamp(16px, 1.4vw, 18.5px); line-height: 1.62; color: #cfd0d1;">
+            Interviews asked for it directly: two of five wanted to see the rider on a map. So I built it, and it looked great in the prototype.
+            <br /><br />
+            My mentor asked one question. Why don't Amazon and Flipkart show you the rider's live location, do you think they can't afford it? Because a rider who's visibly two streets away gets called, chased and pressured, and the customer sits there watching a dot instead of getting an answer.
+            <br /><br />
+            We rolled it back to status-based tracking with a clear timeline and a text channel to the delivery partner. Same information need. None of the anxiety, none of the surveillance.
+          </p>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 12px; margin-top: 24px;">
+            <sc-for list="{{ trackShots }}" as="t" hint-placeholder-count="3">
+              <img decoding="async" loading="lazy" src="{{ t }}" alt="Order tracking screen" style="width: 100%; height: auto; display: block; border-radius: 10px;" />
+            </sc-for>
+          </div>
+        </div>
+        <div style="display: grid; gap: 8px;">
+          <sc-for list="{{ arc }}" as="a" hint-placeholder-count="6">
+            <div style="padding: 18px 20px; border: 1px solid {{ a.border }}; background: {{ a.bg }};">
+              <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: #86898b;">{{ a.n }}</span>
+              <p style="margin: 8px 0 0; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; font-size: clamp(16px, 1.7vw, 21px); line-height: 1.2; letter-spacing: -0.025em; color: {{ a.fg }};">{{ a.label }}</p>
+              <span style="display: block; margin-top: 6px; font-size: 13px; line-height: 1.45; color: #86898b;">{{ a.note }}</span>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 10 UI SYSTEM -->
+  <section data-screen-label="UI system" style="background: #11161d; border-top: 1px solid #262b33; padding: clamp(64px, 11vh, 140px) clamp(20px, 6vw, 96px);">
+    <div style="max-width: 1180px; margin: 0 auto;">
+      <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: #e0475f;">10 / the interface</span>
+      <h2 style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; font-size: clamp(26px, 4.4vw, 58px); line-height: 0.98; letter-spacing: -0.042em; margin: 16px 0 0; max-width: 22ch;">
+        Let the merch be the colour.
+      </h2>
+      <p style="max-width: 56ch; margin: 18px 0 0; font-size: clamp(15.5px, 1.35vw, 18px); line-height: 1.62; color: #cfd0d1;">
+        Anime artwork is loud by nature, so the UI is deliberately near-monochrome: black, white and four greys, Raleway for text and Poppins for numerals. The product photography and the designs carry all the saturation.
+      </p>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr)); gap: 12px; margin-top: clamp(26px, 4vh, 44px);">
+        <div style="padding: 24px; border: 1px solid #262b33; background: #141a21;">
+          <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: #86898b;">Palette</span>
+          <div style="display: flex; gap: 6px; margin-top: 14px;">
+            <sc-for list="{{ palette }}" as="p" hint-placeholder-count="6">
+              <div style="flex: 1; height: 56px; background: {{ p.hex }}; border: 1px solid #262b33;"></div>
+            </sc-for>
+          </div>
+          <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.1em; color: #86898b;">
+            <sc-for list="{{ palette }}" as="p" hint-placeholder-count="6">
+              <span>{{ p.hex }}</span>
+            </sc-for>
+          </div>
+        </div>
+        <div style="padding: 24px; border: 1px solid #262b33; background: #141a21;">
+          <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: #86898b;">Type</span>
+          <p style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; font-size: 34px; letter-spacing: -0.04em; margin: 14px 0 2px;">Raleway</p>
+          <p style="margin: 0; font-size: 14px; line-height: 1.55; color: #cfd0d1;">Text and UI. Poppins for numerals, prices and delivery dates, because tabular numbers read faster.</p>
+        </div>
+        <div style="padding: 24px; border: 1px solid #262b33; background: #141a21;">
+          <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: #86898b;">Structure</span>
+          <div style="display: flex; flex-direction: column; gap: 7px; margin-top: 14px;">
+            <sc-for list="{{ ia }}" as="i" hint-placeholder-count="5">
+              <span style="font-size: 13.5px; line-height: 1.45; color: #cfd0d1;"><span style="color: #e0475f;">·</span> {{ i }}</span>
+            </sc-for>
+          </div>
+        </div>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 12px; margin-top: 14px;">
+        <sc-for list="{{ gallery }}" as="g" hint-placeholder-count="8">
+          <img decoding="async" loading="lazy" src="{{ g }}" alt="Nerdy Otaku screen" style="width: 100%; height: auto; display: block; border-radius: 10px;" />
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- 11 CLOSE -->
+  <section data-screen-label="Close" style="padding: clamp(64px, 11vh, 150px) clamp(20px, 6vw, 96px);">
+    <div style="max-width: 1180px; margin: 0 auto;">
+      <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: #e0475f;">11 / where it ended</span>
+      <h2 style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; font-size: clamp(26px, 4.6vw, 62px); line-height: 0.96; letter-spacing: -0.042em; margin: 16px 0 0; max-width: 24ch;">
+        <span style="display: block;">The first case study I asked for.</span>
+        <span style="display: block;">Still one of my favourites.</span>
+      </h2>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: clamp(24px, 4vw, 60px); margin-top: clamp(22px, 3.5vh, 40px);">
+        <div style="display: flex; flex-direction: column; gap: 18px;">
+          <p style="margin: 0; font-size: clamp(16px, 1.4vw, 18.5px); line-height: 1.62; color: #cfd0d1;">
+            I asked my seniors whether I could build my first proper case study on their brand. They said yes, then went further than that: handed over the brand assets and trusted me with the work.
+          </p>
+          <p style="margin: 0; font-size: clamp(16px, 1.4vw, 18.5px); line-height: 1.62; color: #cfd0d1;">
+            It stopped being a portfolio exercise somewhere in the middle. It was the first time I carried something from understanding a brand all the way to shaping a product around it, and that was where I fell for the process itself.
+          </p>
+          <p style="margin: 0; font-size: clamp(16px, 1.4vw, 18.5px); line-height: 1.62; color: #8c9099;">
+            The business wound down and the app was never built. The brand is still on Instagram; the product isn't. I'm still proud of it.
+          </p>
+        </div>
+        <div style="display: grid; gap: 10px;">
+          <sc-for list="{{ lessons }}" as="l" hint-placeholder-count="3">
+            <div style="padding: 20px; border-left: 2px solid #e0475f; background: #141a21;">
+              <p style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 500; font-size: clamp(16px, 1.7vw, 21px); line-height: 1.24; letter-spacing: -0.025em;">{{ l.t }}</p>
+              <p style="margin: 9px 0 0; font-size: 14px; line-height: 1.55; color: #8c9099;">{{ l.b }}</p>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+
+      <div style="margin-top: clamp(34px, 5.5vh, 62px); padding: clamp(24px, 3.4vw, 40px); background: #141a21; border: 1px solid #262b33; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: clamp(20px, 3vw, 52px); align-items: start;">
+        <div style="display: flex; flex-direction: column; gap: 12px;">
+          <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: #e0475f;">A thank you</span>
+          <p style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 500; font-size: clamp(19px, 2.1vw, 27px); line-height: 1.24; letter-spacing: -0.03em; color: #f5f5f5;">
+            To the seniors who handed over the brand, shared the files, answered every question and told me to take it further.
+          </p>
+        </div>
+        <p style="margin: 0; font-size: clamp(15px, 1.3vw, 17px); line-height: 1.62; color: #cfd0d1;">
+          You were giving a junior designer a chance. I was getting the first piece of work I could call mine. I've built a lot since, and I still trace the way I work back to this one.
+        </p>
+      </div>
+      <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: clamp(28px, 4.5vh, 48px);">
+        <a href="https://www.figma.com/design/0O1hzsygsUB96RORxyHnzA/Portfolio_Nerdy_Otaku?node-id=0-1&amp;t=XN0Y2FfbUblJMq9q-1" style="display: inline-flex; padding: 15px 24px; border-radius: 100px; background: #e0475f; color: #0e1319; font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;" style-hover="background: #f5f5f5;">Every screen in Figma ↗</a>
+        <a href="https://www.instagram.com/nerdyy_otakuu/?hl=en" style="display: inline-flex; padding: 15px 24px; border-radius: 100px; border: 1px solid #262b33; font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: #cfd0d1;" style-hover="border-color: #e0475f; color: #e0475f;">See the brand in the wild ↗</a>
+      </div>
+    </div>
+  </section>
+
+  <nav style="border-top: 1px solid #262b33; padding: clamp(40px, 7vh, 80px) clamp(20px, 6vw, 96px);">
+    <div style="max-width: 1180px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 18px; align-items: center;">
+      <a href="index.html" style="font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase;">← Back to the story</a>
+      <a href="Drop.dc.html" style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; font-size: clamp(20px, 3vw, 40px); letter-spacing: -0.035em;">Next case, Drop →</a>
+    </div>
+  </nav>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;: {&quot;width&quot;: 1440, &quot;height&quot;: 900}}">
+const A = 'assets/no/';
+
+class Component extends DCLogic {
+  state = { progress: 0, phase: 0, persona: 0, feature: 0, gif: false };
+
+  componentDidMount() {
+    this.onScroll = () => {
+      const h = document.documentElement;
+      this.setState({ progress: Math.round((h.scrollTop / Math.max(1, h.scrollHeight - h.clientHeight)) * 100) });
+    };
+    window.addEventListener('scroll', this.onScroll, { passive: true });
+    this.onScroll();
+  }
+  componentWillUnmount() { window.removeEventListener('scroll', this.onScroll); }
+
+  renderVals() {
+    const phases = [
+      { name: 'Empathize', body: 'User interviews, desk research and a competitor teardown before a single frame existed.', meta: 'Interviews · research · competitive analysis' },
+      { name: 'Define', body: 'Two personas and an empathy map, so every later argument had a name attached to it.', meta: 'Personas · empathy mapping' },
+      { name: 'Ideate', body: 'Information architecture, then the full user flow, then a task flow for the one journey that matters: buying something.', meta: 'IA · user flow · task flow' },
+      { name: 'Prototype', body: 'Paper first, then mid-fidelity, then high fidelity. Style arrived last, deliberately.', meta: 'Paper · mid-fi · hi-fi' },
+      { name: 'Testing', body: 'Usability testing through Maze.co on the high-fidelity prototype, then another iteration.', meta: 'Usability testing · Maze.co' }
+    ];
+    const personas = [
+      {
+        name: 'Yukta Srivatsava',
+        meta: '23 · Interior designer · Hyderabad',
+        bio: 'Works at a design firm, watches anime in whatever time the job leaves her. Shops online because offline costs an evening. Constantly buying anime tees and hunting new designs.',
+        quote: 'Sometimes hardwork doesn\u2019t pay, but smart work always does.',
+        goals: ['Her own designs, not just the catalogue', 'An app that looks as good as the merch', 'New themes worth coming back for'],
+        pains: ['Size and quality never match the listing', 'Good product, wrong fit, straight to the tailor', 'Deliveries later than promised']
+      },
+      {
+        name: 'Naveen Pittala',
+        meta: '25 · Software developer · Hyderabad',
+        bio: 'Codes for a living, guards his time, and would rather not leave the house for a t-shirt. Believes online shopping is strictly better than a physical store, as long as it works.',
+        quote: 'Productivity is being able to do things you were never able to do before.',
+        goals: ['A wide, well-stocked catalogue', 'Properly categorised collections', 'Payments that just go through'],
+        pains: ['Card and network failures at checkout', 'Fake reviews', 'What arrives isn\u2019t what was shown']
+      }
+    ];
+    const features = [
+      {
+        name: 'Fast checkout',
+        tag: 'Pain: too many taps to buy',
+        title: 'Buy without the detour',
+        body: 'The home screen is a store, not a brochure. Users can check order details, add to bag, or buy straight from the home and product screens without ever opening the cart.',
+        note: 'Three interviewees said the cart was pure friction: they knew what they wanted and had to click through anyway.',
+        chips: ['Buy now', 'Home-screen actions', 'Fewer steps'],
+        shots: [A + 'home.webp', A + 'product.webp', A + 'product-swipe.webp']
+      },
+      {
+        name: 'Faster delivery',
+        tag: 'Pain: delay in delivery',
+        title: 'Pay to jump the queue',
+        body: 'Four of five interviewees named slow delivery as their single biggest frustration, and it was the top reason they preferred shopping offline. So delivery speed became a purchasable choice at checkout, priced per product.',
+        note: 'Plus a “chat with us” escape hatch: if someone needs it urgently for a real reason, support can intervene rather than leaving them helpless.',
+        chips: ['Standard vs faster', 'Priced per item', 'Support override'],
+        shots: [A + 'checkout.webp', A + 'bag.webp']
+      },
+      {
+        name: 'Customisation',
+        tag: 'Pain: I want my own design',
+        title: 'The most requested feature',
+        body: 'Pick a product, pick colour and size, then build: upload artwork, add text, rotate the garment through 360°, and see the design evolve on the real silhouette rather than a flat mockup.',
+        note: 'Full freedom on printable products, curated components on embroidered ones. The constraint is the manufacturing process, so the UI states it instead of hiding it.',
+        chips: ['360° view', 'Builder tray', 'Print vs embroidery'],
+        shots: [A + 'customize-pick.webp', A + 'customize-tee.webp', A + 'customize-back.webp']
+      },
+      {
+        name: 'Messaging & disputes',
+        tag: 'Pain: nobody handles the problem',
+        title: 'Text, don\u2019t call',
+        body: 'In-app chat with both the support team and the delivery partner, plus a dispute queue staffed twelve hours a day. One interviewee described return and dispute handling as agonising; another simply didn\u2019t want a phone call from a stranger.',
+        note: 'Text keeps a record, works in a meeting, and removes the pressure a phone call puts on both sides.',
+        chips: ['In-app chat', 'Dispute queue', '12-hour window'],
+        shots: [A + 'inbox.webp', A + 'settings.webp']
+      },
+      {
+        name: 'Personalisation',
+        tag: 'Pain: I can\u2019t find anything',
+        title: 'Categorised for one person',
+        body: 'Onboarding asks which items and which characters you care about, then the app keeps learning from the journey. “Categorized for you” is a real surface, not a marketing line, and regulars get a membership pass with its own benefits.',
+        note: 'Filters, sorting and search were rebuilt around the same idea: the fastest path to a product you already half-know you want.',
+        chips: ['Onboarding intent', 'Member pass', 'Filter + search'],
+        shots: [A + 'categorized.webp', A + 'filter.webp', A + 'profile.webp']
+      }
+    ];
+    const f = features[this.state.feature];
+    const p = personas[this.state.persona];
+    return {
+      progress: this.state.progress + '%',
+      gifOn: this.state.gif,
+      gifOff: !this.state.gif,
+      playGif: () => this.setState({ gif: true }),
+      stats: [
+        { v: '53', k: 'survey responses' },
+        { v: '5', k: 'deep interviews' },
+        { v: '31', k: 'screens designed' },
+        { v: '9', k: 'pain points solved' }
+      ],
+      strip: [
+        { src: A + 'home.webp', label: 'Home' },
+        { src: A + 'product.webp', label: 'Product' },
+        { src: A + 'customize-tee.webp', label: 'Customise' },
+        { src: A + 'checkout.webp', label: 'Checkout' },
+        { src: A + 'track1.webp', label: 'Tracking' },
+        { src: A + 'profile.webp', label: 'Profile' }
+      ],
+      bet: [
+        { tag: 'The myth', line: '“Anime is for kids.” Broken by 2020, and the industry here still hadn\u2019t noticed.' },
+        { tag: 'The market', line: 'A country of a billion-plus with a fast-growing fandom and almost no serious merch experience.' },
+        { tag: 'The timing', line: 'The pandemic moved everything online. Demand arrived before the products did.' }
+      ],
+      phases: phases.map((x, i) => ({
+        n: '0' + (i + 1), name: x.name,
+        bg: this.state.phase === i ? '#f5f5f5' : 'transparent',
+        fg: this.state.phase === i ? '#0e1319' : '#f5f5f5',
+        go: () => this.setState({ phase: i })
+      })),
+      phaseBody: phases[this.state.phase].body,
+      phaseMeta: phases[this.state.phase].meta,
+      donuts: [
+        { q: 'Do you know or watch anime?', v: '73.6%', unit: 'watch it', color: '#e0475f',
+          ring: 'conic-gradient(#e0475f 0 73.6%, #6ecf9a 73.6% 90.6%, #262b33 90.6% 100%)',
+          legend: [{ c: '#e0475f', t: '73.6% watch anime' }, { c: '#6ecf9a', t: '17.0% have heard of it' }, { c: '#262b33', t: '9.4% neither' }] },
+        { q: 'An anime-centred embroidery store, good idea?', v: '84.9%', unit: 'excellent', color: '#6ecf9a',
+          ring: 'conic-gradient(#6ecf9a 0 84.9%, #262b33 84.9% 100%)',
+          legend: [{ c: '#6ecf9a', t: '84.9% called it excellent' }, { c: '#262b33', t: '15.1% neutral or no' }] },
+        { q: 'Do you know an existing store like it?', v: '94.3%', unit: 'knew none', color: '#e0475f',
+          ring: 'conic-gradient(#e0475f 0 94.3%, #262b33 94.3% 100%)',
+          legend: [{ c: '#e0475f', t: '94.3% could not name one' }, { c: '#262b33', t: '5.7% named one brand' }] },
+        { q: 'What would you expect from it?', v: '92.5%', unit: 'customisation', color: '#6ecf9a',
+          ring: 'conic-gradient(#6ecf9a 0 92.5%, #262b33 92.5% 100%)',
+          legend: [{ c: '#6ecf9a', t: '92.5% wanted custom designs' }, { c: '#262b33', t: '7.5% wanted stock only' }] }
+      ],
+      criteria: [
+        { t: 'Size and fit', v: '94.3%', bar: '94.3%', color: '#e0475f' },
+        { t: 'Quality', v: '88.7%', bar: '88.7%', color: '#e0475f' },
+        { t: 'Design', v: '79.2%', bar: '79.2%', color: '#6ecf9a' },
+        { t: 'Price', v: '67.9%', bar: '67.9%', color: '#6ecf9a' },
+        { t: 'Brand name', v: '32.1%', bar: '32.1%', color: '#4a5560' }
+      ],
+      ages: [
+        { t: '<16', v: '11%', h: '18%', color: '#4a5560' },
+        { t: '16 to 25', v: '60.4%', h: '100%', color: '#e0475f' },
+        { t: '26 to 35', v: '20.8%', h: '34%', color: '#6ecf9a' },
+        { t: '35+', v: '7.8%', h: '13%', color: '#4a5560' }
+      ],
+      interviews: [
+        { tag: 'Challenges shopping online', points: [{ n: '4/5', t: 'named slow delivery as their biggest problem' }, { n: '3/5', t: 'were unsure about product quality before buying' }, { n: '2/5', t: 'hit friction paying online' }] },
+        { tag: 'Experience with current apps', points: [{ n: '3/5', t: 'had a bad time searching for products' }, { n: '2/5', t: 'received something different from what was shown' }, { n: '2/5', t: 'had poor support communication' }] },
+        { tag: 'What they actually wanted', points: [{ n: '3/5', t: 'wanted to customise the design themselves' }, { n: '2/5', t: 'would pay more for faster delivery and live status' }, { n: '2/5', t: 'wanted costumes, accessories and full cosplay' }] },
+        { tag: 'Payment behaviour', points: [{ n: '4/5', t: 'wanted more than one payment method' }, { n: '3/5', t: 'wanted to pay on delivery' }, { n: '3/5', t: 'were put off by thin product information' }] }
+      ],
+      personaTabs: personas.map((x, i) => ({
+        name: x.name.split(' ')[0],
+        bg: this.state.persona === i ? '#f5f5f5' : 'transparent',
+        fg: this.state.persona === i ? '#0e1319' : '#cfd0d1',
+        go: () => this.setState({ persona: i })
+      })),
+      persona: p,
+      pairs: [
+        { pain: 'Delivery can be painfully slow', fix: 'Paid faster-delivery tier, priced per product' },
+        { pain: 'I can\u2019t customise my own design', fix: 'A builder with 360° preview and real constraints' },
+        { pain: 'I don\u2019t want to add to cart first, it wastes time', fix: 'Buy now, straight from home or product screen' },
+        { pain: 'I can\u2019t tell where my order is', fix: 'Status-based tracking with a clear timeline' },
+        { pain: 'I hate it when delivery people call me', fix: 'Text the logistics partner from inside the app' },
+        { pain: 'Platforms handle disputes badly', fix: 'A dispute queue with a 12-hour staffed window' },
+        { pain: 'Products are hard to find in the app', fix: 'Rebuilt sorting, filters and search' },
+        { pain: 'I want to pay my own way', fix: 'Multiple payment methods, including on delivery' },
+        { pain: 'Not enough variety in one place', fix: 'Clothing plus accessories in a single catalogue' }
+      ],
+      competitors: [
+        { tag: 'Competitor 01', name: 'The big generalist', up: ['Push notifications that actually inform', 'Smooth interface, social and phone login', 'T-shirt customisation exists', 'Well organised, categorised catalogue'], down: ['Only a handful of anime products', 'No anime accessories', 'Checkout takes several pages', 'No faster delivery, no 360° view'] },
+        { tag: 'Competitor 02', name: 'The trusted one', up: ['Strong customer support reputation', 'Cleanly organised collection'], down: ['No customisation at all', 'Limited products, no accessories', 'Website only, no app', 'No faster delivery'] },
+        { tag: 'Competitor 03', name: 'The anime specialist', up: ['Genuinely wide anime range', 'Accessories, posters, cosplay suits', 'Good support feedback'], down: ['Mostly accessories, thin on apparel', 'Poorly organised, visually weak app', 'No faster delivery', 'No social or phone login'] }
+      ],
+      featureTabs: features.map((x, i) => ({
+        name: x.name,
+        bg: this.state.feature === i ? '#e0475f' : 'transparent',
+        fg: this.state.feature === i ? '#0e1319' : '#cfd0d1',
+        go: () => this.setState({ feature: i })
+      })),
+      feature: f,
+      custRules: [
+        { k: 'Upload artwork', print: 'Printable · yes', emb: 'Embroidered · no' },
+        { k: 'Add text', print: 'Printable · yes', emb: 'Embroidered · no' },
+        { k: 'Placement', print: 'Printable · anywhere', emb: 'Embroidered · curated zones' },
+        { k: '360° preview', print: 'Printable · yes', emb: 'Embroidered · yes' }
+      ],
+      custFlow: [
+        { n: 'Step 01', src: A + 'customize-pick.webp', label: 'Choose the product type' },
+        { n: 'Step 02', src: A + 'customize-hoodie.webp', label: 'Colour, size, and the blank canvas' },
+        { n: 'Step 03', src: A + 'builder-tray.webp', label: 'Builder tray: parts and options' },
+        { n: 'Step 04', src: A + 'customize-arm.webp', label: 'Rotate through every panel' },
+        { n: 'Step 05', src: A + 'customize-back.webp', label: 'Final design, then buy or bag it' }
+      ],
+      trackShots: [A + 'track1.webp', A + 'track2.webp', A + 'track3.webp'],
+      arc: [
+        { n: 'Assumption', label: 'People want to watch the delivery', note: 'Every app does it', fg: '#f5f5f5', bg: '#141a21', border: '#262b33' },
+        { n: 'Research', label: '2 of 5 asked for it by name', note: 'The request was real', fg: '#f5f5f5', bg: '#141a21', border: '#262b33' },
+        { n: 'Design', label: 'Live rider location on a map', note: 'Built it, liked it', fg: '#f5f5f5', bg: '#141a21', border: '#262b33' },
+        { n: 'Challenge', label: '“Why don\u2019t Amazon and Flipkart do it?”', note: 'One question from my mentor', fg: '#e0475f', bg: 'rgba(224,71,95,.1)', border: '#e0475f' },
+        { n: 'Reconsider', label: 'Anxiety for one, pressure for the other', note: 'The dot helps nobody', fg: '#f5f5f5', bg: '#141a21', border: '#262b33' },
+        { n: 'Decision', label: 'Status tracking plus a text channel', note: 'Shipped less, on purpose', fg: '#e0475f', bg: 'rgba(224,71,95,.1)', border: '#e0475f' }
+      ],
+      palette: [
+        { hex: '#FFFFFF' }, { hex: '#F5F5F5' }, { hex: '#CFD0D1' }, { hex: '#86898B' }, { hex: '#494A50' }, { hex: '#0E1319' }
+      ],
+      ia: [
+        'Splash → login → home, with skippable onboarding',
+        'Seven primary destinations off the home bar',
+        'Product screen doubles as a checkout entry point',
+        'Customise is a top-level destination, not a sub-page',
+        'Complaints and support reachable from account and order'
+      ],
+      gallery: [A + 'login.webp', A + 'signup.webp', A + 'search.webp', A + 'product-cap.webp', A + 'components.webp', A + 'view360.webp', A + 'account.webp', A + 'customize-front.webp'],
+      lessons: [
+        { t: 'Start with the brand, not the screen.', b: 'Understanding what already exists is what makes new work belong there instead of sitting on top of it.' },
+        { t: 'Trust is a design tool.', b: 'Being allowed to explore is why someone else\u2019s brand ended up feeling like my project.' },
+        { t: 'The first one stays with you.', b: 'Most work you finish and move past. This one I\u2019m still carrying, and still learning from.' }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

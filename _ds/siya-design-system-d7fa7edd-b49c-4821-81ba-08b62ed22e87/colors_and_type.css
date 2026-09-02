@@ -1,0 +1,395 @@
+/* ==========================================================================
+   SIYA DESIGN SYSTEM — colors_and_type.css
+   The single source of truth for color + type tokens.
+   Always import this file first.
+   ========================================================================== */
+
+/* ---- Webfonts ----
+   Cabinet Grotesk  = campaign headlines / attention-grabbing titles / hoardings ONLY
+   Plus Jakarta Sans = titles (product + editorial)
+   Inter            = body copy
+   All self-hosted from /fonts.
+*/
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=JetBrains+Mono:wght@400;500;700&display=swap');
+
+/* --- Inter (body) --- */
+@font-face { font-family: 'Inter'; src: url('fonts/Inter-Thin.ttf') format('truetype');        font-weight: 100; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Inter'; src: url('fonts/Inter-ExtraLight.ttf') format('truetype');  font-weight: 200; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Inter'; src: url('fonts/Inter-Light.ttf') format('truetype');       font-weight: 300; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Inter'; src: url('fonts/Inter-Regular.ttf') format('truetype');     font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Inter'; src: url('fonts/Inter-Italic.ttf') format('truetype');      font-weight: 400; font-style: italic; font-display: swap; }
+@font-face { font-family: 'Inter'; src: url('fonts/Inter-Medium.ttf') format('truetype');      font-weight: 500; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Inter'; src: url('fonts/Inter-MediumItalic.ttf') format('truetype');font-weight: 500; font-style: italic; font-display: swap; }
+@font-face { font-family: 'Inter'; src: url('fonts/Inter-SemiBold.ttf') format('truetype');    font-weight: 600; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Inter'; src: url('fonts/Inter-Bold.ttf') format('truetype');        font-weight: 700; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Inter'; src: url('fonts/Inter-BoldItalic.ttf') format('truetype');  font-weight: 700; font-style: italic; font-display: swap; }
+@font-face { font-family: 'Inter'; src: url('fonts/Inter-ExtraBold.ttf') format('truetype');   font-weight: 800; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Inter'; src: url('fonts/Inter-Black.ttf') format('truetype');       font-weight: 900; font-style: normal; font-display: swap; }
+
+@font-face {
+  font-family: 'Plus Jakarta Sans';
+  src: url('fonts/PlusJakartaSans-VariableFont_wght.ttf') format('truetype-variations'),
+       url('fonts/PlusJakartaSans-VariableFont_wght.ttf') format('truetype');
+  font-weight: 200 800;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Plus Jakarta Sans';
+  src: url('fonts/PlusJakartaSans-Italic-VariableFont_wght.ttf') format('truetype-variations'),
+       url('fonts/PlusJakartaSans-Italic-VariableFont_wght.ttf') format('truetype');
+  font-weight: 200 800;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Cabinet Grotesk';
+  src: url('fonts/CabinetGrotesk-Thin.otf') format('opentype');
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Cabinet Grotesk';
+  src: url('fonts/CabinetGrotesk-Extralight.otf') format('opentype');
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Cabinet Grotesk';
+  src: url('fonts/CabinetGrotesk-Light.otf') format('opentype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Cabinet Grotesk';
+  src: url('fonts/CabinetGrotesk-Regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Cabinet Grotesk';
+  src: url('fonts/CabinetGrotesk-Medium.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Cabinet Grotesk';
+  src: url('fonts/CabinetGrotesk-Extrabold.otf') format('opentype');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  /* ===================================================================
+     FOUNDATION COLORS — "never break the 70/20/10 ratio"
+     Lavender 70% · Teal 20% · Accents 10%
+     =================================================================== */
+  --siya-lavender:      #A084E8;   /* primary solid */
+  --siya-teal:          #2CD3C0;   /* secondary solid */
+  --siya-white:         #FFFFFF;
+  --siya-black:         #010101;
+
+  /* Extended supporting pastels (campaign / illustration / soft surfaces) */
+  --siya-pink:          #F7D9EE;
+  --siya-orange:        #F2A888;
+  --siya-champagne:     #FADCA8;
+
+  /* ===================================================================
+     LAVENDER SCALE (Primary)
+     =================================================================== */
+  --primary-50:   #F8F5FF;   /* lightest background */
+  --primary-100:  #E8E0FB;   /* light tints / card fill */
+  --primary-200:  #D1C4F7;   /* hover surface */
+  --primary-300:  #BBA8F1;   /* medium tint / gradient-start */
+  --primary-400:  #A892EC;   /* medium CTA */
+  --primary-500:  #A084E8;   /* BASE — brand color */
+  --primary-600:  #8F6ADC;   /* darker CTA / active */
+  --primary-700:  #794DCE;   /* primary text/icon on light */
+  --primary-800:  #613AA9;   /* deep shade */
+  --primary-900:  #4B2C87;   /* deepest shade */
+
+  /* ===================================================================
+     TEAL SCALE (Secondary)
+     =================================================================== */
+  --secondary-50:   #F0FCFB;
+  --secondary-100:  #C8F5F2;
+  --secondary-200:  #9EEBE2;
+  --secondary-300:  #77E1D4;
+  --secondary-400:  #4FD9CA;
+  --secondary-500:  #2CD3C0;   /* BASE */
+  --secondary-600:  #1CBAAA;
+  --secondary-700:  #0A998E;
+  --secondary-800:  #017A71;
+  --secondary-900:  #00574F;
+
+  /* ===================================================================
+     GRAYSCALE NEUTRALS — text, borders, surfaces
+     =================================================================== */
+  --gray-200:  #F3F3F3;   /* cloud white — backgrounds */
+  --gray-300:  #CCCCCC;   /* soft silver — light borders */
+  --gray-400:  #B0B0B0;   /* silver — borders, dividers */
+  --gray-500:  #727376;   /* neutral — helper, metadata */
+  --gray-600:  #65676E;   /* steel — body, descriptions */
+  --gray-700:  #2A2B2E;   /* dark slate — secondary text */
+  --gray-800:  #1B1D1E;   /* charcoal — primary text */
+
+  /* ===================================================================
+     SEMANTIC TAG COLORS — only for tag chips
+     =================================================================== */
+  --tag-info-bg:      #B0E0E6;   --tag-info-fg:      #005172;
+  --tag-warn-bg:      #FFEAA7;   --tag-warn-fg:      #854D0E;
+  --tag-error-bg:     #FFB3BA;   --tag-error-fg:     #991B1B;
+  --tag-success-bg:   #B8E6B8;   --tag-success-fg:   #166534;
+  --tag-progress-bg:  #A084E8;   --tag-progress-fg:  #FFFFFF;
+  --tag-disabled-bg:  #EEEEEE;   --tag-disabled-fg:  #010101;
+
+  /* ===================================================================
+     SEMANTIC TOKENS — use these in components
+     =================================================================== */
+  --bg:           var(--siya-white);
+  --bg-soft:      var(--primary-50);        /* gentle lavender wash */
+  --bg-muted:     var(--gray-200);
+  --surface:      var(--siya-white);
+  --surface-alt:  var(--primary-100);
+
+  --fg:           var(--gray-800);          /* primary text */
+  --fg-secondary: var(--gray-700);
+  --fg-muted:     var(--gray-600);
+  --fg-subtle:    var(--gray-500);
+  --fg-onPrimary: var(--siya-white);
+
+  --border:       var(--gray-300);
+  --border-soft:  var(--primary-100);
+  --border-focus: var(--primary-500);
+
+  --accent:       var(--primary-500);
+  --accent-hover: var(--primary-600);
+  --accent-press: var(--primary-700);
+
+  --link:         var(--primary-700);
+  --link-hover:   var(--primary-800);
+
+  /* ===================================================================
+     GRADIENTS — subtle, pastel, brand-tinted
+     =================================================================== */
+  --gradient-lavender-soft: linear-gradient(135deg, #E8E0FB 0%, #BBA8F1 100%) /* @kind color */;
+  --gradient-teal-soft: linear-gradient(135deg, #C8F5F2 0%, #77E1D4 100%) /* @kind color */;
+  --gradient-dawn: linear-gradient(135deg, #F7D9EE 0%, #FADCA8 50%, #E8E0FB 100%) /* @kind color */;
+  --gradient-hero-dark: linear-gradient(135deg, #1B1D1E 0%, #2A2B2E 100%) /* @kind color */;
+
+  /* ===================================================================
+     TYPOGRAPHY — FAMILIES (all self-hosted from /fonts)
+       --font-display  Cabinet Grotesk   → campaign headlines, attention-grabbing titles, hoardings ONLY
+       --font-ui       Plus Jakarta Sans → titles (product + editorial)
+       --font-body     Inter             → body copy
+     =================================================================== */
+  --font-display: 'Cabinet Grotesk', 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-ui:      'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-body:    'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-serif:   'DM Serif Display', Georgia, serif;   /* used rarely, campaign only */
+  --font-mono:    ui-monospace, 'JetBrains Mono', Menlo, monospace;
+
+  /* ===================================================================
+     TYPE SCALE — four lanes, all scalable.
+     EVEN NUMBERS ONLY. Every size is an even px; no 11 / 13 / 15 / 17 / 21 / etc.
+     Use the lane that matches the ROLE, then pick the size (Xxl → Xxs).
+       TITLES  → Cabinet Grotesk (Xxl/Xl) or Plus Jakarta Sans (Lg→Xxs). Headlines.
+       TEXT    → Inter. Body / paragraphs / descriptive copy.
+       LABELS  → Plus Jakarta Sans. Eyebrows, metadata, form labels, tags, captions.
+       BUTTONS → Plus Jakarta Sans. CTA labels only.
+     =================================================================== */
+
+  /* --------- TITLES --------- */
+  --fs-title-xxl: 72px;   --lh-title-xxl: 1.02 /* @kind font */;   --ls-title-xxl: -0.025em /* @kind font */;   --fw-title-xxl: 700 /* @kind font */;
+  --fs-title-xl:  56px;   --lh-title-xl: 1.04 /* @kind font */;   --ls-title-xl: -0.02em /* @kind font */;    --fw-title-xl: 700 /* @kind font */;
+  --fs-title-lg:  44px;   --lh-title-lg: 1.08 /* @kind font */;   --ls-title-lg: -0.02em /* @kind font */;    --fw-title-lg: 700 /* @kind font */;
+  --fs-title-md:  36px;   --lh-title-md: 1.12 /* @kind font */;   --ls-title-md: -0.015em /* @kind font */;   --fw-title-md: 700 /* @kind font */;
+  --fs-title-sm:  28px;   --lh-title-sm: 1.18 /* @kind font */;   --ls-title-sm: -0.01em /* @kind font */;    --fw-title-sm: 600 /* @kind font */;
+  --fs-title-xs:  22px;   --lh-title-xs: 1.25 /* @kind font */;   --ls-title-xs: -0.005em /* @kind font */;   --fw-title-xs: 600 /* @kind font */;
+  --fs-title-xxs: 18px;   --lh-title-xxs: 1.3 /* @kind font */;    --ls-title-xxs: 0 /* @kind font */;          --fw-title-xxs: 600 /* @kind font */;
+
+  /* --------- TEXT (body copy) --------- */
+  --fs-text-xl:  20px;   --lh-text-xl: 1.55 /* @kind font */;   --fw-text-xl: 400 /* @kind font */;   /* lead paragraphs */
+  --fs-text-lg:  18px;   --lh-text-lg: 1.55 /* @kind font */;   --fw-text-lg: 400 /* @kind font */;
+  --fs-text-md:  16px;   --lh-text-md: 1.6 /* @kind font */;    --fw-text-md: 400 /* @kind font */;   /* default body */
+  --fs-text-sm:  14px;   --lh-text-sm: 1.55 /* @kind font */;   --fw-text-sm: 400 /* @kind font */;
+  --fs-text-xs:  12px;   --lh-text-xs: 1.5 /* @kind font */;    --fw-text-xs: 400 /* @kind font */;
+
+  /* --------- LABELS (metadata, eyebrows, captions, tags) --------- */
+  --fs-label-lg: 14px;   --lh-label-lg: 1.3 /* @kind font */;   --ls-label-lg: 0.02em /* @kind font */;   --fw-label-lg: 500 /* @kind font */;   /* form labels */
+  --fs-label-md: 12px;   --lh-label-md: 1.35 /* @kind font */;  --ls-label-md: 0.04em /* @kind font */;   --fw-label-md: 600 /* @kind font */;   /* tags, chips */
+  --fs-label-sm: 10px;   --lh-label-sm: 1.4 /* @kind font */;   --ls-label-sm: 0.14em /* @kind font */;   --fw-label-sm: 700 /* @kind font */;   /* OVERLINE / eyebrow */
+  --fs-label-xs:  8px;   --lh-label-xs: 1.4 /* @kind font */;   --ls-label-xs: 0.14em /* @kind font */;   --fw-label-xs: 700 /* @kind font */;   /* micro-label, stepper */
+
+  /* --------- BUTTONS (CTA labels) --------- */
+  --fs-button-lg: 16px;   --lh-button-lg: 1 /* @kind font */;   --ls-button-lg: 0.005em /* @kind font */;   --fw-button-lg: 600 /* @kind font */;
+  --fs-button-md: 14px;   --lh-button-md: 1 /* @kind font */;   --ls-button-md: 0.01em /* @kind font */;    --fw-button-md: 600 /* @kind font */;
+  --fs-button-sm: 12px;   --lh-button-sm: 1 /* @kind font */;   --ls-button-sm: 0.02em /* @kind font */;    --fw-button-sm: 600 /* @kind font */;
+
+  /* ---- Legacy aliases (kept so older cards don't break; prefer the lanes above) ---- */
+  --fs-display-2xl: var(--fs-title-xxl);  --lh-display-2xl: var(--lh-title-xxl) /* @kind font */;  --ls-display-2xl: var(--ls-title-xxl) /* @kind font */;
+  --fs-display-xl:  var(--fs-title-xl);   --lh-display-xl: var(--lh-title-xl) /* @kind font */;   --ls-display-xl: var(--ls-title-xl) /* @kind font */;
+  --fs-display-lg:  var(--fs-title-lg);   --lh-display-lg: var(--lh-title-lg) /* @kind font */;   --ls-display-lg: var(--ls-title-lg) /* @kind font */;
+  --fs-display-md:  var(--fs-title-md);   --lh-display-md: var(--lh-title-md) /* @kind font */;   --ls-display-md: var(--ls-title-md) /* @kind font */;
+  --fs-h1: var(--fs-title-sm);  --lh-h1: var(--lh-title-sm) /* @kind font */;  --ls-h1: var(--ls-title-sm) /* @kind font */;
+  --fs-h2: var(--fs-title-xs);  --lh-h2: var(--lh-title-xs) /* @kind font */;  --ls-h2: var(--ls-title-xs) /* @kind font */;
+  --fs-h3: var(--fs-title-xxs); --lh-h3: var(--lh-title-xxs) /* @kind font */; --ls-h3: var(--ls-title-xxs) /* @kind font */;
+  --fs-h4: 16px;   --lh-h4: 1.35 /* @kind font */;   --ls-h4: 0 /* @kind font */;
+  --fs-body-lg: var(--fs-text-lg);  --lh-body-lg: var(--lh-text-lg) /* @kind font */;
+  --fs-body:    var(--fs-text-md);  --lh-body: var(--lh-text-md) /* @kind font */;
+  --fs-body-sm: var(--fs-text-sm);  --lh-body-sm: var(--lh-text-sm) /* @kind font */;
+  --fs-caption: var(--fs-text-xs);  --lh-caption: var(--lh-text-xs) /* @kind font */;   --ls-caption: 0.02em /* @kind font */;
+  --fs-overline: var(--fs-label-sm); --lh-overline: var(--lh-label-sm) /* @kind font */; --ls-overline: var(--ls-label-sm) /* @kind font */;
+
+  --fw-light: 300 /* @kind font */;
+  --fw-regular: 400 /* @kind font */;
+  --fw-medium: 500 /* @kind font */;
+  --fw-semibold: 600 /* @kind font */;
+  --fw-bold: 700 /* @kind font */;
+  --fw-extrabold: 800 /* @kind font */;
+
+  /* ===================================================================
+     SPACING — 4px base scale
+     =================================================================== */
+  --space-0: 0 /* @kind spacing */;
+  --space-1:   4px;
+  --space-2:   8px;
+  --space-3:   12px;
+  --space-4:   16px;
+  --space-5:   20px;
+  --space-6:   24px;
+  --space-8:   32px;
+  --space-10:  40px;
+  --space-12:  48px;
+  --space-16:  64px;
+  --space-20:  80px;
+  --space-24:  96px;
+  --space-32:  128px;
+
+  /* ===================================================================
+     RADII — soft edges, always
+     =================================================================== */
+  --radius-xs:   4px;
+  --radius-sm:   8px;
+  --radius-md:   12px;
+  --radius-lg:   16px;
+  --radius-xl:   20px;
+  --radius-2xl:  28px;
+  --radius-3xl:  40px;
+  --radius-pill: 999px;
+
+  /* ===================================================================
+     SHADOWS — soft, lavender-tinted. never harsh grey drops.
+     =================================================================== */
+  --shadow-xs: 0 1px 2px 0 rgba(27, 29, 30, 0.04);
+  --shadow-sm: 0 2px 6px -1px rgba(75, 44, 135, 0.06), 0 1px 2px -1px rgba(27, 29, 30, 0.04);
+  --shadow-md: 0 8px 20px -6px rgba(75, 44, 135, 0.10), 0 2px 4px -2px rgba(27, 29, 30, 0.04);
+  --shadow-lg: 0 20px 40px -12px rgba(75, 44, 135, 0.14), 0 6px 12px -6px rgba(27, 29, 30, 0.04);
+  --shadow-xl: 0 32px 64px -16px rgba(75, 44, 135, 0.20), 0 10px 20px -10px rgba(27, 29, 30, 0.06);
+  --shadow-glow-lavender: 0 0 0 4px rgba(160, 132, 232, 0.18);
+  --shadow-glow-teal:     0 0 0 4px rgba(44, 211, 192, 0.18);
+  --shadow-inset-soft: inset 0 1px 2px rgba(27, 29, 30, 0.04);
+
+  /* ===================================================================
+     MOTION — "warm, never abrupt"
+     =================================================================== */
+  --ease-out: cubic-bezier(0.22, 0.61, 0.36, 1) /* @kind other */;
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1) /* @kind other */;
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1) /* @kind other */;
+  --dur-instant: 100ms /* @kind other */;
+  --dur-fast: 180ms /* @kind other */;
+  --dur-base: 260ms /* @kind other */;
+  --dur-slow: 420ms /* @kind other */;
+
+  /* ===================================================================
+     LAYOUT
+     =================================================================== */
+  --container-sm: 640px /* @kind spacing */;
+  --container-md: 768px /* @kind spacing */;
+  --container-lg: 1024px /* @kind spacing */;
+  --container-xl: 1280px /* @kind spacing */;
+  --container-2xl: 1440px /* @kind spacing */;
+  --container-max: 1200px /* @kind spacing */;
+}
+
+/* ==========================================================================
+   BASE / SEMANTIC ELEMENT STYLES
+   ========================================================================== */
+
+html, body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-ui);
+  color: var(--fg);
+  font-weight: var(--fw-semibold);
+  letter-spacing: -0.01em;
+  text-wrap: balance;
+  margin: 0;
+}
+
+h1 { font-size: var(--fs-h1); line-height: var(--lh-h1); letter-spacing: var(--ls-h1); font-weight: var(--fw-bold); }
+h2 { font-size: var(--fs-h2); line-height: var(--lh-h2); letter-spacing: var(--ls-h2); font-weight: var(--fw-semibold); }
+h3 { font-size: var(--fs-h3); line-height: var(--lh-h3); font-weight: var(--fw-semibold); }
+h4 { font-size: var(--fs-h4); line-height: var(--lh-h4); font-weight: var(--fw-semibold); }
+
+.display-2xl, .display-xl, .display-lg, .display-md {
+  font-family: var(--font-display);
+  font-weight: var(--fw-extrabold);
+  letter-spacing: -0.02em;
+  line-height: 1.04;
+  text-wrap: balance;
+  color: var(--fg);
+}
+.display-2xl { font-size: var(--fs-display-2xl); line-height: var(--lh-display-2xl); letter-spacing: var(--ls-display-2xl); }
+.display-xl  { font-size: var(--fs-display-xl);  line-height: var(--lh-display-xl);  letter-spacing: var(--ls-display-xl); }
+.display-lg  { font-size: var(--fs-display-lg);  line-height: var(--lh-display-lg);  letter-spacing: var(--ls-display-lg); }
+.display-md  { font-size: var(--fs-display-md);  line-height: var(--lh-display-md);  letter-spacing: var(--ls-display-md); }
+
+p { margin: 0; color: var(--fg-secondary); text-wrap: pretty; }
+.body-lg { font-size: var(--fs-body-lg); line-height: var(--lh-body-lg); }
+.body    { font-size: var(--fs-body);    line-height: var(--lh-body); }
+.body-sm { font-size: var(--fs-body-sm); line-height: var(--lh-body-sm); color: var(--fg-muted); }
+.caption { font-size: var(--fs-caption); line-height: var(--lh-caption); letter-spacing: var(--ls-caption); color: var(--fg-muted); }
+
+.overline {
+  font-family: var(--font-ui);
+  font-size: var(--fs-overline);
+  line-height: var(--lh-overline);
+  letter-spacing: var(--ls-overline);
+  text-transform: uppercase;
+  font-weight: var(--fw-semibold);
+  color: var(--primary-700);
+}
+
+a {
+  color: var(--link);
+  text-decoration: none;
+  transition: color var(--dur-fast) var(--ease-out);
+}
+a:hover { color: var(--link-hover); }
+
+code, pre, kbd {
+  font-family: var(--font-mono);
+  font-size: 0.92em;
+}
+
+::selection {
+  background: var(--primary-200);
+  color: var(--primary-900);
+}
