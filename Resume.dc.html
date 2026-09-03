@@ -32,9 +32,37 @@
   @media screen and (max-width: 400px) { doc-page { zoom: 0.44; } }
   @media screen and (max-width: 360px) { doc-page { zoom: 0.39; } }
   ::selection { background: #1a1917; color: #f6f3ee; }
+
+  /* Screen-only action bar above the sheet. It sits outside doc-page so the
+     small-screen zoom steps above never shrink it, and it is dropped from
+     print so the A4 geometry stays exactly as it was. */
+  .rz-bar { position: sticky; top: 0; z-index: 60; display: flex; flex-wrap: wrap; align-items: center; gap: 10px; padding: 13px clamp(16px, 4vw, 48px); background: rgba(246,243,238,.86); backdrop-filter: blur(14px); border-bottom: 1px solid #e3ddd2; }
+  .rz-btn { display: inline-flex; align-items: center; gap: 9px; border: 1px solid transparent; border-radius: 999px; padding: 10px 18px; font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; white-space: nowrap; transition: background .18s ease, border-color .18s ease, color .18s ease, transform .18s ease; }
+  .rz-btn svg { flex: none; }
+  .rz-btn:hover { transform: translateY(-1px); }
+  .rz-btn:focus-visible { outline: 2px solid #c2591f; outline-offset: 3px; }
+  .rz-ghost { background: #fffdfa; border-color: #e3ddd2; color: #1a1917; }
+  .rz-ghost:hover { border-color: #c2591f; color: #1a1917; }
+  .rz-ghost svg { color: #c2591f; }
+  .rz-solid { background: #1a1917; color: #f6f3ee; }
+  .rz-solid:hover { background: #c2591f; color: #f6f3ee; }
+  @media screen and (max-width: 460px) { .rz-btn { font-size: 11px; letter-spacing: 0.1em; padding: 9px 14px; } }
+  @media (prefers-reduced-motion: reduce) { .rz-btn { transition: none; } .rz-btn:hover { transform: none; } }
+  @media print { .rz-bar { display: none !important; } }
 </style>
 <script src="./doc-page.js"></script>
 </helmet>
+
+<nav class="rz-bar" aria-label="Résumé actions">
+  <a class="rz-btn rz-ghost" href="index.html">
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5"></path><path d="M12 19l-7-7 7-7"></path></svg>
+    Portfolio
+  </a>
+  <a class="rz-btn rz-solid" href="assets/Vinay-Mandala-Resume.pdf" download="Vinay-Mandala-Resume.pdf">
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"></path><path d="M7 10l5 5 5-5"></path><path d="M4 21h16"></path></svg>
+    Download
+  </a>
+</nav>
 
 <doc-page size="a4">
   <section class="page" data-screen-label="Résumé" style="display: flex; flex-direction: column; background: #f6f3ee; padding: 38px 44px 30px;">
